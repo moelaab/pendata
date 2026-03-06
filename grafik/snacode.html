@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Analisa Jejaring Sosial – Pengantar Web Mining</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../grafik/grafik.html" rel="next">
+<link href="../snaq.html" rel="prev">
+<link href="../images/openintro.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-4cdc4c3d7c65857ab75b3ed392f15dc3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-61a10c9ee73912784f341055440c88d5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../snaq.html">Deteksi Komunitas Jaringan Social</a></li><li class="breadcrumb-item"><a href="../grafik/snacode.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Analisa Jejaring Sosial</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Pengantar Web Mining</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/openintrostat/ims/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Web Mining</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../snaq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deteksi Komunitas Jaringan Social</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../grafik/snacode.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Analisa Jejaring Sosial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../grafik/grafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Bagian</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../grafik/hello.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quarto Basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#pendahuluan" id="toc-pendahuluan" class="nav-link active" data-scroll-target="#pendahuluan"><span class="header-section-number">1.1</span> <strong>Pendahuluan</strong></a></li>
+  <li><a href="#struktur" id="toc-struktur" class="nav-link" data-scroll-target="#struktur"><span class="header-section-number">2</span> Struktur</a></li>
+  <li><a href="#tujuan" id="toc-tujuan" class="nav-link" data-scroll-target="#tujuan"><span class="header-section-number">3</span> Tujuan</a></li>
+  <li><a href="#pengantar-analisis-jaringan-sosial" id="toc-pengantar-analisis-jaringan-sosial" class="nav-link" data-scroll-target="#pengantar-analisis-jaringan-sosial"><span class="header-section-number">4</span> Pengantar Analisis Jaringan Sosial</a>
+  <ul class="collapse">
+  <li><a href="#membuat-sebuah-jaringan" id="toc-membuat-sebuah-jaringan" class="nav-link" data-scroll-target="#membuat-sebuah-jaringan"><span class="header-section-number">4.0.1</span> Membuat sebuah jaringan</a></li>
+  <li><a href="#deteksi-komunitas" id="toc-deteksi-komunitas" class="nav-link" data-scroll-target="#deteksi-komunitas"><span class="header-section-number">4.1</span> Deteksi Komunitas</a></li>
+  <li><a href="#hitung-sentralitas-antara-untuk-sisi-sisi." id="toc-hitung-sentralitas-antara-untuk-sisi-sisi." class="nav-link" data-scroll-target="#hitung-sentralitas-antara-untuk-sisi-sisi."><span class="header-section-number">4.2</span> <strong>Hitung sentralitas antara untuk sisi-sisi.</strong></a></li>
+  <li><a href="#louvain-algorithm" id="toc-louvain-algorithm" class="nav-link" data-scroll-target="#louvain-algorithm"><span class="header-section-number">4.3</span> Louvain Algorithm</a></li>
+  <li><a href="#modularity-q" id="toc-modularity-q" class="nav-link" data-scroll-target="#modularity-q"><span class="header-section-number">4.4</span> Modularity (<span class="math inline">\(Q\)</span>)</a></li>
+  <li><a href="#dua-fase-utama-louvain" id="toc-dua-fase-utama-louvain" class="nav-link" data-scroll-target="#dua-fase-utama-louvain"><span class="header-section-number">4.5</span> Dua Fase Utama Louvain</a>
+  <ul class="collapse">
+  <li><a href="#fase-1-local-moving" id="toc-fase-1-local-moving" class="nav-link" data-scroll-target="#fase-1-local-moving"><span class="header-section-number">4.5.1</span> <strong>Fase 1: Local Moving</strong></a></li>
+  <li><a href="#fase-2-aggregation" id="toc-fase-2-aggregation" class="nav-link" data-scroll-target="#fase-2-aggregation"><span class="header-section-number">4.5.2</span> <strong>Fase 2: Aggregation</strong></a></li>
+  </ul></li>
+  <li><a href="#contoh-graf-5-node" id="toc-contoh-graf-5-node" class="nav-link" data-scroll-target="#contoh-graf-5-node"><span class="header-section-number">4.6</span> Contoh Graf 5 Node</a>
+  <ul class="collapse">
+  <li><a href="#iterasi-1-fase-local-moving" id="toc-iterasi-1-fase-local-moving" class="nav-link" data-scroll-target="#iterasi-1-fase-local-moving"><span class="header-section-number">4.6.1</span> Iterasi 1 — Fase Local Moving</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">5</span> </a>
+  <ul class="collapse">
+  <li><a href="#implementasi-python" id="toc-implementasi-python" class="nav-link" data-scroll-target="#implementasi-python"><span class="header-section-number">5.1</span> Implementasi Python</a></li>
+  <li><a href="#kelebihan-batasan" id="toc-kelebihan-batasan" class="nav-link" data-scroll-target="#kelebihan-batasan"><span class="header-section-number">5.2</span> Kelebihan &amp; Batasan</a>
+  <ul class="collapse">
+  <li><a href="#langkah-langkah" id="toc-langkah-langkah" class="nav-link" data-scroll-target="#langkah-langkah"><span class="header-section-number">5.2.1</span> Langkah-langkah:</a></li>
+  <li><a href="#graf" id="toc-graf" class="nav-link" data-scroll-target="#graf"><span class="header-section-number">5.2.2</span> Graf:</a></li>
+  </ul></li>
+  <li><a href="#langkah-1-daftar-semua-pasangan-node" id="toc-langkah-1-daftar-semua-pasangan-node" class="nav-link" data-scroll-target="#langkah-1-daftar-semua-pasangan-node"><span class="header-section-number">5.3</span> Langkah 1: Daftar semua pasangan node</a></li>
+  <li><a href="#langkah-2-hitung-shortest-paths-dan-catat-edge-yang-dilewati" id="toc-langkah-2-hitung-shortest-paths-dan-catat-edge-yang-dilewati" class="nav-link" data-scroll-target="#langkah-2-hitung-shortest-paths-dan-catat-edge-yang-dilewati"><span class="header-section-number">5.4</span> Langkah 2: Hitung shortest paths dan catat edge yang dilewati</a>
+  <ul class="collapse">
+  <li><a href="#a-b" id="toc-a-b" class="nav-link" data-scroll-target="#a-b"><span class="header-section-number">5.4.1</span> 1. A → B</a></li>
+  <li><a href="#a-c" id="toc-a-c" class="nav-link" data-scroll-target="#a-c"><span class="header-section-number">5.4.2</span> 2. A → C</a></li>
+  <li><a href="#a-d" id="toc-a-d" class="nav-link" data-scroll-target="#a-d"><span class="header-section-number">5.4.3</span> 3. A → D</a></li>
+  <li><a href="#a-e" id="toc-a-e" class="nav-link" data-scroll-target="#a-e"><span class="header-section-number">5.4.4</span> 4. A → E</a></li>
+  <li><a href="#b-c" id="toc-b-c" class="nav-link" data-scroll-target="#b-c"><span class="header-section-number">5.4.5</span> 5. B → C</a></li>
+  <li><a href="#b-d" id="toc-b-d" class="nav-link" data-scroll-target="#b-d"><span class="header-section-number">5.4.6</span> 6. B → D</a></li>
+  <li><a href="#b-e" id="toc-b-e" class="nav-link" data-scroll-target="#b-e"><span class="header-section-number">5.4.7</span> 7. B → E</a></li>
+  <li><a href="#c-d" id="toc-c-d" class="nav-link" data-scroll-target="#c-d"><span class="header-section-number">5.4.8</span> 8. C → D</a></li>
+  <li><a href="#c-e" id="toc-c-e" class="nav-link" data-scroll-target="#c-e"><span class="header-section-number">5.4.9</span> 9. C → E</a></li>
+  <li><a href="#d-e" id="toc-d-e" class="nav-link" data-scroll-target="#d-e"><span class="header-section-number">5.4.10</span> 10. D → E</a></li>
+  </ul></li>
+  <li><a href="#langkah-3-ringkasan-edge-betweenness-centrality" id="toc-langkah-3-ringkasan-edge-betweenness-centrality" class="nav-link" data-scroll-target="#langkah-3-ringkasan-edge-betweenness-centrality"><span class="header-section-number">5.5</span> Langkah 3: Ringkasan Edge Betweenness Centrality</a></li>
+  <li><a href="#jawaban-akhir" id="toc-jawaban-akhir" class="nav-link" data-scroll-target="#jawaban-akhir"><span class="header-section-number">5.6</span> ✅ Jawaban Akhir:</a></li>
+  <li><a href="#langkah-langkah-manual" id="toc-langkah-langkah-manual" class="nav-link" data-scroll-target="#langkah-langkah-manual"><span class="header-section-number">5.7</span> Langkah-langkah Manual</a>
+  <ul class="collapse">
+  <li><a href="#graf-awal" id="toc-graf-awal" class="nav-link" data-scroll-target="#graf-awal"><span class="header-section-number">5.7.1</span> Graf Awal:</a></li>
+  </ul></li>
+  <li><a href="#iterasi-1-hapus-edge-dengan-betweenness-tertinggi-c-d" id="toc-iterasi-1-hapus-edge-dengan-betweenness-tertinggi-c-d" class="nav-link" data-scroll-target="#iterasi-1-hapus-edge-dengan-betweenness-tertinggi-c-d"><span class="header-section-number">5.8</span> 🔪 Iterasi 1: Hapus edge dengan betweenness tertinggi → <strong>C-D</strong></a></li>
+  <li><a href="#iterasi-2-hitung-ulang-edge-betweenness-untuk-setiap-komponen" id="toc-iterasi-2-hitung-ulang-edge-betweenness-untuk-setiap-komponen" class="nav-link" data-scroll-target="#iterasi-2-hitung-ulang-edge-betweenness-untuk-setiap-komponen"><span class="header-section-number">5.9</span> 🔁 Iterasi 2: Hitung ulang edge betweenness untuk setiap komponen</a>
+  <ul class="collapse">
+  <li><a href="#komponen-1-a-b-c-graf-lengkap-triangle" id="toc-komponen-1-a-b-c-graf-lengkap-triangle" class="nav-link" data-scroll-target="#komponen-1-a-b-c-graf-lengkap-triangle"><span class="header-section-number">5.9.1</span> ➤ Komponen 1: {A, B, C} — graf lengkap (triangle)</a></li>
+  <li><a href="#komponen-2-d-e-hanya-satu-edge" id="toc-komponen-2-d-e-hanya-satu-edge" class="nav-link" data-scroll-target="#komponen-2-d-e-hanya-satu-edge"><span class="header-section-number">5.9.2</span> ➤ Komponen 2: {D, E} — hanya satu edge</a></li>
+  </ul></li>
+  <li><a href="#iterasi-2-hapus-edge-dengan-betweenness-tertinggi-di-seluruh-graf" id="toc-iterasi-2-hapus-edge-dengan-betweenness-tertinggi-di-seluruh-graf" class="nav-link" data-scroll-target="#iterasi-2-hapus-edge-dengan-betweenness-tertinggi-di-seluruh-graf"><span class="header-section-number">5.10</span> 🔪 Iterasi 2: Hapus edge dengan betweenness tertinggi di seluruh graf</a></li>
+  <li><a href="#iterasi-3-hitung-ulang-edge-betweenness" id="toc-iterasi-3-hitung-ulang-edge-betweenness" class="nav-link" data-scroll-target="#iterasi-3-hitung-ulang-edge-betweenness"><span class="header-section-number">5.11</span> 🔁 Iterasi 3: Hitung ulang edge betweenness</a>
+  <ul class="collapse">
+  <li><a href="#komponen-1-a-b-c-tanpa-a-b-sekarang-hanya-sisa-a-c-dan-b-c" id="toc-komponen-1-a-b-c-tanpa-a-b-sekarang-hanya-sisa-a-c-dan-b-c" class="nav-link" data-scroll-target="#komponen-1-a-b-c-tanpa-a-b-sekarang-hanya-sisa-a-c-dan-b-c"><span class="header-section-number">5.11.1</span> ➤ Komponen 1: {A, B, C} tanpa A-B → sekarang hanya sisa A-C dan B-C</a></li>
+  <li><a href="#komponen-2-d-e-masih-d-e-betweenness1" id="toc-komponen-2-d-e-masih-d-e-betweenness1" class="nav-link" data-scroll-target="#komponen-2-d-e-masih-d-e-betweenness1"><span class="header-section-number">5.11.2</span> ➤ Komponen 2: {D, E} → masih D-E (betweenness=1)</a></li>
+  </ul></li>
+  <li><a href="#iterasi-3-hapus-edge-dengan-betweenness-tertinggi-a-c" id="toc-iterasi-3-hapus-edge-dengan-betweenness-tertinggi-a-c" class="nav-link" data-scroll-target="#iterasi-3-hapus-edge-dengan-betweenness-tertinggi-a-c"><span class="header-section-number">5.12</span> 🔪 Iterasi 3: Hapus edge dengan betweenness tertinggi → <strong>A-C</strong></a></li>
+  <li><a href="#iterasi-4-hitung-ulang" id="toc-iterasi-4-hitung-ulang" class="nav-link" data-scroll-target="#iterasi-4-hitung-ulang"><span class="header-section-number">5.13</span> 🔁 Iterasi 4: Hitung ulang</a>
+  <ul class="collapse">
+  <li><a href="#komponen-1-a-b-c-tanpa-a-b-dan-a-c-hanya-tersisa-b-c" id="toc-komponen-1-a-b-c-tanpa-a-b-dan-a-c-hanya-tersisa-b-c" class="nav-link" data-scroll-target="#komponen-1-a-b-c-tanpa-a-b-dan-a-c-hanya-tersisa-b-c"><span class="header-section-number">5.13.1</span> ➤ Komponen 1: {A, B, C} tanpa A-B dan A-C → hanya tersisa B-C</a></li>
+  <li><a href="#komponen-2-d-e-still-1" id="toc-komponen-2-d-e-still-1" class="nav-link" data-scroll-target="#komponen-2-d-e-still-1"><span class="header-section-number">5.13.2</span> ➤ Komponen 2: D-E → still 1</a></li>
+  </ul></li>
+  <li><a href="#iterasi-4-hapus-edge-dengan-betweenness-tertinggi-b-c-atau-d-e-sama-sama-1-kita-pilih-b-c" id="toc-iterasi-4-hapus-edge-dengan-betweenness-tertinggi-b-c-atau-d-e-sama-sama-1-kita-pilih-b-c" class="nav-link" data-scroll-target="#iterasi-4-hapus-edge-dengan-betweenness-tertinggi-b-c-atau-d-e-sama-sama-1-kita-pilih-b-c"><span class="header-section-number">5.14</span> 🔪 Iterasi 4: Hapus edge dengan betweenness tertinggi → <strong>B-C</strong> (atau D-E, sama-sama 1) → kita pilih <strong>B-C</strong></a></li>
+  <li><a href="#iterasi-5-sisa-edge-hanya-d-e" id="toc-iterasi-5-sisa-edge-hanya-d-e" class="nav-link" data-scroll-target="#iterasi-5-sisa-edge-hanya-d-e"><span class="header-section-number">5.15</span> 🔁 Iterasi 5: Sisa edge: hanya D-E</a></li>
+  <li><a href="#hasil-akhir-urutan-penghapusan-edge-struktur-komunitas" id="toc-hasil-akhir-urutan-penghapusan-edge-struktur-komunitas" class="nav-link" data-scroll-target="#hasil-akhir-urutan-penghapusan-edge-struktur-komunitas"><span class="header-section-number">5.16</span> ✅ Hasil Akhir: Urutan Penghapusan Edge &amp; Struktur Komunitas</a></li>
+  <li><a href="#pohon-dendrogram-hierarki-komunitas" id="toc-pohon-dendrogram-hierarki-komunitas" class="nav-link" data-scroll-target="#pohon-dendrogram-hierarki-komunitas"><span class="header-section-number">5.17</span> 📊 Pohon Dendrogram / Hierarki Komunitas</a></li>
+  <li><a href="#komunitas-optimal-modularity-max" id="toc-komunitas-optimal-modularity-max" class="nav-link" data-scroll-target="#komunitas-optimal-modularity-max"><span class="header-section-number">5.18</span> 🧩 Komunitas Optimal (Modularity Max)</a></li>
+  <li><a href="#jawaban-akhir-hasil-girvan-newman-manual" id="toc-jawaban-akhir-hasil-girvan-newman-manual" class="nav-link" data-scroll-target="#jawaban-akhir-hasil-girvan-newman-manual"><span class="header-section-number">5.19</span> ✅ Jawaban Akhir: Hasil Girvan-Newman Manual</a>
+  <ul class="collapse">
+  <li><a href="#urutan-penghapusan-edge-berdasarkan-betweenness-tertinggi" id="toc-urutan-penghapusan-edge-berdasarkan-betweenness-tertinggi" class="nav-link" data-scroll-target="#urutan-penghapusan-edge-berdasarkan-betweenness-tertinggi"><span class="header-section-number">5.19.1</span> Urutan Penghapusan Edge (berdasarkan betweenness tertinggi):</a></li>
+  <li><a href="#komunitas-terbaik-biasanya-diambil-saat-modularity-maksimum" id="toc-komunitas-terbaik-biasanya-diambil-saat-modularity-maksimum" class="nav-link" data-scroll-target="#komunitas-terbaik-biasanya-diambil-saat-modularity-maksimum"><span class="header-section-number">5.19.2</span> Komunitas Terbaik (biasanya diambil saat modularity maksimum):</a></li>
+  </ul></li>
+  <li><a href="#catatan-tambahan" id="toc-catatan-tambahan" class="nav-link" data-scroll-target="#catatan-tambahan"><span class="header-section-number">5.20</span> Catatan Tambahan</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.dev/openintrostat/ims/blob/main/grafik/snacode.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openintrostat/ims/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../snaq.html">Deteksi Komunitas Jaringan Social</a></li><li class="breadcrumb-item"><a href="../grafik/snacode.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Analisa Jejaring Sosial</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Analisa Jejaring Sosial</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="pendahuluan" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="pendahuluan"><span class="header-section-number">1.1</span> <strong>Pendahuluan</strong></h2>
+<p>Dengan berkembangnya Web 2.0, berbagi data di situs jejaring sosial telah meningkat. Hal ini bukan hanya tentang data; berbagai informasi dan layanan juga telah beralih ke dunia online. Orang-orang mengekspresikan pandangan mereka di internet melalui situs jejaring sosial, blog, dan berbagai forum. Dalam suatu cara, kita dapat melihat bahwa orang-orang saling terhubung atau berelasi satu sama lain. Hubungan-hubungan ini bisa berupa hubungan satu arah (bukan hubungan timbal balik) atau hubungan dua arah (di mana kedua pengguna terlibat dalam hubungan). Sebagai contoh, Facebook mengikuti model simetris, artinya, baik ‘A’ maupun ‘B’ adalah teman, sedangkan Twitter mengikuti konsep jaringan asimetris (akan kita bahas di bagian berikutnya), yaitu, jika ‘A’ mengikuti ‘B’, itu tidak berarti ‘B’ juga mengikuti ‘A’. Belajar tentang hubungan semacam itu dan menganalisisnya dari perspektif yang lebih luas dapat membantu menjawab banyak pertanyaan, seperti siapa orang-orang paling berpengaruh dalam jaringan? Atau kelompok orang mana yang lebih saling terhubung (mungkin dari kelompok tertentu)? Apa jenis hubungan antara berbagai pengguna dalam suatu kelompok? Sebagai contoh, di sebuah departemen, hal umum yang terlihat adalah adanya kelompok-kelompok kecil yang sering pergi makan siang bersama. Ini menunjukkan bahwa mereka lebih saling terhubung; demikian pula, ada orang-orang yang menjadi bagian dari hampir semua kelompok, dan orang-orang seperti itu diidentifikasi sebagai orang-orang paling berpengaruh dalam jaringan. Mengetahui kelompok atau orang-orang semacam itu dapat membantu terhubung melintasi jaringan dalam waktu minimum untuk tujuan apa pun. Semua pertanyaan ini ditemukan jawabannya dalam analisis jaringan sosial. Meskipun analisis jaringan sosial, merupakan topik besar yang perlu dipelajari, bab ini secara singkat memperkenalkan pembaca pada konsep jaringan, jaringan sosial, berbagai jenis jaringan, cara menganalisis suatu jaringan, dan akhirnya, sebuah studi kasus dari Facebook serta penyajian data tersebut dalam bentuk pengetahuan yang bermakna.</p>
+</section>
+<section id="struktur" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Struktur</h1>
+<p>Topik-topik yang akan dibahas dalam buku ini adalah sebagai berikut:</p>
+<ul>
+<li>Pengantar analisis jaringan sosial</li>
+<li>Membuat jaringan</li>
+<li>Jaringan simetris</li>
+<li>Jaringan asimetris</li>
+<li>Keterhubungan jaringan</li>
+<li>Pengaruh dalam jaringan</li>
+<li>Studi kasus pada dataset Facebook</li>
+</ul>
+</section>
+<section id="tujuan" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Tujuan</h1>
+<p>Tujuan bab ini adalah memperkenalkan pembaca pada bidang yang sangat penting, yaitu analisis jaringan sosial. Bab ini akan dimulai dengan pengantar mengenai Analisis Jaringan Sosial (SNA), pembuatan jaringan menggunakan Python, serta berbagai atribut terkait SNA yang membantu memahami perilaku jaringan. Kita akan belajar dan mendemonstrasikan cara menemukan keterhubungan jaringan serta peran pengaruh dalam jaringan menggunakan program Python. Di akhir, kita akan membahas studi kasus pada dataset Facebook untuk menerapkan dan memahami pembelajaran dari bab ini.</p>
+</section>
+<section id="pengantar-analisis-jaringan-sosial" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Pengantar Analisis Jaringan Sosial</h1>
+<p>Secara historis, konsep “Jaringan Sosial” telah dipelajari sejak akhir abad ke-19 dan awal abad ke-20 untuk mengeksplorasi hubungan antar anggota sistem sosial. Dalam tinjauan sejarah, para akademisi mulai tertarik pada jaringan media sosial di akhir abad ke-19 ketika para sarjana Georg Simmel, Emile Durkheim, dan Max Weber mempelajari perspektif struktural dalam studi perilaku manusia. Namun, dasar studi analisis jaringan sosial modern diletakkan oleh psikiater Jacob Moreno. Ia mempelajari bagaimana kesejahteraan psikologis individu dikaitkan dengan hubungannya dengan individu lain. Kemudian setelah banyak pasang surut, melalui pekerjaan yang dilakukan oleh para sarjana dari banyak universitas seperti Harvard dan University of California di Irvin (UCI), yang berupaya keras untuk mempopulerkan dan mempromosikan analisis jaringan sosial sebagai bidang multidisiplin. Analisis jaringan sosial digunakan di banyak bidang, seperti psikologi, sosiologi, ekonomi, ilmu politik, ilmu pengetahuan, dan ilmu komputer.</p>
+<p>Dalam beberapa tahun terakhir, analisis jaringan sosial telah menemukan banyak aplikasi, seperti menemukan hubungan antar karyawan dalam suatu organisasi, menemukan orang yang paling berpengaruh dalam suatu jaringan, pelacakan kontak dalam penyebaran penyakit, dan banyak lainnya. Kita dapat memahami Analisis Jaringan Sosial (SNA) sebagai analisis metodologis terhadap jaringan sosial.</p>
+<p>Sebuah jaringan sosial dapat dipahami sebagai jaringan hubungan antar manusia dan divisualisasikan sebagai graf, di mana simpul (node) adalah orang, dan hubungan direpresentasikan sebagai sisi (edge).</p>
+<p>Secara umum, jaringan dianggap sebagai himpunan objek (simpul/nodes) dengan interkoneksi (sisi/edges).</p>
+<p>Kita memiliki berbagai jenis jaringan sebagai berikut:</p>
+<ul>
+<li>Jaringan sosial</li>
+<li>Jaringan transportasi dan mobilitas</li>
+<li>Jaringan informasi</li>
+<li>Jaringan biologis</li>
+<li>Jaringan keuangan, jaringan kerjasama penulis (co-authorship networks), dan sebagainya</li>
+</ul>
+<p>Namun, dalam bab ini, kita akan fokus pada analisis jaringan sosial. Dalam jaringan sosial, penekanannya ada pada struktur sosial antar aktor, terutama individu, kelompok, atau organisasi. Ini merepresentasikan cara mereka saling berhubungan, dan hubungan tersebut bisa berupa pertemanan, kekerabatan, rekan kerja, dan sebagainya. Jadi, kita dapat mengatakan bahwa dalam analisis jaringan sosial, kita melakukan analisis terhadap jaringan, di mana simpul jaringan adalah orang atau aktor, dan sisi-sisinya adalah hubungan antar orang. Dalam SNA, yang penting adalah hubungan, bukan orangnya.</p>
+<p>Sebelum melanjutkan, kita harus memahami apa kebutuhan melakukan analisis ini. Tujuan dari analisis jaringan sosial adalah memahami suatu komunitas dengan memetakan hubungan-hubungan yang menghubungkan mereka sebagai suatu jaringan. Analisis ini juga dapat memberikan wawasan tentang pengaruh sosial dalam tim dan mengidentifikasi masalah-masalah. Berikut adalah beberapa contoh tempat di mana analisis jaringan sosial dapat diterapkan:</p>
+<ul>
+<li>Bisnis menggunakan SNA untuk menganalisis dan meningkatkan komunikasi dalam organisasi atau dengan mitra maupun pelanggan.</li>
+<li>SNA juga dapat digunakan untuk mengidentifikasi jaringan kriminal dan teroris dari jejak komunikasi, atau mungkin mengidentifikasi pemain kunci dalam jaringan tersebut.</li>
+<li>Situs jejaring sosial (seperti Facebook) dapat menggunakannya untuk merekomendasikan teman potensial berdasarkan teman dari teman.</li>
+<li>Untuk menilai kinerja seorang siswa berdasarkan jaringan sosialnya, yaitu teman sekelasnya.</li>
+<li>Untuk menganalisis siapa orang paling berpengaruh dalam jaringan (organisasi).</li>
+<li>Dengan mempelajari struktur jaringan suatu partai politik, kita dapat memprediksi apakah partai tersebut akan terpecah menjadi dua kelompok, serta memprediksi anggota mana yang akan bergabung ke partai mana, atau siapa pemimpin paling populer dalam partai tersebut.</li>
+<li>Pelacakan pergerakan.</li>
+<li>Analisis sentimen.</li>
+</ul>
+<p>Untuk memahami lebih lanjut, kita dapat mengambil contoh hubungan antar siswa dalam sebuah kelas. Dalam satu kelas, dua siswa mana pun dapat saling terhubung atau tidak; hubungan antara dua siswa tersebut bisa berupa hubungan satu arah, atau bisa juga berupa hubungan dua arah (sebagaimana ditunjukkan pada Gambar 8.1). Di sini, arah panah merepresentasikan arah hubungan.</p>
+<p><img src="../images/clipboard-1594689754.png" class="img-fluid"></p>
+<p><strong>Gambar 8.1: Hubungan antara satu guru dan tujuh siswa</strong></p>
+<p>Dalam ilmu komputer, hubungan semacam itu dapat direpresentasikan dalam bentuk Graf, yang juga dikenal sebagai Jaringan.</p>
+<p>Sebuah jaringan (atau Graf) adalah representasi dari koneksi antar sejumlah item. Dalam jaringan semacam itu, item-item direpresentasikan sebagai simpul (atau titik sudut), dan koneksi disebut sisi, seperti yang ditunjukkan pada Gambar 8.2:</p>
+<p><img src="../images/clipboard-3498621282.png" class="img-fluid"></p>
+<p>Dua atribut penting untuk memahami jaringan sosial adalah <strong>derajat</strong> dan <strong>kerapatan</strong>.</p>
+<p><strong>Derajat</strong>: Derajat merujuk pada jumlah koneksi yang dimiliki suatu simpul dalam jaringan. Individu-individu dengan banyak koneksi dapat menggerakkan sejumlah besar sumber daya dan memainkan peran sentral dalam aliran informasi.</p>
+<p><strong>Kerapatan</strong>: Kerapatan merujuk pada rasio antara jumlah koneksi aktual terhadap semua kemungkinan koneksi.</p>
+<p>Untuk menunjukkan berbagai konsep terkait analisis jaringan sosial, program Python yang diberikan dalam bab ini dijalankan menggunakan Jupyter Notebook pada distribusi Anaconda. Kode juga dapat dijalankan menggunakan Google Colab.</p>
+<hr>
+<section id="membuat-sebuah-jaringan" class="level3" data-number="4.0.1">
+<h3 data-number="4.0.1" class="anchored" data-anchor-id="membuat-sebuah-jaringan"><span class="header-section-number">4.0.1</span> Membuat sebuah jaringan</h3>
+<p>Sebuah jaringan dalam Python dibuat menggunakan pustaka <em>networkx</em>. Untuk membuat jaringan menggunakan Python, kita perlu mengimpor <em>networks</em>, lalu kelas <em>Graph</em> digunakan untuk membuat objek bertipe graf, dan metode <code>add_edge()</code> digunakan untuk menambahkan sisi ke graf tersebut.</p>
+<div id="cell-4" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>G<span class="op">=</span>nx.Graph()                <span class="co">## Create a Graph object and assign it to G </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">##Further reference to graph will be through this variable</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>G.add_edge(<span class="st">'A'</span>,<span class="st">'B'</span>)     <span class="co">## Add edge (‘A’,’B’) to graph G</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>G.add_edge(<span class="st">'B'</span>,<span class="st">'C'</span>)     <span class="co">## Add edge (‘B’,’C’) to graph G</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(G.nodes())                <span class="co">## Print all nodes of graph G</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(G.edges())                <span class="co">## Print all edges of graph G</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['A', 'B', 'C']
+[('A', 'B'), ('B', 'C')]</code></pre>
+</div>
+</div>
+</section>
+<section id="deteksi-komunitas" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="deteksi-komunitas"><span class="header-section-number">4.1</span> Deteksi Komunitas</h2>
+<p><strong>Algoritma:</strong> Algoritma Girvan-Newman mengikuti langkah-langkah berikut:</p>
+<ul>
+<li><strong>Buat Graf:</strong> Mulailah dengan jaringan yang diberikan, yang terdiri dari simpul dan sisi.</li>
+<li><strong>Hitung Betweenness:</strong> Hitung <em>edge betweenness centrality</em> untuk semua sisi dalam graf.</li>
+<li><strong>Hapus Sisi dengan Betweenness Tertinggi:</strong> Identifikasi dan hapus sisi (atau sisi-sisi) yang memiliki skor betweenness tertinggi.</li>
+<li><strong>Hitung Ulang Betweenness:</strong> Setelah menghapus sisi, hitung ulang nilai betweenness untuk sisi-sisi yang terpengaruh.</li>
+<li><strong>Ulangi Langkah 3 dan 4:</strong> Lanjutkan menghapus sisi hingga tidak ada sisi yang tersisa atau struktur komunitas yang bermakna muncul.</li>
+<li><strong>Ekstraksi Komunitas:</strong> Seiring dihapusnya sisi-sisi, graf secara bertahap terpecah menjadi komponen-komponen terhubung yang terpisah, yang mewakili komunitas yang berbeda.</li>
+</ul>
+</section>
+<section id="hitung-sentralitas-antara-untuk-sisi-sisi." class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="hitung-sentralitas-antara-untuk-sisi-sisi."><span class="header-section-number">4.2</span> <strong>Hitung sentralitas antara untuk sisi-sisi.</strong></h2>
+<p>Tentu, berikut terjemahan yang telah diperbaiki dengan format rumus matematika yang lebih jelas dan rapi:</p>
+<hr>
+<p><strong>Hitung sentralitas antara untuk sisi-sisi.</strong></p>
+<p>Sentralitas antara dari sebuah sisi <em>e</em> adalah jumlah dari fraksi semua pasangan jalur terpendek yang melewati <em>e</em>:</p>
+<p><span class="math display">\[
+c_B(e) = \sum_{s,t \in V} \frac{\sigma(s,t|e)}{\sigma(s,t)}
+\]</span></p>
+<p>di mana: - <span class="math inline">\(V\)</span> adalah himpunan simpul, - <span class="math inline">\(\sigma(s,t)\)</span> adalah jumlah jalur terpendek dari simpul <em>s</em> ke simpul <em>t</em>, - <span class="math inline">\(\sigma(s,t|e)\)</span> adalah jumlah jalur terpendek dari <em>s</em> ke <em>t</em> yang melewati sisi <em>e</em> .</p>
+<div id="cell-8" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pip install python<span class="op">-</span>louvain</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Collecting python-louvain
+  Using cached python_louvain-0.16-py3-none-any.whl
+Requirement already satisfied: networkx in c:\users\user\appdata\local\programs\python\python313\lib\site-packages (from python-louvain) (3.5)
+Requirement already satisfied: numpy in c:\users\user\appdata\local\programs\python\python313\lib\site-packages (from python-louvain) (2.3.1)
+Installing collected packages: python-louvain
+Successfully installed python-louvain-0.16
+Note: you may need to restart the kernel to use updated packages.</code></pre>
+</div>
+</div>
+<div id="cell-9" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> community <span class="im">as</span> community_louvain  <span class="co"># pip install python-louvain</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Buat graf (ganti dengan data Anda: CSV, GML, dll.)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>G.add_edges_from([(<span class="st">'A'</span>,<span class="st">'B'</span>), (<span class="st">'A'</span>,<span class="st">'C'</span>), (<span class="st">'B'</span>,<span class="st">'C'</span>), (<span class="st">'C'</span>,<span class="st">'D'</span>), (<span class="st">'D'</span>,<span class="st">'E'</span>)])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Jalankan Louvain</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>partition <span class="op">=</span> community_louvain.best_partition(G)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Partisi:"</span>, partition)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: {'A': 0, 'B': 0, 'C': 0, 'D': 1, 'E': 1}</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Hitung modularity</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>mod <span class="op">=</span> community_louvain.modularity(partition, G)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Modularity: </span><span class="sc">{</span>mod<span class="sc">:.3f}</span><span class="ss">"</span>)  <span class="co"># → ~0.220</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualisasi</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spring_layout(G, seed<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [partition[node] <span class="cf">for</span> node <span class="kw">in</span> G.nodes()]</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>nx.draw(G, pos, with_labels<span class="op">=</span><span class="va">True</span>, node_color<span class="op">=</span>colors, cmap<span class="op">=</span>plt.cm.Set3, node_size<span class="op">=</span><span class="dv">800</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Partisi: {'A': 0, 'B': 0, 'C': 0, 'D': 1, 'E': 1}
+Modularity: 0.220</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="snacode_files/figure-html/cell-4-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-10" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pip install python<span class="op">-</span>igraph leidenalg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Collecting python-igraph
+  Using cached python_igraph-1.0.0-py3-none-any.whl.metadata (3.1 kB)
+Collecting leidenalg
+  Using cached leidenalg-0.11.0-cp38-abi3-win_amd64.whl.metadata (10 kB)
+Collecting igraph==1.0.0 (from python-igraph)
+  Using cached igraph-1.0.0-cp39-abi3-win_amd64.whl.metadata (4.5 kB)
+Collecting texttable&gt;=1.6.2 (from igraph==1.0.0-&gt;python-igraph)
+  Using cached texttable-1.7.0-py2.py3-none-any.whl.metadata (9.8 kB)
+Using cached python_igraph-1.0.0-py3-none-any.whl (9.2 kB)
+Using cached igraph-1.0.0-cp39-abi3-win_amd64.whl (3.2 MB)
+Using cached leidenalg-0.11.0-cp38-abi3-win_amd64.whl (2.0 MB)
+Using cached texttable-1.7.0-py2.py3-none-any.whl (10 kB)
+Installing collected packages: texttable, igraph, python-igraph, leidenalg
+Successfully installed igraph-1.0.0 leidenalg-0.11.0 python-igraph-1.0.0 texttable-1.7.0
+Note: you may need to restart the kernel to use updated packages.</code></pre>
+</div>
+</div>
+<div id="cell-11" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> igraph <span class="im">as</span> ig</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> leidenalg <span class="im">as</span> la</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Buat graf igraph</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> ig.Graph.TupleList([(<span class="st">'A'</span>,<span class="st">'B'</span>), (<span class="st">'A'</span>,<span class="st">'C'</span>), (<span class="st">'B'</span>,<span class="st">'C'</span>), (<span class="st">'C'</span>,<span class="st">'D'</span>), (<span class="st">'D'</span>,<span class="st">'E'</span>)], directed<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Deteksi komunitas dengan Leiden (default)</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>partition <span class="op">=</span> la.find_partition(g, la.ModularityVertexPartition)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(partition.membership)  <span class="co"># [0, 0, 0, 1, 1]</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Modularity:"</span>, partition.modularity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0, 0, 0, 1, 1]
+Modularity: 0.21999999999999992</code></pre>
+</div>
+</div>
+<div id="cell-12" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> girvan_newman_manual(G, verbose<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Implementasi manual Girvan-Newman algorithm.</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Mengembalikan daftar partisi komunitas setelah setiap iterasi.</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Salin graf agar tidak mengubah aslinya</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> G.copy()</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    partitions <span class="op">=</span> []</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    step <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    partitions.append(<span class="bu">list</span>(nx.connected_components(G)))</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> verbose:</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Step </span><span class="sc">{</span>step<span class="sc">}</span><span class="ss">: Komunitas awal = </span><span class="sc">{</span>partitions[<span class="op">-</span><span class="dv">1</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> G.number_of_edges() <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Hitung edge betweenness centrality (default: normalized=False sesuai perhitungan manual)</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        eb <span class="op">=</span> nx.edge_betweenness_centrality(G, normalized<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Urutkan edge berdasarkan betweenness (desc), lalu alfabetik untuk tie-breaking</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>        sorted_edges <span class="op">=</span> <span class="bu">sorted</span>(eb.items(), key<span class="op">=</span><span class="kw">lambda</span> x: (<span class="op">-</span>x[<span class="dv">1</span>], x[<span class="dv">0</span>]))</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>        max_betweenness <span class="op">=</span> sorted_edges[<span class="dv">0</span>][<span class="dv">1</span>]</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Ambil semua edge dengan betweenness maksimum (biasanya 1, tapi bisa &gt;1 jika tie)</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>        candidates <span class="op">=</span> [edge <span class="cf">for</span> edge, bc <span class="kw">in</span> sorted_edges <span class="cf">if</span> bc <span class="op">==</span> max_betweenness]</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>        edge_to_remove <span class="op">=</span> candidates[<span class="dv">0</span>]  <span class="co"># Pilih pertama (misal: urutan alfanumerik)</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Hapus edge</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>        G.remove_edge(<span class="op">*</span>edge_to_remove)</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>        step <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Ambil komunitas (connected components)</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>        current_comms <span class="op">=</span> <span class="bu">list</span>(nx.connected_components(G))</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>        partitions.append(current_comms)</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> verbose:</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Step </span><span class="sc">{</span>step<span class="sc">}</span><span class="ss">: Hapus edge </span><span class="sc">{</span>edge_to_remove<span class="sc">}</span><span class="ss"> (betweenness=</span><span class="sc">{</span>max_betweenness<span class="sc">:.1f}</span><span class="ss">)"</span>)</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"          → Komunitas: </span><span class="sc">{</span>current_comms<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Optional: berhenti setelah komunitas stabil atau cukup (opsional)</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Misal: jika sudah 2 komunitas utama dan jelas terpisah</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>        <span class="co"># if len(current_comms) &gt;= 2 and step == 1:  # contoh: berhenti setelah pemisahan pertama</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>        <span class="co">#     break</span></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> partitions</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="co"># === MAIN PROGRAM ===</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Buat graf sesuai gambar</span></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> nx.Graph()</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>    G.add_edges_from([</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'A'</span>, <span class="st">'B'</span>),</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'A'</span>, <span class="st">'C'</span>),</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'B'</span>, <span class="st">'C'</span>),</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'C'</span>, <span class="st">'D'</span>),</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'D'</span>, <span class="st">'E'</span>)</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Graf Awal:"</span>)</span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Node:"</span>, <span class="bu">sorted</span>(G.nodes()))</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Edge:"</span>, <span class="bu">sorted</span>(G.edges()))</span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>()</span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Menjalankan Girvan-Newman Manual:"</span>)</span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>    partitions <span class="op">=</span> girvan_newman_manual(G, verbose<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Ringkasan Hasil:"</span>)</span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, comms <span class="kw">in</span> <span class="bu">enumerate</span>(partitions):</span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Step </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>comms<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Komunitas Optimal (setelah pemisahan pertama):"</span>, partitions[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Graf Awal:
+Node: ['A', 'B', 'C', 'D', 'E']
+Edge: [('A', 'B'), ('A', 'C'), ('B', 'C'), ('C', 'D'), ('D', 'E')]
+
+Menjalankan Girvan-Newman Manual:
+Step 0: Komunitas awal = [{'C', 'B', 'E', 'A', 'D'}]
+Step 1: Hapus edge ('C', 'D') (betweenness=6.0)
+          → Komunitas: [{'B', 'A', 'C'}, {'E', 'D'}]
+Step 2: Hapus edge ('A', 'B') (betweenness=1.0)
+          → Komunitas: [{'B', 'A', 'C'}, {'E', 'D'}]
+Step 3: Hapus edge ('A', 'C') (betweenness=2.0)
+          → Komunitas: [{'A'}, {'B', 'C'}, {'E', 'D'}]
+Step 4: Hapus edge ('B', 'C') (betweenness=1.0)
+          → Komunitas: [{'A'}, {'B'}, {'C'}, {'E', 'D'}]
+Step 5: Hapus edge ('D', 'E') (betweenness=1.0)
+          → Komunitas: [{'A'}, {'B'}, {'C'}, {'D'}, {'E'}]
+
+Ringkasan Hasil:
+Step 0: [{'C', 'B', 'E', 'A', 'D'}]
+Step 1: [{'B', 'A', 'C'}, {'E', 'D'}]
+Step 2: [{'B', 'A', 'C'}, {'E', 'D'}]
+Step 3: [{'A'}, {'B', 'C'}, {'E', 'D'}]
+Step 4: [{'A'}, {'B'}, {'C'}, {'E', 'D'}]
+Step 5: [{'A'}, {'B'}, {'C'}, {'D'}, {'E'}]
+
+Komunitas Optimal (setelah pemisahan pertama): [{'B', 'A', 'C'}, {'E', 'D'}]</code></pre>
+</div>
+</div>
+</section>
+<section id="louvain-algorithm" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="louvain-algorithm"><span class="header-section-number">4.3</span> Louvain Algorithm</h2>
+<blockquote class="blockquote">
+<p><strong>Louvain</strong> adalah algoritma <em>community detection</em> berbasis <strong>optimasi modularity (<span class="math inline">\(Q\)</span>)</strong> secara <em>greedy</em> dan <em>multi-level</em>.<br>
+Tujuannya: mempartisi jaringan menjadi kelompok (komunitas) sehingga node dalam satu kelompok saling terhubung erat, dan hubungan antar kelompok minimum.</p>
+</blockquote>
+<p>🔹 <strong>Dikembangkan oleh</strong>: Blondel et al.&nbsp;(2008)<br>
+🔹 <strong>Keunggulan</strong>: cepat, scalable, hasil stabil<br>
+🔹 <strong>Kompleksitas empiris</strong>: <span class="math inline">\(\sim O(n\log n)\)</span></p>
+<hr>
+</section>
+<section id="modularity-q" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="modularity-q"><span class="header-section-number">4.4</span> Modularity (<span class="math inline">\(Q\)</span>)</h2>
+<p>Modularity mengukur kualitas partisi komunitas relatif terhadap <em>null model</em> (jaringan acak dengan derajat tetap):</p>
+<p><span class="math display">\[Q = \frac{1}{2m} \sum_{i,j} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i, c_j)\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Simbol</th>
+<th>Arti</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(A_{ij}\)</span></td>
+<td>1 jika edge antara <span class="math inline">\(i\)</span>–<span class="math inline">\(j\)</span>, 0 jika tidak</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(k_i, k_j\)</span></td>
+<td>degree node <span class="math inline">\(i\)</span> dan <span class="math inline">\(j\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(m\)</span></td>
+<td>jumlah total edge (untuk graf tak berarah)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\delta(c_i, c_j)\)</span></td>
+<td>1 jika <span class="math inline">\(c_i = c_j\)</span>, 0 jika berbeda</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\frac{k_i k_j}{2m}\)</span></td>
+<td>ekspektasi edge <span class="math inline">\(i\)</span>–<span class="math inline">\(j\)</span> pada <em>null model</em></td>
+</tr>
+</tbody>
+</table>
+<p>Catatan:<br>
+- Jika <span class="math inline">\(A_{ij} &gt; \frac{k_i k_j}{2m}\)</span> → edge lebih kuat dari kebetulan → cocok satu komunitas.<br>
+- <span class="math inline">\(Q \in [-0.5,1]\)</span>; semakin tinggi (mendekati 1), semakin baik.</p>
+<hr>
+</section>
+<section id="dua-fase-utama-louvain" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="dua-fase-utama-louvain"><span class="header-section-number">4.5</span> Dua Fase Utama Louvain</h2>
+<section id="fase-1-local-moving" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="fase-1-local-moving"><span class="header-section-number">4.5.1</span> <strong>Fase 1: Local Moving</strong></h3>
+<ol type="1">
+<li>Inisialisasi: tiap node = komunitas sendiri.<br>
+</li>
+<li>Untuk setiap node <span class="math inline">\(i\)</span>, hitung <strong>gain modularity</strong> jika dipindahkan ke komunitas tetangga <span class="math inline">\(C'\)</span>: <span class="math display">\[\Delta Q = \frac{1}{2m} \left[ \sum_{j \in C'} A_{ij} - \sum_{j \in C} A_{ij} \right] - \frac{k_i}{(2m)^2} \left[ k_{C'} - k_C + k_i \right]\]</span></li>
+<li>Pindahkan <span class="math inline">\(i\)</span> ke komunitas dengan <span class="math inline">\(\Delta Q_{\max} &gt; 0\)</span>.<br>
+</li>
+<li>Ulangi hingga tidak ada peningkatan <span class="math inline">\(Q\)</span>.</li>
+</ol>
+<blockquote class="blockquote">
+<p>Untuk perhitungan manual, lebih aman hitung <span class="math inline">\(Q_{\text{baru}} - Q_{\text{lama}}\)</span> secara langsung.</p>
+</blockquote>
+<hr>
+</section>
+<section id="fase-2-aggregation" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="fase-2-aggregation"><span class="header-section-number">4.5.2</span> <strong>Fase 2: Aggregation</strong></h3>
+<p>Bentuk <em>supernode</em>: tiap komunitas jadi satu node.<br>
+- Bobot edge antar supernode <span class="math inline">\(S_p, S_q\)</span>:<br>
+<span class="math display">\[w_{pq} = \sum_{i\in S_p,\, j\in S_q} A_{ij}\]</span><br>
+- Bobot loop internal <span class="math inline">\(S_p\)</span>:<br>
+<span class="math display">\[w_{pp} = \sum_{i,j \in S_p,\, i \ne j} A_{ij}\]</span></p>
+<p>Ulangi <strong>Fase 1</strong> pada graf agregat. Berhenti ketika <span class="math inline">\(Q\)</span> tidak naik.</p>
+<hr>
+</section>
+</section>
+<section id="contoh-graf-5-node" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="contoh-graf-5-node"><span class="header-section-number">4.6</span> Contoh Graf 5 Node</h2>
+<p>Graf: <img src="https://hackmd.io/_uploads/ryMiFQoebx.png" class="img-fluid" alt="image"> Edge: <span class="math inline">\(AB, AC, BC, CD, DE\)</span> → <span class="math inline">\(m=5\)</span>, <span class="math inline">\(2m=10\)</span><br>
+Degree: <span class="math inline">\(k_A=2\)</span>, <span class="math inline">\(k_B=2\)</span>, <span class="math inline">\(k_C=3\)</span>, <span class="math inline">\(k_D=2\)</span>, <span class="math inline">\(k_E=1\)</span> ### Inisialisasi<br>
+Komunitas awal:<br>
+- C₁={A}, C₂={B}, C₃={C}, C₄={D}, C₅={E}</p>
+<section id="iterasi-1-fase-local-moving" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="iterasi-1-fase-local-moving"><span class="header-section-number">4.6.1</span> Iterasi 1 — Fase Local Moving</h3>
+<p>Kita coba pindahkan <strong>C</strong> (node paling terhubung) ke komunitas tetangga.</p>
+<section id="opsi-1-gabung-c-ke-komunitas-a-c₃-c₁" class="level4" data-number="4.6.1.1">
+<h4 data-number="4.6.1.1" class="anchored" data-anchor-id="opsi-1-gabung-c-ke-komunitas-a-c₃-c₁"><span class="header-section-number">4.6.1.1</span> Opsi 1: Gabung C ke komunitas A (C₃ → C₁)</h4>
+<p>Baru: C₁={A,C}, lainnya tetap<br>
+Hitung kontribusi modularity dari pasangan dalam C₁:<br>
+- Edge dalam: AC → 1<br>
+- <span class="math inline">\(k_A=2\)</span>, <span class="math inline">\(k_C=3\)</span><br>
+- Kontribusi: <span class="math inline">\(A_{AC}-\frac{k_Ak_C}{2m}=1-\frac{2\cdot3}{10}=1-0.6=0.4\)</span></p>
+<p>Total <em>Q</em> hanya dari C₁ (sisanya nol):<br>
+<span class="math display">\[Q=\frac{1}{10}\cdot0.4=0.04\]</span></p>
+</section>
+<section id="opsi-2-gabung-c-ke-komunitas-b-sama-q0.04" class="level4" data-number="4.6.1.2">
+<h4 data-number="4.6.1.2" class="anchored" data-anchor-id="opsi-2-gabung-c-ke-komunitas-b-sama-q0.04"><span class="header-section-number">4.6.1.2</span> Opsi 2: Gabung C ke komunitas B → sama, <em>Q=0.04</em></h4>
+</section>
+<section id="opsi-3-gabung-c-ke-komunitas-a-dan-b-sekaligus-c₁abc" class="level4" data-number="4.6.1.3">
+<h4 data-number="4.6.1.3" class="anchored" data-anchor-id="opsi-3-gabung-c-ke-komunitas-a-dan-b-sekaligus-c₁abc"><span class="header-section-number">4.6.1.3</span> Opsi 3: Gabung C ke komunitas <strong>A dan B sekaligus</strong> → C₁={A,B,C}</h4>
+<p>Dalam C₁: edge = AB, AC, BC → 3 edge<br>
+Sum <span class="math inline">\(A_{ij}=3\)</span><br>
+Sum <span class="math inline">\(k_ik_j\)</span>:<br>
+- AB: <span class="math inline">\(2\times2=4\)</span><br>
+- AC: <span class="math inline">\(2\times3=6\)</span><br>
+- BC: <span class="math inline">\(2\times3=6\)</span><br>
+→ Total = 16<br>
+Kontribusi: <span class="math inline">\(3-\frac{16}{10}=1.4\)</span><br>
+<span class="math display">\[Q=\frac{1.4}{10}=0.14\]</span></p>
+</section>
+<section id="sekarang-tambahkan-d-dan-e-ke-komunitas-masing-masing-lalu-coba-gabung-de" class="level4" data-number="4.6.1.4">
+<h4 data-number="4.6.1.4" class="anchored" data-anchor-id="sekarang-tambahkan-d-dan-e-ke-komunitas-masing-masing-lalu-coba-gabung-de"><span class="header-section-number">4.6.1.4</span> Sekarang tambahkan D dan E ke komunitas masing-masing, lalu coba gabung D–E:</h4>
+<p>C₂={D,E}: edge = DE → 1<br>
+<span class="math inline">\(k_D=2\)</span>, <span class="math inline">\(k_E=1\)</span> → <span class="math inline">\(k_Dk_E=2\)</span><br>
+Kontribusi: <span class="math inline">\(1-\frac{2}{10}=0.8\)</span></p>
+<p>Total <em>Q</em>:<br>
+<span class="math display">\[Q=\frac{1.4+0.8}{10}=\frac{2.2}{10}=\mathbf{0.22}\]</span></p>
+<p>Jalankan Louvain lagi → tidak ada peningkatan <em>Q</em> jika digabung → <strong>berhenti</strong>.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="section" class="level1 page-columns page-full" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> </h1>
+<section id="implementasi-python" class="level2 page-columns page-full" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="implementasi-python"><span class="header-section-number">5.1</span> Implementasi Python</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> community_louvain  <span class="co"># pip install community</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>G.add_edges_from([(<span class="st">'A'</span>,<span class="st">'B'</span>), (<span class="st">'A'</span>,<span class="st">'C'</span>), (<span class="st">'B'</span>,<span class="st">'C'</span>), (<span class="st">'C'</span>,<span class="st">'D'</span>), (<span class="st">'D'</span>,<span class="st">'E'</span>)])</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>partition <span class="op">=</span> community_louvain.best_partition(G)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>mod <span class="op">=</span> community_louvain.modularity(partition, G)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Partisi:"</span>, partition)        <span class="co"># {'A': 0, 'B': 0, 'C': 0, 'D': 1, 'E': 1}</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Modularity: </span><span class="sc">{</span>mod<span class="sc">:.3f}</span><span class="ss">"</span>)   <span class="co"># 0.220</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualisasi</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spring_layout(G, seed<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>nx.draw(G, pos, with_labels<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        node_color<span class="op">=</span>[partition[n] <span class="cf">for</span> n <span class="kw">in</span> G],</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        cmap<span class="op">=</span>plt.cm.tab10, node_size<span class="op">=</span><span class="dv">800</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="https://hackmd.io/_uploads/r103nQjxWe.png" class="img-fluid figure-img"></p>
+<figcaption class="margin-caption">image</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="kelebihan-batasan" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="kelebihan-batasan"><span class="header-section-number">5.2</span> Kelebihan &amp; Batasan</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspek</th>
+<th>Catatan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Cepat &amp; scalable</strong></td>
+<td>Cocok untuk jejaring besar (e.g.&nbsp;Twitter, kolaborasi ilmiah)</td>
+</tr>
+<tr class="even">
+<td><strong>Tidak perlu tentukan <span class="math inline">\(k\)</span></strong></td>
+<td>Jumlah komunitas muncul otomatis</td>
+</tr>
+<tr class="odd">
+<td><strong>Resolution limit</strong></td>
+<td>Komunitas kecil terabaikan jika jaringan besar</td>
+</tr>
+<tr class="even">
+<td><strong>Non-deterministik</strong></td>
+<td>Hasil bisa sedikit berbeda tiap run</td>
+</tr>
+<tr class="odd">
+<td><strong>Solusi</strong>: Gunakan <strong>Leiden algorithm</strong> (<code>cdlib</code> atau <code>python-leidenalg</code>) untuk komunitas yang lebih terhubung dan stabil</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>https://www.geeksforgeeks.org/python/detecting-communities-in-social-networks-using-girvan-newman-algorithm-in-python/</p>
+<p>Untuk menghitung <strong>Edge Betweenness Centrality</strong> secara manual, kita perlu menghitung seberapa sering setiap <strong>edge (sisi)</strong> muncul dalam <strong>semua jalur terpendek (shortest paths)</strong> antara pasangan node di graf.</p>
+<hr>
+<section id="langkah-langkah" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="langkah-langkah"><span class="header-section-number">5.2.1</span> Langkah-langkah:</h3>
+<ol type="1">
+<li><strong>Identifikasi semua pasangan node yang berbeda</strong> → ada 5 node: A, B, C, D, E → jumlah pasangan = C(5,2) = 10 pasangan.</li>
+<li>Untuk setiap pasangan, cari <strong>semua shortest paths</strong>.</li>
+<li>Untuk setiap edge, hitung <strong>berapa banyak shortest paths</strong> yang melewati edge tersebut.</li>
+<li>Jumlahkan untuk setiap edge → itulah <strong>Edge Betweenness Centrality</strong>-nya.</li>
+</ol>
+<hr>
+</section>
+<section id="graf" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="graf"><span class="header-section-number">5.2.2</span> Graf:</h3>
+<p>Node: A, B, C, D, E<br>
+Edge:<br>
+- A-B<br>
+- A-C<br>
+- B-C<br>
+- C-D<br>
+- D-E</p>
+<p>Graf ini adalah <strong>tree + satu siklus kecil (triangle ABC)</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="langkah-1-daftar-semua-pasangan-node" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="langkah-1-daftar-semua-pasangan-node"><span class="header-section-number">5.3</span> Langkah 1: Daftar semua pasangan node</h2>
+<p>Pasangan:<br>
+(A,B), (A,C), (A,D), (A,E),<br>
+(B,C), (B,D), (B,E),<br>
+(C,D), (C,E),<br>
+(D,E)</p>
+<hr>
+</section>
+<section id="langkah-2-hitung-shortest-paths-dan-catat-edge-yang-dilewati" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="langkah-2-hitung-shortest-paths-dan-catat-edge-yang-dilewati"><span class="header-section-number">5.4</span> Langkah 2: Hitung shortest paths dan catat edge yang dilewati</h2>
+<p>Kita akan gunakan notasi:<br>
+<code>[pasangan] → [jumlah shortest path] → [edge yang dilewati]</code></p>
+<hr>
+<section id="a-b" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="a-b"><span class="header-section-number">5.4.1</span> 1. A → B</h3>
+<ul>
+<li>Shortest path: A-B (hanya 1)</li>
+<li>Edge: <strong>A-B</strong></li>
+</ul>
+<p>→ Edge A-B: +1</p>
+<hr>
+</section>
+<section id="a-c" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="a-c"><span class="header-section-number">5.4.2</span> 2. A → C</h3>
+<ul>
+<li>Shortest path: A-C (hanya 1)</li>
+<li>Edge: <strong>A-C</strong></li>
+</ul>
+<p>→ Edge A-C: +1</p>
+<hr>
+</section>
+<section id="a-d" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="a-d"><span class="header-section-number">5.4.3</span> 3. A → D</h3>
+<ul>
+<li>Shortest path: A-C-D (hanya 1)</li>
+<li>Edge: <strong>A-C</strong>, <strong>C-D</strong></li>
+</ul>
+<p>→ Edge A-C: +1 → total A-C = 2<br>
+→ Edge C-D: +1</p>
+<hr>
+</section>
+<section id="a-e" class="level3" data-number="5.4.4">
+<h3 data-number="5.4.4" class="anchored" data-anchor-id="a-e"><span class="header-section-number">5.4.4</span> 4. A → E</h3>
+<ul>
+<li>Shortest path: A-C-D-E (hanya 1)</li>
+<li>Edge: <strong>A-C</strong>, <strong>C-D</strong>, <strong>D-E</strong></li>
+</ul>
+<p>→ Edge A-C: +1 → total A-C = 3<br>
+→ Edge C-D: +1 → total C-D = 2<br>
+→ Edge D-E: +1</p>
+<hr>
+</section>
+<section id="b-c" class="level3" data-number="5.4.5">
+<h3 data-number="5.4.5" class="anchored" data-anchor-id="b-c"><span class="header-section-number">5.4.5</span> 5. B → C</h3>
+<ul>
+<li>Shortest path: B-C (hanya 1)</li>
+<li>Edge: <strong>B-C</strong></li>
+</ul>
+<p>→ Edge B-C: +1</p>
+<hr>
+</section>
+<section id="b-d" class="level3" data-number="5.4.6">
+<h3 data-number="5.4.6" class="anchored" data-anchor-id="b-d"><span class="header-section-number">5.4.6</span> 6. B → D</h3>
+<ul>
+<li>Shortest path: B-C-D (hanya 1)</li>
+<li>Edge: <strong>B-C</strong>, <strong>C-D</strong></li>
+</ul>
+<p>→ Edge B-C: +1 → total B-C = 2<br>
+→ Edge C-D: +1 → total C-D = 3</p>
+<hr>
+</section>
+<section id="b-e" class="level3" data-number="5.4.7">
+<h3 data-number="5.4.7" class="anchored" data-anchor-id="b-e"><span class="header-section-number">5.4.7</span> 7. B → E</h3>
+<ul>
+<li>Shortest path: B-C-D-E (hanya 1)</li>
+<li>Edge: <strong>B-C</strong>, <strong>C-D</strong>, <strong>D-E</strong></li>
+</ul>
+<p>→ Edge B-C: +1 → total B-C = 3<br>
+→ Edge C-D: +1 → total C-D = 4<br>
+→ Edge D-E: +1 → total D-E = 2</p>
+<hr>
+</section>
+<section id="c-d" class="level3" data-number="5.4.8">
+<h3 data-number="5.4.8" class="anchored" data-anchor-id="c-d"><span class="header-section-number">5.4.8</span> 8. C → D</h3>
+<ul>
+<li>Shortest path: C-D (hanya 1)</li>
+<li>Edge: <strong>C-D</strong></li>
+</ul>
+<p>→ Edge C-D: +1 → total C-D = 5</p>
+<hr>
+</section>
+<section id="c-e" class="level3" data-number="5.4.9">
+<h3 data-number="5.4.9" class="anchored" data-anchor-id="c-e"><span class="header-section-number">5.4.9</span> 9. C → E</h3>
+<ul>
+<li>Shortest path: C-D-E (hanya 1)</li>
+<li>Edge: <strong>C-D</strong>, <strong>D-E</strong></li>
+</ul>
+<p>→ Edge C-D: +1 → total C-D = 6<br>
+→ Edge D-E: +1 → total D-E = 3</p>
+<hr>
+</section>
+<section id="d-e" class="level3" data-number="5.4.10">
+<h3 data-number="5.4.10" class="anchored" data-anchor-id="d-e"><span class="header-section-number">5.4.10</span> 10. D → E</h3>
+<ul>
+<li>Shortest path: D-E (hanya 1)</li>
+<li>Edge: <strong>D-E</strong></li>
+</ul>
+<p>→ Edge D-E: +1 → total D-E = 4</p>
+<hr>
+</section>
+</section>
+<section id="langkah-3-ringkasan-edge-betweenness-centrality" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="langkah-3-ringkasan-edge-betweenness-centrality"><span class="header-section-number">5.5</span> Langkah 3: Ringkasan Edge Betweenness Centrality</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Edge</th>
+<th>Total Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A-B</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>A-C</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>B-C</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>C-D</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>D-E</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="jawaban-akhir" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="jawaban-akhir"><span class="header-section-number">5.6</span> ✅ Jawaban Akhir:</h2>
+<p><strong>Edge Betweenness Centrality (manual):</strong></p>
+<ul>
+<li><strong>A-B</strong>: 1<br>
+</li>
+<li><strong>A-C</strong>: 3<br>
+</li>
+<li><strong>B-C</strong>: 3<br>
+</li>
+<li><strong>C-D</strong>: 6<br>
+</li>
+<li><strong>D-E</strong>: 4</li>
+</ul>
+<hr>
+<blockquote class="blockquote">
+<p>Catatan: Karena tidak ada multiple shortest paths (semua pasangan hanya punya 1 shortest path), maka tidak perlu membagi dengan jumlah path — cukup hitung kemunculan edge di setiap shortest path.</p>
+</blockquote>
+<p>Ini adalah hasil akhir perhitungan manual Edge Betweenness Centrality untuk graf tersebut. ## Tujuan Girvan-Newman: Mendeteksi komunitas (community detection) dengan cara: 1. Hitung <strong>edge betweenness centrality</strong> untuk semua edge. 2. Hapus edge dengan <strong>betweenness tertinggi</strong>. 3. Ulangi langkah 1 dan 2 sampai graf terpecah menjadi komponen terhubung (connected components). 4. Setiap komponen terhubung dianggap sebagai satu komunitas.</p>
+<hr>
+</section>
+<section id="langkah-langkah-manual" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="langkah-langkah-manual"><span class="header-section-number">5.7</span> Langkah-langkah Manual</h2>
+<section id="graf-awal" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="graf-awal"><span class="header-section-number">5.7.1</span> Graf Awal:</h3>
+<p>Node: A, B, C, D, E<br>
+Edge: A-B, A-C, B-C, C-D, D-E<br>
+→ Graf ini adalah <strong>tree + triangle ABC</strong></p>
+<p>Kita sudah hitung <strong>edge betweenness centrality</strong> sebelumnya:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Edge</th>
+<th>Betweenness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A-B</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>A-C</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>B-C</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>C-D</td>
+<td>6 ← <strong>tertinggi</strong></td>
+</tr>
+<tr class="odd">
+<td>D-E</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="iterasi-1-hapus-edge-dengan-betweenness-tertinggi-c-d" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="iterasi-1-hapus-edge-dengan-betweenness-tertinggi-c-d"><span class="header-section-number">5.8</span> 🔪 Iterasi 1: Hapus edge dengan betweenness tertinggi → <strong>C-D</strong></h2>
+<p>Setelah menghapus <strong>C-D</strong>, graf terpecah menjadi dua komponen:</p>
+<ul>
+<li>Komponen 1: {A, B, C}<br>
+</li>
+<li>Komponen 2: {D, E}</li>
+</ul>
+<p>✅ Ini sudah bisa dianggap sebagai <strong>dua komunitas</strong>:<br>
+→ Komunitas 1: A, B, C<br>
+→ Komunitas 2: D, E</p>
+<p>Namun, karena Girvan-Newman biasanya dilanjutkan hingga tidak ada edge tersisa atau semua node terpisah, kita lanjutkan untuk melihat struktur lebih dalam.</p>
+<hr>
+</section>
+<section id="iterasi-2-hitung-ulang-edge-betweenness-untuk-setiap-komponen" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="iterasi-2-hitung-ulang-edge-betweenness-untuk-setiap-komponen"><span class="header-section-number">5.9</span> 🔁 Iterasi 2: Hitung ulang edge betweenness untuk setiap komponen</h2>
+<p>Karena graf sudah terpecah, kita hitung <strong>edge betweenness</strong> di masing-masing komponen secara terpisah.</p>
+<hr>
+<section id="komponen-1-a-b-c-graf-lengkap-triangle" class="level3" data-number="5.9.1">
+<h3 data-number="5.9.1" class="anchored" data-anchor-id="komponen-1-a-b-c-graf-lengkap-triangle"><span class="header-section-number">5.9.1</span> ➤ Komponen 1: {A, B, C} — graf lengkap (triangle)</h3>
+<p>Edge: A-B, A-C, B-C</p>
+<p>Hitung edge betweenness untuk pasangan node di dalam komponen ini:</p>
+<p>Pasangan: (A,B), (A,C), (B,C)</p>
+<section id="a-b-1" class="level4" data-number="5.9.1.1">
+<h4 data-number="5.9.1.1" class="anchored" data-anchor-id="a-b-1"><span class="header-section-number">5.9.1.1</span> 1. A → B</h4>
+<ul>
+<li>Shortest path: A-B (langsung) → edge: <strong>A-B</strong></li>
+<li>Juga bisa lewat A-C-B? → Tapi panjangnya 2, bukan shortest → jadi hanya A-B</li>
+</ul>
+<p>→ Edge A-B: +1</p>
+</section>
+<section id="a-c-1" class="level4" data-number="5.9.1.2">
+<h4 data-number="5.9.1.2" class="anchored" data-anchor-id="a-c-1"><span class="header-section-number">5.9.1.2</span> 2. A → C</h4>
+<ul>
+<li>Shortest path: A-C → edge: <strong>A-C</strong></li>
+</ul>
+<p>→ Edge A-C: +1</p>
+</section>
+<section id="b-c-1" class="level4" data-number="5.9.1.3">
+<h4 data-number="5.9.1.3" class="anchored" data-anchor-id="b-c-1"><span class="header-section-number">5.9.1.3</span> 3. B → C</h4>
+<ul>
+<li>Shortest path: B-C → edge: <strong>B-C</strong></li>
+</ul>
+<p>→ Edge B-C: +1</p>
+<blockquote class="blockquote">
+<p>❗️Catatan: Di graf triangle, <strong>semua shortest path langsung</strong>, tidak ada yang melewati edge lain karena tidak ada alternatif lebih pendek.</p>
+</blockquote>
+<p>Jadi, <strong>edge betweenness untuk tiap edge = 1</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Edge</th>
+<th>Betweenness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A-B</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>A-C</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>B-C</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>→ Semua sama → kita pilih salah satu untuk dihapus. Biasanya diurutkan berdasarkan label atau urutan acak. Kita ambil <strong>A-B</strong> (urutan abjad).</p>
+<hr>
+</section>
+</section>
+<section id="komponen-2-d-e-hanya-satu-edge" class="level3" data-number="5.9.2">
+<h3 data-number="5.9.2" class="anchored" data-anchor-id="komponen-2-d-e-hanya-satu-edge"><span class="header-section-number">5.9.2</span> ➤ Komponen 2: {D, E} — hanya satu edge</h3>
+<p>Edge: D-E</p>
+<p>Hanya satu pasangan: D → E → shortest path: D-E → edge D-E: +1</p>
+<p>→ Betweenness = 1</p>
+<hr>
+</section>
+</section>
+<section id="iterasi-2-hapus-edge-dengan-betweenness-tertinggi-di-seluruh-graf" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="iterasi-2-hapus-edge-dengan-betweenness-tertinggi-di-seluruh-graf"><span class="header-section-number">5.10</span> 🔪 Iterasi 2: Hapus edge dengan betweenness tertinggi di seluruh graf</h2>
+<p>Sekarang kita punya dua komponen:</p>
+<ul>
+<li>Komponen 1: A-B(1), A-C(1), B-C(1)</li>
+<li>Komponen 2: D-E(1)</li>
+</ul>
+<p>Semua edge memiliki betweenness = 1 → kita pilih <strong>A-B</strong> (misalnya, urutan abjad).</p>
+<p>Hapus <strong>A-B</strong></p>
+<hr>
+</section>
+<section id="iterasi-3-hitung-ulang-edge-betweenness" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="iterasi-3-hitung-ulang-edge-betweenness"><span class="header-section-number">5.11</span> 🔁 Iterasi 3: Hitung ulang edge betweenness</h2>
+<section id="komponen-1-a-b-c-tanpa-a-b-sekarang-hanya-sisa-a-c-dan-b-c" class="level3" data-number="5.11.1">
+<h3 data-number="5.11.1" class="anchored" data-anchor-id="komponen-1-a-b-c-tanpa-a-b-sekarang-hanya-sisa-a-c-dan-b-c"><span class="header-section-number">5.11.1</span> ➤ Komponen 1: {A, B, C} tanpa A-B → sekarang hanya sisa A-C dan B-C</h3>
+<p>Graf jadi: A-C-B → bentuk path</p>
+<p>Edge: A-C, B-C</p>
+<p>Pasangan node:</p>
+<section id="a-b-2" class="level4" data-number="5.11.1.1">
+<h4 data-number="5.11.1.1" class="anchored" data-anchor-id="a-b-2"><span class="header-section-number">5.11.1.1</span> 1. A → B</h4>
+<ul>
+<li>Satu-satunya shortest path: A-C-B → melewati <strong>A-C</strong> dan <strong>B-C</strong></li>
+</ul>
+<p>→ Edge A-C: +1<br>
+→ Edge B-C: +1</p>
+</section>
+<section id="a-c-2" class="level4" data-number="5.11.1.2">
+<h4 data-number="5.11.1.2" class="anchored" data-anchor-id="a-c-2"><span class="header-section-number">5.11.1.2</span> 2. A → C</h4>
+<ul>
+<li>Shortest path: A-C → edge: <strong>A-C</strong></li>
+</ul>
+<p>→ Edge A-C: +1 → total A-C = 2</p>
+</section>
+<section id="b-c-2" class="level4" data-number="5.11.1.3">
+<h4 data-number="5.11.1.3" class="anchored" data-anchor-id="b-c-2"><span class="header-section-number">5.11.1.3</span> 3. B → C</h4>
+<ul>
+<li>Shortest path: B-C → edge: <strong>B-C</strong></li>
+</ul>
+<p>→ Edge B-C: +1 → total B-C = 2</p>
+<p>Jadi:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Edge</th>
+<th>Betweenness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A-C</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>B-C</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>→ Sama-sama tertinggi → kita pilih <strong>A-C</strong></p>
+<hr>
+</section>
+</section>
+<section id="komponen-2-d-e-masih-d-e-betweenness1" class="level3" data-number="5.11.2">
+<h3 data-number="5.11.2" class="anchored" data-anchor-id="komponen-2-d-e-masih-d-e-betweenness1"><span class="header-section-number">5.11.2</span> ➤ Komponen 2: {D, E} → masih D-E (betweenness=1)</h3>
+<hr>
+</section>
+</section>
+<section id="iterasi-3-hapus-edge-dengan-betweenness-tertinggi-a-c" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="iterasi-3-hapus-edge-dengan-betweenness-tertinggi-a-c"><span class="header-section-number">5.12</span> 🔪 Iterasi 3: Hapus edge dengan betweenness tertinggi → <strong>A-C</strong></h2>
+<p>Hapus <strong>A-C</strong></p>
+<hr>
+</section>
+<section id="iterasi-4-hitung-ulang" class="level2" data-number="5.13">
+<h2 data-number="5.13" class="anchored" data-anchor-id="iterasi-4-hitung-ulang"><span class="header-section-number">5.13</span> 🔁 Iterasi 4: Hitung ulang</h2>
+<section id="komponen-1-a-b-c-tanpa-a-b-dan-a-c-hanya-tersisa-b-c" class="level3" data-number="5.13.1">
+<h3 data-number="5.13.1" class="anchored" data-anchor-id="komponen-1-a-b-c-tanpa-a-b-dan-a-c-hanya-tersisa-b-c"><span class="header-section-number">5.13.1</span> ➤ Komponen 1: {A, B, C} tanpa A-B dan A-C → hanya tersisa B-C</h3>
+<p>Edge: B-C</p>
+<p>Pasangan:</p>
+<ul>
+<li>A → B: tidak terhubung → tidak dihitung (karena tidak ada path)</li>
+<li>A → C: tidak terhubung</li>
+<li>B → C: shortest path = B-C → edge B-C: +1</li>
+</ul>
+<p>→ Betweenness B-C = 1</p>
+</section>
+<section id="komponen-2-d-e-still-1" class="level3" data-number="5.13.2">
+<h3 data-number="5.13.2" class="anchored" data-anchor-id="komponen-2-d-e-still-1"><span class="header-section-number">5.13.2</span> ➤ Komponen 2: D-E → still 1</h3>
+<hr>
+</section>
+</section>
+<section id="iterasi-4-hapus-edge-dengan-betweenness-tertinggi-b-c-atau-d-e-sama-sama-1-kita-pilih-b-c" class="level2" data-number="5.14">
+<h2 data-number="5.14" class="anchored" data-anchor-id="iterasi-4-hapus-edge-dengan-betweenness-tertinggi-b-c-atau-d-e-sama-sama-1-kita-pilih-b-c"><span class="header-section-number">5.14</span> 🔪 Iterasi 4: Hapus edge dengan betweenness tertinggi → <strong>B-C</strong> (atau D-E, sama-sama 1) → kita pilih <strong>B-C</strong></h2>
+<p>Hapus <strong>B-C</strong></p>
+<hr>
+</section>
+<section id="iterasi-5-sisa-edge-hanya-d-e" class="level2" data-number="5.15">
+<h2 data-number="5.15" class="anchored" data-anchor-id="iterasi-5-sisa-edge-hanya-d-e"><span class="header-section-number">5.15</span> 🔁 Iterasi 5: Sisa edge: hanya D-E</h2>
+<p>Hapus <strong>D-E</strong></p>
+<hr>
+</section>
+<section id="hasil-akhir-urutan-penghapusan-edge-struktur-komunitas" class="level2" data-number="5.16">
+<h2 data-number="5.16" class="anchored" data-anchor-id="hasil-akhir-urutan-penghapusan-edge-struktur-komunitas"><span class="header-section-number">5.16</span> ✅ Hasil Akhir: Urutan Penghapusan Edge &amp; Struktur Komunitas</h2>
+<p>Berikut adalah <strong>urutan penghapusan edge</strong> dan <strong>komponen yang terbentuk setelah setiap penghapusan</strong>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Iterasi</th>
+<th>Edge Dihapus</th>
+<th>Komponen Terhubung (Komunitas)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>-</td>
+<td>{A, B, C, D, E}</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><strong>C-D</strong></td>
+<td>{A,B,C}, {D,E}</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><strong>A-B</strong></td>
+<td>{A,C}, {B}, {D,E}</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td><strong>A-C</strong></td>
+<td>{A}, {B}, {C}, {D,E}</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td><strong>B-C</strong></td>
+<td>{A}, {B}, {C}, {D,E}</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td><strong>D-E</strong></td>
+<td>{A}, {B}, {C}, {D}, {E}</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="pohon-dendrogram-hierarki-komunitas" class="level2" data-number="5.17">
+<h2 data-number="5.17" class="anchored" data-anchor-id="pohon-dendrogram-hierarki-komunitas"><span class="header-section-number">5.17</span> 📊 Pohon Dendrogram / Hierarki Komunitas</h2>
+<p>Kita bisa menyusun hierarki komunitas berdasarkan kapan komponen terpecah:</p>
+<pre><code>Level 0: [A,B,C,D,E]
+          ↓ hapus C-D
+Level 1: [A,B,C]  [D,E]
+          ↓ hapus A-B
+Level 2: [A,C] [B] [D,E]
+          ↓ hapus A-C
+Level 3: [A] [C] [B] [D,E]
+          ↓ hapus B-C (tidak mengubah komponen)
+Level 4: [A] [C] [B] [D,E]
+          ↓ hapus D-E
+Level 5: [A] [B] [C] [D] [E]</code></pre>
+<hr>
+</section>
+<section id="komunitas-optimal-modularity-max" class="level2" data-number="5.18">
+<h2 data-number="5.18" class="anchored" data-anchor-id="komunitas-optimal-modularity-max"><span class="header-section-number">5.18</span> 🧩 Komunitas Optimal (Modularity Max)</h2>
+<p>Untuk menentukan <strong>komunitas optimal</strong>, biasanya kita hitung <strong>modularity Q</strong> pada tiap tahap pemecahan.</p>
+<p>Namun karena Anda minta perhitungan manual, saya akan tampilkan <strong>hasil akhir dari proses Girvan-Newman</strong>:</p>
+<hr>
+</section>
+<section id="jawaban-akhir-hasil-girvan-newman-manual" class="level2" data-number="5.19">
+<h2 data-number="5.19" class="anchored" data-anchor-id="jawaban-akhir-hasil-girvan-newman-manual"><span class="header-section-number">5.19</span> ✅ Jawaban Akhir: Hasil Girvan-Newman Manual</h2>
+<section id="urutan-penghapusan-edge-berdasarkan-betweenness-tertinggi" class="level3" data-number="5.19.1">
+<h3 data-number="5.19.1" class="anchored" data-anchor-id="urutan-penghapusan-edge-berdasarkan-betweenness-tertinggi"><span class="header-section-number">5.19.1</span> Urutan Penghapusan Edge (berdasarkan betweenness tertinggi):</h3>
+<ol type="1">
+<li><strong>C-D</strong> → pecah menjadi {A,B,C} dan {D,E}</li>
+<li><strong>A-B</strong> → pecah {A,C} dan {B}</li>
+<li><strong>A-C</strong> → pecah {A}, {C}</li>
+<li><strong>B-C</strong> → tidak memecah lagi (sudah terpisah)</li>
+<li><strong>D-E</strong> → pecah {D}, {E}</li>
+</ol>
+</section>
+<section id="komunitas-terbaik-biasanya-diambil-saat-modularity-maksimum" class="level3" data-number="5.19.2">
+<h3 data-number="5.19.2" class="anchored" data-anchor-id="komunitas-terbaik-biasanya-diambil-saat-modularity-maksimum"><span class="header-section-number">5.19.2</span> Komunitas Terbaik (biasanya diambil saat modularity maksimum):</h3>
+<p>Karena graf kecil, kita bisa lihat bahwa:</p>
+<ul>
+<li>Setelah penghapusan pertama (<strong>C-D</strong>), kita punya dua komunitas:<br>
+→ <strong>{A,B,C}</strong> dan <strong>{D,E}</strong></li>
+</ul>
+<p>Ini adalah partisi paling bermakna karena: - {A,B,C} membentuk triangle (komunitas sangat terhubung) - {D,E} adalah pasangan terhubung - Edge C-D adalah “bridge” antara dua kelompok</p>
+<p>Jadi, <strong>komunitas optimal</strong> menurut Girvan-Newman adalah:</p>
+<blockquote class="blockquote">
+<p>🟢 <strong>Komunitas 1</strong>: {A, B, C}<br>
+🟢 <strong>Komunitas 2</strong>: {D, E}</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="catatan-tambahan" class="level2" data-number="5.20">
+<h2 data-number="5.20" class="anchored" data-anchor-id="catatan-tambahan"><span class="header-section-number">5.20</span> Catatan Tambahan</h2>
+<ul>
+<li>Jika Anda ingin hitung <strong>modularity Q</strong> untuk validasi, saya bisa bantu juga.</li>
+<li>Algoritma ini cocok untuk graf kecil seperti ini, tapi untuk graf besar, perhitungan manual tidak praktis.</li>
+</ul>
+<hr>
+<p>✅ <strong>Selesai!</strong> Anda telah menyelesaikan Girvan-Newman secara manual untuk graf ini.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../snaq.html" class="pagination-link" aria-label="Deteksi Komunitas Jaringan Social">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Deteksi Komunitas Jaringan Social</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../grafik/grafik.html" class="pagination-link" aria-label="Bagian">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Bagian</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>This is IMS2e!</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/openintrostat/ims/blob/main/grafik/snacode.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openintrostat/ims/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
