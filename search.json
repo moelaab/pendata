@@ -32,309 +32,298 @@
   {
     "objectID": "grafik/snacode.html",
     "href": "grafik/snacode.html",
-    "title": "1  Quarto Basics",
+    "title": "1  Analisa Jejaring Sosial",
     "section": "",
-    "text": "2 Analisa Jejaring Sosial",
+    "text": "1.1 Pendahuluan\nDengan berkembangnya Web 2.0, berbagi data di situs jejaring sosial telah meningkat. Hal ini bukan hanya tentang data; berbagai informasi dan layanan juga telah beralih ke dunia online. Orang-orang mengekspresikan pandangan mereka di internet melalui situs jejaring sosial, blog, dan berbagai forum. Dalam suatu cara, kita dapat melihat bahwa orang-orang saling terhubung atau berelasi satu sama lain. Hubungan-hubungan ini bisa berupa hubungan satu arah (bukan hubungan timbal balik) atau hubungan dua arah (di mana kedua pengguna terlibat dalam hubungan). Sebagai contoh, Facebook mengikuti model simetris, artinya, baik ‘A’ maupun ‘B’ adalah teman, sedangkan Twitter mengikuti konsep jaringan asimetris (akan kita bahas di bagian berikutnya), yaitu, jika ‘A’ mengikuti ‘B’, itu tidak berarti ‘B’ juga mengikuti ‘A’. Belajar tentang hubungan semacam itu dan menganalisisnya dari perspektif yang lebih luas dapat membantu menjawab banyak pertanyaan, seperti siapa orang-orang paling berpengaruh dalam jaringan? Atau kelompok orang mana yang lebih saling terhubung (mungkin dari kelompok tertentu)? Apa jenis hubungan antara berbagai pengguna dalam suatu kelompok? Sebagai contoh, di sebuah departemen, hal umum yang terlihat adalah adanya kelompok-kelompok kecil yang sering pergi makan siang bersama. Ini menunjukkan bahwa mereka lebih saling terhubung; demikian pula, ada orang-orang yang menjadi bagian dari hampir semua kelompok, dan orang-orang seperti itu diidentifikasi sebagai orang-orang paling berpengaruh dalam jaringan. Mengetahui kelompok atau orang-orang semacam itu dapat membantu terhubung melintasi jaringan dalam waktu minimum untuk tujuan apa pun. Semua pertanyaan ini ditemukan jawabannya dalam analisis jaringan sosial. Meskipun analisis jaringan sosial, merupakan topik besar yang perlu dipelajari, bab ini secara singkat memperkenalkan pembaca pada konsep jaringan, jaringan sosial, berbagai jenis jaringan, cara menganalisis suatu jaringan, dan akhirnya, sebuah studi kasus dari Facebook serta penyajian data tersebut dalam bentuk pengetahuan yang bermakna.",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
-    ]
-  },
-  {
-    "objectID": "grafik/snacode.html#pendahuluan",
-    "href": "grafik/snacode.html#pendahuluan",
-    "title": "1  Quarto Basics",
-    "section": "2.1 Pendahuluan",
-    "text": "2.1 Pendahuluan\nDengan berkembangnya Web 2.0, berbagi data di situs jejaring sosial telah meningkat. Hal ini bukan hanya tentang data; berbagai informasi dan layanan juga telah beralih ke dunia online. Orang-orang mengekspresikan pandangan mereka di internet melalui situs jejaring sosial, blog, dan berbagai forum. Dalam suatu cara, kita dapat melihat bahwa orang-orang saling terhubung atau berelasi satu sama lain. Hubungan-hubungan ini bisa berupa hubungan satu arah (bukan hubungan timbal balik) atau hubungan dua arah (di mana kedua pengguna terlibat dalam hubungan). Sebagai contoh, Facebook mengikuti model simetris, artinya, baik ‘A’ maupun ‘B’ adalah teman, sedangkan Twitter mengikuti konsep jaringan asimetris (akan kita bahas di bagian berikutnya), yaitu, jika ‘A’ mengikuti ‘B’, itu tidak berarti ‘B’ juga mengikuti ‘A’. Belajar tentang hubungan semacam itu dan menganalisisnya dari perspektif yang lebih luas dapat membantu menjawab banyak pertanyaan, seperti siapa orang-orang paling berpengaruh dalam jaringan? Atau kelompok orang mana yang lebih saling terhubung (mungkin dari kelompok tertentu)? Apa jenis hubungan antara berbagai pengguna dalam suatu kelompok? Sebagai contoh, di sebuah departemen, hal umum yang terlihat adalah adanya kelompok-kelompok kecil yang sering pergi makan siang bersama. Ini menunjukkan bahwa mereka lebih saling terhubung; demikian pula, ada orang-orang yang menjadi bagian dari hampir semua kelompok, dan orang-orang seperti itu diidentifikasi sebagai orang-orang paling berpengaruh dalam jaringan. Mengetahui kelompok atau orang-orang semacam itu dapat membantu terhubung melintasi jaringan dalam waktu minimum untuk tujuan apa pun. Semua pertanyaan ini ditemukan jawabannya dalam analisis jaringan sosial. Meskipun analisis jaringan sosial, merupakan topik besar yang perlu dipelajari, bab ini secara singkat memperkenalkan pembaca pada konsep jaringan, jaringan sosial, berbagai jenis jaringan, cara menganalisis suatu jaringan, dan akhirnya, sebuah studi kasus dari Facebook serta penyajian data tersebut dalam bentuk pengetahuan yang bermakna.",
-    "crumbs": [
-      "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#deteksi-komunitas",
     "href": "grafik/snacode.html#deteksi-komunitas",
-    "title": "1  Quarto Basics",
-    "section": "5.1 Deteksi Komunitas",
-    "text": "5.1 Deteksi Komunitas\nAlgoritma: Algoritma Girvan-Newman mengikuti langkah-langkah berikut:\n\nBuat Graf: Mulailah dengan jaringan yang diberikan, yang terdiri dari simpul dan sisi.\nHitung Betweenness: Hitung edge betweenness centrality untuk semua sisi dalam graf.\nHapus Sisi dengan Betweenness Tertinggi: Identifikasi dan hapus sisi (atau sisi-sisi) yang memiliki skor betweenness tertinggi.\nHitung Ulang Betweenness: Setelah menghapus sisi, hitung ulang nilai betweenness untuk sisi-sisi yang terpengaruh.\nUlangi Langkah 3 dan 4: Lanjutkan menghapus sisi hingga tidak ada sisi yang tersisa atau struktur komunitas yang bermakna muncul.\nEkstraksi Komunitas: Seiring dihapusnya sisi-sisi, graf secara bertahap terpecah menjadi komponen-komponen terhubung yang terpisah, yang mewakili komunitas yang berbeda.",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "4.1 Deteksi Komunitas",
+    "text": "4.1 Deteksi Komunitas\nAlgoritma: Algoritma Girvan-Newman mengikuti langkah-langkah berikut:\n\nBuat Graf: Mulailah dengan jaringan yang diberikan, yang terdiri dari simpul dan sisi.\nHitung Betweenness: Hitung edge betweenness centrality untuk semua sisi dalam graf.\nHapus Sisi dengan Betweenness Tertinggi: Identifikasi dan hapus sisi (atau sisi-sisi) yang memiliki skor betweenness tertinggi.\nHitung Ulang Betweenness: Setelah menghapus sisi, hitung ulang nilai betweenness untuk sisi-sisi yang terpengaruh.\nUlangi Langkah 3 dan 4: Lanjutkan menghapus sisi hingga tidak ada sisi yang tersisa atau struktur komunitas yang bermakna muncul.\nEkstraksi Komunitas: Seiring dihapusnya sisi-sisi, graf secara bertahap terpecah menjadi komponen-komponen terhubung yang terpisah, yang mewakili komunitas yang berbeda.",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#hitung-sentralitas-antara-untuk-sisi-sisi.",
     "href": "grafik/snacode.html#hitung-sentralitas-antara-untuk-sisi-sisi.",
-    "title": "1  Quarto Basics",
-    "section": "5.2 Hitung sentralitas antara untuk sisi-sisi.",
-    "text": "5.2 Hitung sentralitas antara untuk sisi-sisi.\nTentu, berikut terjemahan yang telah diperbaiki dengan format rumus matematika yang lebih jelas dan rapi:\n\nHitung sentralitas antara untuk sisi-sisi.\nSentralitas antara dari sebuah sisi e adalah jumlah dari fraksi semua pasangan jalur terpendek yang melewati e:\n\\[\nc_B(e) = \\sum_{s,t \\in V} \\frac{\\sigma(s,t|e)}{\\sigma(s,t)}\n\\]\ndi mana: - \\(V\\) adalah himpunan simpul, - \\(\\sigma(s,t)\\) adalah jumlah jalur terpendek dari simpul s ke simpul t, - \\(\\sigma(s,t|e)\\) adalah jumlah jalur terpendek dari s ke t yang melewati sisi e .\n\n\nCode\npip install python-louvain\n\n\nCollecting python-louvain\n  Using cached python_louvain-0.16-py3-none-any.whl\nRequirement already satisfied: networkx in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from python-louvain) (3.5)\nRequirement already satisfied: numpy in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from python-louvain) (2.3.1)\nInstalling collected packages: python-louvain\nSuccessfully installed python-louvain-0.16\nNote: you may need to restart the kernel to use updated packages.\n\n\n\n\nCode\nimport networkx as nx\nimport community as community_louvain  # pip install python-louvain\nimport matplotlib.pyplot as plt\n\n# Buat graf (ganti dengan data Anda: CSV, GML, dll.)\nG = nx.Graph()\nG.add_edges_from([('A','B'), ('A','C'), ('B','C'), ('C','D'), ('D','E')])\n\n# Jalankan Louvain\npartition = community_louvain.best_partition(G)\nprint(\"Partisi:\", partition)\n# Output: {'A': 0, 'B': 0, 'C': 0, 'D': 1, 'E': 1}\n\n# Hitung modularity\nmod = community_louvain.modularity(partition, G)\nprint(f\"Modularity: {mod:.3f}\")  # → ~0.220\n\n# Visualisasi\npos = nx.spring_layout(G, seed=42)\ncolors = [partition[node] for node in G.nodes()]\nnx.draw(G, pos, with_labels=True, node_color=colors, cmap=plt.cm.Set3, node_size=800)\nplt.show()\n\n\nPartisi: {'A': 0, 'B': 0, 'C': 0, 'D': 1, 'E': 1}\nModularity: 0.220\n\n\n\n\n\n\n\n\n\n\n\nCode\npip install python-igraph leidenalg\n\n\nCollecting python-igraph\n  Using cached python_igraph-1.0.0-py3-none-any.whl.metadata (3.1 kB)\nCollecting leidenalg\n  Using cached leidenalg-0.11.0-cp38-abi3-win_amd64.whl.metadata (10 kB)\nCollecting igraph==1.0.0 (from python-igraph)\n  Using cached igraph-1.0.0-cp39-abi3-win_amd64.whl.metadata (4.5 kB)\nCollecting texttable&gt;=1.6.2 (from igraph==1.0.0-&gt;python-igraph)\n  Using cached texttable-1.7.0-py2.py3-none-any.whl.metadata (9.8 kB)\nUsing cached python_igraph-1.0.0-py3-none-any.whl (9.2 kB)\nUsing cached igraph-1.0.0-cp39-abi3-win_amd64.whl (3.2 MB)\nUsing cached leidenalg-0.11.0-cp38-abi3-win_amd64.whl (2.0 MB)\nUsing cached texttable-1.7.0-py2.py3-none-any.whl (10 kB)\nInstalling collected packages: texttable, igraph, python-igraph, leidenalg\nSuccessfully installed igraph-1.0.0 leidenalg-0.11.0 python-igraph-1.0.0 texttable-1.7.0\nNote: you may need to restart the kernel to use updated packages.\n\n\n\n\nCode\nimport igraph as ig\nimport leidenalg as la\n\n# Buat graf igraph\ng = ig.Graph.TupleList([('A','B'), ('A','C'), ('B','C'), ('C','D'), ('D','E')], directed=False)\n\n# Deteksi komunitas dengan Leiden (default)\npartition = la.find_partition(g, la.ModularityVertexPartition)\nprint(partition.membership)  # [0, 0, 0, 1, 1]\nprint(\"Modularity:\", partition.modularity)\n\n\n[0, 0, 0, 1, 1]\nModularity: 0.21999999999999992\n\n\n\n\nCode\nimport networkx as nx\nfrom collections import Counter\n\ndef girvan_newman_manual(G, verbose=True):\n    \"\"\"\n    Implementasi manual Girvan-Newman algorithm.\n    Mengembalikan daftar partisi komunitas setelah setiap iterasi.\n    \"\"\"\n    # Salin graf agar tidak mengubah aslinya\n    G = G.copy()\n    partitions = []\n    \n    step = 0\n    partitions.append(list(nx.connected_components(G)))\n    if verbose:\n        print(f\"Step {step}: Komunitas awal = {partitions[-1]}\")\n    \n    while G.number_of_edges() &gt; 0:\n        # Hitung edge betweenness centrality (default: normalized=False sesuai perhitungan manual)\n        eb = nx.edge_betweenness_centrality(G, normalized=False)\n        \n        # Urutkan edge berdasarkan betweenness (desc), lalu alfabetik untuk tie-breaking\n        sorted_edges = sorted(eb.items(), key=lambda x: (-x[1], x[0]))\n        max_betweenness = sorted_edges[0][1]\n        \n        # Ambil semua edge dengan betweenness maksimum (biasanya 1, tapi bisa &gt;1 jika tie)\n        candidates = [edge for edge, bc in sorted_edges if bc == max_betweenness]\n        edge_to_remove = candidates[0]  # Pilih pertama (misal: urutan alfanumerik)\n        \n        # Hapus edge\n        G.remove_edge(*edge_to_remove)\n        step += 1\n        \n        # Ambil komunitas (connected components)\n        current_comms = list(nx.connected_components(G))\n        partitions.append(current_comms)\n        \n        if verbose:\n            print(f\"Step {step}: Hapus edge {edge_to_remove} (betweenness={max_betweenness:.1f})\")\n            print(f\"          → Komunitas: {current_comms}\")\n        \n        # Optional: berhenti setelah komunitas stabil atau cukup (opsional)\n        # Misal: jika sudah 2 komunitas utama dan jelas terpisah\n        # if len(current_comms) &gt;= 2 and step == 1:  # contoh: berhenti setelah pemisahan pertama\n        #     break\n    \n    return partitions\n\n# === MAIN PROGRAM ===\nif __name__ == \"__main__\":\n    # Buat graf sesuai gambar\n    G = nx.Graph()\n    G.add_edges_from([\n        ('A', 'B'),\n        ('A', 'C'),\n        ('B', 'C'),\n        ('C', 'D'),\n        ('D', 'E')\n    ])\n    \n    print(\"Graf Awal:\")\n    print(\"Node:\", sorted(G.nodes()))\n    print(\"Edge:\", sorted(G.edges()))\n    print()\n    \n    print(\"Menjalankan Girvan-Newman Manual:\")\n    partitions = girvan_newman_manual(G, verbose=True)\n    \n    print(\"\\nRingkasan Hasil:\")\n    for i, comms in enumerate(partitions):\n        print(f\"Step {i}: {comms}\")\n    \n    print(\"\\nKomunitas Optimal (setelah pemisahan pertama):\", partitions[1])\n\n\nGraf Awal:\nNode: ['A', 'B', 'C', 'D', 'E']\nEdge: [('A', 'B'), ('A', 'C'), ('B', 'C'), ('C', 'D'), ('D', 'E')]\n\nMenjalankan Girvan-Newman Manual:\nStep 0: Komunitas awal = [{'C', 'B', 'E', 'A', 'D'}]\nStep 1: Hapus edge ('C', 'D') (betweenness=6.0)\n          → Komunitas: [{'B', 'A', 'C'}, {'E', 'D'}]\nStep 2: Hapus edge ('A', 'B') (betweenness=1.0)\n          → Komunitas: [{'B', 'A', 'C'}, {'E', 'D'}]\nStep 3: Hapus edge ('A', 'C') (betweenness=2.0)\n          → Komunitas: [{'A'}, {'B', 'C'}, {'E', 'D'}]\nStep 4: Hapus edge ('B', 'C') (betweenness=1.0)\n          → Komunitas: [{'A'}, {'B'}, {'C'}, {'E', 'D'}]\nStep 5: Hapus edge ('D', 'E') (betweenness=1.0)\n          → Komunitas: [{'A'}, {'B'}, {'C'}, {'D'}, {'E'}]\n\nRingkasan Hasil:\nStep 0: [{'C', 'B', 'E', 'A', 'D'}]\nStep 1: [{'B', 'A', 'C'}, {'E', 'D'}]\nStep 2: [{'B', 'A', 'C'}, {'E', 'D'}]\nStep 3: [{'A'}, {'B', 'C'}, {'E', 'D'}]\nStep 4: [{'A'}, {'B'}, {'C'}, {'E', 'D'}]\nStep 5: [{'A'}, {'B'}, {'C'}, {'D'}, {'E'}]\n\nKomunitas Optimal (setelah pemisahan pertama): [{'B', 'A', 'C'}, {'E', 'D'}]",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "4.2 Hitung sentralitas antara untuk sisi-sisi.",
+    "text": "4.2 Hitung sentralitas antara untuk sisi-sisi.\nTentu, berikut terjemahan yang telah diperbaiki dengan format rumus matematika yang lebih jelas dan rapi:\n\nHitung sentralitas antara untuk sisi-sisi.\nSentralitas antara dari sebuah sisi e adalah jumlah dari fraksi semua pasangan jalur terpendek yang melewati e:\n\\[\nc_B(e) = \\sum_{s,t \\in V} \\frac{\\sigma(s,t|e)}{\\sigma(s,t)}\n\\]\ndi mana: - \\(V\\) adalah himpunan simpul, - \\(\\sigma(s,t)\\) adalah jumlah jalur terpendek dari simpul s ke simpul t, - \\(\\sigma(s,t|e)\\) adalah jumlah jalur terpendek dari s ke t yang melewati sisi e .\n\n\nCode\npip install python-louvain\n\n\nCollecting python-louvain\n  Using cached python_louvain-0.16-py3-none-any.whl\nRequirement already satisfied: networkx in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from python-louvain) (3.5)\nRequirement already satisfied: numpy in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from python-louvain) (2.3.1)\nInstalling collected packages: python-louvain\nSuccessfully installed python-louvain-0.16\nNote: you may need to restart the kernel to use updated packages.\n\n\n\n\nCode\nimport networkx as nx\nimport community as community_louvain  # pip install python-louvain\nimport matplotlib.pyplot as plt\n\n# Buat graf (ganti dengan data Anda: CSV, GML, dll.)\nG = nx.Graph()\nG.add_edges_from([('A','B'), ('A','C'), ('B','C'), ('C','D'), ('D','E')])\n\n# Jalankan Louvain\npartition = community_louvain.best_partition(G)\nprint(\"Partisi:\", partition)\n# Output: {'A': 0, 'B': 0, 'C': 0, 'D': 1, 'E': 1}\n\n# Hitung modularity\nmod = community_louvain.modularity(partition, G)\nprint(f\"Modularity: {mod:.3f}\")  # → ~0.220\n\n# Visualisasi\npos = nx.spring_layout(G, seed=42)\ncolors = [partition[node] for node in G.nodes()]\nnx.draw(G, pos, with_labels=True, node_color=colors, cmap=plt.cm.Set3, node_size=800)\nplt.show()\n\n\nPartisi: {'A': 0, 'B': 0, 'C': 0, 'D': 1, 'E': 1}\nModularity: 0.220\n\n\n\n\n\n\n\n\n\n\n\nCode\npip install python-igraph leidenalg\n\n\nCollecting python-igraph\n  Using cached python_igraph-1.0.0-py3-none-any.whl.metadata (3.1 kB)\nCollecting leidenalg\n  Using cached leidenalg-0.11.0-cp38-abi3-win_amd64.whl.metadata (10 kB)\nCollecting igraph==1.0.0 (from python-igraph)\n  Using cached igraph-1.0.0-cp39-abi3-win_amd64.whl.metadata (4.5 kB)\nCollecting texttable&gt;=1.6.2 (from igraph==1.0.0-&gt;python-igraph)\n  Using cached texttable-1.7.0-py2.py3-none-any.whl.metadata (9.8 kB)\nUsing cached python_igraph-1.0.0-py3-none-any.whl (9.2 kB)\nUsing cached igraph-1.0.0-cp39-abi3-win_amd64.whl (3.2 MB)\nUsing cached leidenalg-0.11.0-cp38-abi3-win_amd64.whl (2.0 MB)\nUsing cached texttable-1.7.0-py2.py3-none-any.whl (10 kB)\nInstalling collected packages: texttable, igraph, python-igraph, leidenalg\nSuccessfully installed igraph-1.0.0 leidenalg-0.11.0 python-igraph-1.0.0 texttable-1.7.0\nNote: you may need to restart the kernel to use updated packages.\n\n\n\n\nCode\nimport igraph as ig\nimport leidenalg as la\n\n# Buat graf igraph\ng = ig.Graph.TupleList([('A','B'), ('A','C'), ('B','C'), ('C','D'), ('D','E')], directed=False)\n\n# Deteksi komunitas dengan Leiden (default)\npartition = la.find_partition(g, la.ModularityVertexPartition)\nprint(partition.membership)  # [0, 0, 0, 1, 1]\nprint(\"Modularity:\", partition.modularity)\n\n\n[0, 0, 0, 1, 1]\nModularity: 0.21999999999999992\n\n\n\n\nCode\nimport networkx as nx\nfrom collections import Counter\n\ndef girvan_newman_manual(G, verbose=True):\n    \"\"\"\n    Implementasi manual Girvan-Newman algorithm.\n    Mengembalikan daftar partisi komunitas setelah setiap iterasi.\n    \"\"\"\n    # Salin graf agar tidak mengubah aslinya\n    G = G.copy()\n    partitions = []\n    \n    step = 0\n    partitions.append(list(nx.connected_components(G)))\n    if verbose:\n        print(f\"Step {step}: Komunitas awal = {partitions[-1]}\")\n    \n    while G.number_of_edges() &gt; 0:\n        # Hitung edge betweenness centrality (default: normalized=False sesuai perhitungan manual)\n        eb = nx.edge_betweenness_centrality(G, normalized=False)\n        \n        # Urutkan edge berdasarkan betweenness (desc), lalu alfabetik untuk tie-breaking\n        sorted_edges = sorted(eb.items(), key=lambda x: (-x[1], x[0]))\n        max_betweenness = sorted_edges[0][1]\n        \n        # Ambil semua edge dengan betweenness maksimum (biasanya 1, tapi bisa &gt;1 jika tie)\n        candidates = [edge for edge, bc in sorted_edges if bc == max_betweenness]\n        edge_to_remove = candidates[0]  # Pilih pertama (misal: urutan alfanumerik)\n        \n        # Hapus edge\n        G.remove_edge(*edge_to_remove)\n        step += 1\n        \n        # Ambil komunitas (connected components)\n        current_comms = list(nx.connected_components(G))\n        partitions.append(current_comms)\n        \n        if verbose:\n            print(f\"Step {step}: Hapus edge {edge_to_remove} (betweenness={max_betweenness:.1f})\")\n            print(f\"          → Komunitas: {current_comms}\")\n        \n        # Optional: berhenti setelah komunitas stabil atau cukup (opsional)\n        # Misal: jika sudah 2 komunitas utama dan jelas terpisah\n        # if len(current_comms) &gt;= 2 and step == 1:  # contoh: berhenti setelah pemisahan pertama\n        #     break\n    \n    return partitions\n\n# === MAIN PROGRAM ===\nif __name__ == \"__main__\":\n    # Buat graf sesuai gambar\n    G = nx.Graph()\n    G.add_edges_from([\n        ('A', 'B'),\n        ('A', 'C'),\n        ('B', 'C'),\n        ('C', 'D'),\n        ('D', 'E')\n    ])\n    \n    print(\"Graf Awal:\")\n    print(\"Node:\", sorted(G.nodes()))\n    print(\"Edge:\", sorted(G.edges()))\n    print()\n    \n    print(\"Menjalankan Girvan-Newman Manual:\")\n    partitions = girvan_newman_manual(G, verbose=True)\n    \n    print(\"\\nRingkasan Hasil:\")\n    for i, comms in enumerate(partitions):\n        print(f\"Step {i}: {comms}\")\n    \n    print(\"\\nKomunitas Optimal (setelah pemisahan pertama):\", partitions[1])\n\n\nGraf Awal:\nNode: ['A', 'B', 'C', 'D', 'E']\nEdge: [('A', 'B'), ('A', 'C'), ('B', 'C'), ('C', 'D'), ('D', 'E')]\n\nMenjalankan Girvan-Newman Manual:\nStep 0: Komunitas awal = [{'C', 'B', 'E', 'A', 'D'}]\nStep 1: Hapus edge ('C', 'D') (betweenness=6.0)\n          → Komunitas: [{'B', 'A', 'C'}, {'E', 'D'}]\nStep 2: Hapus edge ('A', 'B') (betweenness=1.0)\n          → Komunitas: [{'B', 'A', 'C'}, {'E', 'D'}]\nStep 3: Hapus edge ('A', 'C') (betweenness=2.0)\n          → Komunitas: [{'A'}, {'B', 'C'}, {'E', 'D'}]\nStep 4: Hapus edge ('B', 'C') (betweenness=1.0)\n          → Komunitas: [{'A'}, {'B'}, {'C'}, {'E', 'D'}]\nStep 5: Hapus edge ('D', 'E') (betweenness=1.0)\n          → Komunitas: [{'A'}, {'B'}, {'C'}, {'D'}, {'E'}]\n\nRingkasan Hasil:\nStep 0: [{'C', 'B', 'E', 'A', 'D'}]\nStep 1: [{'B', 'A', 'C'}, {'E', 'D'}]\nStep 2: [{'B', 'A', 'C'}, {'E', 'D'}]\nStep 3: [{'A'}, {'B', 'C'}, {'E', 'D'}]\nStep 4: [{'A'}, {'B'}, {'C'}, {'E', 'D'}]\nStep 5: [{'A'}, {'B'}, {'C'}, {'D'}, {'E'}]\n\nKomunitas Optimal (setelah pemisahan pertama): [{'B', 'A', 'C'}, {'E', 'D'}]",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#louvain-algorithm",
     "href": "grafik/snacode.html#louvain-algorithm",
-    "title": "1  Quarto Basics",
-    "section": "5.3 Louvain Algorithm",
-    "text": "5.3 Louvain Algorithm\n\nLouvain adalah algoritma community detection berbasis optimasi modularity (\\(Q\\)) secara greedy dan multi-level.\nTujuannya: mempartisi jaringan menjadi kelompok (komunitas) sehingga node dalam satu kelompok saling terhubung erat, dan hubungan antar kelompok minimum.\n\n🔹 Dikembangkan oleh: Blondel et al. (2008)\n🔹 Keunggulan: cepat, scalable, hasil stabil\n🔹 Kompleksitas empiris: \\(\\sim O(n\\log n)\\)",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "4.3 Louvain Algorithm",
+    "text": "4.3 Louvain Algorithm\n\nLouvain adalah algoritma community detection berbasis optimasi modularity (\\(Q\\)) secara greedy dan multi-level.\nTujuannya: mempartisi jaringan menjadi kelompok (komunitas) sehingga node dalam satu kelompok saling terhubung erat, dan hubungan antar kelompok minimum.\n\n🔹 Dikembangkan oleh: Blondel et al. (2008)\n🔹 Keunggulan: cepat, scalable, hasil stabil\n🔹 Kompleksitas empiris: \\(\\sim O(n\\log n)\\)",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#modularity-q",
     "href": "grafik/snacode.html#modularity-q",
-    "title": "1  Quarto Basics",
-    "section": "5.4 Modularity (\\(Q\\))",
-    "text": "5.4 Modularity (\\(Q\\))\nModularity mengukur kualitas partisi komunitas relatif terhadap null model (jaringan acak dengan derajat tetap):\n\\[Q = \\frac{1}{2m} \\sum_{i,j} \\left[ A_{ij} - \\frac{k_i k_j}{2m} \\right] \\delta(c_i, c_j)\\]\n\n\n\nSimbol\nArti\n\n\n\n\n\\(A_{ij}\\)\n1 jika edge antara \\(i\\)–\\(j\\), 0 jika tidak\n\n\n\\(k_i, k_j\\)\ndegree node \\(i\\) dan \\(j\\)\n\n\n\\(m\\)\njumlah total edge (untuk graf tak berarah)\n\n\n\\(\\delta(c_i, c_j)\\)\n1 jika \\(c_i = c_j\\), 0 jika berbeda\n\n\n\\(\\frac{k_i k_j}{2m}\\)\nekspektasi edge \\(i\\)–\\(j\\) pada null model\n\n\n\nCatatan:\n- Jika \\(A_{ij} &gt; \\frac{k_i k_j}{2m}\\) → edge lebih kuat dari kebetulan → cocok satu komunitas.\n- \\(Q \\in [-0.5,1]\\); semakin tinggi (mendekati 1), semakin baik.",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "4.4 Modularity (\\(Q\\))",
+    "text": "4.4 Modularity (\\(Q\\))\nModularity mengukur kualitas partisi komunitas relatif terhadap null model (jaringan acak dengan derajat tetap):\n\\[Q = \\frac{1}{2m} \\sum_{i,j} \\left[ A_{ij} - \\frac{k_i k_j}{2m} \\right] \\delta(c_i, c_j)\\]\n\n\n\nSimbol\nArti\n\n\n\n\n\\(A_{ij}\\)\n1 jika edge antara \\(i\\)–\\(j\\), 0 jika tidak\n\n\n\\(k_i, k_j\\)\ndegree node \\(i\\) dan \\(j\\)\n\n\n\\(m\\)\njumlah total edge (untuk graf tak berarah)\n\n\n\\(\\delta(c_i, c_j)\\)\n1 jika \\(c_i = c_j\\), 0 jika berbeda\n\n\n\\(\\frac{k_i k_j}{2m}\\)\nekspektasi edge \\(i\\)–\\(j\\) pada null model\n\n\n\nCatatan:\n- Jika \\(A_{ij} &gt; \\frac{k_i k_j}{2m}\\) → edge lebih kuat dari kebetulan → cocok satu komunitas.\n- \\(Q \\in [-0.5,1]\\); semakin tinggi (mendekati 1), semakin baik.",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#dua-fase-utama-louvain",
     "href": "grafik/snacode.html#dua-fase-utama-louvain",
-    "title": "1  Quarto Basics",
-    "section": "5.5 Dua Fase Utama Louvain",
-    "text": "5.5 Dua Fase Utama Louvain\n\n5.5.1 Fase 1: Local Moving\n\nInisialisasi: tiap node = komunitas sendiri.\n\nUntuk setiap node \\(i\\), hitung gain modularity jika dipindahkan ke komunitas tetangga \\(C'\\): \\[\\Delta Q = \\frac{1}{2m} \\left[ \\sum_{j \\in C'} A_{ij} - \\sum_{j \\in C} A_{ij} \\right] - \\frac{k_i}{(2m)^2} \\left[ k_{C'} - k_C + k_i \\right]\\]\nPindahkan \\(i\\) ke komunitas dengan \\(\\Delta Q_{\\max} &gt; 0\\).\n\nUlangi hingga tidak ada peningkatan \\(Q\\).\n\n\nUntuk perhitungan manual, lebih aman hitung \\(Q_{\\text{baru}} - Q_{\\text{lama}}\\) secara langsung.\n\n\n\n\n5.5.2 Fase 2: Aggregation\nBentuk supernode: tiap komunitas jadi satu node.\n- Bobot edge antar supernode \\(S_p, S_q\\):\n\\[w_{pq} = \\sum_{i\\in S_p,\\, j\\in S_q} A_{ij}\\]\n- Bobot loop internal \\(S_p\\):\n\\[w_{pp} = \\sum_{i,j \\in S_p,\\, i \\ne j} A_{ij}\\]\nUlangi Fase 1 pada graf agregat. Berhenti ketika \\(Q\\) tidak naik.",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "4.5 Dua Fase Utama Louvain",
+    "text": "4.5 Dua Fase Utama Louvain\n\n4.5.1 Fase 1: Local Moving\n\nInisialisasi: tiap node = komunitas sendiri.\n\nUntuk setiap node \\(i\\), hitung gain modularity jika dipindahkan ke komunitas tetangga \\(C'\\): \\[\\Delta Q = \\frac{1}{2m} \\left[ \\sum_{j \\in C'} A_{ij} - \\sum_{j \\in C} A_{ij} \\right] - \\frac{k_i}{(2m)^2} \\left[ k_{C'} - k_C + k_i \\right]\\]\nPindahkan \\(i\\) ke komunitas dengan \\(\\Delta Q_{\\max} &gt; 0\\).\n\nUlangi hingga tidak ada peningkatan \\(Q\\).\n\n\nUntuk perhitungan manual, lebih aman hitung \\(Q_{\\text{baru}} - Q_{\\text{lama}}\\) secara langsung.\n\n\n\n\n4.5.2 Fase 2: Aggregation\nBentuk supernode: tiap komunitas jadi satu node.\n- Bobot edge antar supernode \\(S_p, S_q\\):\n\\[w_{pq} = \\sum_{i\\in S_p,\\, j\\in S_q} A_{ij}\\]\n- Bobot loop internal \\(S_p\\):\n\\[w_{pp} = \\sum_{i,j \\in S_p,\\, i \\ne j} A_{ij}\\]\nUlangi Fase 1 pada graf agregat. Berhenti ketika \\(Q\\) tidak naik.",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#contoh-graf-5-node",
     "href": "grafik/snacode.html#contoh-graf-5-node",
-    "title": "1  Quarto Basics",
-    "section": "5.6 Contoh Graf 5 Node",
-    "text": "5.6 Contoh Graf 5 Node\nGraf:  Edge: \\(AB, AC, BC, CD, DE\\) → \\(m=5\\), \\(2m=10\\)\nDegree: \\(k_A=2\\), \\(k_B=2\\), \\(k_C=3\\), \\(k_D=2\\), \\(k_E=1\\) ### Inisialisasi\nKomunitas awal:\n- C₁={A}, C₂={B}, C₃={C}, C₄={D}, C₅={E}\n\n5.6.1 Iterasi 1 — Fase Local Moving\nKita coba pindahkan C (node paling terhubung) ke komunitas tetangga.\n\n5.6.1.1 Opsi 1: Gabung C ke komunitas A (C₃ → C₁)\nBaru: C₁={A,C}, lainnya tetap\nHitung kontribusi modularity dari pasangan dalam C₁:\n- Edge dalam: AC → 1\n- \\(k_A=2\\), \\(k_C=3\\)\n- Kontribusi: \\(A_{AC}-\\frac{k_Ak_C}{2m}=1-\\frac{2\\cdot3}{10}=1-0.6=0.4\\)\nTotal Q hanya dari C₁ (sisanya nol):\n\\[Q=\\frac{1}{10}\\cdot0.4=0.04\\]\n\n\n5.6.1.2 Opsi 2: Gabung C ke komunitas B → sama, Q=0.04\n\n\n5.6.1.3 Opsi 3: Gabung C ke komunitas A dan B sekaligus → C₁={A,B,C}\nDalam C₁: edge = AB, AC, BC → 3 edge\nSum \\(A_{ij}=3\\)\nSum \\(k_ik_j\\):\n- AB: \\(2\\times2=4\\)\n- AC: \\(2\\times3=6\\)\n- BC: \\(2\\times3=6\\)\n→ Total = 16\nKontribusi: \\(3-\\frac{16}{10}=1.4\\)\n\\[Q=\\frac{1.4}{10}=0.14\\]\n\n\n5.6.1.4 Sekarang tambahkan D dan E ke komunitas masing-masing, lalu coba gabung D–E:\nC₂={D,E}: edge = DE → 1\n\\(k_D=2\\), \\(k_E=1\\) → \\(k_Dk_E=2\\)\nKontribusi: \\(1-\\frac{2}{10}=0.8\\)\nTotal Q:\n\\[Q=\\frac{1.4+0.8}{10}=\\frac{2.2}{10}=\\mathbf{0.22}\\]\nJalankan Louvain lagi → tidak ada peningkatan Q jika digabung → berhenti.",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "4.6 Contoh Graf 5 Node",
+    "text": "4.6 Contoh Graf 5 Node\nGraf:  Edge: \\(AB, AC, BC, CD, DE\\) → \\(m=5\\), \\(2m=10\\)\nDegree: \\(k_A=2\\), \\(k_B=2\\), \\(k_C=3\\), \\(k_D=2\\), \\(k_E=1\\) ### Inisialisasi\nKomunitas awal:\n- C₁={A}, C₂={B}, C₃={C}, C₄={D}, C₅={E}\n\n4.6.1 Iterasi 1 — Fase Local Moving\nKita coba pindahkan C (node paling terhubung) ke komunitas tetangga.\n\n4.6.1.1 Opsi 1: Gabung C ke komunitas A (C₃ → C₁)\nBaru: C₁={A,C}, lainnya tetap\nHitung kontribusi modularity dari pasangan dalam C₁:\n- Edge dalam: AC → 1\n- \\(k_A=2\\), \\(k_C=3\\)\n- Kontribusi: \\(A_{AC}-\\frac{k_Ak_C}{2m}=1-\\frac{2\\cdot3}{10}=1-0.6=0.4\\)\nTotal Q hanya dari C₁ (sisanya nol):\n\\[Q=\\frac{1}{10}\\cdot0.4=0.04\\]\n\n\n4.6.1.2 Opsi 2: Gabung C ke komunitas B → sama, Q=0.04\n\n\n4.6.1.3 Opsi 3: Gabung C ke komunitas A dan B sekaligus → C₁={A,B,C}\nDalam C₁: edge = AB, AC, BC → 3 edge\nSum \\(A_{ij}=3\\)\nSum \\(k_ik_j\\):\n- AB: \\(2\\times2=4\\)\n- AC: \\(2\\times3=6\\)\n- BC: \\(2\\times3=6\\)\n→ Total = 16\nKontribusi: \\(3-\\frac{16}{10}=1.4\\)\n\\[Q=\\frac{1.4}{10}=0.14\\]\n\n\n4.6.1.4 Sekarang tambahkan D dan E ke komunitas masing-masing, lalu coba gabung D–E:\nC₂={D,E}: edge = DE → 1\n\\(k_D=2\\), \\(k_E=1\\) → \\(k_Dk_E=2\\)\nKontribusi: \\(1-\\frac{2}{10}=0.8\\)\nTotal Q:\n\\[Q=\\frac{1.4+0.8}{10}=\\frac{2.2}{10}=\\mathbf{0.22}\\]\nJalankan Louvain lagi → tidak ada peningkatan Q jika digabung → berhenti.",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#implementasi-python",
     "href": "grafik/snacode.html#implementasi-python",
-    "title": "1  Quarto Basics",
-    "section": "6.1 Implementasi Python",
-    "text": "6.1 Implementasi Python\nimport networkx as nx\nimport community_louvain  # pip install community\nimport matplotlib.pyplot as plt\n\nG = nx.Graph()\nG.add_edges_from([('A','B'), ('A','C'), ('B','C'), ('C','D'), ('D','E')])\n\npartition = community_louvain.best_partition(G)\nmod = community_louvain.modularity(partition, G)\n\nprint(\"Partisi:\", partition)        # {'A': 0, 'B': 0, 'C': 0, 'D': 1, 'E': 1}\nprint(f\"Modularity: {mod:.3f}\")   # 0.220\n\n# Visualisasi\npos = nx.spring_layout(G, seed=42)\nnx.draw(G, pos, with_labels=True,\n        node_color=[partition[n] for n in G],\n        cmap=plt.cm.tab10, node_size=800)\nplt.show()\n\n\n\nimage",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.1 Implementasi Python",
+    "text": "5.1 Implementasi Python\nimport networkx as nx\nimport community_louvain  # pip install community\nimport matplotlib.pyplot as plt\n\nG = nx.Graph()\nG.add_edges_from([('A','B'), ('A','C'), ('B','C'), ('C','D'), ('D','E')])\n\npartition = community_louvain.best_partition(G)\nmod = community_louvain.modularity(partition, G)\n\nprint(\"Partisi:\", partition)        # {'A': 0, 'B': 0, 'C': 0, 'D': 1, 'E': 1}\nprint(f\"Modularity: {mod:.3f}\")   # 0.220\n\n# Visualisasi\npos = nx.spring_layout(G, seed=42)\nnx.draw(G, pos, with_labels=True,\n        node_color=[partition[n] for n in G],\n        cmap=plt.cm.tab10, node_size=800)\nplt.show()\n\n\n\nimage",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#kelebihan-batasan",
     "href": "grafik/snacode.html#kelebihan-batasan",
-    "title": "1  Quarto Basics",
-    "section": "6.2 Kelebihan & Batasan",
-    "text": "6.2 Kelebihan & Batasan\n\n\n\n\n\n\n\nAspek\nCatatan\n\n\n\n\nCepat & scalable\nCocok untuk jejaring besar (e.g. Twitter, kolaborasi ilmiah)\n\n\nTidak perlu tentukan \\(k\\)\nJumlah komunitas muncul otomatis\n\n\nResolution limit\nKomunitas kecil terabaikan jika jaringan besar\n\n\nNon-deterministik\nHasil bisa sedikit berbeda tiap run\n\n\nSolusi: Gunakan Leiden algorithm (cdlib atau python-leidenalg) untuk komunitas yang lebih terhubung dan stabil\n\n\n\n\nhttps://www.geeksforgeeks.org/python/detecting-communities-in-social-networks-using-girvan-newman-algorithm-in-python/\nUntuk menghitung Edge Betweenness Centrality secara manual, kita perlu menghitung seberapa sering setiap edge (sisi) muncul dalam semua jalur terpendek (shortest paths) antara pasangan node di graf.\n\n\n6.2.1 Langkah-langkah:\n\nIdentifikasi semua pasangan node yang berbeda → ada 5 node: A, B, C, D, E → jumlah pasangan = C(5,2) = 10 pasangan.\nUntuk setiap pasangan, cari semua shortest paths.\nUntuk setiap edge, hitung berapa banyak shortest paths yang melewati edge tersebut.\nJumlahkan untuk setiap edge → itulah Edge Betweenness Centrality-nya.\n\n\n\n\n6.2.2 Graf:\nNode: A, B, C, D, E\nEdge:\n- A-B\n- A-C\n- B-C\n- C-D\n- D-E\nGraf ini adalah tree + satu siklus kecil (triangle ABC).",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.2 Kelebihan & Batasan",
+    "text": "5.2 Kelebihan & Batasan\n\n\n\n\n\n\n\nAspek\nCatatan\n\n\n\n\nCepat & scalable\nCocok untuk jejaring besar (e.g. Twitter, kolaborasi ilmiah)\n\n\nTidak perlu tentukan \\(k\\)\nJumlah komunitas muncul otomatis\n\n\nResolution limit\nKomunitas kecil terabaikan jika jaringan besar\n\n\nNon-deterministik\nHasil bisa sedikit berbeda tiap run\n\n\nSolusi: Gunakan Leiden algorithm (cdlib atau python-leidenalg) untuk komunitas yang lebih terhubung dan stabil\n\n\n\n\nhttps://www.geeksforgeeks.org/python/detecting-communities-in-social-networks-using-girvan-newman-algorithm-in-python/\nUntuk menghitung Edge Betweenness Centrality secara manual, kita perlu menghitung seberapa sering setiap edge (sisi) muncul dalam semua jalur terpendek (shortest paths) antara pasangan node di graf.\n\n\n5.2.1 Langkah-langkah:\n\nIdentifikasi semua pasangan node yang berbeda → ada 5 node: A, B, C, D, E → jumlah pasangan = C(5,2) = 10 pasangan.\nUntuk setiap pasangan, cari semua shortest paths.\nUntuk setiap edge, hitung berapa banyak shortest paths yang melewati edge tersebut.\nJumlahkan untuk setiap edge → itulah Edge Betweenness Centrality-nya.\n\n\n\n\n5.2.2 Graf:\nNode: A, B, C, D, E\nEdge:\n- A-B\n- A-C\n- B-C\n- C-D\n- D-E\nGraf ini adalah tree + satu siklus kecil (triangle ABC).",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#langkah-1-daftar-semua-pasangan-node",
     "href": "grafik/snacode.html#langkah-1-daftar-semua-pasangan-node",
-    "title": "1  Quarto Basics",
-    "section": "6.3 Langkah 1: Daftar semua pasangan node",
-    "text": "6.3 Langkah 1: Daftar semua pasangan node\nPasangan:\n(A,B), (A,C), (A,D), (A,E),\n(B,C), (B,D), (B,E),\n(C,D), (C,E),\n(D,E)",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.3 Langkah 1: Daftar semua pasangan node",
+    "text": "5.3 Langkah 1: Daftar semua pasangan node\nPasangan:\n(A,B), (A,C), (A,D), (A,E),\n(B,C), (B,D), (B,E),\n(C,D), (C,E),\n(D,E)",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#langkah-2-hitung-shortest-paths-dan-catat-edge-yang-dilewati",
     "href": "grafik/snacode.html#langkah-2-hitung-shortest-paths-dan-catat-edge-yang-dilewati",
-    "title": "1  Quarto Basics",
-    "section": "6.4 Langkah 2: Hitung shortest paths dan catat edge yang dilewati",
-    "text": "6.4 Langkah 2: Hitung shortest paths dan catat edge yang dilewati\nKita akan gunakan notasi:\n[pasangan] → [jumlah shortest path] → [edge yang dilewati]\n\n\n6.4.1 1. A → B\n\nShortest path: A-B (hanya 1)\nEdge: A-B\n\n→ Edge A-B: +1\n\n\n\n6.4.2 2. A → C\n\nShortest path: A-C (hanya 1)\nEdge: A-C\n\n→ Edge A-C: +1\n\n\n\n6.4.3 3. A → D\n\nShortest path: A-C-D (hanya 1)\nEdge: A-C, C-D\n\n→ Edge A-C: +1 → total A-C = 2\n→ Edge C-D: +1\n\n\n\n6.4.4 4. A → E\n\nShortest path: A-C-D-E (hanya 1)\nEdge: A-C, C-D, D-E\n\n→ Edge A-C: +1 → total A-C = 3\n→ Edge C-D: +1 → total C-D = 2\n→ Edge D-E: +1\n\n\n\n6.4.5 5. B → C\n\nShortest path: B-C (hanya 1)\nEdge: B-C\n\n→ Edge B-C: +1\n\n\n\n6.4.6 6. B → D\n\nShortest path: B-C-D (hanya 1)\nEdge: B-C, C-D\n\n→ Edge B-C: +1 → total B-C = 2\n→ Edge C-D: +1 → total C-D = 3\n\n\n\n6.4.7 7. B → E\n\nShortest path: B-C-D-E (hanya 1)\nEdge: B-C, C-D, D-E\n\n→ Edge B-C: +1 → total B-C = 3\n→ Edge C-D: +1 → total C-D = 4\n→ Edge D-E: +1 → total D-E = 2\n\n\n\n6.4.8 8. C → D\n\nShortest path: C-D (hanya 1)\nEdge: C-D\n\n→ Edge C-D: +1 → total C-D = 5\n\n\n\n6.4.9 9. C → E\n\nShortest path: C-D-E (hanya 1)\nEdge: C-D, D-E\n\n→ Edge C-D: +1 → total C-D = 6\n→ Edge D-E: +1 → total D-E = 3\n\n\n\n6.4.10 10. D → E\n\nShortest path: D-E (hanya 1)\nEdge: D-E\n\n→ Edge D-E: +1 → total D-E = 4",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.4 Langkah 2: Hitung shortest paths dan catat edge yang dilewati",
+    "text": "5.4 Langkah 2: Hitung shortest paths dan catat edge yang dilewati\nKita akan gunakan notasi:\n[pasangan] → [jumlah shortest path] → [edge yang dilewati]\n\n\n5.4.1 1. A → B\n\nShortest path: A-B (hanya 1)\nEdge: A-B\n\n→ Edge A-B: +1\n\n\n\n5.4.2 2. A → C\n\nShortest path: A-C (hanya 1)\nEdge: A-C\n\n→ Edge A-C: +1\n\n\n\n5.4.3 3. A → D\n\nShortest path: A-C-D (hanya 1)\nEdge: A-C, C-D\n\n→ Edge A-C: +1 → total A-C = 2\n→ Edge C-D: +1\n\n\n\n5.4.4 4. A → E\n\nShortest path: A-C-D-E (hanya 1)\nEdge: A-C, C-D, D-E\n\n→ Edge A-C: +1 → total A-C = 3\n→ Edge C-D: +1 → total C-D = 2\n→ Edge D-E: +1\n\n\n\n5.4.5 5. B → C\n\nShortest path: B-C (hanya 1)\nEdge: B-C\n\n→ Edge B-C: +1\n\n\n\n5.4.6 6. B → D\n\nShortest path: B-C-D (hanya 1)\nEdge: B-C, C-D\n\n→ Edge B-C: +1 → total B-C = 2\n→ Edge C-D: +1 → total C-D = 3\n\n\n\n5.4.7 7. B → E\n\nShortest path: B-C-D-E (hanya 1)\nEdge: B-C, C-D, D-E\n\n→ Edge B-C: +1 → total B-C = 3\n→ Edge C-D: +1 → total C-D = 4\n→ Edge D-E: +1 → total D-E = 2\n\n\n\n5.4.8 8. C → D\n\nShortest path: C-D (hanya 1)\nEdge: C-D\n\n→ Edge C-D: +1 → total C-D = 5\n\n\n\n5.4.9 9. C → E\n\nShortest path: C-D-E (hanya 1)\nEdge: C-D, D-E\n\n→ Edge C-D: +1 → total C-D = 6\n→ Edge D-E: +1 → total D-E = 3\n\n\n\n5.4.10 10. D → E\n\nShortest path: D-E (hanya 1)\nEdge: D-E\n\n→ Edge D-E: +1 → total D-E = 4",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#langkah-3-ringkasan-edge-betweenness-centrality",
     "href": "grafik/snacode.html#langkah-3-ringkasan-edge-betweenness-centrality",
-    "title": "1  Quarto Basics",
-    "section": "6.5 Langkah 3: Ringkasan Edge Betweenness Centrality",
-    "text": "6.5 Langkah 3: Ringkasan Edge Betweenness Centrality\n\n\n\nEdge\nTotal Count\n\n\n\n\nA-B\n1\n\n\nA-C\n3\n\n\nB-C\n3\n\n\nC-D\n6\n\n\nD-E\n4",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.5 Langkah 3: Ringkasan Edge Betweenness Centrality",
+    "text": "5.5 Langkah 3: Ringkasan Edge Betweenness Centrality\n\n\n\nEdge\nTotal Count\n\n\n\n\nA-B\n1\n\n\nA-C\n3\n\n\nB-C\n3\n\n\nC-D\n6\n\n\nD-E\n4",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#jawaban-akhir",
     "href": "grafik/snacode.html#jawaban-akhir",
-    "title": "1  Quarto Basics",
-    "section": "6.6 ✅ Jawaban Akhir:",
-    "text": "6.6 ✅ Jawaban Akhir:\nEdge Betweenness Centrality (manual):\n\nA-B: 1\n\nA-C: 3\n\nB-C: 3\n\nC-D: 6\n\nD-E: 4\n\n\n\nCatatan: Karena tidak ada multiple shortest paths (semua pasangan hanya punya 1 shortest path), maka tidak perlu membagi dengan jumlah path — cukup hitung kemunculan edge di setiap shortest path.\n\nIni adalah hasil akhir perhitungan manual Edge Betweenness Centrality untuk graf tersebut. ## Tujuan Girvan-Newman: Mendeteksi komunitas (community detection) dengan cara: 1. Hitung edge betweenness centrality untuk semua edge. 2. Hapus edge dengan betweenness tertinggi. 3. Ulangi langkah 1 dan 2 sampai graf terpecah menjadi komponen terhubung (connected components). 4. Setiap komponen terhubung dianggap sebagai satu komunitas.",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.6 ✅ Jawaban Akhir:",
+    "text": "5.6 ✅ Jawaban Akhir:\nEdge Betweenness Centrality (manual):\n\nA-B: 1\n\nA-C: 3\n\nB-C: 3\n\nC-D: 6\n\nD-E: 4\n\n\n\nCatatan: Karena tidak ada multiple shortest paths (semua pasangan hanya punya 1 shortest path), maka tidak perlu membagi dengan jumlah path — cukup hitung kemunculan edge di setiap shortest path.\n\nIni adalah hasil akhir perhitungan manual Edge Betweenness Centrality untuk graf tersebut. ## Tujuan Girvan-Newman: Mendeteksi komunitas (community detection) dengan cara: 1. Hitung edge betweenness centrality untuk semua edge. 2. Hapus edge dengan betweenness tertinggi. 3. Ulangi langkah 1 dan 2 sampai graf terpecah menjadi komponen terhubung (connected components). 4. Setiap komponen terhubung dianggap sebagai satu komunitas.",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#langkah-langkah-manual",
     "href": "grafik/snacode.html#langkah-langkah-manual",
-    "title": "1  Quarto Basics",
-    "section": "6.7 Langkah-langkah Manual",
-    "text": "6.7 Langkah-langkah Manual\n\n6.7.1 Graf Awal:\nNode: A, B, C, D, E\nEdge: A-B, A-C, B-C, C-D, D-E\n→ Graf ini adalah tree + triangle ABC\nKita sudah hitung edge betweenness centrality sebelumnya:\n\n\n\nEdge\nBetweenness\n\n\n\n\nA-B\n1\n\n\nA-C\n3\n\n\nB-C\n3\n\n\nC-D\n6 ← tertinggi\n\n\nD-E\n4",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.7 Langkah-langkah Manual",
+    "text": "5.7 Langkah-langkah Manual\n\n5.7.1 Graf Awal:\nNode: A, B, C, D, E\nEdge: A-B, A-C, B-C, C-D, D-E\n→ Graf ini adalah tree + triangle ABC\nKita sudah hitung edge betweenness centrality sebelumnya:\n\n\n\nEdge\nBetweenness\n\n\n\n\nA-B\n1\n\n\nA-C\n3\n\n\nB-C\n3\n\n\nC-D\n6 ← tertinggi\n\n\nD-E\n4",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#iterasi-1-hapus-edge-dengan-betweenness-tertinggi-c-d",
     "href": "grafik/snacode.html#iterasi-1-hapus-edge-dengan-betweenness-tertinggi-c-d",
-    "title": "1  Quarto Basics",
-    "section": "6.8 🔪 Iterasi 1: Hapus edge dengan betweenness tertinggi → C-D",
-    "text": "6.8 🔪 Iterasi 1: Hapus edge dengan betweenness tertinggi → C-D\nSetelah menghapus C-D, graf terpecah menjadi dua komponen:\n\nKomponen 1: {A, B, C}\n\nKomponen 2: {D, E}\n\n✅ Ini sudah bisa dianggap sebagai dua komunitas:\n→ Komunitas 1: A, B, C\n→ Komunitas 2: D, E\nNamun, karena Girvan-Newman biasanya dilanjutkan hingga tidak ada edge tersisa atau semua node terpisah, kita lanjutkan untuk melihat struktur lebih dalam.",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.8 🔪 Iterasi 1: Hapus edge dengan betweenness tertinggi → C-D",
+    "text": "5.8 🔪 Iterasi 1: Hapus edge dengan betweenness tertinggi → C-D\nSetelah menghapus C-D, graf terpecah menjadi dua komponen:\n\nKomponen 1: {A, B, C}\n\nKomponen 2: {D, E}\n\n✅ Ini sudah bisa dianggap sebagai dua komunitas:\n→ Komunitas 1: A, B, C\n→ Komunitas 2: D, E\nNamun, karena Girvan-Newman biasanya dilanjutkan hingga tidak ada edge tersisa atau semua node terpisah, kita lanjutkan untuk melihat struktur lebih dalam.",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#iterasi-2-hitung-ulang-edge-betweenness-untuk-setiap-komponen",
     "href": "grafik/snacode.html#iterasi-2-hitung-ulang-edge-betweenness-untuk-setiap-komponen",
-    "title": "1  Quarto Basics",
-    "section": "6.9 🔁 Iterasi 2: Hitung ulang edge betweenness untuk setiap komponen",
-    "text": "6.9 🔁 Iterasi 2: Hitung ulang edge betweenness untuk setiap komponen\nKarena graf sudah terpecah, kita hitung edge betweenness di masing-masing komponen secara terpisah.\n\n\n6.9.1 ➤ Komponen 1: {A, B, C} — graf lengkap (triangle)\nEdge: A-B, A-C, B-C\nHitung edge betweenness untuk pasangan node di dalam komponen ini:\nPasangan: (A,B), (A,C), (B,C)\n\n6.9.1.1 1. A → B\n\nShortest path: A-B (langsung) → edge: A-B\nJuga bisa lewat A-C-B? → Tapi panjangnya 2, bukan shortest → jadi hanya A-B\n\n→ Edge A-B: +1\n\n\n6.9.1.2 2. A → C\n\nShortest path: A-C → edge: A-C\n\n→ Edge A-C: +1\n\n\n6.9.1.3 3. B → C\n\nShortest path: B-C → edge: B-C\n\n→ Edge B-C: +1\n\n❗️Catatan: Di graf triangle, semua shortest path langsung, tidak ada yang melewati edge lain karena tidak ada alternatif lebih pendek.\n\nJadi, edge betweenness untuk tiap edge = 1\n\n\n\nEdge\nBetweenness\n\n\n\n\nA-B\n1\n\n\nA-C\n1\n\n\nB-C\n1\n\n\n\n→ Semua sama → kita pilih salah satu untuk dihapus. Biasanya diurutkan berdasarkan label atau urutan acak. Kita ambil A-B (urutan abjad).\n\n\n\n\n6.9.2 ➤ Komponen 2: {D, E} — hanya satu edge\nEdge: D-E\nHanya satu pasangan: D → E → shortest path: D-E → edge D-E: +1\n→ Betweenness = 1",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.9 🔁 Iterasi 2: Hitung ulang edge betweenness untuk setiap komponen",
+    "text": "5.9 🔁 Iterasi 2: Hitung ulang edge betweenness untuk setiap komponen\nKarena graf sudah terpecah, kita hitung edge betweenness di masing-masing komponen secara terpisah.\n\n\n5.9.1 ➤ Komponen 1: {A, B, C} — graf lengkap (triangle)\nEdge: A-B, A-C, B-C\nHitung edge betweenness untuk pasangan node di dalam komponen ini:\nPasangan: (A,B), (A,C), (B,C)\n\n5.9.1.1 1. A → B\n\nShortest path: A-B (langsung) → edge: A-B\nJuga bisa lewat A-C-B? → Tapi panjangnya 2, bukan shortest → jadi hanya A-B\n\n→ Edge A-B: +1\n\n\n5.9.1.2 2. A → C\n\nShortest path: A-C → edge: A-C\n\n→ Edge A-C: +1\n\n\n5.9.1.3 3. B → C\n\nShortest path: B-C → edge: B-C\n\n→ Edge B-C: +1\n\n❗️Catatan: Di graf triangle, semua shortest path langsung, tidak ada yang melewati edge lain karena tidak ada alternatif lebih pendek.\n\nJadi, edge betweenness untuk tiap edge = 1\n\n\n\nEdge\nBetweenness\n\n\n\n\nA-B\n1\n\n\nA-C\n1\n\n\nB-C\n1\n\n\n\n→ Semua sama → kita pilih salah satu untuk dihapus. Biasanya diurutkan berdasarkan label atau urutan acak. Kita ambil A-B (urutan abjad).\n\n\n\n\n5.9.2 ➤ Komponen 2: {D, E} — hanya satu edge\nEdge: D-E\nHanya satu pasangan: D → E → shortest path: D-E → edge D-E: +1\n→ Betweenness = 1",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#iterasi-2-hapus-edge-dengan-betweenness-tertinggi-di-seluruh-graf",
     "href": "grafik/snacode.html#iterasi-2-hapus-edge-dengan-betweenness-tertinggi-di-seluruh-graf",
-    "title": "1  Quarto Basics",
-    "section": "6.10 🔪 Iterasi 2: Hapus edge dengan betweenness tertinggi di seluruh graf",
-    "text": "6.10 🔪 Iterasi 2: Hapus edge dengan betweenness tertinggi di seluruh graf\nSekarang kita punya dua komponen:\n\nKomponen 1: A-B(1), A-C(1), B-C(1)\nKomponen 2: D-E(1)\n\nSemua edge memiliki betweenness = 1 → kita pilih A-B (misalnya, urutan abjad).\nHapus A-B",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.10 🔪 Iterasi 2: Hapus edge dengan betweenness tertinggi di seluruh graf",
+    "text": "5.10 🔪 Iterasi 2: Hapus edge dengan betweenness tertinggi di seluruh graf\nSekarang kita punya dua komponen:\n\nKomponen 1: A-B(1), A-C(1), B-C(1)\nKomponen 2: D-E(1)\n\nSemua edge memiliki betweenness = 1 → kita pilih A-B (misalnya, urutan abjad).\nHapus A-B",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#iterasi-3-hitung-ulang-edge-betweenness",
     "href": "grafik/snacode.html#iterasi-3-hitung-ulang-edge-betweenness",
-    "title": "1  Quarto Basics",
-    "section": "6.11 🔁 Iterasi 3: Hitung ulang edge betweenness",
-    "text": "6.11 🔁 Iterasi 3: Hitung ulang edge betweenness\n\n6.11.1 ➤ Komponen 1: {A, B, C} tanpa A-B → sekarang hanya sisa A-C dan B-C\nGraf jadi: A-C-B → bentuk path\nEdge: A-C, B-C\nPasangan node:\n\n6.11.1.1 1. A → B\n\nSatu-satunya shortest path: A-C-B → melewati A-C dan B-C\n\n→ Edge A-C: +1\n→ Edge B-C: +1\n\n\n6.11.1.2 2. A → C\n\nShortest path: A-C → edge: A-C\n\n→ Edge A-C: +1 → total A-C = 2\n\n\n6.11.1.3 3. B → C\n\nShortest path: B-C → edge: B-C\n\n→ Edge B-C: +1 → total B-C = 2\nJadi:\n\n\n\nEdge\nBetweenness\n\n\n\n\nA-C\n2\n\n\nB-C\n2\n\n\n\n→ Sama-sama tertinggi → kita pilih A-C\n\n\n\n\n6.11.2 ➤ Komponen 2: {D, E} → masih D-E (betweenness=1)",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.11 🔁 Iterasi 3: Hitung ulang edge betweenness",
+    "text": "5.11 🔁 Iterasi 3: Hitung ulang edge betweenness\n\n5.11.1 ➤ Komponen 1: {A, B, C} tanpa A-B → sekarang hanya sisa A-C dan B-C\nGraf jadi: A-C-B → bentuk path\nEdge: A-C, B-C\nPasangan node:\n\n5.11.1.1 1. A → B\n\nSatu-satunya shortest path: A-C-B → melewati A-C dan B-C\n\n→ Edge A-C: +1\n→ Edge B-C: +1\n\n\n5.11.1.2 2. A → C\n\nShortest path: A-C → edge: A-C\n\n→ Edge A-C: +1 → total A-C = 2\n\n\n5.11.1.3 3. B → C\n\nShortest path: B-C → edge: B-C\n\n→ Edge B-C: +1 → total B-C = 2\nJadi:\n\n\n\nEdge\nBetweenness\n\n\n\n\nA-C\n2\n\n\nB-C\n2\n\n\n\n→ Sama-sama tertinggi → kita pilih A-C\n\n\n\n\n5.11.2 ➤ Komponen 2: {D, E} → masih D-E (betweenness=1)",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#iterasi-3-hapus-edge-dengan-betweenness-tertinggi-a-c",
     "href": "grafik/snacode.html#iterasi-3-hapus-edge-dengan-betweenness-tertinggi-a-c",
-    "title": "1  Quarto Basics",
-    "section": "6.12 🔪 Iterasi 3: Hapus edge dengan betweenness tertinggi → A-C",
-    "text": "6.12 🔪 Iterasi 3: Hapus edge dengan betweenness tertinggi → A-C\nHapus A-C",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.12 🔪 Iterasi 3: Hapus edge dengan betweenness tertinggi → A-C",
+    "text": "5.12 🔪 Iterasi 3: Hapus edge dengan betweenness tertinggi → A-C\nHapus A-C",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#iterasi-4-hitung-ulang",
     "href": "grafik/snacode.html#iterasi-4-hitung-ulang",
-    "title": "1  Quarto Basics",
-    "section": "6.13 🔁 Iterasi 4: Hitung ulang",
-    "text": "6.13 🔁 Iterasi 4: Hitung ulang\n\n6.13.1 ➤ Komponen 1: {A, B, C} tanpa A-B dan A-C → hanya tersisa B-C\nEdge: B-C\nPasangan:\n\nA → B: tidak terhubung → tidak dihitung (karena tidak ada path)\nA → C: tidak terhubung\nB → C: shortest path = B-C → edge B-C: +1\n\n→ Betweenness B-C = 1\n\n\n6.13.2 ➤ Komponen 2: D-E → still 1",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.13 🔁 Iterasi 4: Hitung ulang",
+    "text": "5.13 🔁 Iterasi 4: Hitung ulang\n\n5.13.1 ➤ Komponen 1: {A, B, C} tanpa A-B dan A-C → hanya tersisa B-C\nEdge: B-C\nPasangan:\n\nA → B: tidak terhubung → tidak dihitung (karena tidak ada path)\nA → C: tidak terhubung\nB → C: shortest path = B-C → edge B-C: +1\n\n→ Betweenness B-C = 1\n\n\n5.13.2 ➤ Komponen 2: D-E → still 1",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#iterasi-4-hapus-edge-dengan-betweenness-tertinggi-b-c-atau-d-e-sama-sama-1-kita-pilih-b-c",
     "href": "grafik/snacode.html#iterasi-4-hapus-edge-dengan-betweenness-tertinggi-b-c-atau-d-e-sama-sama-1-kita-pilih-b-c",
-    "title": "1  Quarto Basics",
-    "section": "6.14 🔪 Iterasi 4: Hapus edge dengan betweenness tertinggi → B-C (atau D-E, sama-sama 1) → kita pilih B-C",
-    "text": "6.14 🔪 Iterasi 4: Hapus edge dengan betweenness tertinggi → B-C (atau D-E, sama-sama 1) → kita pilih B-C\nHapus B-C",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.14 🔪 Iterasi 4: Hapus edge dengan betweenness tertinggi → B-C (atau D-E, sama-sama 1) → kita pilih B-C",
+    "text": "5.14 🔪 Iterasi 4: Hapus edge dengan betweenness tertinggi → B-C (atau D-E, sama-sama 1) → kita pilih B-C\nHapus B-C",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#iterasi-5-sisa-edge-hanya-d-e",
     "href": "grafik/snacode.html#iterasi-5-sisa-edge-hanya-d-e",
-    "title": "1  Quarto Basics",
-    "section": "6.15 🔁 Iterasi 5: Sisa edge: hanya D-E",
-    "text": "6.15 🔁 Iterasi 5: Sisa edge: hanya D-E\nHapus D-E",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.15 🔁 Iterasi 5: Sisa edge: hanya D-E",
+    "text": "5.15 🔁 Iterasi 5: Sisa edge: hanya D-E\nHapus D-E",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#hasil-akhir-urutan-penghapusan-edge-struktur-komunitas",
     "href": "grafik/snacode.html#hasil-akhir-urutan-penghapusan-edge-struktur-komunitas",
-    "title": "1  Quarto Basics",
-    "section": "6.16 ✅ Hasil Akhir: Urutan Penghapusan Edge & Struktur Komunitas",
-    "text": "6.16 ✅ Hasil Akhir: Urutan Penghapusan Edge & Struktur Komunitas\nBerikut adalah urutan penghapusan edge dan komponen yang terbentuk setelah setiap penghapusan:\n\n\n\nIterasi\nEdge Dihapus\nKomponen Terhubung (Komunitas)\n\n\n\n\n0\n-\n{A, B, C, D, E}\n\n\n1\nC-D\n{A,B,C}, {D,E}\n\n\n2\nA-B\n{A,C}, {B}, {D,E}\n\n\n3\nA-C\n{A}, {B}, {C}, {D,E}\n\n\n4\nB-C\n{A}, {B}, {C}, {D,E}\n\n\n5\nD-E\n{A}, {B}, {C}, {D}, {E}",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.16 ✅ Hasil Akhir: Urutan Penghapusan Edge & Struktur Komunitas",
+    "text": "5.16 ✅ Hasil Akhir: Urutan Penghapusan Edge & Struktur Komunitas\nBerikut adalah urutan penghapusan edge dan komponen yang terbentuk setelah setiap penghapusan:\n\n\n\nIterasi\nEdge Dihapus\nKomponen Terhubung (Komunitas)\n\n\n\n\n0\n-\n{A, B, C, D, E}\n\n\n1\nC-D\n{A,B,C}, {D,E}\n\n\n2\nA-B\n{A,C}, {B}, {D,E}\n\n\n3\nA-C\n{A}, {B}, {C}, {D,E}\n\n\n4\nB-C\n{A}, {B}, {C}, {D,E}\n\n\n5\nD-E\n{A}, {B}, {C}, {D}, {E}",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#pohon-dendrogram-hierarki-komunitas",
     "href": "grafik/snacode.html#pohon-dendrogram-hierarki-komunitas",
-    "title": "1  Quarto Basics",
-    "section": "6.17 📊 Pohon Dendrogram / Hierarki Komunitas",
-    "text": "6.17 📊 Pohon Dendrogram / Hierarki Komunitas\nKita bisa menyusun hierarki komunitas berdasarkan kapan komponen terpecah:\nLevel 0: [A,B,C,D,E]\n          ↓ hapus C-D\nLevel 1: [A,B,C]  [D,E]\n          ↓ hapus A-B\nLevel 2: [A,C] [B] [D,E]\n          ↓ hapus A-C\nLevel 3: [A] [C] [B] [D,E]\n          ↓ hapus B-C (tidak mengubah komponen)\nLevel 4: [A] [C] [B] [D,E]\n          ↓ hapus D-E\nLevel 5: [A] [B] [C] [D] [E]",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.17 📊 Pohon Dendrogram / Hierarki Komunitas",
+    "text": "5.17 📊 Pohon Dendrogram / Hierarki Komunitas\nKita bisa menyusun hierarki komunitas berdasarkan kapan komponen terpecah:\nLevel 0: [A,B,C,D,E]\n          ↓ hapus C-D\nLevel 1: [A,B,C]  [D,E]\n          ↓ hapus A-B\nLevel 2: [A,C] [B] [D,E]\n          ↓ hapus A-C\nLevel 3: [A] [C] [B] [D,E]\n          ↓ hapus B-C (tidak mengubah komponen)\nLevel 4: [A] [C] [B] [D,E]\n          ↓ hapus D-E\nLevel 5: [A] [B] [C] [D] [E]",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#komunitas-optimal-modularity-max",
     "href": "grafik/snacode.html#komunitas-optimal-modularity-max",
-    "title": "1  Quarto Basics",
-    "section": "6.18 🧩 Komunitas Optimal (Modularity Max)",
-    "text": "6.18 🧩 Komunitas Optimal (Modularity Max)\nUntuk menentukan komunitas optimal, biasanya kita hitung modularity Q pada tiap tahap pemecahan.\nNamun karena Anda minta perhitungan manual, saya akan tampilkan hasil akhir dari proses Girvan-Newman:",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.18 🧩 Komunitas Optimal (Modularity Max)",
+    "text": "5.18 🧩 Komunitas Optimal (Modularity Max)\nUntuk menentukan komunitas optimal, biasanya kita hitung modularity Q pada tiap tahap pemecahan.\nNamun karena Anda minta perhitungan manual, saya akan tampilkan hasil akhir dari proses Girvan-Newman:",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#jawaban-akhir-hasil-girvan-newman-manual",
     "href": "grafik/snacode.html#jawaban-akhir-hasil-girvan-newman-manual",
-    "title": "1  Quarto Basics",
-    "section": "6.19 ✅ Jawaban Akhir: Hasil Girvan-Newman Manual",
-    "text": "6.19 ✅ Jawaban Akhir: Hasil Girvan-Newman Manual\n\n6.19.1 Urutan Penghapusan Edge (berdasarkan betweenness tertinggi):\n\nC-D → pecah menjadi {A,B,C} dan {D,E}\nA-B → pecah {A,C} dan {B}\nA-C → pecah {A}, {C}\nB-C → tidak memecah lagi (sudah terpisah)\nD-E → pecah {D}, {E}\n\n\n\n6.19.2 Komunitas Terbaik (biasanya diambil saat modularity maksimum):\nKarena graf kecil, kita bisa lihat bahwa:\n\nSetelah penghapusan pertama (C-D), kita punya dua komunitas:\n→ {A,B,C} dan {D,E}\n\nIni adalah partisi paling bermakna karena: - {A,B,C} membentuk triangle (komunitas sangat terhubung) - {D,E} adalah pasangan terhubung - Edge C-D adalah “bridge” antara dua kelompok\nJadi, komunitas optimal menurut Girvan-Newman adalah:\n\n🟢 Komunitas 1: {A, B, C}\n🟢 Komunitas 2: {D, E}",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.19 ✅ Jawaban Akhir: Hasil Girvan-Newman Manual",
+    "text": "5.19 ✅ Jawaban Akhir: Hasil Girvan-Newman Manual\n\n5.19.1 Urutan Penghapusan Edge (berdasarkan betweenness tertinggi):\n\nC-D → pecah menjadi {A,B,C} dan {D,E}\nA-B → pecah {A,C} dan {B}\nA-C → pecah {A}, {C}\nB-C → tidak memecah lagi (sudah terpisah)\nD-E → pecah {D}, {E}\n\n\n\n5.19.2 Komunitas Terbaik (biasanya diambil saat modularity maksimum):\nKarena graf kecil, kita bisa lihat bahwa:\n\nSetelah penghapusan pertama (C-D), kita punya dua komunitas:\n→ {A,B,C} dan {D,E}\n\nIni adalah partisi paling bermakna karena: - {A,B,C} membentuk triangle (komunitas sangat terhubung) - {D,E} adalah pasangan terhubung - Edge C-D adalah “bridge” antara dua kelompok\nJadi, komunitas optimal menurut Girvan-Newman adalah:\n\n🟢 Komunitas 1: {A, B, C}\n🟢 Komunitas 2: {D, E}",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
     "objectID": "grafik/snacode.html#catatan-tambahan",
     "href": "grafik/snacode.html#catatan-tambahan",
-    "title": "1  Quarto Basics",
-    "section": "6.20 Catatan Tambahan",
-    "text": "6.20 Catatan Tambahan\n\nJika Anda ingin hitung modularity Q untuk validasi, saya bisa bantu juga.\nAlgoritma ini cocok untuk graf kecil seperti ini, tapi untuk graf besar, perhitungan manual tidak praktis.\n\n\n✅ Selesai! Anda telah menyelesaikan Girvan-Newman secara manual untuk graf ini.",
+    "title": "1  Analisa Jejaring Sosial",
+    "section": "5.20 Catatan Tambahan",
+    "text": "5.20 Catatan Tambahan\n\nJika Anda ingin hitung modularity Q untuk validasi, saya bisa bantu juga.\nAlgoritma ini cocok untuk graf kecil seperti ini, tapi untuk graf besar, perhitungan manual tidak praktis.\n\n\n✅ Selesai! Anda telah menyelesaikan Girvan-Newman secara manual untuk graf ini.",
     "crumbs": [
       "Deteksi Komunitas Jaringan Social",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto Basics</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Analisa Jejaring Sosial</span>"
     ]
   },
   {
