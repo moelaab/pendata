@@ -200,12 +200,12 @@
   {
     "objectID": "grafik/hello.html",
     "href": "grafik/hello.html",
-    "title": "2  Polar Axis",
+    "title": "2  Quarto Basics",
     "section": "",
-    "text": "For a demonstration of a line plot on a polar axis, see Figure 2.1.\n\n\n\n\n\n\n\n\nFigure 2.1: A line plot on a polar axis",
+    "text": "2.1 Polar Axis\nFor a demonstration of a line plot on a polar axis, see Figure 2.1.\nFigure 2.1: A line plot on a polar axis",
     "crumbs": [
       "Pengantar Data",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Polar Axis</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Quarto Basics</span>"
     ]
   },
   {
