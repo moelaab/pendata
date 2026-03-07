@@ -249,27 +249,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Berikut adalah panduan langkah demi langkah untuk menambah kernel baru di Jupyter Lab.</p>
 <section id="pastikan-lingkungan-python-siap" class="level3">
 <h3 class="anchored" data-anchor-id="pastikan-lingkungan-python-siap">1. Pastikan Lingkungan Python Siap</h3>
-<p>Pastikan Anda memiliki lingkungan Python (venv atau conda) yang ingin Anda gunakan sebagai kernel sudah aktif.</p>
+<p>Pastikan Anda memiliki lingkungan Python (venv atau conda) yang ingin Anda gunakan sebagai kernel sudah aktif. Jika belum ikuti panduan lengkap untuk membuat environment (lingkungan virtual) pada Python. Environment berguna untuk mengisolasi dependensi proyek agar tidak bentrok dengan proyek lain. Ada dua cara populer yang biasa digunakan: menggunakan modul bawaan <code>venv</code> atau menggunakan <code>conda</code>.</p>
+<p><strong>A. Menggunakan <code>venv</code> (Bawaan Python).</strong> Metode ini sudah tersedia secara default jika Anda menginstal Python dari python.org.</p>
+<ul>
+<li><strong>Buat Environment</strong> Buka terminal atau command prompt, navigasi ke folder proyek Anda, lalu jalankan:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">python</span> <span class="at">-m</span> venv envpendata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Aktifkan Environment</strong> Perintah aktivasi berbeda tergantung sistem operasi Anda.</p>
+<ul>
+<li><p><strong>Windows (Command Prompt):</strong> <code>bash</code></p>
+<p><code>envpendata\Scripts\activate</code></p></li>
+<li><p><strong>Windows (PowerShell):</strong> <code>bash</code></p>
+<p><code>envpendata``\Scripts\Activate.ps1</code></p></li>
+<li><p><strong>Mac / Linux:</strong> <code>bash     source``envpendata``/bin/activate</code></p></li>
+</ul>
+<p>Setelash aktif, Anda akan melihat nama environment di awal baris terminal, contoh: <code>(envpendata) C:\Users\Nama&gt;</code>.</p>
+<p><strong>B. Menggunakan <code>conda</code> (Anaconda/Miniconda)</strong></p>
+<p>Metode ini populer di kalangan data science karena memudahkan manajemen paket biner.</p>
+<ul>
+<li><strong>Buat Environment</strong> Jalankan perintah berikut untuk membuat environment baru dengan versi Python tertentu:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> nama_environment python=3.9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Anda akan diminta konfirmasi (<code>y/n</code>), ketik <code>y</code> lalu Enter.</p>
+<ul>
+<li><strong>Aktifkan Environment</strong></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate nama_environment</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Cek environmet</strong></li>
+</ul>
+<p>Untuk memastikan Anda sudah berada di dalam environment yang benar, cek lokasi instalasi Python:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(Atau <code>where python</code> di Windows).</p>
+<p>Pastikan path yang muncul mengarah ke folder environment Anda (misalnya mengandung nama <code>venv</code> atau <code>anaconda3/envs</code>).</p>
+<ul>
+<li><strong>Instal Paket</strong></li>
+</ul>
+<p>Setelah environment aktif, Anda bisa menginstal paket-paket yang diperlukan.</p>
+<p>Menggunakan <code>pip</code>: (misal butuh paket pandas)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install numpy pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Menggunakan <code>conda</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install numpy pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="instal-ipykernel" class="level3">
 <h3 class="anchored" data-anchor-id="instal-ipykernel">2. Instal <code>ipykernel</code></h3>
 <p>Di dalam lingkungan Python tersebut, instal paket <code>ipykernel</code> menggunakan pip atau conda.</p>
 <p>Menggunakan pip:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install ipykernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install ipykernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Menggunakan conda:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install ipykernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install ipykernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="daftarkan-kernel-ke-jupyter" class="level3">
 <h3 class="anchored" data-anchor-id="daftarkan-kernel-ke-jupyter">3. Daftarkan Kernel ke Jupyter</h3>
 <p>Jalankan perintah berikut untuk mendaftarkan lingkungan Python saat ini sebagai kernel Jupyter yang baru.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span><span class="op">=</span>nama_kernel <span class="at">--display-name</span> <span class="st">"Nama Tampilan"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span><span class="op">=</span>nama_kernel <span class="at">--display-name</span> <span class="st">"Nama Tampilan"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Contoh: Jika Jika nama enviromentnyA adalah enpendata maka</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span><span class="op">=</span>envpendata  <span class="at">--display-name</span> <span class="st">"myenvpendata)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span><span class="op">=</span>envpendata  <span class="at">--display-name</span> <span class="st">"myenvpendata)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="verifikasi-instalasi" class="level3">
 <h3 class="anchored" data-anchor-id="verifikasi-instalasi">4. Verifikasi Instalasi</h3>
 <p>Untuk memastikan kernel sudah terdaftar, jalankan perintah berikut di terminal:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="images/clipboard-1647855441.png" class="img-fluid"></p>
 <p>Anda akan melihat daftar kernel yang tersedia, termasuk kernel baru yang saja Anda tambahkan.</p>
 </section>
@@ -287,9 +327,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="menghapus-kernel-opsional" class="level3">
 <h3 class="anchored" data-anchor-id="menghapus-kernel-opsional">6. Menghapus Kernel (Opsional)</h3>
 <p>Jika ingin menghapus kernel tertentu, gunakan perintah berikut:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec uninstall nama_kernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec uninstall nama_kernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Contoh:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec uninstall envpendata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec uninstall envpendata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dengan langkah ini, Anda sudah berhasil menambah kernel kustom di Jupyter Lab.</p>
 
 
