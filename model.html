@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Logistic regression – Penambangan Data</title>
+<title>7&nbsp; Logistic regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -152,7 +152,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./persiapan.html">Persiapan</a></li><li class="breadcrumb-item"><a href="./model.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic regression</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./prepare.html">PROSES DATA MINING</a></li><li class="breadcrumb-item"><a href="./model.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Logistic regression</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,10 +165,14 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Penambangan Data</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://www.instagram.com" title="Instagram" class="quarto-navigation-tool px-1" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
     <a href="https://github.com/moelaab/pendata/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -193,8 +197,8 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./persiapan.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Persiapan</span></a>
+            <a href="./preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -202,26 +206,72 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./persiapan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Persiapan</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pengantare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proses Data Mining</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./Sosmed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Menggunakan Media Sosial</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Proses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./prepare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PROSES DATA MINING</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./grafik/snacode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Analisa Jejaring Sosial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Analisa Jejaring Sosial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./grafik/grafik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./grafik/hello.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quarto Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Quarto Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Logistic regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
       </ul>
@@ -236,27 +286,27 @@ window.Quarto = {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#belajar" id="toc-belajar" class="nav-link active" data-scroll-target="#belajar"><span class="header-section-number">4.1</span> Belajar</a>
+  <li><a href="#belajar" id="toc-belajar" class="nav-link active" data-scroll-target="#belajar"><span class="header-section-number">7.1</span> Belajar</a>
   <ul class="collapse">
-  <li><a href="#qs.-ali-imran-110" id="toc-qs.-ali-imran-110" class="nav-link" data-scroll-target="#qs.-ali-imran-110"><span class="header-section-number">4.1.1</span> 📜 QS. Ali ’Imran: 110</a></li>
-  <li><a href="#cara-menggunakan-dengan-font-amiri-quran" id="toc-cara-menggunakan-dengan-font-amiri-quran" class="nav-link" data-scroll-target="#cara-menggunakan-dengan-font-amiri-quran"><span class="header-section-number">4.1.2</span> ✅ Cara Menggunakan dengan Font Amiri Quran</a></li>
-  <li><a href="#bonus-versi-dengan-nomor-ayat-١١٠-tanda-akhir-ayat" id="toc-bonus-versi-dengan-nomor-ayat-١١٠-tanda-akhir-ayat" class="nav-link" data-scroll-target="#bonus-versi-dengan-nomor-ayat-١١٠-tanda-akhir-ayat"><span class="header-section-number">4.1.3</span> 📎 Bonus: Versi dengan Nomor Ayat (١١٠) &amp; Tanda Akhir Ayat</a></li>
-  <li><a href="#dokumen-siap-pakai" id="toc-dokumen-siap-pakai" class="nav-link" data-scroll-target="#dokumen-siap-pakai"><span class="header-section-number">4.1.4</span> 📄 Dokumen Siap Pakai</a></li>
-  <li><a href="#menyampaikan-ilmu-adalah-kewajiban-setiap-muslim-yang-memilikinya" id="toc-menyampaikan-ilmu-adalah-kewajiban-setiap-muslim-yang-memilikinya" class="nav-link" data-scroll-target="#menyampaikan-ilmu-adalah-kewajiban-setiap-muslim-yang-memilikinya"><span class="header-section-number">4.1.5</span> 1. <strong>Menyampaikan Ilmu adalah Kewajiban Setiap Muslim yang Memilikinya</strong></a></li>
-  <li><a href="#ilmu-yang-tidak-diamalkan-atau-disampaikan-akan-menjadi-hujjah-yang-merugikan" id="toc-ilmu-yang-tidak-diamalkan-atau-disampaikan-akan-menjadi-hujjah-yang-merugikan" class="nav-link" data-scroll-target="#ilmu-yang-tidak-diamalkan-atau-disampaikan-akan-menjadi-hujjah-yang-merugikan"><span class="header-section-number">4.1.6</span> 2. <strong>Ilmu yang Tidak Diamalkan atau Disampaikan Akan Menjadi Hujjah yang Merugikan</strong></a></li>
-  <li><a href="#pahala-terus-mengalir-bagi-yang-mengajarkan-ilmu" id="toc-pahala-terus-mengalir-bagi-yang-mengajarkan-ilmu" class="nav-link" data-scroll-target="#pahala-terus-mengalir-bagi-yang-mengajarkan-ilmu"><span class="header-section-number">4.1.7</span> 3. <strong>Pahala Terus Mengalir bagi yang Mengajarkan Ilmu</strong></a></li>
-  <li><a href="#relevansi-dengan-minat-anda" id="toc-relevansi-dengan-minat-anda" class="nav-link" data-scroll-target="#relevansi-dengan-minat-anda"><span class="header-section-number">4.1.8</span> Relevansi dengan Minat Anda</a></li>
-  <li><a href="#business-understanding-apa-itu" id="toc-business-understanding-apa-itu" class="nav-link" data-scroll-target="#business-understanding-apa-itu"><span class="header-section-number">4.1.9</span> <strong>Business Understanding: Apa Itu?</strong></a></li>
-  <li><a href="#mengapa-business-understanding-penting" id="toc-mengapa-business-understanding-penting" class="nav-link" data-scroll-target="#mengapa-business-understanding-penting"><span class="header-section-number">4.1.10</span> <strong>Mengapa Business Understanding Penting?</strong></a></li>
-  <li><a href="#aktivitas-utama-dalam-business-understanding" id="toc-aktivitas-utama-dalam-business-understanding" class="nav-link" data-scroll-target="#aktivitas-utama-dalam-business-understanding"><span class="header-section-number">4.1.11</span> <strong>Aktivitas Utama dalam Business Understanding</strong></a></li>
-  <li><a href="#contoh-nyata-relevan-untuk-pengabdian-masyarakat-riset" id="toc-contoh-nyata-relevan-untuk-pengabdian-masyarakat-riset" class="nav-link" data-scroll-target="#contoh-nyata-relevan-untuk-pengabdian-masyarakat-riset"><span class="header-section-number">4.1.12</span> 🌍 <strong>Contoh Nyata (Relevan untuk Pengabdian Masyarakat &amp; Riset)</strong></a></li>
-  <li><a href="#tips-untuk-penyusunan-materi-audience-pemula-non-teknis" id="toc-tips-untuk-penyusunan-materi-audience-pemula-non-teknis" class="nav-link" data-scroll-target="#tips-untuk-penyusunan-materi-audience-pemula-non-teknis"><span class="header-section-number">4.1.13</span> 📝 Tips untuk Penyusunan Materi (Audience: Pemula / Non-Teknis)</a></li>
+  <li><a href="#qs.-ali-imran-110" id="toc-qs.-ali-imran-110" class="nav-link" data-scroll-target="#qs.-ali-imran-110"><span class="header-section-number">7.1.1</span> 📜 QS. Ali ’Imran: 110</a></li>
+  <li><a href="#cara-menggunakan-dengan-font-amiri-quran" id="toc-cara-menggunakan-dengan-font-amiri-quran" class="nav-link" data-scroll-target="#cara-menggunakan-dengan-font-amiri-quran"><span class="header-section-number">7.1.2</span> ✅ Cara Menggunakan dengan Font Amiri Quran</a></li>
+  <li><a href="#bonus-versi-dengan-nomor-ayat-١١٠-tanda-akhir-ayat" id="toc-bonus-versi-dengan-nomor-ayat-١١٠-tanda-akhir-ayat" class="nav-link" data-scroll-target="#bonus-versi-dengan-nomor-ayat-١١٠-tanda-akhir-ayat"><span class="header-section-number">7.1.3</span> 📎 Bonus: Versi dengan Nomor Ayat (١١٠) &amp; Tanda Akhir Ayat</a></li>
+  <li><a href="#dokumen-siap-pakai" id="toc-dokumen-siap-pakai" class="nav-link" data-scroll-target="#dokumen-siap-pakai"><span class="header-section-number">7.1.4</span> 📄 Dokumen Siap Pakai</a></li>
+  <li><a href="#menyampaikan-ilmu-adalah-kewajiban-setiap-muslim-yang-memilikinya" id="toc-menyampaikan-ilmu-adalah-kewajiban-setiap-muslim-yang-memilikinya" class="nav-link" data-scroll-target="#menyampaikan-ilmu-adalah-kewajiban-setiap-muslim-yang-memilikinya"><span class="header-section-number">7.1.5</span> 1. <strong>Menyampaikan Ilmu adalah Kewajiban Setiap Muslim yang Memilikinya</strong></a></li>
+  <li><a href="#ilmu-yang-tidak-diamalkan-atau-disampaikan-akan-menjadi-hujjah-yang-merugikan" id="toc-ilmu-yang-tidak-diamalkan-atau-disampaikan-akan-menjadi-hujjah-yang-merugikan" class="nav-link" data-scroll-target="#ilmu-yang-tidak-diamalkan-atau-disampaikan-akan-menjadi-hujjah-yang-merugikan"><span class="header-section-number">7.1.6</span> 2. <strong>Ilmu yang Tidak Diamalkan atau Disampaikan Akan Menjadi Hujjah yang Merugikan</strong></a></li>
+  <li><a href="#pahala-terus-mengalir-bagi-yang-mengajarkan-ilmu" id="toc-pahala-terus-mengalir-bagi-yang-mengajarkan-ilmu" class="nav-link" data-scroll-target="#pahala-terus-mengalir-bagi-yang-mengajarkan-ilmu"><span class="header-section-number">7.1.7</span> 3. <strong>Pahala Terus Mengalir bagi yang Mengajarkan Ilmu</strong></a></li>
+  <li><a href="#relevansi-dengan-minat-anda" id="toc-relevansi-dengan-minat-anda" class="nav-link" data-scroll-target="#relevansi-dengan-minat-anda"><span class="header-section-number">7.1.8</span> Relevansi dengan Minat Anda</a></li>
+  <li><a href="#business-understanding-apa-itu" id="toc-business-understanding-apa-itu" class="nav-link" data-scroll-target="#business-understanding-apa-itu"><span class="header-section-number">7.1.9</span> <strong>Business Understanding: Apa Itu?</strong></a></li>
+  <li><a href="#mengapa-business-understanding-penting" id="toc-mengapa-business-understanding-penting" class="nav-link" data-scroll-target="#mengapa-business-understanding-penting"><span class="header-section-number">7.1.10</span> <strong>Mengapa Business Understanding Penting?</strong></a></li>
+  <li><a href="#aktivitas-utama-dalam-business-understanding" id="toc-aktivitas-utama-dalam-business-understanding" class="nav-link" data-scroll-target="#aktivitas-utama-dalam-business-understanding"><span class="header-section-number">7.1.11</span> <strong>Aktivitas Utama dalam Business Understanding</strong></a></li>
+  <li><a href="#contoh-nyata-relevan-untuk-pengabdian-masyarakat-riset" id="toc-contoh-nyata-relevan-untuk-pengabdian-masyarakat-riset" class="nav-link" data-scroll-target="#contoh-nyata-relevan-untuk-pengabdian-masyarakat-riset"><span class="header-section-number">7.1.12</span> 🌍 <strong>Contoh Nyata (Relevan untuk Pengabdian Masyarakat &amp; Riset)</strong></a></li>
+  <li><a href="#tips-untuk-penyusunan-materi-audience-pemula-non-teknis" id="toc-tips-untuk-penyusunan-materi-audience-pemula-non-teknis" class="nav-link" data-scroll-target="#tips-untuk-penyusunan-materi-audience-pemula-non-teknis"><span class="header-section-number">7.1.13</span> 📝 Tips untuk Penyusunan Materi (Audience: Pemula / Non-Teknis)</a></li>
   </ul></li>
-  <li><a href="#logistic-model-with-many-variables" id="toc-logistic-model-with-many-variables" class="nav-link" data-scroll-target="#logistic-model-with-many-variables"><span class="header-section-number">4.2</span> Logistic model with many variables</a></li>
-  <li><a href="#groups-of-different-sizes" id="toc-groups-of-different-sizes" class="nav-link" data-scroll-target="#groups-of-different-sizes"><span class="header-section-number">4.3</span> Groups of different sizes</a>
+  <li><a href="#logistic-model-with-many-variables" id="toc-logistic-model-with-many-variables" class="nav-link" data-scroll-target="#logistic-model-with-many-variables"><span class="header-section-number">7.2</span> Logistic model with many variables</a></li>
+  <li><a href="#groups-of-different-sizes" id="toc-groups-of-different-sizes" class="nav-link" data-scroll-target="#groups-of-different-sizes"><span class="header-section-number">7.3</span> Groups of different sizes</a>
   <ul class="collapse">
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">4.3.1</span> Summary</a></li>
-  <li><a href="#terms" id="toc-terms" class="nav-link" data-scroll-target="#terms"><span class="header-section-number">4.3.2</span> Terms</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">7.3.1</span> Summary</a></li>
+  <li><a href="#terms" id="toc-terms" class="nav-link" data-scroll-target="#terms"><span class="header-section-number">7.3.2</span> Terms</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/moelaab/pendata/edit/main/model.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/moelaab/pendata/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -264,9 +314,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./persiapan.html">Persiapan</a></li><li class="breadcrumb-item"><a href="./model.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic regression</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./prepare.html">PROSES DATA MINING</a></li><li class="breadcrumb-item"><a href="./model.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Logistic regression</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="model-logistic" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic regression</span></span></h1>
+<h1 class="title"><span id="model-logistic" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Logistic regression</span></span></h1>
 </div>
 
 
@@ -283,8 +333,8 @@ window.Quarto = {
 </header>
 
 
-<section id="belajar" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="belajar"><span class="header-section-number">4.1</span> Belajar</h2>
+<section id="belajar" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="belajar"><span class="header-section-number">7.1</span> Belajar</h2>
 <p>Cara konversi ke docx https://cloudconvert.com/pricing</p>
 <p>https://www.vertopal.com/en/convert/ipynb-to-doc</p>
 <p><span class="math display">\[\begin{equation}
@@ -302,23 +352,23 @@ I=\left[\begin{array}{llll}
 <p><img src="images/clipboard-3411580359.png" class="img-fluid"></p>
 <p>Berikut adalah <strong>QS. Ali ’Imran: 110</strong> yang telah diformat menggunakan font <strong>Amiri Quran</strong> — font khusus yang dirancang untuk menyerupai gaya penulisan Mushaf Al-Qur’an (berbasis <em>Uthmani script</em>), lengkap dengan <strong>harakat, tasydid, dan tanda waqaf</strong> sesuai standar Mushaf Madinah.</p>
 <hr>
-<section id="qs.-ali-imran-110" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="qs.-ali-imran-110"><span class="header-section-number">4.1.1</span> 📜 QS. Ali ’Imran: 110</h3>
+<section id="qs.-ali-imran-110" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="qs.-ali-imran-110"><span class="header-section-number">7.1.1</span> 📜 QS. Ali ’Imran: 110</h3>
 <p><em>(Ditampilkan dalam gaya teks siap salin/templat — pastikan font <strong>Amiri Quran</strong> sudah terinstal di perangkat Anda)</em></p>
 <pre class="text"><code>كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ تَأْمُرُونَ بِٱلْمَعْرُوفِ وَتَنْهَوْنَ عَنِ ٱلْمُنكَرِ وَتُؤْمِنُونَ بِٱللَّهِۚ</code></pre>
 <p>🔹 <strong>Catatan teknis</strong>: - <code>ٱ</code> = <em>alif waslah</em> (alif penghubung), bukan <em>alif biasa</em> (<code>ا</code>). Ini penting agar bacaan sesuai <em>qira’ah ’Utsmani</em>. - Titik di akhir (<code>ۚ</code>) = tanda <em>waqaf jā’iz</em> (boleh berhenti), sesuai Mushaf standar. - Semua harakat &amp; tasydid sesuai dengan Mushaf Madinah versi <em>Hafs ’an ’Asim</em>.</p>
 <hr>
 </section>
-<section id="cara-menggunakan-dengan-font-amiri-quran" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="cara-menggunakan-dengan-font-amiri-quran"><span class="header-section-number">4.1.2</span> ✅ Cara Menggunakan dengan Font Amiri Quran</h3>
-<section id="download-instal-font" class="level4" data-number="4.1.2.1">
-<h4 data-number="4.1.2.1" class="anchored" data-anchor-id="download-instal-font"><span class="header-section-number">4.1.2.1</span> 1. <strong>Download &amp; Instal Font</strong></h4>
+<section id="cara-menggunakan-dengan-font-amiri-quran" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="cara-menggunakan-dengan-font-amiri-quran"><span class="header-section-number">7.1.2</span> ✅ Cara Menggunakan dengan Font Amiri Quran</h3>
+<section id="download-instal-font" class="level4" data-number="7.1.2.1">
+<h4 data-number="7.1.2.1" class="anchored" data-anchor-id="download-instal-font"><span class="header-section-number">7.1.2.1</span> 1. <strong>Download &amp; Instal Font</strong></h4>
 <p>🔗 <a href="https://github.com/alif-type/amiri" class="uri">https://github.com/alif-type/amiri</a><br>
 → Unduh file <strong><code>AmiriQuran.zip</code></strong> (khusus versi berharakat tinggi &amp; mendukung <em>alif waslah</em> dan <em>ayah markers</em>).<br>
 → Ekstrak → Klik dua kali file <code>.ttf</code> → “Install”.</p>
 </section>
-<section id="tempelkan-teks-di-editor-word-google-docs-dll." class="level4" data-number="4.1.2.2">
-<h4 data-number="4.1.2.2" class="anchored" data-anchor-id="tempelkan-teks-di-editor-word-google-docs-dll."><span class="header-section-number">4.1.2.2</span> 2. <strong>Tempelkan Teks di Editor (Word, Google Docs, dll.)</strong></h4>
+<section id="tempelkan-teks-di-editor-word-google-docs-dll." class="level4" data-number="7.1.2.2">
+<h4 data-number="7.1.2.2" class="anchored" data-anchor-id="tempelkan-teks-di-editor-word-google-docs-dll."><span class="header-section-number">7.1.2.2</span> 2. <strong>Tempelkan Teks di Editor (Word, Google Docs, dll.)</strong></h4>
 <ul>
 <li>Gunakan font: <strong>Amiri Quran</strong></li>
 <li>Ukuran font: disarankan <strong>20–24 pt</strong> untuk tampilan mushaf-like</li>
@@ -350,14 +400,14 @@ I=\left[\begin{array}{llll}
 <hr>
 </section>
 </section>
-<section id="bonus-versi-dengan-nomor-ayat-١١٠-tanda-akhir-ayat" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="bonus-versi-dengan-nomor-ayat-١١٠-tanda-akhir-ayat"><span class="header-section-number">4.1.3</span> 📎 Bonus: Versi dengan Nomor Ayat (١١٠) &amp; Tanda Akhir Ayat</h3>
+<section id="bonus-versi-dengan-nomor-ayat-١١٠-tanda-akhir-ayat" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="bonus-versi-dengan-nomor-ayat-١١٠-tanda-akhir-ayat"><span class="header-section-number">7.1.3</span> 📎 Bonus: Versi dengan Nomor Ayat (١١٠) &amp; Tanda Akhir Ayat</h3>
 <pre class="text"><code>كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ تَأْمُرُونَ بِٱلْمَعْرُوفِ وَتَنْهَوْنَ عَنِ ٱلْمُنكَرِ وَتُؤْمِنُونَ بِٱللَّهِۚ ﴿١١٠﴾</code></pre>
 <p>→ <code>﴿١١٠﴾</code> adalah nomor ayat dalam bentuk <em>ayah marker</em> Arab (Unicode: <code>U+FD3C</code>, <code>U+0661</code>, <code>U+0661</code>, <code>U+0660</code>, <code>U+FD3D</code>).</p>
 <hr>
 </section>
-<section id="dokumen-siap-pakai" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="dokumen-siap-pakai"><span class="header-section-number">4.1.4</span> 📄 Dokumen Siap Pakai</h3>
+<section id="dokumen-siap-pakai" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="dokumen-siap-pakai"><span class="header-section-number">7.1.4</span> 📄 Dokumen Siap Pakai</h3>
 <p>Jika Anda memerlukan: - ✅ File <strong>.docx</strong> (Microsoft Word) dengan font Amiri Quran sudah di-<em>embed</em> - ✅ File <strong>PDF</strong> hasil render font Amiri Quran (tanpa perlu instal font) - ✅ Versi LaTeX (untuk publikasi akademik/dakwah)</p>
 <p>Silakan beri tahu — saya bisa buatkan dan berikan dalam format teks yang siap unduh atau tempel.</p>
 <p>Semoga Allah memudahkan Anda dalam menyampaikan ilmu dengan <em>ushlul Qur’an</em> yang benar dan indah. 🌿📖</p>
@@ -365,8 +415,8 @@ I=\left[\begin{array}{llll}
 <p>Berikut penjelasan beserta hadis-hadis yang relevan:</p>
 <hr>
 </section>
-<section id="menyampaikan-ilmu-adalah-kewajiban-setiap-muslim-yang-memilikinya" class="level3" data-number="4.1.5">
-<h3 data-number="4.1.5" class="anchored" data-anchor-id="menyampaikan-ilmu-adalah-kewajiban-setiap-muslim-yang-memilikinya"><span class="header-section-number">4.1.5</span> 1. <strong>Menyampaikan Ilmu adalah Kewajiban Setiap Muslim yang Memilikinya</strong></h3>
+<section id="menyampaikan-ilmu-adalah-kewajiban-setiap-muslim-yang-memilikinya" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="menyampaikan-ilmu-adalah-kewajiban-setiap-muslim-yang-memilikinya"><span class="header-section-number">7.1.5</span> 1. <strong>Menyampaikan Ilmu adalah Kewajiban Setiap Muslim yang Memilikinya</strong></h3>
 <p>Rasulullah ﷺ bersabda:</p>
 <blockquote class="blockquote">
 <p><strong>مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ، وَإِنَّ الْمَلَائِكَةَ لَتَضَعُ أَجْنِحَتَهَا رِضًا لِطَالِبِ الْعِلْمِ، وَإِنَّ طَالِبَ الْعِلْمِ لَيَسْتَغْفِرُ لَهُ مَنْ فِي السَّمَوَاتِ وَمَنْ فِي الْأَرْضِ، حَتَّى الْحِيتَانُ فِي الْمَاءِ، وَفَضْلُ الْعَالِمِ عَلَى الْعَابِدِ كَفَضْلِ الْقَمَرِ لَيْلَةَ الْبَدْرِ عَلَى سَائِرِ الْكَوَاكِبِ، إِنَّ الْعُلَمَاءَ وَرَثَةُ الْأَنْبِيَاءِ، إِنَّ الْأَنْبِيَاءَ لَمْ يُوَرِّثُوا دِينَارًا وَلَا دِرْهَمًا، إِنَّمَا وَرَّثُوا الْعِلْمَ، فَمَنْ أَخَذَ بِهِ أَخَذَ بِحَظٍّ وَافِرٍ</strong></p>
@@ -377,8 +427,8 @@ I=\left[\begin{array}{llll}
 Hadis ini menunjukkan betapa mulianya posisi ilmu dan orang yang menuntut serta menyampaikannya. Berbagi ilmu adalah kelanjutan dari misi kenabian, karena para nabi mewariskan <em>ilmu</em>, bukan harta.</p>
 <hr>
 </section>
-<section id="ilmu-yang-tidak-diamalkan-atau-disampaikan-akan-menjadi-hujjah-yang-merugikan" class="level3" data-number="4.1.6">
-<h3 data-number="4.1.6" class="anchored" data-anchor-id="ilmu-yang-tidak-diamalkan-atau-disampaikan-akan-menjadi-hujjah-yang-merugikan"><span class="header-section-number">4.1.6</span> 2. <strong>Ilmu yang Tidak Diamalkan atau Disampaikan Akan Menjadi Hujjah yang Merugikan</strong></h3>
+<section id="ilmu-yang-tidak-diamalkan-atau-disampaikan-akan-menjadi-hujjah-yang-merugikan" class="level3" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="ilmu-yang-tidak-diamalkan-atau-disampaikan-akan-menjadi-hujjah-yang-merugikan"><span class="header-section-number">7.1.6</span> 2. <strong>Ilmu yang Tidak Diamalkan atau Disampaikan Akan Menjadi Hujjah yang Merugikan</strong></h3>
 <p>Rasulullah ﷺ juga memperingatkan:</p>
 <blockquote class="blockquote">
 <p><strong>مَنْ سُئِلَ عَنْ عِلْمٍ فَكَتَمَهُ أُلْجِمَ يَوْمَ الْقِيَامَةِ بِلِجَامٍ مِنْ نَارٍ</strong></p>
@@ -389,8 +439,8 @@ Hadis ini menunjukkan betapa mulianya posisi ilmu dan orang yang menuntut serta 
 Menyembunyikan ilmu yang dibutuhkan orang lain—terutama ilmu agama atau yang bermanfaat bagi masyarakat—adalah dosa besar. Ini menunjukkan bahwa berbagi ilmu adalah bentuk amanah.</p>
 <hr>
 </section>
-<section id="pahala-terus-mengalir-bagi-yang-mengajarkan-ilmu" class="level3" data-number="4.1.7">
-<h3 data-number="4.1.7" class="anchored" data-anchor-id="pahala-terus-mengalir-bagi-yang-mengajarkan-ilmu"><span class="header-section-number">4.1.7</span> 3. <strong>Pahala Terus Mengalir bagi yang Mengajarkan Ilmu</strong></h3>
+<section id="pahala-terus-mengalir-bagi-yang-mengajarkan-ilmu" class="level3" data-number="7.1.7">
+<h3 data-number="7.1.7" class="anchored" data-anchor-id="pahala-terus-mengalir-bagi-yang-mengajarkan-ilmu"><span class="header-section-number">7.1.7</span> 3. <strong>Pahala Terus Mengalir bagi yang Mengajarkan Ilmu</strong></h3>
 <p>Rasulullah ﷺ bersabda:</p>
 <blockquote class="blockquote">
 <p><strong>إِذَا مَاتَ الْإِنْسَانُ انْقَطَعَ عَمَلُهُ إِلَّا مِنْ ثَلَاثٍ: إِلَّا مِنْ صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ</strong></p>
@@ -401,8 +451,8 @@ Menyembunyikan ilmu yang dibutuhkan orang lain—terutama ilmu agama atau yang b
 Ilmu yang diajarkan dan terus dimanfaatkan orang lain (misalnya melalui buku, pengajaran, pelatihan, atau digitalisasi ilmu) akan terus mengalirkan pahala—meski sang pengajar telah wafat.</p>
 <hr>
 </section>
-<section id="relevansi-dengan-minat-anda" class="level3" data-number="4.1.8">
-<h3 data-number="4.1.8" class="anchored" data-anchor-id="relevansi-dengan-minat-anda"><span class="header-section-number">4.1.8</span> Relevansi dengan Minat Anda</h3>
+<section id="relevansi-dengan-minat-anda" class="level3" data-number="7.1.8">
+<h3 data-number="7.1.8" class="anchored" data-anchor-id="relevansi-dengan-minat-anda"><span class="header-section-number">7.1.8</span> Relevansi dengan Minat Anda</h3>
 <p>Dari memori, Anda aktif dalam <strong>pengembangan kapasitas akademik</strong>, <strong>penyusunan materi ilmu data</strong>, serta menekankan pentingnya <strong>analisis data yang terstruktur dan transparan untuk riset dan pengabdian masyarakat</strong>. Ini selaras dengan semangat hadis di atas: menyebarkan ilmu—termasuk ilmu modern seperti <em>data science</em>—dalam kerangka manfaat sosial adalah bentuk <em>sedekah jariyah</em> dan <em>warisan para nabi</em> dalam konteks kekinian.</p>
 <p>Jika Anda ingin, saya bisa bantu menyusun materi pelatihan atau modul ilmu data dengan menyertakan nilai-nilai Islam tentang berbagi ilmu, agar lebih integratif dan bermakna.</p>
 <p>Semoga bermanfaat. 🌟</p>
@@ -411,15 +461,15 @@ Ilmu yang diajarkan dan terus dimanfaatkan orang lain (misalnya melalui buku, pe
 <p>Mari kita kupas konsep ini secara jelas, praktis, dan siap untuk dijadikan materi pembelajaran:</p>
 <hr>
 </section>
-<section id="business-understanding-apa-itu" class="level3" data-number="4.1.9">
-<h3 data-number="4.1.9" class="anchored" data-anchor-id="business-understanding-apa-itu"><span class="header-section-number">4.1.9</span> <strong>Business Understanding: Apa Itu?</strong></h3>
+<section id="business-understanding-apa-itu" class="level3" data-number="7.1.9">
+<h3 data-number="7.1.9" class="anchored" data-anchor-id="business-understanding-apa-itu"><span class="header-section-number">7.1.9</span> <strong>Business Understanding: Apa Itu?</strong></h3>
 <blockquote class="blockquote">
 <p><strong>Business Understanding adalah proses memahami tujuan, kebutuhan, dan konteks bisnis (atau organisasi/non-profit/pemerintahan) yang mendasari suatu proyek data — sebelum satu baris kode pun ditulis.</strong></p>
 </blockquote>
 <p>Ini <em>bukan</em> tentang teknologi atau algoritma. Ini tentang <strong>bertanya, mendengar, dan menerjemahkan</strong> masalah dunia nyata ke dalam pertanyaan yang bisa dijawab dengan data.</p>
 </section>
-<section id="mengapa-business-understanding-penting" class="level3" data-number="4.1.10">
-<h3 data-number="4.1.10" class="anchored" data-anchor-id="mengapa-business-understanding-penting"><span class="header-section-number">4.1.10</span> <strong>Mengapa Business Understanding Penting?</strong></h3>
+<section id="mengapa-business-understanding-penting" class="level3" data-number="7.1.10">
+<h3 data-number="7.1.10" class="anchored" data-anchor-id="mengapa-business-understanding-penting"><span class="header-section-number">7.1.10</span> <strong>Mengapa Business Understanding Penting?</strong></h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 48%">
@@ -451,8 +501,8 @@ Ilmu yang diajarkan dan terus dimanfaatkan orang lain (misalnya melalui buku, pe
 </blockquote>
 <hr>
 </section>
-<section id="aktivitas-utama-dalam-business-understanding" class="level3" data-number="4.1.11">
-<h3 data-number="4.1.11" class="anchored" data-anchor-id="aktivitas-utama-dalam-business-understanding"><span class="header-section-number">4.1.11</span> <strong>Aktivitas Utama dalam Business Understanding</strong></h3>
+<section id="aktivitas-utama-dalam-business-understanding" class="level3" data-number="7.1.11">
+<h3 data-number="7.1.11" class="anchored" data-anchor-id="aktivitas-utama-dalam-business-understanding"><span class="header-section-number">7.1.11</span> <strong>Aktivitas Utama dalam Business Understanding</strong></h3>
 <ol type="1">
 <li><p><strong>Menentukan Tujuan Bisnis</strong></p>
 <ul>
@@ -481,8 +531,8 @@ Contoh transformasi:<br>
 </ol>
 <hr>
 </section>
-<section id="contoh-nyata-relevan-untuk-pengabdian-masyarakat-riset" class="level3" data-number="4.1.12">
-<h3 data-number="4.1.12" class="anchored" data-anchor-id="contoh-nyata-relevan-untuk-pengabdian-masyarakat-riset"><span class="header-section-number">4.1.12</span> 🌍 <strong>Contoh Nyata (Relevan untuk Pengabdian Masyarakat &amp; Riset)</strong></h3>
+<section id="contoh-nyata-relevan-untuk-pengabdian-masyarakat-riset" class="level3" data-number="7.1.12">
+<h3 data-number="7.1.12" class="anchored" data-anchor-id="contoh-nyata-relevan-untuk-pengabdian-masyarakat-riset"><span class="header-section-number">7.1.12</span> 🌍 <strong>Contoh Nyata (Relevan untuk Pengabdian Masyarakat &amp; Riset)</strong></h3>
 <p><strong>Kasus</strong>: UMKM lokal kesulitan mempertahankan pelanggan pasca-pandemi.<br>
 - <strong>Tujuan bisnis</strong>: Tingkatkan loyalitas pelanggan melalui program loyalitas yang tepat sasaran.<br>
 - <strong>Pertanyaan analitis</strong>:<br>
@@ -491,8 +541,8 @@ Contoh transformasi:<br>
 - <strong>Output yang diharapkan</strong>: Rekomendasi segmentasi + desain program loyalitas → bisa diukur dampaknya.</p>
 <hr>
 </section>
-<section id="tips-untuk-penyusunan-materi-audience-pemula-non-teknis" class="level3" data-number="4.1.13">
-<h3 data-number="4.1.13" class="anchored" data-anchor-id="tips-untuk-penyusunan-materi-audience-pemula-non-teknis"><span class="header-section-number">4.1.13</span> 📝 Tips untuk Penyusunan Materi (Audience: Pemula / Non-Teknis)</h3>
+<section id="tips-untuk-penyusunan-materi-audience-pemula-non-teknis" class="level3" data-number="7.1.13">
+<h3 data-number="7.1.13" class="anchored" data-anchor-id="tips-untuk-penyusunan-materi-audience-pemula-non-teknis"><span class="header-section-number">7.1.13</span> 📝 Tips untuk Penyusunan Materi (Audience: Pemula / Non-Teknis)</h3>
 <ul>
 <li><p>Gunakan analogi:<br>
 &gt; <em>“Business Understanding itu seperti dokter mendiagnosis pasien — tidak langsung resep obat, tapi tanya gejala, riwayat, gaya hidup dulu.”</em></p></li>
@@ -525,8 +575,8 @@ Contoh transformasi:<br>
 <p>While knowing whether a resume listed honors provides some signal when predicting whether the employer would call, we would like to account for many different variables at once to understand how each of the different resume characteristics affected the chance of a callback.</p>
 </section>
 </section>
-<section id="logistic-model-with-many-variables" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="logistic-model-with-many-variables"><span class="header-section-number">4.2</span> Logistic model with many variables</h2>
+<section id="logistic-model-with-many-variables" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="logistic-model-with-many-variables"><span class="header-section-number">7.2</span> Logistic model with many variables</h2>
 <p>We used statistical software to fit the logistic regression model with all 8 predictors described in @tbl-resume-variables. Like multiple regression, the result may be presented in a summary table, which is shown in @tbl-resume-full-fit.</p>
 <p>Now we can add in the corresponding values of each variable for this individual:</p>
 <p><span class="math display">\[
@@ -544,8 +594,8 @@ Contoh transformasi:<br>
 <p>In practical terms, an individual perceived as White based on their first name would need to apply to <span class="math inline">\(\frac{1}{0.0835} \approx 12\)</span> jobs on average to receive a callback, while an individual perceived as Black based on their first name would need to apply to <span class="math inline">\(\frac{1}{0.0553} \approx 18\)</span> jobs on average to receive a callback. That is, applicants who are perceived as Black need to apply to 50% more employers to receive a callback than someone who is perceived as White based on their first name for jobs like those in the study. :::</p>
 <p>What we have quantified in this section is alarming and disturbing. However, one aspect that makes this racism so difficult to address is that the experiment, as well-designed as it is, cannot send us much signal about which employers are discriminating. It is only possible to say that discrimination is happening, even if we cannot say which particular callbacks — or non-callbacks — represent discrimination. Finding strong evidence of racism for individual cases is a persistent challenge in enforcing anti-discrimination laws.</p>
 </section>
-<section id="groups-of-different-sizes" class="level2 page-columns page-full" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="groups-of-different-sizes"><span class="header-section-number">4.3</span> Groups of different sizes</h2>
+<section id="groups-of-different-sizes" class="level2 page-columns page-full" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="groups-of-different-sizes"><span class="header-section-number">7.3</span> Groups of different sizes</h2>
 <p>Any form of discrimination is concerning, and this is why we decided it was so important to discuss this topic using data. The resume study also only examined discrimination in a single aspect: whether a prospective employer would call a candidate who submitted their resume. There was a 50% higher barrier for resumes simply when the candidate had a first name that was perceived to be from a Black individual. It’s unlikely that discrimination would stop there.</p>
 <!-- ::: {.workedexample data-latex=""} -->
 <p>Let’s consider a sex-imbalanced company that consists of 20% women and 80% men, and we’ll suppose that the company is very large, consisting of perhaps 20,000 employees. (A more thoughtful example would include more inclusive gender identities.) Suppose when someone goes up for promotion at this company, 5 of their colleagues are randomly chosen to provide feedback on their work.</p>
@@ -557,12 +607,12 @@ Contoh transformasi:<br>
 <p>This example highlights something profound: even in a hypothetical setting where each demographic has the same degree of prejudice against the other demographic, the smaller group experiences the negative effects more frequently. Additionally, if we would complete a handful of examples like the one above with different numbers, we would learn that the greater the imbalance in the population groups, the more the smaller group is disproportionately impacted.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;If a proportion <span class="math inline">\(p\)</span> of a company are women and the rest of the company consists of men, then under the hypothetical situation the ratio of rates of discrimination against women versus men would be given by <span class="math inline">\((1 - p) / p\)</span>; this ratio is always greater than 1 when <span class="math inline">\(p &lt; 0.5\)</span>.</p></div></div><p>Of course, there are other considerable real-world omissions from the hypothetical example. For example, studies have found instances where people from an oppressed group also discriminate against others within their own oppressed group. As another example, there are also instances where a majority group can be oppressed, with apartheid in South Africa being one such historic example. Ultimately, discrimination is complex, and there are many factors at play beyond the mathematics property we observed in the previous example.</p>
 <p>We close this chapter on this serious topic, and we hope it inspires you to think about the power of reasoning with data. Whether it is with a formal statistical model or by using critical thinking skills to structure a problem, we hope the ideas you have learned will help you do more and do better in life.</p>
-<section id="summary" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">4.3.1</span> Summary</h3>
+<section id="summary" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">7.3.1</span> Summary</h3>
 <p>Logistic and linear regression models have many similarities. The strongest of which is the linear combination of the explanatory variables which is used to form predictions related to the response variable. However, with logistic regression, the response variable is binary and therefore a prediction is given on the probability of a successful event. Logistic model fit and variable selection can be carried out in similar ways as multiple linear regression.</p>
 </section>
-<section id="terms" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="terms"><span class="header-section-number">4.3.2</span> Terms</h3>
+<section id="terms" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="terms"><span class="header-section-number">7.3.2</span> Terms</h3>
 <p>We introduced the following terms in the chapter. If you’re not sure what some of these terms mean, we recommend you go back in the text and review their definitions. We are purposefully presenting them in alphabetical order, instead of in order of appearance, so they will be a little more challenging to locate. However, you should be able to easily spot them as <strong>bolded text</strong>.</p>
 
 
@@ -973,7 +1023,7 @@ Contoh transformasi:<br>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./grafik/hello.html" class="pagination-link" aria-label="Quarto Basics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quarto Basics</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Quarto Basics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
