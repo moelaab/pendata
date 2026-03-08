@@ -110,7 +110,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     document.body.classList.add('hypothesis-enabled');
   });
 </script>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>
+sagecell.makeSagecell({
+  inputLocation: '#mycell',
+  template: sagecell.templates.minimal,
+  evalButtonText: 'Activate'
+});
+sagecell.makeSagecell({
+  inputLocation: 'div.compute',
+  evalButtonText: 'Jalankan Program'
+});
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -145,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <a href="./">Penambangan Data</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://www.instagram.com" title="Instagram" class="quarto-navigation-tool px-1" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-    <a href="https://x.com" title="Follow on X" class="quarto-navigation-tool px-1" aria-label="Follow on X"><i class="bi bi-twitter-x"></i></a>
+    <a href="https://x.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
     <a href="https://github.com/moelaab/pendata/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -247,6 +290,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Sosmed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Menggunakan Media Sosial</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -259,13 +308,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#adding-a-logo-to-the-top-navigation-bar-navbar" id="toc-adding-a-logo-to-the-top-navigation-bar-navbar" class="nav-link active" data-scroll-target="#adding-a-logo-to-the-top-navigation-bar-navbar"><strong>1. Adding a Logo to the Top Navigation Bar (Navbar)</strong></a></li>
+  <li><a href="#penjelasan-matriks" id="toc-penjelasan-matriks" class="nav-link active" data-scroll-target="#penjelasan-matriks">📐 Penjelasan Matriks</a>
+  <ul class="collapse">
+  <li><a href="#definisi-matriks" id="toc-definisi-matriks" class="nav-link" data-scroll-target="#definisi-matriks">1. Definisi Matriks</a></li>
+  <li><a href="#jenis-jenis-matriks-penting" id="toc-jenis-jenis-matriks-penting" class="nav-link" data-scroll-target="#jenis-jenis-matriks-penting">2. Jenis-Jenis Matriks Penting</a></li>
+  <li><a href="#operasi-dasar-matriks" id="toc-operasi-dasar-matriks" class="nav-link" data-scroll-target="#operasi-dasar-matriks">3. Operasi Dasar Matriks</a>
+  <ul class="collapse">
+  <li><a href="#penjumlahan-dan-pengurangan" id="toc-penjumlahan-dan-pengurangan" class="nav-link" data-scroll-target="#penjumlahan-dan-pengurangan">➕ Penjumlahan dan Pengurangan</a></li>
+  <li><a href="#perkalian-skalar" id="toc-perkalian-skalar" class="nav-link" data-scroll-target="#perkalian-skalar">✖️ Perkalian Skalar</a></li>
+  <li><a href="#perkalian-matriks" id="toc-perkalian-matriks" class="nav-link" data-scroll-target="#perkalian-matriks">🔗 Perkalian Matriks</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#baru-ini-mencoba" id="toc-baru-ini-mencoba" class="nav-link" data-scroll-target="#baru-ini-mencoba">Baru ini mencoba</a></li>
+  <li><a href="#penjelasan-matriks-1" id="toc-penjelasan-matriks-1" class="nav-link" data-scroll-target="#penjelasan-matriks-1">📐 Penjelasan Matriks</a>
+  <ul class="collapse">
+  <li><a href="#definisi-matriks-1" id="toc-definisi-matriks-1" class="nav-link" data-scroll-target="#definisi-matriks-1">1. Definisi Matriks</a></li>
+  <li><a href="#jenis-jenis-matriks-penting-1" id="toc-jenis-jenis-matriks-penting-1" class="nav-link" data-scroll-target="#jenis-jenis-matriks-penting-1">2. Jenis-Jenis Matriks Penting</a></li>
+  <li><a href="#operasi-dasar-matriks-1" id="toc-operasi-dasar-matriks-1" class="nav-link" data-scroll-target="#operasi-dasar-matriks-1">3. Operasi Dasar Matriks</a>
+  <ul class="collapse">
+  <li><a href="#penjumlahan-dan-pengurangan-1" id="toc-penjumlahan-dan-pengurangan-1" class="nav-link" data-scroll-target="#penjumlahan-dan-pengurangan-1">➕ Penjumlahan dan Pengurangan</a></li>
+  <li><a href="#perkalian-skalar-1" id="toc-perkalian-skalar-1" class="nav-link" data-scroll-target="#perkalian-skalar-1">✖️ Perkalian Skalar</a></li>
+  <li><a href="#perkalian-matriks-1" id="toc-perkalian-matriks-1" class="nav-link" data-scroll-target="#perkalian-matriks-1">🔗 Perkalian Matriks</a></li>
+  <li><a href="#transpose" id="toc-transpose" class="nav-link" data-scroll-target="#transpose">🔄 Transpose</a></li>
+  <li><a href="#determinan-dan-invers-untuk-matriks-persegi" id="toc-determinan-dan-invers-untuk-matriks-persegi" class="nav-link" data-scroll-target="#determinan-dan-invers-untuk-matriks-persegi">🧮 Determinan dan Invers (untuk matriks persegi)</a></li>
+  </ul></li>
+  <li><a href="#implementasi-di-sagemath" id="toc-implementasi-di-sagemath" class="nav-link" data-scroll-target="#implementasi-di-sagemath">4. Implementasi di SageMath</a></li>
+  <li><a href="#aplikasi-matriks-dalam-data-science-kesehatan" id="toc-aplikasi-matriks-dalam-data-science-kesehatan" class="nav-link" data-scroll-target="#aplikasi-matriks-dalam-data-science-kesehatan">5. Aplikasi Matriks dalam Data Science &amp; Kesehatan</a>
+  <ul class="collapse">
+  <li><a href="#representasi-dataset" id="toc-representasi-dataset" class="nav-link" data-scroll-target="#representasi-dataset">📊 Representasi Dataset</a></li>
+  <li><a href="#analisis-spasial-epidemiologi" id="toc-analisis-spasial-epidemiologi" class="nav-link" data-scroll-target="#analisis-spasial-epidemiologi">🔍 Analisis Spasial &amp; Epidemiologi</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">🤖 Machine Learning</a></li>
+  </ul></li>
+  <li><a href="#tips-praktis-untuk-sagecell-di-quarto" id="toc-tips-praktis-untuk-sagecell-di-quarto" class="nav-link" data-scroll-target="#tips-praktis-untuk-sagecell-di-quarto">6. Tips Praktis untuk SageCell di Quarto</a></li>
+  <li><a href="#ringkasan" id="toc-ringkasan" class="nav-link" data-scroll-target="#ringkasan">🎯 Ringkasan</a></li>
+  <li><a href="#adding-a-logo-to-the-top-navigation-bar-navbar" id="toc-adding-a-logo-to-the-top-navigation-bar-navbar" class="nav-link" data-scroll-target="#adding-a-logo-to-the-top-navigation-bar-navbar"><strong>1. Adding a Logo to the Top Navigation Bar (Navbar)</strong></a></li>
   <li><a href="#adding-a-logo-to-the-sidebar" id="toc-adding-a-logo-to-the-sidebar" class="nav-link" data-scroll-target="#adding-a-logo-to-the-sidebar"><strong>2. Adding a Logo to the Sidebar</strong></a></li>
   <li><a href="#using-brand.yml-for-multiformat-logos-9" id="toc-using-brand.yml-for-multiformat-logos-9" class="nav-link" data-scroll-target="#using-brand.yml-for-multiformat-logos-9"><strong>3. Using Brand.yml for Multiformat Logos [9]</strong></a></li>
   <li><a href="#adding-a-favicon-browser-tab-logo" id="toc-adding-a-favicon-browser-tab-logo" class="nav-link" data-scroll-target="#adding-a-favicon-browser-tab-logo"><strong>4. Adding a Favicon (Browser Tab Logo)</strong></a></li>
   <li><a href="#using-sidebar-tools-recommended" id="toc-using-sidebar-tools-recommended" class="nav-link" data-scroll-target="#using-sidebar-tools-recommended"><strong>1. Using Sidebar Tools (Recommended)</strong></a></li>
   <li><a href="#using-sidebar-footer" id="toc-using-sidebar-footer" class="nav-link" data-scroll-target="#using-sidebar-footer"><strong>2. Using Sidebar Footer</strong></a></li>
   <li><a href="#adding-to-sidebar-contents" id="toc-adding-to-sidebar-contents" class="nav-link" data-scroll-target="#adding-to-sidebar-contents"><strong>3. Adding to Sidebar Contents</strong></a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/moelaab/pendata/edit/main/Sosmed.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/moelaab/pendata/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -292,6 +376,383 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>To insert a logo into your Quarto website’s navigation menu, you need to modify the <code>_quarto.yml</code> configuration file. The logo typically appears to the left of the website title in the top navigation bar (navbar) or at the top of a sidebar. [1, 2]</p>
+<section id="penjelasan-matriks" class="level1">
+<h1>📐 Penjelasan Matriks</h1>
+<section id="definisi-matriks" class="level2">
+<h2 class="anchored" data-anchor-id="definisi-matriks">1. Definisi Matriks</h2>
+<p><strong>Matriks</strong> adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom membentuk struktur persegi panjang. Matriks digunakan untuk merepresentasikan data terstruktur, sistem persamaan linear, transformasi geometri, dan berbagai aplikasi dalam sains data.</p>
+<p>Secara formal, matriks <span class="math inline">\(A\)</span> berukuran <span class="math inline">\(m \times n\)</span> ditulis sebagai:</p>
+<p><span class="math display">\[
+A = \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+\end{pmatrix}
+\]</span></p>
+<p>Dimana: - <span class="math inline">\(m\)</span> = jumlah baris (<em>rows</em>) - <span class="math inline">\(n\)</span> = jumlah kolom (<em>columns</em>) - <span class="math inline">\(a_{ij}\)</span> = elemen pada baris ke-<span class="math inline">\(i\)</span> dan kolom ke-<span class="math inline">\(j\)</span></p>
+<blockquote class="blockquote">
+<p>📌 <strong>Catatan</strong>: Indeks di SageMath/Python dimulai dari <strong>0</strong>, sedangkan notasi matematika biasanya dimulai dari <strong>1</strong>.</p>
+</blockquote>
+<hr>
+</section>
+<section id="jenis-jenis-matriks-penting" class="level2">
+<h2 class="anchored" data-anchor-id="jenis-jenis-matriks-penting">2. Jenis-Jenis Matriks Penting</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 33%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Jenis Matriks</th>
+<th>Deskripsi</th>
+<th>Contoh</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Matriks Baris</strong></td>
+<td>Hanya memiliki 1 baris (<span class="math inline">\(1 \times n\)</span>)</td>
+<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 &amp; 3 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Matriks Kolom</strong></td>
+<td>Hanya memiliki 1 kolom (<span class="math inline">\(m \times 1\)</span>)</td>
+<td><span class="math inline">\(\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Matriks Persegi</strong></td>
+<td>Jumlah baris = jumlah kolom (<span class="math inline">\(n \times n\)</span>)</td>
+<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Matriks Identitas</strong></td>
+<td>Matriks persegi dengan diagonal utama = 1</td>
+<td><span class="math inline">\(I_3 = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Matriks Nol</strong></td>
+<td>Semua elemen bernilai 0</td>
+<td><span class="math inline">\(0_{2\times3} = \begin{pmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Matriks Diagonal</strong></td>
+<td>Elemen di luar diagonal utama = 0</td>
+<td><span class="math inline">\(\begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 5 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Matriks Simetris</strong></td>
+<td><span class="math inline">\(A = A^T\)</span>, elemen simetris terhadap diagonal</td>
+<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 3 \\ 3 &amp; 2 \end{pmatrix}\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="operasi-dasar-matriks" class="level2">
+<h2 class="anchored" data-anchor-id="operasi-dasar-matriks">3. Operasi Dasar Matriks</h2>
+<section id="penjumlahan-dan-pengurangan" class="level3">
+<h3 class="anchored" data-anchor-id="penjumlahan-dan-pengurangan">➕ Penjumlahan dan Pengurangan</h3>
+<p>Syarat: Ukuran matriks harus sama.</p>
+<p><span class="math display">\[
+\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} + \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix} = \begin{pmatrix} 6 &amp; 8 \\ 10 &amp; 12 \end{pmatrix}
+\]</span></p>
+</section>
+<section id="perkalian-skalar" class="level3">
+<h3 class="anchored" data-anchor-id="perkalian-skalar">✖️ Perkalian Skalar</h3>
+<p><span class="math display">\[
+3 \cdot \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} = \begin{pmatrix} 3 &amp; 6 \\ 9 &amp; 12 \end{pmatrix}
+\]</span></p>
+</section>
+<section id="perkalian-matriks" class="level3">
+<h3 class="anchored" data-anchor-id="perkalian-matriks">🔗 Perkalian Matriks</h3>
+<p>Syarat: Jumlah kolom matriks pertama = jumlah baris matriks kedua.</p>
+<p><span class="math display">\[
+A_{m\times n} \cdot B_{n\times p} = C_{m\times p}
+\]</span></p>
+<p><span class="math display">\[
+\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} \cdot \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix} = \begin{pmatrix} 19 &amp; 22 \\ 43 &amp; 50 \end{pmatrix}
+\]</span></p>
+<blockquote class="blockquote">
+<p>⚠️ Perkalian matriks <strong>tidak komutatif</strong>: <span class="math inline">\(AB \neq BA\)</span> (umumnya)</p>
+</blockquote>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored"></h3>
+
+  
+  <h1>Embedded Sage Cells</h1>
+
+  
+
+<h2 class="anchored" data-anchor-id="section">Your own computations</h2>
+Type your own Sage computation below and click “Evaluate”.
+    <div class="compute"><script type="text/x-sage">plot(sin(x), (x, 0, 2*pi))</script></div>
+    <div class="compute"><script type="text/x-sage">
+@interact
+def f(n=(0,10)):
+    print(2^n)
+</script></div>
+</section>
+</section>
+</section>
+<section id="baru-ini-mencoba" class="level1">
+<h1>Baru ini mencoba</h1>
+<h2 class="anchored" data-anchor-id="baru-ini-mencoba">Factorial</h2>
+  Click the “Activate” button below to calculate factorials.
+    <div id="mycell"><script type="text/x-sage">
+@interact
+def _(a=(1, 10)):
+    print(factorial(a))
+ </script>
+</div>
+</section>
+<section id="penjelasan-matriks-1" class="level1">
+<h1>📐 Penjelasan Matriks</h1>
+<section id="definisi-matriks-1" class="level2">
+<h2 class="anchored" data-anchor-id="definisi-matriks-1">1. Definisi Matriks</h2>
+<p><strong>Matriks</strong> adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom membentuk struktur persegi panjang. Matriks digunakan untuk merepresentasikan data terstruktur, sistem persamaan linear, transformasi geometri, dan berbagai aplikasi dalam sains data.</p>
+<p>Secara formal, matriks <span class="math inline">\(A\)</span> berukuran <span class="math inline">\(m \times n\)</span> ditulis sebagai:</p>
+<p><span class="math display">\[
+A = \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+\end{pmatrix}
+\]</span></p>
+<p>Dimana: - <span class="math inline">\(m\)</span> = jumlah baris (<em>rows</em>) - <span class="math inline">\(n\)</span> = jumlah kolom (<em>columns</em>) - <span class="math inline">\(a_{ij}\)</span> = elemen pada baris ke-<span class="math inline">\(i\)</span> dan kolom ke-<span class="math inline">\(j\)</span></p>
+<blockquote class="blockquote">
+<p>📌 <strong>Catatan</strong>: Indeks di SageMath/Python dimulai dari <strong>0</strong>, sedangkan notasi matematika biasanya dimulai dari <strong>1</strong>.</p>
+</blockquote>
+<hr>
+</section>
+<section id="jenis-jenis-matriks-penting-1" class="level2">
+<h2 class="anchored" data-anchor-id="jenis-jenis-matriks-penting-1">2. Jenis-Jenis Matriks Penting</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 33%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Jenis Matriks</th>
+<th>Deskripsi</th>
+<th>Contoh</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Matriks Baris</strong></td>
+<td>Hanya memiliki 1 baris (<span class="math inline">\(1 \times n\)</span>)</td>
+<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 &amp; 3 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Matriks Kolom</strong></td>
+<td>Hanya memiliki 1 kolom (<span class="math inline">\(m \times 1\)</span>)</td>
+<td><span class="math inline">\(\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Matriks Persegi</strong></td>
+<td>Jumlah baris = jumlah kolom (<span class="math inline">\(n \times n\)</span>)</td>
+<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Matriks Identitas</strong></td>
+<td>Matriks persegi dengan diagonal utama = 1</td>
+<td><span class="math inline">\(I_3 = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Matriks Nol</strong></td>
+<td>Semua elemen bernilai 0</td>
+<td><span class="math inline">\(0_{2\times3} = \begin{pmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Matriks Diagonal</strong></td>
+<td>Elemen di luar diagonal utama = 0</td>
+<td><span class="math inline">\(\begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 5 \end{pmatrix}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Matriks Simetris</strong></td>
+<td><span class="math inline">\(A = A^T\)</span>, elemen simetris terhadap diagonal</td>
+<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 3 \\ 3 &amp; 2 \end{pmatrix}\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="operasi-dasar-matriks-1" class="level2">
+<h2 class="anchored" data-anchor-id="operasi-dasar-matriks-1">3. Operasi Dasar Matriks</h2>
+<section id="penjumlahan-dan-pengurangan-1" class="level3">
+<h3 class="anchored" data-anchor-id="penjumlahan-dan-pengurangan-1">➕ Penjumlahan dan Pengurangan</h3>
+<p>Syarat: Ukuran matriks harus sama.</p>
+<p><span class="math display">\[
+\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} + \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix} = \begin{pmatrix} 6 &amp; 8 \\ 10 &amp; 12 \end{pmatrix}
+\]</span></p>
+</section>
+<section id="perkalian-skalar-1" class="level3">
+<h3 class="anchored" data-anchor-id="perkalian-skalar-1">✖️ Perkalian Skalar</h3>
+<p><span class="math display">\[
+3 \cdot \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} = \begin{pmatrix} 3 &amp; 6 \\ 9 &amp; 12 \end{pmatrix}
+\]</span></p>
+</section>
+<section id="perkalian-matriks-1" class="level3">
+<h3 class="anchored" data-anchor-id="perkalian-matriks-1">🔗 Perkalian Matriks</h3>
+<p>Syarat: Jumlah kolom matriks pertama = jumlah baris matriks kedua.</p>
+<p><span class="math display">\[
+A_{m\times n} \cdot B_{n\times p} = C_{m\times p}
+\]</span></p>
+<p><span class="math display">\[
+\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} \cdot \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix} = \begin{pmatrix} 19 &amp; 22 \\ 43 &amp; 50 \end{pmatrix}
+\]</span></p>
+<blockquote class="blockquote">
+<p>⚠️ Perkalian matriks <strong>tidak komutatif</strong>: <span class="math inline">\(AB \neq BA\)</span> (umumnya)</p>
+</blockquote>
+</section>
+<section id="transpose" class="level3">
+<h3 class="anchored" data-anchor-id="transpose">🔄 Transpose</h3>
+<p>Menukar baris menjadi kolom:</p>
+<p><span class="math display">\[
+A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} \quad \Rightarrow \quad A^T = \begin{pmatrix} 1 &amp; 3 \\ 2 &amp; 4 \end{pmatrix}
+\]</span></p>
+</section>
+<section id="determinan-dan-invers-untuk-matriks-persegi" class="level3">
+<h3 class="anchored" data-anchor-id="determinan-dan-invers-untuk-matriks-persegi">🧮 Determinan dan Invers (untuk matriks persegi)</h3>
+<ul>
+<li><strong>Determinan</strong>: <span class="math inline">\(\det(A)\)</span> atau <span class="math inline">\(|A|\)</span>, mengukur “faktor skala” transformasi linear.</li>
+<li><strong>Invers</strong>: <span class="math inline">\(A^{-1}\)</span>, sehingga <span class="math inline">\(A \cdot A^{-1} = I\)</span> (hanya jika <span class="math inline">\(\det(A) \neq 0\)</span>).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="implementasi-di-sagemath" class="level2">
+<h2 class="anchored" data-anchor-id="implementasi-di-sagemath">4. Implementasi di SageMath</h2>
+<pre class="sage"><code># Membuat matriks 3x4
+A = matrix([[1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12]])
+show("Matriks A:", A)
+
+# Operasi dasar
+B = matrix([[2, 0, 1, 3],
+            [1, 1, 0, 2],
+            [0, 2, 1, 1]])
+
+show("A + B:", A + B)
+show("2 * A:", 2 * A)
+show("Transpose A:", A.transpose())
+
+# Akses elemen dan slice
+print("Elemen [baris-1, kolom-2]:", A[0, 1])  # Output: 2
+show("Submatriks (2 baris pertama, kolom 2-3):", A[0:2, 1:3])
+
+# Matriks persegi untuk operasi lanjut
+C = matrix([[4, 2], [3, 1]])
+show("Determinan C:", C.determinant())
+show("Invers C:", C.inverse())
+show("C * C^-1:", C * C.inverse())  # Harus menghasilkan matriks identitas</code></pre>
+<hr>
+</section>
+<section id="aplikasi-matriks-dalam-data-science-kesehatan" class="level2">
+<h2 class="anchored" data-anchor-id="aplikasi-matriks-dalam-data-science-kesehatan">5. Aplikasi Matriks dalam Data Science &amp; Kesehatan</h2>
+<section id="representasi-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="representasi-dataset">📊 Representasi Dataset</h3>
+<p>Dataset dengan <span class="math inline">\(n\)</span> pasien dan <span class="math inline">\(p\)</span> variabel dapat direpresentasikan sebagai matriks <span class="math inline">\(X_{n \times p}\)</span>:</p>
+<p><span class="math display">\[
+X = \begin{pmatrix}
+x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1p} \\
+x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2p} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{np}
+\end{pmatrix}
+\]</span></p>
+<p>Setiap baris = satu observasi (pasien), setiap kolom = satu fitur (usia, tekanan darah, dll).</p>
+</section>
+<section id="analisis-spasial-epidemiologi" class="level3">
+<h3 class="anchored" data-anchor-id="analisis-spasial-epidemiologi">🔍 Analisis Spasial &amp; Epidemiologi</h3>
+<ul>
+<li><strong>Matriks Bobot Spasial</strong> (<span class="math inline">\(W\)</span>): Merepresentasikan kedekatan geografis antar wilayah untuk analisis <em>Local Moran’s I</em> atau *Getis-Ord Gi**.</li>
+<li><strong>Matriks Kovarians</strong>: Mengukur hubungan linear antar variabel risiko penyakit.</li>
+</ul>
+</section>
+<section id="machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning">🤖 Machine Learning</h3>
+<ul>
+<li><strong>Regresi Linear</strong>: <span class="math inline">\(\hat{y} = X\beta\)</span>, solusi optimal <span class="math inline">\(\beta = (X^TX)^{-1}X^Ty\)</span></li>
+<li><strong>PCA (Principal Component Analysis)</strong>: Dekomposisi matriks kovarians untuk reduksi dimensi.</li>
+<li><strong>Jaringan Saraf</strong>: Bobot antar lapisan direpresentasikan sebagai matriks.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="tips-praktis-untuk-sagecell-di-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="tips-praktis-untuk-sagecell-di-quarto">6. Tips Praktis untuk SageCell di Quarto</h2>
+<p>✅ Gunakan <code>show()</code> untuk output matematis yang diformat LaTeX:</p>
+<pre class="sage"><code>show(r"$A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}$")</code></pre>
+<p>✅ Gunakan <code>r""</code> (raw string) untuk menghindari konflik escape character:</p>
+<pre class="sage"><code>print(r"Nilai $\alpha = 0.05$ digunakan dalam uji hipotesis")</code></pre>
+<p>✅ Pastikan <code>div</code> memiliki class <code>compute</code> agar dieksekusi SageCell:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"compute"</span><span class="dt">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a># Kode SageMath Anda di sini</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="ringkasan" class="level2">
+<h2 class="anchored" data-anchor-id="ringkasan">🎯 Ringkasan</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Konsep</th>
+<th>Notasi</th>
+<th>SageMath</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ukuran matriks</td>
+<td><span class="math inline">\(m \times n\)</span></td>
+<td><code>A.nrows()</code>, <code>A.ncols()</code></td>
+</tr>
+<tr class="even">
+<td>Elemen</td>
+<td><span class="math inline">\(a_{ij}\)</span></td>
+<td><code>A[i-1, j-1]</code></td>
+</tr>
+<tr class="odd">
+<td>Transpose</td>
+<td><span class="math inline">\(A^T\)</span></td>
+<td><code>A.transpose()</code></td>
+</tr>
+<tr class="even">
+<td>Determinan</td>
+<td><span class="math inline">\(\det(A)\)</span></td>
+<td><code>A.determinant()</code></td>
+</tr>
+<tr class="odd">
+<td>Invers</td>
+<td><span class="math inline">\(A^{-1}\)</span></td>
+<td><code>A.inverse()</code></td>
+</tr>
+<tr class="even">
+<td>Identitas</td>
+<td><span class="math inline">\(I_n\)</span></td>
+<td><code>identity_matrix(n)</code></td>
+</tr>
+<tr class="odd">
+<td>Perkalian</td>
+<td><span class="math inline">\(AB\)</span></td>
+<td><code>A * B</code></td>
+</tr>
+</tbody>
+</table>
+<p>Matriks adalah fondasi aljabar linear yang sangat penting dalam pemodelan data, analisis spasial, dan machine learning. Penguasaan konsep ini akan memperkuat kemampuan Anda dalam penelitian kuantitatif, khususnya dalam konteks epidemiologi dan data kesehatan. 🩺📈</p>
+<blockquote class="blockquote">
+<p>💡 <strong>Saran</strong>: Untuk eksplorasi lebih lanjut, coba gabungkan matriks dengan visualisasi menggunakan <code>plot()</code> di SageMath atau ekspor ke pandas untuk analisis lanjutan di Python.</p>
+</blockquote>
+</section>
 <section id="adding-a-logo-to-the-top-navigation-bar-navbar" class="level2">
 <h2 class="anchored" data-anchor-id="adding-a-logo-to-the-top-navigation-bar-navbar"><strong>1. Adding a Logo to the Top Navigation Bar (Navbar)</strong></h2>
 <p>To place a logo in the main top-level navigation, use the <code>logo</code> option under the <code>navbar</code> key in your <code>_quarto.yml</code>: [3, 4, 5]</p>
@@ -308,11 +769,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="adding-a-logo-to-the-sidebar" class="level2">
 <h2 class="anchored" data-anchor-id="adding-a-logo-to-the-sidebar"><strong>2. Adding a Logo to the Sidebar</strong></h2>
 <p>If your site uses a sidebar for navigation, you can also define a logo specifically for that area: [6, 7, 8]</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sidebar</span><span class="kw">:</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">logo</span><span class="kw">:</span><span class="at"> </span><span class="st">"images/sidebar-logo.png"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">logo-alt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Sidebar logo description"</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Sidebar Title"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sidebar</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">logo</span><span class="kw">:</span><span class="at"> </span><span class="st">"images/sidebar-logo.png"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">logo-alt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Sidebar logo description"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Sidebar Title"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="using-brand.yml-for-multiformat-logos-9" class="level2">
 <h2 class="anchored" data-anchor-id="using-brand.yml-for-multiformat-logos-9"><strong>3. Using Brand.yml for Multiformat Logos [9]</strong></h2>
@@ -327,8 +788,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>brand: _brand.yml
 website:
   navbar:
-    logo: medium # Quarto automatically picks the correct light/dark version
-</code></pre>
+    logo: medium # Quarto automatically picks the correct light/dark version</code></pre>
 <p>[12]</p></li>
 </ul>
 </section>
@@ -400,6 +860,7 @@ website:
 <p>[5] <a href="https://quarto.org/docs/reference/projects/websites.html">https://quarto.org</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

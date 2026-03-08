@@ -138,7 +138,107 @@
     "href": "Sosmed.html",
     "title": "Menggunakan Media Sosial",
     "section": "",
-    "text": "1. Adding a Logo to the Top Navigation Bar (Navbar)\nTo insert a logo into your Quarto website’s navigation menu, you need to modify the _quarto.yml configuration file. The logo typically appears to the left of the website title in the top navigation bar (navbar) or at the top of a sidebar. [1, 2]\nTo place a logo in the main top-level navigation, use the logo option under the navbar key in your _quarto.yml: [3, 4, 5]",
+    "text": "📐 Penjelasan Matriks\nTo insert a logo into your Quarto website’s navigation menu, you need to modify the _quarto.yml configuration file. The logo typically appears to the left of the website title in the top navigation bar (navbar) or at the top of a sidebar. [1, 2]",
+    "crumbs": [
+      "Menggunakan Media Sosial"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#definisi-matriks",
+    "href": "Sosmed.html#definisi-matriks",
+    "title": "Menggunakan Media Sosial",
+    "section": "1. Definisi Matriks",
+    "text": "1. Definisi Matriks\nMatriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom membentuk struktur persegi panjang. Matriks digunakan untuk merepresentasikan data terstruktur, sistem persamaan linear, transformasi geometri, dan berbagai aplikasi dalam sains data.\nSecara formal, matriks \\(A\\) berukuran \\(m \\times n\\) ditulis sebagai:\n\\[\nA = \\begin{pmatrix}\na_{11} & a_{12} & \\cdots & a_{1n} \\\\\na_{21} & a_{22} & \\cdots & a_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\na_{m1} & a_{m2} & \\cdots & a_{mn}\n\\end{pmatrix}\n\\]\nDimana: - \\(m\\) = jumlah baris (rows) - \\(n\\) = jumlah kolom (columns) - \\(a_{ij}\\) = elemen pada baris ke-\\(i\\) dan kolom ke-\\(j\\)\n\n📌 Catatan: Indeks di SageMath/Python dimulai dari 0, sedangkan notasi matematika biasanya dimulai dari 1.",
+    "crumbs": [
+      "Menggunakan Media Sosial"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#jenis-jenis-matriks-penting",
+    "href": "Sosmed.html#jenis-jenis-matriks-penting",
+    "title": "Menggunakan Media Sosial",
+    "section": "2. Jenis-Jenis Matriks Penting",
+    "text": "2. Jenis-Jenis Matriks Penting\n\n\n\n\n\n\n\n\nJenis Matriks\nDeskripsi\nContoh\n\n\n\n\nMatriks Baris\nHanya memiliki 1 baris (\\(1 \\times n\\))\n\\(\\begin{pmatrix} 1 & 2 & 3 \\end{pmatrix}\\)\n\n\nMatriks Kolom\nHanya memiliki 1 kolom (\\(m \\times 1\\))\n\\(\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}\\)\n\n\nMatriks Persegi\nJumlah baris = jumlah kolom (\\(n \\times n\\))\n\\(\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}\\)\n\n\nMatriks Identitas\nMatriks persegi dengan diagonal utama = 1\n\\(I_3 = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}\\)\n\n\nMatriks Nol\nSemua elemen bernilai 0\n\\(0_{2\\times3} = \\begin{pmatrix} 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}\\)\n\n\nMatriks Diagonal\nElemen di luar diagonal utama = 0\n\\(\\begin{pmatrix} 2 & 0 \\\\ 0 & 5 \\end{pmatrix}\\)\n\n\nMatriks Simetris\n\\(A = A^T\\), elemen simetris terhadap diagonal\n\\(\\begin{pmatrix} 1 & 3 \\\\ 3 & 2 \\end{pmatrix}\\)",
+    "crumbs": [
+      "Menggunakan Media Sosial"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#operasi-dasar-matriks",
+    "href": "Sosmed.html#operasi-dasar-matriks",
+    "title": "Menggunakan Media Sosial",
+    "section": "3. Operasi Dasar Matriks",
+    "text": "3. Operasi Dasar Matriks\n\n➕ Penjumlahan dan Pengurangan\nSyarat: Ukuran matriks harus sama.\n\\[\n\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} + \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 6 & 8 \\\\ 10 & 12 \\end{pmatrix}\n\\]\n\n\n✖️ Perkalian Skalar\n\\[\n3 \\cdot \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} = \\begin{pmatrix} 3 & 6 \\\\ 9 & 12 \\end{pmatrix}\n\\]\n\n\n🔗 Perkalian Matriks\nSyarat: Jumlah kolom matriks pertama = jumlah baris matriks kedua.\n\\[\nA_{m\\times n} \\cdot B_{n\\times p} = C_{m\\times p}\n\\]\n\\[\n\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\cdot \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 19 & 22 \\\\ 43 & 50 \\end{pmatrix}\n\\]\n\n⚠️ Perkalian matriks tidak komutatif: \\(AB \\neq BA\\) (umumnya)\n\n\n\n\n\n  \n  Embedded Sage Cells\n\n  \n\nYour own computations\nType your own Sage computation below and click “Evaluate”.",
+    "crumbs": [
+      "Menggunakan Media Sosial"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#definisi-matriks-1",
+    "href": "Sosmed.html#definisi-matriks-1",
+    "title": "Menggunakan Media Sosial",
+    "section": "1. Definisi Matriks",
+    "text": "1. Definisi Matriks\nMatriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom membentuk struktur persegi panjang. Matriks digunakan untuk merepresentasikan data terstruktur, sistem persamaan linear, transformasi geometri, dan berbagai aplikasi dalam sains data.\nSecara formal, matriks \\(A\\) berukuran \\(m \\times n\\) ditulis sebagai:\n\\[\nA = \\begin{pmatrix}\na_{11} & a_{12} & \\cdots & a_{1n} \\\\\na_{21} & a_{22} & \\cdots & a_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\na_{m1} & a_{m2} & \\cdots & a_{mn}\n\\end{pmatrix}\n\\]\nDimana: - \\(m\\) = jumlah baris (rows) - \\(n\\) = jumlah kolom (columns) - \\(a_{ij}\\) = elemen pada baris ke-\\(i\\) dan kolom ke-\\(j\\)\n\n📌 Catatan: Indeks di SageMath/Python dimulai dari 0, sedangkan notasi matematika biasanya dimulai dari 1.",
+    "crumbs": [
+      "Menggunakan Media Sosial"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#jenis-jenis-matriks-penting-1",
+    "href": "Sosmed.html#jenis-jenis-matriks-penting-1",
+    "title": "Menggunakan Media Sosial",
+    "section": "2. Jenis-Jenis Matriks Penting",
+    "text": "2. Jenis-Jenis Matriks Penting\n\n\n\n\n\n\n\n\nJenis Matriks\nDeskripsi\nContoh\n\n\n\n\nMatriks Baris\nHanya memiliki 1 baris (\\(1 \\times n\\))\n\\(\\begin{pmatrix} 1 & 2 & 3 \\end{pmatrix}\\)\n\n\nMatriks Kolom\nHanya memiliki 1 kolom (\\(m \\times 1\\))\n\\(\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}\\)\n\n\nMatriks Persegi\nJumlah baris = jumlah kolom (\\(n \\times n\\))\n\\(\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}\\)\n\n\nMatriks Identitas\nMatriks persegi dengan diagonal utama = 1\n\\(I_3 = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}\\)\n\n\nMatriks Nol\nSemua elemen bernilai 0\n\\(0_{2\\times3} = \\begin{pmatrix} 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}\\)\n\n\nMatriks Diagonal\nElemen di luar diagonal utama = 0\n\\(\\begin{pmatrix} 2 & 0 \\\\ 0 & 5 \\end{pmatrix}\\)\n\n\nMatriks Simetris\n\\(A = A^T\\), elemen simetris terhadap diagonal\n\\(\\begin{pmatrix} 1 & 3 \\\\ 3 & 2 \\end{pmatrix}\\)",
+    "crumbs": [
+      "Menggunakan Media Sosial"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#operasi-dasar-matriks-1",
+    "href": "Sosmed.html#operasi-dasar-matriks-1",
+    "title": "Menggunakan Media Sosial",
+    "section": "3. Operasi Dasar Matriks",
+    "text": "3. Operasi Dasar Matriks\n\n➕ Penjumlahan dan Pengurangan\nSyarat: Ukuran matriks harus sama.\n\\[\n\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} + \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 6 & 8 \\\\ 10 & 12 \\end{pmatrix}\n\\]\n\n\n✖️ Perkalian Skalar\n\\[\n3 \\cdot \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} = \\begin{pmatrix} 3 & 6 \\\\ 9 & 12 \\end{pmatrix}\n\\]\n\n\n🔗 Perkalian Matriks\nSyarat: Jumlah kolom matriks pertama = jumlah baris matriks kedua.\n\\[\nA_{m\\times n} \\cdot B_{n\\times p} = C_{m\\times p}\n\\]\n\\[\n\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\cdot \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 19 & 22 \\\\ 43 & 50 \\end{pmatrix}\n\\]\n\n⚠️ Perkalian matriks tidak komutatif: \\(AB \\neq BA\\) (umumnya)\n\n\n\n🔄 Transpose\nMenukar baris menjadi kolom:\n\\[\nA = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\quad \\Rightarrow \\quad A^T = \\begin{pmatrix} 1 & 3 \\\\ 2 & 4 \\end{pmatrix}\n\\]\n\n\n🧮 Determinan dan Invers (untuk matriks persegi)\n\nDeterminan: \\(\\det(A)\\) atau \\(|A|\\), mengukur “faktor skala” transformasi linear.\nInvers: \\(A^{-1}\\), sehingga \\(A \\cdot A^{-1} = I\\) (hanya jika \\(\\det(A) \\neq 0\\)).",
+    "crumbs": [
+      "Menggunakan Media Sosial"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#implementasi-di-sagemath",
+    "href": "Sosmed.html#implementasi-di-sagemath",
+    "title": "Menggunakan Media Sosial",
+    "section": "4. Implementasi di SageMath",
+    "text": "4. Implementasi di SageMath\n# Membuat matriks 3x4\nA = matrix([[1, 2, 3, 4],\n            [5, 6, 7, 8],\n            [9, 10, 11, 12]])\nshow(\"Matriks A:\", A)\n\n# Operasi dasar\nB = matrix([[2, 0, 1, 3],\n            [1, 1, 0, 2],\n            [0, 2, 1, 1]])\n\nshow(\"A + B:\", A + B)\nshow(\"2 * A:\", 2 * A)\nshow(\"Transpose A:\", A.transpose())\n\n# Akses elemen dan slice\nprint(\"Elemen [baris-1, kolom-2]:\", A[0, 1])  # Output: 2\nshow(\"Submatriks (2 baris pertama, kolom 2-3):\", A[0:2, 1:3])\n\n# Matriks persegi untuk operasi lanjut\nC = matrix([[4, 2], [3, 1]])\nshow(\"Determinan C:\", C.determinant())\nshow(\"Invers C:\", C.inverse())\nshow(\"C * C^-1:\", C * C.inverse())  # Harus menghasilkan matriks identitas",
+    "crumbs": [
+      "Menggunakan Media Sosial"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#aplikasi-matriks-dalam-data-science-kesehatan",
+    "href": "Sosmed.html#aplikasi-matriks-dalam-data-science-kesehatan",
+    "title": "Menggunakan Media Sosial",
+    "section": "5. Aplikasi Matriks dalam Data Science & Kesehatan",
+    "text": "5. Aplikasi Matriks dalam Data Science & Kesehatan\n\n📊 Representasi Dataset\nDataset dengan \\(n\\) pasien dan \\(p\\) variabel dapat direpresentasikan sebagai matriks \\(X_{n \\times p}\\):\n\\[\nX = \\begin{pmatrix}\nx_{11} & x_{12} & \\cdots & x_{1p} \\\\\nx_{21} & x_{22} & \\cdots & x_{2p} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\nx_{n1} & x_{n2} & \\cdots & x_{np}\n\\end{pmatrix}\n\\]\nSetiap baris = satu observasi (pasien), setiap kolom = satu fitur (usia, tekanan darah, dll).\n\n\n🔍 Analisis Spasial & Epidemiologi\n\nMatriks Bobot Spasial (\\(W\\)): Merepresentasikan kedekatan geografis antar wilayah untuk analisis Local Moran’s I atau *Getis-Ord Gi**.\nMatriks Kovarians: Mengukur hubungan linear antar variabel risiko penyakit.\n\n\n\n🤖 Machine Learning\n\nRegresi Linear: \\(\\hat{y} = X\\beta\\), solusi optimal \\(\\beta = (X^TX)^{-1}X^Ty\\)\nPCA (Principal Component Analysis): Dekomposisi matriks kovarians untuk reduksi dimensi.\nJaringan Saraf: Bobot antar lapisan direpresentasikan sebagai matriks.",
+    "crumbs": [
+      "Menggunakan Media Sosial"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#tips-praktis-untuk-sagecell-di-quarto",
+    "href": "Sosmed.html#tips-praktis-untuk-sagecell-di-quarto",
+    "title": "Menggunakan Media Sosial",
+    "section": "6. Tips Praktis untuk SageCell di Quarto",
+    "text": "6. Tips Praktis untuk SageCell di Quarto\n✅ Gunakan show() untuk output matematis yang diformat LaTeX:\nshow(r\"$A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$\")\n✅ Gunakan r\"\" (raw string) untuk menghindari konflik escape character:\nprint(r\"Nilai $\\alpha = 0.05$ digunakan dalam uji hipotesis\")\n✅ Pastikan div memiliki class compute agar dieksekusi SageCell:\n&lt;div class=\"compute\"&gt;\n# Kode SageMath Anda di sini\n&lt;/div&gt;",
+    "crumbs": [
+      "Menggunakan Media Sosial"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#ringkasan",
+    "href": "Sosmed.html#ringkasan",
+    "title": "Menggunakan Media Sosial",
+    "section": "🎯 Ringkasan",
+    "text": "🎯 Ringkasan\n\n\n\nKonsep\nNotasi\nSageMath\n\n\n\n\nUkuran matriks\n\\(m \\times n\\)\nA.nrows(), A.ncols()\n\n\nElemen\n\\(a_{ij}\\)\nA[i-1, j-1]\n\n\nTranspose\n\\(A^T\\)\nA.transpose()\n\n\nDeterminan\n\\(\\det(A)\\)\nA.determinant()\n\n\nInvers\n\\(A^{-1}\\)\nA.inverse()\n\n\nIdentitas\n\\(I_n\\)\nidentity_matrix(n)\n\n\nPerkalian\n\\(AB\\)\nA * B\n\n\n\nMatriks adalah fondasi aljabar linear yang sangat penting dalam pemodelan data, analisis spasial, dan machine learning. Penguasaan konsep ini akan memperkuat kemampuan Anda dalam penelitian kuantitatif, khususnya dalam konteks epidemiologi dan data kesehatan. 🩺📈\n\n💡 Saran: Untuk eksplorasi lebih lanjut, coba gabungkan matriks dengan visualisasi menggunakan plot() di SageMath atau ekspor ke pandas untuk analisis lanjutan di Python.",
     "crumbs": [
       "Menggunakan Media Sosial"
     ]
@@ -147,8 +247,8 @@
     "objectID": "Sosmed.html#adding-a-logo-to-the-top-navigation-bar-navbar",
     "href": "Sosmed.html#adding-a-logo-to-the-top-navigation-bar-navbar",
     "title": "Menggunakan Media Sosial",
-    "section": "",
-    "text": "website:\n  navbar:\n    logo: \"images/logo.png\"\n    logo-alt: \"Description of the logo for accessibility\"\n    logo-href: \"index.qmd\" # Target link when clicking the logo (defaults to home)\n    title: \"My Website\"\n    left:\n      - text: \"Home\"\n        href: index.qmd",
+    "section": "1. Adding a Logo to the Top Navigation Bar (Navbar)",
+    "text": "1. Adding a Logo to the Top Navigation Bar (Navbar)\nTo place a logo in the main top-level navigation, use the logo option under the navbar key in your _quarto.yml: [3, 4, 5]\nwebsite:\n  navbar:\n    logo: \"images/logo.png\"\n    logo-alt: \"Description of the logo for accessibility\"\n    logo-href: \"index.qmd\" # Target link when clicking the logo (defaults to home)\n    title: \"My Website\"\n    left:\n      - text: \"Home\"\n        href: index.qmd",
     "crumbs": [
       "Menggunakan Media Sosial"
     ]
@@ -168,7 +268,7 @@
     "href": "Sosmed.html#using-brand.yml-for-multiformat-logos-9",
     "title": "Menggunakan Media Sosial",
     "section": "3. Using Brand.yml for Multiformat Logos [9]",
-    "text": "3. Using Brand.yml for Multiformat Logos [9]\nFor more advanced setups, such as different logos for light and dark modes or different sizes, you can use a _brand.yml file: [10, 11]\n\nDefine in _brand.yml:\nlogo:\n  medium:\n    light: \"images/logo-light.png\"\n    dark: \"images/logo-dark.png\"\nReference in _quarto.yml:\nbrand: _brand.yml\nwebsite:\n  navbar:\n    logo: medium # Quarto automatically picks the correct light/dark version\n\n[12]",
+    "text": "3. Using Brand.yml for Multiformat Logos [9]\nFor more advanced setups, such as different logos for light and dark modes or different sizes, you can use a _brand.yml file: [10, 11]\n\nDefine in _brand.yml:\nlogo:\n  medium:\n    light: \"images/logo-light.png\"\n    dark: \"images/logo-dark.png\"\nReference in _quarto.yml:\nbrand: _brand.yml\nwebsite:\n  navbar:\n    logo: medium # Quarto automatically picks the correct light/dark version\n[12]",
     "crumbs": [
       "Menggunakan Media Sosial"
     ]
