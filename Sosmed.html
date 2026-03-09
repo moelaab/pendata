@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./Proses.html" rel="next">
-<link href="./Pengantare.html" rel="prev">
+<link href="./grafik/snacode.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -125,35 +125,6 @@ sagecell.makeSagecell({
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -232,6 +203,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proses Data Mining</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./grafik/snacode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Analisa Jejaring Sosial</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -246,7 +223,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Proses.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span></a>
   </div>
 </li>
       </ul>
@@ -263,25 +240,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./grafik/snacode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Analisa Jejaring Sosial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Analisa Jejaring Sosial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./grafik/grafik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./grafik/hello.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Quarto Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quarto Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Logistic regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Logistic regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -308,40 +285,15 @@ window.Quarto = {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#penjelasan-matriks" id="toc-penjelasan-matriks" class="nav-link active" data-scroll-target="#penjelasan-matriks">📐 Penjelasan Matriks</a>
+  <li><a href="#penjelasan-matriks" id="toc-penjelasan-matriks" class="nav-link active" data-scroll-target="#penjelasan-matriks">Penjelasan Matriks</a>
   <ul class="collapse">
   <li><a href="#definisi-matriks" id="toc-definisi-matriks" class="nav-link" data-scroll-target="#definisi-matriks">1. Definisi Matriks</a></li>
-  <li><a href="#jenis-jenis-matriks-penting" id="toc-jenis-jenis-matriks-penting" class="nav-link" data-scroll-target="#jenis-jenis-matriks-penting">2. Jenis-Jenis Matriks Penting</a></li>
-  <li><a href="#operasi-dasar-matriks" id="toc-operasi-dasar-matriks" class="nav-link" data-scroll-target="#operasi-dasar-matriks">3. Operasi Dasar Matriks</a>
-  <ul class="collapse">
-  <li><a href="#penjumlahan-dan-pengurangan" id="toc-penjumlahan-dan-pengurangan" class="nav-link" data-scroll-target="#penjumlahan-dan-pengurangan">➕ Penjumlahan dan Pengurangan</a></li>
-  <li><a href="#perkalian-skalar" id="toc-perkalian-skalar" class="nav-link" data-scroll-target="#perkalian-skalar">✖️ Perkalian Skalar</a></li>
-  <li><a href="#perkalian-matriks" id="toc-perkalian-matriks" class="nav-link" data-scroll-target="#perkalian-matriks">🔗 Perkalian Matriks</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  </ul></li>
   </ul></li>
   <li><a href="#baru-ini-mencoba" id="toc-baru-ini-mencoba" class="nav-link" data-scroll-target="#baru-ini-mencoba">Baru ini mencoba</a></li>
-  <li><a href="#penjelasan-matriks-1" id="toc-penjelasan-matriks-1" class="nav-link" data-scroll-target="#penjelasan-matriks-1">📐 Penjelasan Matriks</a>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a>
   <ul class="collapse">
-  <li><a href="#definisi-matriks-1" id="toc-definisi-matriks-1" class="nav-link" data-scroll-target="#definisi-matriks-1">1. Definisi Matriks</a></li>
-  <li><a href="#jenis-jenis-matriks-penting-1" id="toc-jenis-jenis-matriks-penting-1" class="nav-link" data-scroll-target="#jenis-jenis-matriks-penting-1">2. Jenis-Jenis Matriks Penting</a></li>
-  <li><a href="#operasi-dasar-matriks-1" id="toc-operasi-dasar-matriks-1" class="nav-link" data-scroll-target="#operasi-dasar-matriks-1">3. Operasi Dasar Matriks</a>
-  <ul class="collapse">
-  <li><a href="#penjumlahan-dan-pengurangan-1" id="toc-penjumlahan-dan-pengurangan-1" class="nav-link" data-scroll-target="#penjumlahan-dan-pengurangan-1">➕ Penjumlahan dan Pengurangan</a></li>
-  <li><a href="#perkalian-skalar-1" id="toc-perkalian-skalar-1" class="nav-link" data-scroll-target="#perkalian-skalar-1">✖️ Perkalian Skalar</a></li>
-  <li><a href="#perkalian-matriks-1" id="toc-perkalian-matriks-1" class="nav-link" data-scroll-target="#perkalian-matriks-1">🔗 Perkalian Matriks</a></li>
-  <li><a href="#transpose" id="toc-transpose" class="nav-link" data-scroll-target="#transpose">🔄 Transpose</a></li>
-  <li><a href="#determinan-dan-invers-untuk-matriks-persegi" id="toc-determinan-dan-invers-untuk-matriks-persegi" class="nav-link" data-scroll-target="#determinan-dan-invers-untuk-matriks-persegi">🧮 Determinan dan Invers (untuk matriks persegi)</a></li>
-  </ul></li>
   <li><a href="#implementasi-di-sagemath" id="toc-implementasi-di-sagemath" class="nav-link" data-scroll-target="#implementasi-di-sagemath">4. Implementasi di SageMath</a></li>
-  <li><a href="#aplikasi-matriks-dalam-data-science-kesehatan" id="toc-aplikasi-matriks-dalam-data-science-kesehatan" class="nav-link" data-scroll-target="#aplikasi-matriks-dalam-data-science-kesehatan">5. Aplikasi Matriks dalam Data Science &amp; Kesehatan</a>
-  <ul class="collapse">
-  <li><a href="#representasi-dataset" id="toc-representasi-dataset" class="nav-link" data-scroll-target="#representasi-dataset">📊 Representasi Dataset</a></li>
-  <li><a href="#analisis-spasial-epidemiologi" id="toc-analisis-spasial-epidemiologi" class="nav-link" data-scroll-target="#analisis-spasial-epidemiologi">🔍 Analisis Spasial &amp; Epidemiologi</a></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">🤖 Machine Learning</a></li>
-  </ul></li>
-  <li><a href="#tips-praktis-untuk-sagecell-di-quarto" id="toc-tips-praktis-untuk-sagecell-di-quarto" class="nav-link" data-scroll-target="#tips-praktis-untuk-sagecell-di-quarto">6. Tips Praktis untuk SageCell di Quarto</a></li>
-  <li><a href="#ringkasan" id="toc-ringkasan" class="nav-link" data-scroll-target="#ringkasan">🎯 Ringkasan</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
   <li><a href="#adding-a-logo-to-the-top-navigation-bar-navbar" id="toc-adding-a-logo-to-the-top-navigation-bar-navbar" class="nav-link" data-scroll-target="#adding-a-logo-to-the-top-navigation-bar-navbar"><strong>1. Adding a Logo to the Top Navigation Bar (Navbar)</strong></a></li>
   <li><a href="#adding-a-logo-to-the-sidebar" id="toc-adding-a-logo-to-the-sidebar" class="nav-link" data-scroll-target="#adding-a-logo-to-the-sidebar"><strong>2. Adding a Logo to the Sidebar</strong></a></li>
   <li><a href="#using-brand.yml-for-multiformat-logos-9" id="toc-using-brand.yml-for-multiformat-logos-9" class="nav-link" data-scroll-target="#using-brand.yml-for-multiformat-logos-9"><strong>3. Using Brand.yml for Multiformat Logos [9]</strong></a></li>
@@ -377,117 +329,121 @@ window.Quarto = {
 
 <p>To insert a logo into your Quarto website’s navigation menu, you need to modify the <code>_quarto.yml</code> configuration file. The logo typically appears to the left of the website title in the top navigation bar (navbar) or at the top of a sidebar. [1, 2]</p>
 <section id="penjelasan-matriks" class="level1">
-<h1>📐 Penjelasan Matriks</h1>
+<h1>Penjelasan Matriks</h1>
 <section id="definisi-matriks" class="level2">
 <h2 class="anchored" data-anchor-id="definisi-matriks">1. Definisi Matriks</h2>
-<p><strong>Matriks</strong> adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom membentuk struktur persegi panjang. Matriks digunakan untuk merepresentasikan data terstruktur, sistem persamaan linear, transformasi geometri, dan berbagai aplikasi dalam sains data.</p>
-<p>Secara formal, matriks <span class="math inline">\(A\)</span> berukuran <span class="math inline">\(m \times n\)</span> ditulis sebagai:</p>
-<p><span class="math display">\[
-A = \begin{pmatrix}
-a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
-a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
-\end{pmatrix}
-\]</span></p>
-<p>Dimana: - <span class="math inline">\(m\)</span> = jumlah baris (<em>rows</em>) - <span class="math inline">\(n\)</span> = jumlah kolom (<em>columns</em>) - <span class="math inline">\(a_{ij}\)</span> = elemen pada baris ke-<span class="math inline">\(i\)</span> dan kolom ke-<span class="math inline">\(j\)</span></p>
-<blockquote class="blockquote">
-<p>📌 <strong>Catatan</strong>: Indeks di SageMath/Python dimulai dari <strong>0</strong>, sedangkan notasi matematika biasanya dimulai dari <strong>1</strong>.</p>
-</blockquote>
-<hr>
-</section>
-<section id="jenis-jenis-matriks-penting" class="level2">
-<h2 class="anchored" data-anchor-id="jenis-jenis-matriks-penting">2. Jenis-Jenis Matriks Penting</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 41%">
-<col style="width: 33%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Jenis Matriks</th>
-<th>Deskripsi</th>
-<th>Contoh</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Matriks Baris</strong></td>
-<td>Hanya memiliki 1 baris (<span class="math inline">\(1 \times n\)</span>)</td>
-<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 &amp; 3 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="even">
-<td><strong>Matriks Kolom</strong></td>
-<td>Hanya memiliki 1 kolom (<span class="math inline">\(m \times 1\)</span>)</td>
-<td><span class="math inline">\(\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>Matriks Persegi</strong></td>
-<td>Jumlah baris = jumlah kolom (<span class="math inline">\(n \times n\)</span>)</td>
-<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="even">
-<td><strong>Matriks Identitas</strong></td>
-<td>Matriks persegi dengan diagonal utama = 1</td>
-<td><span class="math inline">\(I_3 = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>Matriks Nol</strong></td>
-<td>Semua elemen bernilai 0</td>
-<td><span class="math inline">\(0_{2\times3} = \begin{pmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="even">
-<td><strong>Matriks Diagonal</strong></td>
-<td>Elemen di luar diagonal utama = 0</td>
-<td><span class="math inline">\(\begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 5 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>Matriks Simetris</strong></td>
-<td><span class="math inline">\(A = A^T\)</span>, elemen simetris terhadap diagonal</td>
-<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 3 \\ 3 &amp; 2 \end{pmatrix}\)</span></td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="operasi-dasar-matriks" class="level2">
-<h2 class="anchored" data-anchor-id="operasi-dasar-matriks">3. Operasi Dasar Matriks</h2>
-<section id="penjumlahan-dan-pengurangan" class="level3">
-<h3 class="anchored" data-anchor-id="penjumlahan-dan-pengurangan">➕ Penjumlahan dan Pengurangan</h3>
-<p>Syarat: Ukuran matriks harus sama.</p>
-<p><span class="math display">\[
-\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} + \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix} = \begin{pmatrix} 6 &amp; 8 \\ 10 &amp; 12 \end{pmatrix}
-\]</span></p>
-</section>
-<section id="perkalian-skalar" class="level3">
-<h3 class="anchored" data-anchor-id="perkalian-skalar">✖️ Perkalian Skalar</h3>
-<p><span class="math display">\[
-3 \cdot \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} = \begin{pmatrix} 3 &amp; 6 \\ 9 &amp; 12 \end{pmatrix}
-\]</span></p>
-</section>
-<section id="perkalian-matriks" class="level3">
-<h3 class="anchored" data-anchor-id="perkalian-matriks">🔗 Perkalian Matriks</h3>
-<p>Syarat: Jumlah kolom matriks pertama = jumlah baris matriks kedua.</p>
-<p><span class="math display">\[
-A_{m\times n} \cdot B_{n\times p} = C_{m\times p}
-\]</span></p>
-<p><span class="math display">\[
-\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} \cdot \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix} = \begin{pmatrix} 19 &amp; 22 \\ 43 &amp; 50 \end{pmatrix}
-\]</span></p>
-<blockquote class="blockquote">
-<p>⚠️ Perkalian matriks <strong>tidak komutatif</strong>: <span class="math inline">\(AB \neq BA\)</span> (umumnya)</p>
-</blockquote>
-</section>
-<section id="section" class="level3">
-<h3 class="anchored"></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> datasets</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, confusion_matrix, ConfusionMatrixDisplay</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Set style visualisasi</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-whitegrid'</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>sns.set_palette(<span class="st">"Set2"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Memuat Dataset Iris</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> datasets.load_iris()</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> iris.data</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> iris.target</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>feature_names <span class="op">=</span> iris.feature_names</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>target_names <span class="op">=</span> iris.target_names</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Train-Test Split (Menggunakan Integer untuk keamanan)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset Iris memiliki 150 sampel, 20% = 30 sampel</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    X, y, test_size<span class="op">=</span><span class="dv">30</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>y</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Pelatihan Model</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LogisticRegression(max_iter<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Visualisasi</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">12</span>))</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot: Sepal</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> class_idx, name <span class="kw">in</span> <span class="bu">enumerate</span>(target_names):</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    ax.scatter(X[y <span class="op">==</span> class_idx, <span class="dv">0</span>], X[y <span class="op">==</span> class_idx, <span class="dv">1</span>], </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span>name, edgecolors<span class="op">=</span><span class="st">'k'</span>, s<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(feature_names[<span class="dv">0</span>])</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(feature_names[<span class="dv">1</span>])</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Sepal Length vs Sepal Width'</span>)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot: Petal</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> class_idx, name <span class="kw">in</span> <span class="bu">enumerate</span>(target_names):</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    ax.scatter(X[y <span class="op">==</span> class_idx, <span class="dv">2</span>], X[y <span class="op">==</span> class_idx, <span class="dv">3</span>], </span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span>name, edgecolors<span class="op">=</span><span class="st">'k'</span>, s<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(feature_names[<span class="dv">2</span>])</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(feature_names[<span class="dv">3</span>])</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Petal Length vs Petal Width'</span>)</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Decision Boundary</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">0</span>]</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>X_2feat <span class="op">=</span> X[:, :<span class="dv">2</span>]</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>model_2 <span class="op">=</span> LogisticRegression(max_iter<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>model_2.fit(X_2feat, y)</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">0.02</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>x_min, x_max <span class="op">=</span> X_2feat[:, <span class="dv">0</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X_2feat[:, <span class="dv">0</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>y_min, y_max <span class="op">=</span> X_2feat[:, <span class="dv">1</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X_2feat[:, <span class="dv">1</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>xx, yy <span class="op">=</span> np.meshgrid(np.arange(x_min, x_max, h),</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>                     np.arange(y_min, y_max, h))</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> model_2.predict(np.c_[xx.ravel(), yy.ravel()])</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> Z.reshape(xx.shape)</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>ax.contourf(xx, yy, Z, alpha<span class="op">=</span><span class="fl">0.3</span>, cmap<span class="op">=</span><span class="st">'Set2'</span>)</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> class_idx, name <span class="kw">in</span> <span class="bu">enumerate</span>(target_names):</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    ax.scatter(X_2feat[y <span class="op">==</span> class_idx, <span class="dv">0</span>], X_2feat[y <span class="op">==</span> class_idx, <span class="dv">1</span>], </span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span>name, edgecolors<span class="op">=</span><span class="st">'k'</span>, s<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(feature_names[<span class="dv">0</span>])</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(feature_names[<span class="dv">1</span>])</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Decision Boundary'</span>)</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Confusion Matrix</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_test, y_pred)</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>disp <span class="op">=</span> ConfusionMatrixDisplay(confusion_matrix<span class="op">=</span>cm, display_labels<span class="op">=</span>target_names)</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>disp.plot(ax<span class="op">=</span>ax, cmap<span class="op">=</span><span class="st">'Blues'</span>, values_format<span class="op">=</span><span class="st">'d'</span>)</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Confusion Matrix'</span>)</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA Visualization</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>X_pca <span class="op">=</span> pca.fit_transform(X)</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> class_idx, name <span class="kw">in</span> <span class="bu">enumerate</span>(target_names):</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    plt.scatter(X_pca[y <span class="op">==</span> class_idx, <span class="dv">0</span>], X_pca[y <span class="op">==</span> class_idx, <span class="dv">1</span>], </span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span>name, edgecolors<span class="op">=</span><span class="st">'k'</span>, s<span class="op">=</span><span class="dv">60</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="ss">f'PC1 (</span><span class="sc">{</span>pca<span class="sc">.</span>explained_variance_ratio_[<span class="dv">0</span>]<span class="sc">:.2%}</span><span class="ss">)'</span>)</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="ss">f'PC2 (</span><span class="sc">{</span>pca<span class="sc">.</span>explained_variance_ratio_[<span class="dv">1</span>]<span class="sc">:.2%}</span><span class="ss">)'</span>)</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA Projection'</span>)</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="co"># Print Metrics</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Akurasi: </span><span class="sc">{</span>accuracy_score(y_test, y_pred)<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h1>Embedded Sage Cells</h1>
 
-  
-  <h1>Embedded Sage Cells</h1>
 
-  
 
-<h2 class="anchored" data-anchor-id="section">Your own computations</h2>
+<h2 class="anchored">Your own computations</h2>
 Type your own Sage computation below and click “Evaluate”.
     <div class="compute"><script type="text/x-sage">plot(sin(x), (x, 0, 2*pi))</script></div>
     <div class="compute"><script type="text/x-sage">
@@ -495,7 +451,6 @@ Type your own Sage computation below and click “Evaluate”.
 def f(n=(0,10)):
     print(2^n)
 </script></div>
-</section>
 </section>
 </section>
 <section id="baru-ini-mencoba" class="level1">
@@ -509,125 +464,8 @@ def _(a=(1, 10)):
  </script>
 </div>
 </section>
-<section id="penjelasan-matriks-1" class="level1">
-<h1>📐 Penjelasan Matriks</h1>
-<section id="definisi-matriks-1" class="level2">
-<h2 class="anchored" data-anchor-id="definisi-matriks-1">1. Definisi Matriks</h2>
-<p><strong>Matriks</strong> adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom membentuk struktur persegi panjang. Matriks digunakan untuk merepresentasikan data terstruktur, sistem persamaan linear, transformasi geometri, dan berbagai aplikasi dalam sains data.</p>
-<p>Secara formal, matriks <span class="math inline">\(A\)</span> berukuran <span class="math inline">\(m \times n\)</span> ditulis sebagai:</p>
-<p><span class="math display">\[
-A = \begin{pmatrix}
-a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
-a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
-\end{pmatrix}
-\]</span></p>
-<p>Dimana: - <span class="math inline">\(m\)</span> = jumlah baris (<em>rows</em>) - <span class="math inline">\(n\)</span> = jumlah kolom (<em>columns</em>) - <span class="math inline">\(a_{ij}\)</span> = elemen pada baris ke-<span class="math inline">\(i\)</span> dan kolom ke-<span class="math inline">\(j\)</span></p>
-<blockquote class="blockquote">
-<p>📌 <strong>Catatan</strong>: Indeks di SageMath/Python dimulai dari <strong>0</strong>, sedangkan notasi matematika biasanya dimulai dari <strong>1</strong>.</p>
-</blockquote>
-<hr>
-</section>
-<section id="jenis-jenis-matriks-penting-1" class="level2">
-<h2 class="anchored" data-anchor-id="jenis-jenis-matriks-penting-1">2. Jenis-Jenis Matriks Penting</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 41%">
-<col style="width: 33%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Jenis Matriks</th>
-<th>Deskripsi</th>
-<th>Contoh</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Matriks Baris</strong></td>
-<td>Hanya memiliki 1 baris (<span class="math inline">\(1 \times n\)</span>)</td>
-<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 &amp; 3 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="even">
-<td><strong>Matriks Kolom</strong></td>
-<td>Hanya memiliki 1 kolom (<span class="math inline">\(m \times 1\)</span>)</td>
-<td><span class="math inline">\(\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>Matriks Persegi</strong></td>
-<td>Jumlah baris = jumlah kolom (<span class="math inline">\(n \times n\)</span>)</td>
-<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="even">
-<td><strong>Matriks Identitas</strong></td>
-<td>Matriks persegi dengan diagonal utama = 1</td>
-<td><span class="math inline">\(I_3 = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>Matriks Nol</strong></td>
-<td>Semua elemen bernilai 0</td>
-<td><span class="math inline">\(0_{2\times3} = \begin{pmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="even">
-<td><strong>Matriks Diagonal</strong></td>
-<td>Elemen di luar diagonal utama = 0</td>
-<td><span class="math inline">\(\begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 5 \end{pmatrix}\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>Matriks Simetris</strong></td>
-<td><span class="math inline">\(A = A^T\)</span>, elemen simetris terhadap diagonal</td>
-<td><span class="math inline">\(\begin{pmatrix} 1 &amp; 3 \\ 3 &amp; 2 \end{pmatrix}\)</span></td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="operasi-dasar-matriks-1" class="level2">
-<h2 class="anchored" data-anchor-id="operasi-dasar-matriks-1">3. Operasi Dasar Matriks</h2>
-<section id="penjumlahan-dan-pengurangan-1" class="level3">
-<h3 class="anchored" data-anchor-id="penjumlahan-dan-pengurangan-1">➕ Penjumlahan dan Pengurangan</h3>
-<p>Syarat: Ukuran matriks harus sama.</p>
-<p><span class="math display">\[
-\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} + \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix} = \begin{pmatrix} 6 &amp; 8 \\ 10 &amp; 12 \end{pmatrix}
-\]</span></p>
-</section>
-<section id="perkalian-skalar-1" class="level3">
-<h3 class="anchored" data-anchor-id="perkalian-skalar-1">✖️ Perkalian Skalar</h3>
-<p><span class="math display">\[
-3 \cdot \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} = \begin{pmatrix} 3 &amp; 6 \\ 9 &amp; 12 \end{pmatrix}
-\]</span></p>
-</section>
-<section id="perkalian-matriks-1" class="level3">
-<h3 class="anchored" data-anchor-id="perkalian-matriks-1">🔗 Perkalian Matriks</h3>
-<p>Syarat: Jumlah kolom matriks pertama = jumlah baris matriks kedua.</p>
-<p><span class="math display">\[
-A_{m\times n} \cdot B_{n\times p} = C_{m\times p}
-\]</span></p>
-<p><span class="math display">\[
-\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} \cdot \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix} = \begin{pmatrix} 19 &amp; 22 \\ 43 &amp; 50 \end{pmatrix}
-\]</span></p>
-<blockquote class="blockquote">
-<p>⚠️ Perkalian matriks <strong>tidak komutatif</strong>: <span class="math inline">\(AB \neq BA\)</span> (umumnya)</p>
-</blockquote>
-</section>
-<section id="transpose" class="level3">
-<h3 class="anchored" data-anchor-id="transpose">🔄 Transpose</h3>
-<p>Menukar baris menjadi kolom:</p>
-<p><span class="math display">\[
-A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} \quad \Rightarrow \quad A^T = \begin{pmatrix} 1 &amp; 3 \\ 2 &amp; 4 \end{pmatrix}
-\]</span></p>
-</section>
-<section id="determinan-dan-invers-untuk-matriks-persegi" class="level3">
-<h3 class="anchored" data-anchor-id="determinan-dan-invers-untuk-matriks-persegi">🧮 Determinan dan Invers (untuk matriks persegi)</h3>
-<ul>
-<li><strong>Determinan</strong>: <span class="math inline">\(\det(A)\)</span> atau <span class="math inline">\(|A|\)</span>, mengukur “faktor skala” transformasi linear.</li>
-<li><strong>Invers</strong>: <span class="math inline">\(A^{-1}\)</span>, sehingga <span class="math inline">\(A \cdot A^{-1} = I\)</span> (hanya jika <span class="math inline">\(\det(A) \neq 0\)</span>).</li>
-</ul>
-<hr>
-</section>
-</section>
+<section id="section" class="level1">
+<h1></h1>
 <section id="implementasi-di-sagemath" class="level2">
 <h2 class="anchored" data-anchor-id="implementasi-di-sagemath">4. Implementasi di SageMath</h2>
 <pre class="sage"><code># Membuat matriks 3x4
@@ -656,102 +494,8 @@ show("Invers C:", C.inverse())
 show("C * C^-1:", C * C.inverse())  # Harus menghasilkan matriks identitas</code></pre>
 <hr>
 </section>
-<section id="aplikasi-matriks-dalam-data-science-kesehatan" class="level2">
-<h2 class="anchored" data-anchor-id="aplikasi-matriks-dalam-data-science-kesehatan">5. Aplikasi Matriks dalam Data Science &amp; Kesehatan</h2>
-<section id="representasi-dataset" class="level3">
-<h3 class="anchored" data-anchor-id="representasi-dataset">📊 Representasi Dataset</h3>
-<p>Dataset dengan <span class="math inline">\(n\)</span> pasien dan <span class="math inline">\(p\)</span> variabel dapat direpresentasikan sebagai matriks <span class="math inline">\(X_{n \times p}\)</span>:</p>
-<p><span class="math display">\[
-X = \begin{pmatrix}
-x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1p} \\
-x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2p} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{np}
-\end{pmatrix}
-\]</span></p>
-<p>Setiap baris = satu observasi (pasien), setiap kolom = satu fitur (usia, tekanan darah, dll).</p>
-</section>
-<section id="analisis-spasial-epidemiologi" class="level3">
-<h3 class="anchored" data-anchor-id="analisis-spasial-epidemiologi">🔍 Analisis Spasial &amp; Epidemiologi</h3>
-<ul>
-<li><strong>Matriks Bobot Spasial</strong> (<span class="math inline">\(W\)</span>): Merepresentasikan kedekatan geografis antar wilayah untuk analisis <em>Local Moran’s I</em> atau *Getis-Ord Gi**.</li>
-<li><strong>Matriks Kovarians</strong>: Mengukur hubungan linear antar variabel risiko penyakit.</li>
-</ul>
-</section>
-<section id="machine-learning" class="level3">
-<h3 class="anchored" data-anchor-id="machine-learning">🤖 Machine Learning</h3>
-<ul>
-<li><strong>Regresi Linear</strong>: <span class="math inline">\(\hat{y} = X\beta\)</span>, solusi optimal <span class="math inline">\(\beta = (X^TX)^{-1}X^Ty\)</span></li>
-<li><strong>PCA (Principal Component Analysis)</strong>: Dekomposisi matriks kovarians untuk reduksi dimensi.</li>
-<li><strong>Jaringan Saraf</strong>: Bobot antar lapisan direpresentasikan sebagai matriks.</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="tips-praktis-untuk-sagecell-di-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="tips-praktis-untuk-sagecell-di-quarto">6. Tips Praktis untuk SageCell di Quarto</h2>
-<p>✅ Gunakan <code>show()</code> untuk output matematis yang diformat LaTeX:</p>
-<pre class="sage"><code>show(r"$A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}$")</code></pre>
-<p>✅ Gunakan <code>r""</code> (raw string) untuk menghindari konflik escape character:</p>
-<pre class="sage"><code>print(r"Nilai $\alpha = 0.05$ digunakan dalam uji hipotesis")</code></pre>
-<p>✅ Pastikan <code>div</code> memiliki class <code>compute</code> agar dieksekusi SageCell:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"compute"</span><span class="dt">&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a># Kode SageMath Anda di sini</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-<section id="ringkasan" class="level2">
-<h2 class="anchored" data-anchor-id="ringkasan">🎯 Ringkasan</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Konsep</th>
-<th>Notasi</th>
-<th>SageMath</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Ukuran matriks</td>
-<td><span class="math inline">\(m \times n\)</span></td>
-<td><code>A.nrows()</code>, <code>A.ncols()</code></td>
-</tr>
-<tr class="even">
-<td>Elemen</td>
-<td><span class="math inline">\(a_{ij}\)</span></td>
-<td><code>A[i-1, j-1]</code></td>
-</tr>
-<tr class="odd">
-<td>Transpose</td>
-<td><span class="math inline">\(A^T\)</span></td>
-<td><code>A.transpose()</code></td>
-</tr>
-<tr class="even">
-<td>Determinan</td>
-<td><span class="math inline">\(\det(A)\)</span></td>
-<td><code>A.determinant()</code></td>
-</tr>
-<tr class="odd">
-<td>Invers</td>
-<td><span class="math inline">\(A^{-1}\)</span></td>
-<td><code>A.inverse()</code></td>
-</tr>
-<tr class="even">
-<td>Identitas</td>
-<td><span class="math inline">\(I_n\)</span></td>
-<td><code>identity_matrix(n)</code></td>
-</tr>
-<tr class="odd">
-<td>Perkalian</td>
-<td><span class="math inline">\(AB\)</span></td>
-<td><code>A * B</code></td>
-</tr>
-</tbody>
-</table>
-<p>Matriks adalah fondasi aljabar linear yang sangat penting dalam pemodelan data, analisis spasial, dan machine learning. Penguasaan konsep ini akan memperkuat kemampuan Anda dalam penelitian kuantitatif, khususnya dalam konteks epidemiologi dan data kesehatan. 🩺📈</p>
-<blockquote class="blockquote">
-<p>💡 <strong>Saran</strong>: Untuk eksplorasi lebih lanjut, coba gabungkan matriks dengan visualisasi menggunakan <code>plot()</code> di SageMath atau ekspor ke pandas untuk analisis lanjutan di Python.</p>
-</blockquote>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
 </section>
 <section id="adding-a-logo-to-the-top-navigation-bar-navbar" class="level2">
 <h2 class="anchored" data-anchor-id="adding-a-logo-to-the-top-navigation-bar-navbar"><strong>1. Adding a Logo to the Top Navigation Bar (Navbar)</strong></h2>
@@ -769,11 +513,11 @@ x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{np}
 <section id="adding-a-logo-to-the-sidebar" class="level2">
 <h2 class="anchored" data-anchor-id="adding-a-logo-to-the-sidebar"><strong>2. Adding a Logo to the Sidebar</strong></h2>
 <p>If your site uses a sidebar for navigation, you can also define a logo specifically for that area: [6, 7, 8]</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sidebar</span><span class="kw">:</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">logo</span><span class="kw">:</span><span class="at"> </span><span class="st">"images/sidebar-logo.png"</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">logo-alt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Sidebar logo description"</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Sidebar Title"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sidebar</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">logo</span><span class="kw">:</span><span class="at"> </span><span class="st">"images/sidebar-logo.png"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">logo-alt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Sidebar logo description"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Sidebar Title"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="using-brand.yml-for-multiformat-logos-9" class="level2">
 <h2 class="anchored" data-anchor-id="using-brand.yml-for-multiformat-logos-9"><strong>3. Using Brand.yml for Multiformat Logos [9]</strong></h2>
@@ -1265,13 +1009,13 @@ website:
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Pengantare.html" class="pagination-link" aria-label="Proses Data Mining">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proses Data Mining</span></span>
+      <a href="./grafik/snacode.html" class="pagination-link" aria-label="Analisa Jejaring Sosial">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Analisa Jejaring Sosial</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Proses.html" class="pagination-link" aria-label="PROSES DATA MINING">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
