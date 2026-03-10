@@ -224,7 +224,6 @@ window.Quarto = {
   <li><a href="#langkah-1-hitung-jarak-kemiripan-s_i" id="toc-langkah-1-hitung-jarak-kemiripan-s_i" class="nav-link" data-scroll-target="#langkah-1-hitung-jarak-kemiripan-s_i"><span class="header-section-number">4.0.2</span> Langkah 1: Hitung Jarak &amp; Kemiripan (<span class="math inline">\(s_i\)</span>)</a></li>
   <li><a href="#langkah-2-strategi-same-class-weighting" id="toc-langkah-2-strategi-same-class-weighting" class="nav-link" data-scroll-target="#langkah-2-strategi-same-class-weighting"><span class="header-section-number">4.0.3</span> Langkah 2: Strategi “Same-Class Weighting”</a></li>
   <li><a href="#langkah-3-hitung-estimasi-hanya-kelas-1" id="toc-langkah-3-hitung-estimasi-hanya-kelas-1" class="nav-link" data-scroll-target="#langkah-3-hitung-estimasi-hanya-kelas-1"><span class="header-section-number">4.0.4</span> Langkah 3: Hitung Estimasi (Hanya Kelas 1)</a></li>
-  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan"><span class="header-section-number">4.0.5</span> Kesimpulan</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/moelaab/pendata/edit/main/preproces/wknn.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/moelaab/pendata/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -545,15 +544,19 @@ window.Quarto = {
 </section>
 <section id="langkah-3-hitung-estimasi-hanya-kelas-1" class="level3" data-number="4.0.4">
 <h3 data-number="4.0.4" class="anchored" data-anchor-id="langkah-3-hitung-estimasi-hanya-kelas-1"><span class="header-section-number">4.0.4</span> Langkah 3: Hitung Estimasi (Hanya Kelas 1)</h3>
-<p><strong>A. Pembilang (</strong><span class="math inline">\(\sum s_i \cdot \text{Skor}_{j}\)</span>): <span class="math inline">\(y_3: 4.000 \times 85 = 340\)</span> <span class="math inline">\(y_4: 4.000 \times 88 = 352\)</span> <span class="math inline">\(y_6: 0.444 \times 92 = 40.848\)</span> <strong>Total Pembilang</strong> = <strong>732.848</strong></p>
+<p><strong>A.</strong> <strong>Pembilang</strong> (<span class="math inline">\(\sum s_i \cdot \text{Skor}_j\)</span>):</p>
+<ul>
+<li><span class="math inline">\(y_3: 4.000 \times 85 = 340\)</span></li>
+<li><span class="math inline">\(y_4: 4.000 \times 88 = 352\)</span></li>
+<li><span class="math inline">\(y_6: 0.444 \times 92 = 40.848\)</span></li>
+</ul>
+<p><strong>Total Pembilang:</strong></p>
+<p><span class="math display">\[340 + 352 + 40.848 = 732.848\]</span></p>
 <p><strong>B. Penyebut (</strong><span class="math inline">\(\sum s_i\)</span>): <span class="math inline">\(4.000 + 4.000 + 0.444 = \mathbf{8.444}\)</span></p>
 <p><strong>C. Hasil Akhir:</strong> <span class="math display">\[\hat{y} = \frac{732.848}{8.444} \approx \mathbf{86.79}\]</span></p>
 <hr>
-</section>
-<section id="kesimpulan" class="level3" data-number="4.0.5">
-<h3 data-number="4.0.5" class="anchored" data-anchor-id="kesimpulan"><span class="header-section-number">4.0.5</span> Kesimpulan</h3>
 <p>Nilai <strong>Skor Tes</strong> yang hilang diestimasi sebesar <strong>86.79</strong>.</p>
-<p>Hasil ini sangat masuk akal karena: Data target berada di Kelas 1 (Lulus). Pengalamannya (5.5) berada di antara <span class="math inline">\(y_3\)</span> (Pengalaman 5, Skor 85) dan <span class="math inline">\(y_4\)</span> (Pengalaman 6, Skor 88). Karena jaraknya ke <span class="math inline">\(y_3\)</span> dan <span class="math inline">\(y_4\)</span> sama dekatnya, hasilnya berada hampir tepat di tengah-tengah nilai skor mereka.</p>
+<p>Data target berada di Kelas 1 (Lulus). Pengalamannya (5.5) berada di antara <span class="math inline">\(y_3\)</span> (Pengalaman 5, Skor 85) dan <span class="math inline">\(y_4\)</span> (Pengalaman 6, Skor 88). Karena jaraknya ke <span class="math inline">\(y_3\)</span> dan <span class="math inline">\(y_4\)</span> sama dekatnya, hasilnya berada hampir tepat di tengah-tengah nilai skor mereka.</p>
 <p>Jika kita ingin tetap menyertakan tetangga dari kelas yang berbeda, biasanya bobot mereka (<span class="math inline">\(s_i\)</span>) akan dikalikan dengan sebuah konstanta penalti (misal 0.5) agar pengaruhnya tidak sebesar tetangga yang sekelas.</p>
 
 
