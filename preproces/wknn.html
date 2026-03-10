@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</title>
+<title>3&nbsp; Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../persiapan.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../grafik/grafik.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -132,7 +131,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../preproces/wknn.html">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../persiapan.html">Persiapan</a></li><li class="breadcrumb-item"><a href="../preproces/wknn.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,8 +177,8 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../preproces/wknn.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></a>
+            <a href="../persiapan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Persiapan</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -187,20 +186,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../persiapan.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Persiapan</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../Proses.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../grafik/grafik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../preproces/wknn.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></span></a>
   </div>
 </li>
       </ul>
@@ -215,17 +214,17 @@ window.Quarto = {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#penentuan-parameter-k" id="toc-penentuan-parameter-k" class="nav-link active" data-scroll-target="#penentuan-parameter-k">Penentuan parameter K</a></li>
-  <li><a href="#langkah-1-hitung-jarak-dan-kemiripan-s_i" id="toc-langkah-1-hitung-jarak-dan-kemiripan-s_i" class="nav-link" data-scroll-target="#langkah-1-hitung-jarak-dan-kemiripan-s_i">Langkah 1: Hitung Jarak dan Kemiripan (<span class="math inline">\(s_i\)</span>)</a></li>
-  <li><a href="#langkah-2-hitung-estimasi-menggunakan-weighted-average" id="toc-langkah-2-hitung-estimasi-menggunakan-weighted-average" class="nav-link" data-scroll-target="#langkah-2-hitung-estimasi-menggunakan-weighted-average">Langkah 2: Hitung Estimasi Menggunakan Weighted Average</a></li>
-  <li><a href="#hasil-akhir" id="toc-hasil-akhir" class="nav-link" data-scroll-target="#hasil-akhir">Hasil Akhir</a></li>
-  <li><a href="#data-hilang-pada-data-klasifikasi" id="toc-data-hilang-pada-data-klasifikasi" class="nav-link" data-scroll-target="#data-hilang-pada-data-klasifikasi">Data hilang pada data klasifikasi</a>
+  <li><a href="#penentuan-parameter-k" id="toc-penentuan-parameter-k" class="nav-link active" data-scroll-target="#penentuan-parameter-k"><span class="header-section-number">3.0.1</span> Penentuan parameter K</a></li>
+  <li><a href="#langkah-1-hitung-jarak-dan-kemiripan-s_i" id="toc-langkah-1-hitung-jarak-dan-kemiripan-s_i" class="nav-link" data-scroll-target="#langkah-1-hitung-jarak-dan-kemiripan-s_i"><span class="header-section-number">3.0.2</span> Langkah 1: Hitung Jarak dan Kemiripan (<span class="math inline">\(s_i\)</span>)</a></li>
+  <li><a href="#langkah-2-hitung-estimasi-menggunakan-weighted-average" id="toc-langkah-2-hitung-estimasi-menggunakan-weighted-average" class="nav-link" data-scroll-target="#langkah-2-hitung-estimasi-menggunakan-weighted-average"><span class="header-section-number">3.0.3</span> Langkah 2: Hitung Estimasi Menggunakan Weighted Average</a></li>
+  <li><a href="#hasil-akhir" id="toc-hasil-akhir" class="nav-link" data-scroll-target="#hasil-akhir"><span class="header-section-number">3.0.4</span> Hasil Akhir</a></li>
+  <li><a href="#data-hilang-pada-data-klasifikasi" id="toc-data-hilang-pada-data-klasifikasi" class="nav-link" data-scroll-target="#data-hilang-pada-data-klasifikasi"><span class="header-section-number">4</span> Data hilang pada data klasifikasi</a>
   <ul class="collapse">
-  <li><a href="#contoh" id="toc-contoh" class="nav-link" data-scroll-target="#contoh">Contoh</a></li>
-  <li><a href="#langkah-1-hitung-jarak-kemiripan-s_i" id="toc-langkah-1-hitung-jarak-kemiripan-s_i" class="nav-link" data-scroll-target="#langkah-1-hitung-jarak-kemiripan-s_i">Langkah 1: Hitung Jarak &amp; Kemiripan (<span class="math inline">\(s_i\)</span>)</a></li>
-  <li><a href="#langkah-2-strategi-same-class-weighting" id="toc-langkah-2-strategi-same-class-weighting" class="nav-link" data-scroll-target="#langkah-2-strategi-same-class-weighting">Langkah 2: Strategi “Same-Class Weighting”</a></li>
-  <li><a href="#langkah-3-hitung-estimasi-hanya-kelas-1" id="toc-langkah-3-hitung-estimasi-hanya-kelas-1" class="nav-link" data-scroll-target="#langkah-3-hitung-estimasi-hanya-kelas-1">Langkah 3: Hitung Estimasi (Hanya Kelas 1)</a></li>
-  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan">Kesimpulan</a></li>
+  <li><a href="#contoh" id="toc-contoh" class="nav-link" data-scroll-target="#contoh"><span class="header-section-number">4.0.1</span> Contoh</a></li>
+  <li><a href="#langkah-1-hitung-jarak-kemiripan-s_i" id="toc-langkah-1-hitung-jarak-kemiripan-s_i" class="nav-link" data-scroll-target="#langkah-1-hitung-jarak-kemiripan-s_i"><span class="header-section-number">4.0.2</span> Langkah 1: Hitung Jarak &amp; Kemiripan (<span class="math inline">\(s_i\)</span>)</a></li>
+  <li><a href="#langkah-2-strategi-same-class-weighting" id="toc-langkah-2-strategi-same-class-weighting" class="nav-link" data-scroll-target="#langkah-2-strategi-same-class-weighting"><span class="header-section-number">4.0.3</span> Langkah 2: Strategi “Same-Class Weighting”</a></li>
+  <li><a href="#langkah-3-hitung-estimasi-hanya-kelas-1" id="toc-langkah-3-hitung-estimasi-hanya-kelas-1" class="nav-link" data-scroll-target="#langkah-3-hitung-estimasi-hanya-kelas-1"><span class="header-section-number">4.0.4</span> Langkah 3: Hitung Estimasi (Hanya Kelas 1)</a></li>
+  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan"><span class="header-section-number">4.0.5</span> Kesimpulan</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/moelaab/pendata/edit/main/preproces/wknn.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/moelaab/pendata/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -233,9 +232,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../persiapan.html">Persiapan</a></li><li class="breadcrumb-item"><a href="../preproces/wknn.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></h1>
 </div>
 
 
@@ -271,8 +270,8 @@ window.Quarto = {
 <li><strong>Penyebut (Bawah):</strong> Menjumlahkan total Bobot Kesamaan (<span class="math inline">\(s_i\)</span>) saja (sebagai normalisasi).</li>
 <li><strong>Logikanya:</strong> Jika tetangga sangat mirip (bobot <span class="math inline">\(s_i\)</span> besar), maka nilai dia (<span class="math inline">\(y_{jh}\)</span>) akan sangat mempengaruhi hasil akhir. Jika tetangga kurang mirip (bobot kecil), pengaruhnya kecil.</li>
 </ul>
-<section id="penentuan-parameter-k" class="level3">
-<h3 class="anchored" data-anchor-id="penentuan-parameter-k">Penentuan parameter K</h3>
+<section id="penentuan-parameter-k" class="level3" data-number="3.0.1">
+<h3 data-number="3.0.1" class="anchored" data-anchor-id="penentuan-parameter-k"><span class="header-section-number">3.0.1</span> Penentuan parameter K</h3>
 <p>Tidak ada rumus teoritis baku untuk menentukan berapa jumlah tetangga terbaik (<span class="math inline">\(K\)</span>). * Nilai <span class="math inline">\(K\)</span> harus ditentukan secara <strong>empiris</strong>, artinya peneliti harus mencoba-coba nilai <span class="math inline">\(K\)</span> yang berbeda (misalnya 3, 5, 7) dan melihat mana yang memberikan hasil akurasi terbaik untuk dataset tersebut. Praktisi biasanya mencoba beberapa nilai (misal <span class="math inline">\(K=3\)</span> sampai <span class="math inline">\(K=15\)</span>) dan melihat mana yang memberikan tingkat kesalahan (<em>error</em>) terkecil melalui uji coba (seperti <em>cross-validation</em>).</p>
 <p><strong>Contoh</strong></p>
 <table class="caption-top table">
@@ -324,8 +323,8 @@ window.Quarto = {
 <p><strong>Data Target (</strong><span class="math inline">\(y_i\)</span>): Luas (<span class="math inline">\(x_i\)</span>) = 30 Harga Sewa (<span class="math inline">\(\hat{y}_{ih}\)</span>) = <strong>? (Hilang)</strong></p>
 <hr>
 </section>
-<section id="langkah-1-hitung-jarak-dan-kemiripan-s_i" class="level3">
-<h3 class="anchored" data-anchor-id="langkah-1-hitung-jarak-dan-kemiripan-s_i">Langkah 1: Hitung Jarak dan Kemiripan (<span class="math inline">\(s_i\)</span>)</h3>
+<section id="langkah-1-hitung-jarak-dan-kemiripan-s_i" class="level3" data-number="3.0.2">
+<h3 data-number="3.0.2" class="anchored" data-anchor-id="langkah-1-hitung-jarak-dan-kemiripan-s_i"><span class="header-section-number">3.0.2</span> Langkah 1: Hitung Jarak dan Kemiripan (<span class="math inline">\(s_i\)</span>)</h3>
 <p>Gunakan rumus <strong>(1)</strong> <span class="math inline">\(1/s_i = (x_i - x_j)^2\)</span>.</p>
 <p>Kita hitung untuk semua 6 data:</p>
 <table class="caption-top table">
@@ -384,8 +383,8 @@ window.Quarto = {
 </table>
 <hr>
 </section>
-<section id="langkah-2-hitung-estimasi-menggunakan-weighted-average" class="level3">
-<h3 class="anchored" data-anchor-id="langkah-2-hitung-estimasi-menggunakan-weighted-average">Langkah 2: Hitung Estimasi Menggunakan Weighted Average</h3>
+<section id="langkah-2-hitung-estimasi-menggunakan-weighted-average" class="level3" data-number="3.0.3">
+<h3 data-number="3.0.3" class="anchored" data-anchor-id="langkah-2-hitung-estimasi-menggunakan-weighted-average"><span class="header-section-number">3.0.3</span> Langkah 2: Hitung Estimasi Menggunakan Weighted Average</h3>
 <p>Kita gunakan rumus <strong>(2)</strong>: kali setiap Harga Sewa (<span class="math inline">\(y_j\)</span>) dengan Kemiripan (<span class="math inline">\(s_i\)</span>), lalu bagi dengan total Kemiripan.</p>
 <p><strong>A. Pembilang</strong> (<span class="math inline">\(\sum s_i \cdot y_{jh}\)</span>):</p>
 <ul>
@@ -403,17 +402,17 @@ window.Quarto = {
 <p><strong>(</strong><span class="math inline">\(\sum s_i\)</span>): <span class="math inline">\(0.010 + 0.040 + 0.040 + 0.010 + 0.0025 + 0.0011 = \mathbf{0.1036}\)</span></p>
 <hr>
 </section>
-<section id="hasil-akhir" class="level3">
-<h3 class="anchored" data-anchor-id="hasil-akhir">Hasil Akhir</h3>
+<section id="hasil-akhir" class="level3" data-number="3.0.4">
+<h3 data-number="3.0.4" class="anchored" data-anchor-id="hasil-akhir"><span class="header-section-number">3.0.4</span> Hasil Akhir</h3>
 <p><span class="math display">\[\hat{y} = \frac{0.3179}{0.1036} \approx \mathbf{3.068}\]</span></p>
 </section>
-<section id="data-hilang-pada-data-klasifikasi" class="level1">
-<h1>Data hilang pada data klasifikasi</h1>
+<section id="data-hilang-pada-data-klasifikasi" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Data hilang pada data klasifikasi</h1>
 <p>Jika data yang hilang berada pada <strong>fitur (atribut)</strong> tetapi label kelasnya sudah diketahui, metode Weighted KNN tetap bisa digunakan untuk mengisi kekosongan tersebut.</p>
 <p>Dalam konteks ini, label kelas justru menjadi informasi tambahan yang sangat berharga untuk membuat estimasi yang lebih akurat. Logikanya: titik yang memiliki <strong>kelas yang sama</strong> biasanya memiliki karakteristik fitur yang serupa.</p>
 <hr>
-<section id="contoh" class="level3">
-<h3 class="anchored" data-anchor-id="contoh">Contoh</h3>
+<section id="contoh" class="level3" data-number="4.0.1">
+<h3 data-number="4.0.1" class="anchored" data-anchor-id="contoh"><span class="header-section-number">4.0.1</span> Contoh</h3>
 <p>Kita punya data pelamar kerja dengan fitur <strong>Pengalaman (Tahun)</strong>, <strong>Skor Tes</strong>, dan <strong>Status (Kelas)</strong>.</p>
 <table class="caption-top table">
 <thead>
@@ -464,7 +463,7 @@ window.Quarto = {
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(y_7\)</span></td>
 <td style="text-align: left;">5.5</td>
-<td style="text-align: left;">92</td>
+<td style="text-align: left;">?</td>
 <td style="text-align: left;">1 (Lulus)</td>
 </tr>
 </tbody>
@@ -475,8 +474,8 @@ window.Quarto = {
 <p>Kelas = <strong>1 (Lulus)</strong></p>
 <hr>
 </section>
-<section id="langkah-1-hitung-jarak-kemiripan-s_i" class="level3">
-<h3 class="anchored" data-anchor-id="langkah-1-hitung-jarak-kemiripan-s_i">Langkah 1: Hitung Jarak &amp; Kemiripan (<span class="math inline">\(s_i\)</span>)</h3>
+<section id="langkah-1-hitung-jarak-kemiripan-s_i" class="level3" data-number="4.0.2">
+<h3 data-number="4.0.2" class="anchored" data-anchor-id="langkah-1-hitung-jarak-kemiripan-s_i"><span class="header-section-number">4.0.2</span> Langkah 1: Hitung Jarak &amp; Kemiripan (<span class="math inline">\(s_i\)</span>)</h3>
 <p>Karena kita hanya punya satu fitur yang lengkap (Pengalaman), kita hitung kemiripan berdasarkan fitur tersebut menggunakan rumus <span class="math inline">\(1/s_i = (x_{i1} - x_{j1})^2\)</span>.</p>
 <table class="caption-top table">
 <colgroup>
@@ -534,8 +533,8 @@ window.Quarto = {
 </table>
 <hr>
 </section>
-<section id="langkah-2-strategi-same-class-weighting" class="level3">
-<h3 class="anchored" data-anchor-id="langkah-2-strategi-same-class-weighting">Langkah 2: Strategi “Same-Class Weighting”</h3>
+<section id="langkah-2-strategi-same-class-weighting" class="level3" data-number="4.0.3">
+<h3 data-number="4.0.3" class="anchored" data-anchor-id="langkah-2-strategi-same-class-weighting"><span class="header-section-number">4.0.3</span> Langkah 2: Strategi “Same-Class Weighting”</h3>
 <p>Karena kita tahu data target berasal dari <strong>Kelas 1</strong>, kita memiliki dua pilihan dalam implementasi Weighted KNN:</p>
 <ol type="1">
 <li><strong>Mengabaikan Kelas:</strong> Menggunakan semua tetangga (seperti contoh sebelumnya).</li>
@@ -544,15 +543,15 @@ window.Quarto = {
 <p>Jika kita menggunakan opsi 2 (hanya tetangga dari <strong>Kelas 1</strong>: <span class="math inline">\(y_3, y_4, y_6\)</span>) sesuai prinsip kedekatan karakteristik dalam klasifikasi.</p>
 <hr>
 </section>
-<section id="langkah-3-hitung-estimasi-hanya-kelas-1" class="level3">
-<h3 class="anchored" data-anchor-id="langkah-3-hitung-estimasi-hanya-kelas-1">Langkah 3: Hitung Estimasi (Hanya Kelas 1)</h3>
+<section id="langkah-3-hitung-estimasi-hanya-kelas-1" class="level3" data-number="4.0.4">
+<h3 data-number="4.0.4" class="anchored" data-anchor-id="langkah-3-hitung-estimasi-hanya-kelas-1"><span class="header-section-number">4.0.4</span> Langkah 3: Hitung Estimasi (Hanya Kelas 1)</h3>
 <p><strong>A. Pembilang (</strong><span class="math inline">\(\sum s_i \cdot \text{Skor}_{j}\)</span>): <span class="math inline">\(y_3: 4.000 \times 85 = 340\)</span> <span class="math inline">\(y_4: 4.000 \times 88 = 352\)</span> <span class="math inline">\(y_6: 0.444 \times 92 = 40.848\)</span> <strong>Total Pembilang</strong> = <strong>732.848</strong></p>
 <p><strong>B. Penyebut (</strong><span class="math inline">\(\sum s_i\)</span>): <span class="math inline">\(4.000 + 4.000 + 0.444 = \mathbf{8.444}\)</span></p>
 <p><strong>C. Hasil Akhir:</strong> <span class="math display">\[\hat{y} = \frac{732.848}{8.444} \approx \mathbf{86.79}\]</span></p>
 <hr>
 </section>
-<section id="kesimpulan" class="level3">
-<h3 class="anchored" data-anchor-id="kesimpulan">Kesimpulan</h3>
+<section id="kesimpulan" class="level3" data-number="4.0.5">
+<h3 data-number="4.0.5" class="anchored" data-anchor-id="kesimpulan"><span class="header-section-number">4.0.5</span> Kesimpulan</h3>
 <p>Nilai <strong>Skor Tes</strong> yang hilang diestimasi sebesar <strong>86.79</strong>.</p>
 <p>Hasil ini sangat masuk akal karena: Data target berada di Kelas 1 (Lulus). Pengalamannya (5.5) berada di antara <span class="math inline">\(y_3\)</span> (Pengalaman 5, Skor 85) dan <span class="math inline">\(y_4\)</span> (Pengalaman 6, Skor 88). Karena jaraknya ke <span class="math inline">\(y_3\)</span> dan <span class="math inline">\(y_4\)</span> sama dekatnya, hasilnya berada hampir tepat di tengah-tengah nilai skor mereka.</p>
 <p>Jika kita ingin tetap menyertakan tetangga dari kelas yang berbeda, biasanya bobot mereka (<span class="math inline">\(s_i\)</span>) akan dikalikan dengan sebuah konstanta penalti (misal 0.5) agar pengaruhnya tidak sebesar tetangga yang sekelas.</p>
@@ -963,14 +962,11 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Penambangan Data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Penambangan Data</span>
+      <a href="../grafik/grafik.html" class="pagination-link" aria-label="Charting in Colaboratory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../persiapan.html" class="pagination-link" aria-label="Persiapan">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Persiapan</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

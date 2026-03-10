@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; PROSES DATA MINING</title>
+<title>1&nbsp; PROSES DATA MINING</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,7 +103,7 @@ sagecell.makeSagecell({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preproces/wknn.html">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</a></li><li class="breadcrumb-item"><a href="./Proses.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./persiapan.html">Persiapan</a></li><li class="breadcrumb-item"><a href="./Proses.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -149,8 +149,8 @@ sagecell.makeSagecell({
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./preproces/wknn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></a>
+            <a href="./persiapan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Persiapan</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -158,20 +158,20 @@ sagecell.makeSagecell({
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./persiapan.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Persiapan</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./Proses.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./grafik/grafik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preproces/wknn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></span></a>
   </div>
 </li>
       </ul>
@@ -186,12 +186,12 @@ sagecell.makeSagecell({
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#cross-industry-standard-process-crisp" id="toc-cross-industry-standard-process-crisp" class="nav-link active" data-scroll-target="#cross-industry-standard-process-crisp"><span class="header-section-number">2.1</span> Cross Industry Standard Process (CRISP)</a>
+  <li><a href="#cross-industry-standard-process-crisp" id="toc-cross-industry-standard-process-crisp" class="nav-link active" data-scroll-target="#cross-industry-standard-process-crisp"><span class="header-section-number">1.1</span> Cross Industry Standard Process (CRISP)</a>
   <ul class="collapse">
-  <li><a href="#memahami-bisnis-business-understanding" id="toc-memahami-bisnis-business-understanding" class="nav-link" data-scroll-target="#memahami-bisnis-business-understanding"><span class="header-section-number">2.1.1</span> Memahami Bisnis (Business Understanding )</a></li>
-  <li><a href="#memahami-data-data-understanding" id="toc-memahami-data-data-understanding" class="nav-link" data-scroll-target="#memahami-data-data-understanding"><span class="header-section-number">2.1.2</span> Memahami data ( data understanding )</a></li>
-  <li><a href="#persiapan-data" id="toc-persiapan-data" class="nav-link" data-scroll-target="#persiapan-data"><span class="header-section-number">2.1.3</span> <strong>Persiapan data</strong></a></li>
-  <li><a href="#pemodelan" id="toc-pemodelan" class="nav-link" data-scroll-target="#pemodelan"><span class="header-section-number">2.1.4</span> Pemodelan</a></li>
+  <li><a href="#memahami-bisnis-business-understanding" id="toc-memahami-bisnis-business-understanding" class="nav-link" data-scroll-target="#memahami-bisnis-business-understanding"><span class="header-section-number">1.1.1</span> Memahami Bisnis (Business Understanding )</a></li>
+  <li><a href="#memahami-data-data-understanding" id="toc-memahami-data-data-understanding" class="nav-link" data-scroll-target="#memahami-data-data-understanding"><span class="header-section-number">1.1.2</span> Memahami data ( data understanding )</a></li>
+  <li><a href="#persiapan-data" id="toc-persiapan-data" class="nav-link" data-scroll-target="#persiapan-data"><span class="header-section-number">1.1.3</span> <strong>Persiapan data</strong></a></li>
+  <li><a href="#pemodelan" id="toc-pemodelan" class="nav-link" data-scroll-target="#pemodelan"><span class="header-section-number">1.1.4</span> Pemodelan</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/moelaab/pendata/edit/main/Proses.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/moelaab/pendata/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -199,9 +199,9 @@ sagecell.makeSagecell({
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preproces/wknn.html">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</a></li><li class="breadcrumb-item"><a href="./Proses.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./persiapan.html">Persiapan</a></li><li class="breadcrumb-item"><a href="./Proses.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></h1>
 </div>
 
 
@@ -230,26 +230,26 @@ sagecell.makeSagecell({
 <li><p>Model data mining dievaluasi dan model dengan kinerja terbaik dipilih menurut beberapa kriteria kinerja. Biasanya, langkah-langkah ini dilakukan secara iteratif, dan tidak harus dalam urutan linier yang disajikan. Sebagai contoh, seseorang mungkin mengekstrak <em>mining view</em>, melakukan EDA, membangun seperangkat model, dan kemudian, berdasarkan hasil evaluasi model-model ini, memutuskan untuk memperkenalkan serangkaian transformasi dan langkah-langkah reduksi data dalam upaya untuk meningkatkan kinerja model.</p></li>
 </ol>
 <p>Dari lima langkah dalam proses data mining, langkah-langkah ekstraksi dan persiapan data dapat memakan waktu hingga 80% dari waktu proyek. Selain itu, untuk menghindari situasi “garbage in, garbage out”, kita harus memastikan bahwa kita telah mengekstraksi data yang tepat dan paling berguna. Oleh karena itu, ekstraksi dan persiapan data harus menjadi prioritas dalam perencanaan dan pelaksanaan proyek data mining.</p>
-<section id="cross-industry-standard-process-crisp" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="cross-industry-standard-process-crisp"><span class="header-section-number">2.1</span> Cross Industry Standard Process (CRISP)</h2>
+<section id="cross-industry-standard-process-crisp" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="cross-industry-standard-process-crisp"><span class="header-section-number">1.1</span> Cross Industry Standard Process (CRISP)</h2>
 <p>Cross Industry Standard Process adalah standar proses data mining yang digunakan untuk melakukan penambangan data berdasarkan hasil konsorsium vendor perangkat lunak dan pengguna industri teknologi data mining , yang dikenal sebagai CRISP-DM,. Model ini adalah model proses standar terbuka yang menggambarkan pendekatan umum yang digunakan oleh para ahli penambangan data. Model proses penambangan data ini memberikan gambaran umum siklus hidup proyek penambangan data yang berisi fase proyek unuk tugas masing-masing fase dan menjelaskan hubungan antara aktifitas aktifitas yang dilakukan seperti gambar berikut:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/clipboard-2551226778.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
-<section id="memahami-bisnis-business-understanding" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="memahami-bisnis-business-understanding"><span class="header-section-number">2.1.1</span> Memahami Bisnis (Business Understanding )</h3>
-<section id="menentukan-tujuan-bisnis" class="level4" data-number="2.1.1.1">
-<h4 data-number="2.1.1.1" class="anchored" data-anchor-id="menentukan-tujuan-bisnis"><span class="header-section-number">2.1.1.1</span> <strong>Menentukan Tujuan Bisnis</strong></h4>
+<section id="memahami-bisnis-business-understanding" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="memahami-bisnis-business-understanding"><span class="header-section-number">1.1.1</span> Memahami Bisnis (Business Understanding )</h3>
+<section id="menentukan-tujuan-bisnis" class="level4" data-number="1.1.1.1">
+<h4 data-number="1.1.1.1" class="anchored" data-anchor-id="menentukan-tujuan-bisnis"><span class="header-section-number">1.1.1.1</span> <strong>Menentukan Tujuan Bisnis</strong></h4>
 <p>Tahapan ini menfokuskan pada pemahaman tujuan projek dan kebutuhan-kebutuhan yang diinginkan bisnis, kemudian merubahnya pengetahuan ini untuk mendefinisikan data mining dan rencana yang ingin dilakukan untuk mencapai tujuan bisnis. Tahaapan ini dilakukan untuk memahami secara menyeluruh, dari perspektif bisnis, apa yang benar-benar ingin dicapai oleh pelanggan. Selain itu pada tahapan ini analisa perlu dilakukan untuk mengungkap faktor-faktor penting, yang dapat mempengaruhi hasil proyek data mining.</p>
 </section>
-<section id="membuat-rencana-proyek" class="level4" data-number="2.1.1.2">
-<h4 data-number="2.1.1.2" class="anchored" data-anchor-id="membuat-rencana-proyek"><span class="header-section-number">2.1.1.2</span> <strong>Membuat Rencana Proyek</strong></h4>
+<section id="membuat-rencana-proyek" class="level4" data-number="1.1.1.2">
+<h4 data-number="1.1.1.2" class="anchored" data-anchor-id="membuat-rencana-proyek"><span class="header-section-number">1.1.1.2</span> <strong>Membuat Rencana Proyek</strong></h4>
 <p>Menjelaskan rencana projek dilakuan untuk mencapai tujuan penambangan data sehingga dapat mencapai tujuan bisnis yang diinginkan. Rencana tersebut harus menentukan langkah-langkah yang harus dilakukan selama proyek , termasuk pemilihan tool dan teknik yang akan digunakan</p>
 </section>
-<section id="menilai-situasi-dan-kondisi" class="level4" data-number="2.1.1.3">
-<h4 data-number="2.1.1.3" class="anchored" data-anchor-id="menilai-situasi-dan-kondisi"><span class="header-section-number">2.1.1.3</span> <strong>Menilai situasi dan kondisi</strong></h4>
+<section id="menilai-situasi-dan-kondisi" class="level4" data-number="1.1.1.3">
+<h4 data-number="1.1.1.3" class="anchored" data-anchor-id="menilai-situasi-dan-kondisi"><span class="header-section-number">1.1.1.3</span> <strong>Menilai situasi dan kondisi</strong></h4>
 <p>Dalam hal pencarian fakta yang lebih rinci tentang semua sumber daya, kendala, asumsi, dan faktor-faktor lain yang harus dipertimbangkan dalam menentukan tujuan analisis data dan rencana proyek. Menilai sefara rinci kondisi lingkungan bisnis dan tujuan bisnis akan menentukan keberhasilan projek data mining</p>
 <p>Output dari ini adalah</p>
 <ol type="1">
@@ -262,11 +262,11 @@ sagecell.makeSagecell({
 </ol>
 </section>
 </section>
-<section id="memahami-data-data-understanding" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="memahami-data-data-understanding"><span class="header-section-number">2.1.2</span> Memahami data ( data understanding )</h3>
+<section id="memahami-data-data-understanding" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="memahami-data-data-understanding"><span class="header-section-number">1.1.2</span> Memahami data ( data understanding )</h3>
 <p>Tahapan memahami data dimulai dengan mengumpulkan data awal dan dilanjutkan dengan dengan kegiatan-kegiatan untuk mendapatkan data yang lazim serta identifikasi data yang berkualitas, pemahaman data sangat diperlukan untuk mendeteksi bagian yang menarik dari data sehingga dapat membangun hipotesa terhadap informasi yang tersembunyi</p>
-<section id="mengumpulkan-data-awal" class="level4" data-number="2.1.2.1">
-<h4 data-number="2.1.2.1" class="anchored" data-anchor-id="mengumpulkan-data-awal"><span class="header-section-number">2.1.2.1</span> <strong>Mengumpulkan data awal</strong></h4>
+<section id="mengumpulkan-data-awal" class="level4" data-number="1.1.2.1">
+<h4 data-number="1.1.2.1" class="anchored" data-anchor-id="mengumpulkan-data-awal"><span class="header-section-number">1.1.2.1</span> <strong>Mengumpulkan data awal</strong></h4>
 <ul>
 <li><strong>Tugas</strong></li>
 </ul>
@@ -280,8 +280,8 @@ sagecell.makeSagecell({
 <p>Daftar data yang di hasilkan dan dimana data tersebut berada, serta metode yang digunakan untuk mendapatkan data tersebut dan masalah-masalah dari data tersebut. Pada masa yang akan datang hasil dari tahapan ini sangat membantu jika kita melakukan data mining pada projek yang sama</p>
 </blockquote>
 </section>
-<section id="mendiskripsikan-data" class="level4" data-number="2.1.2.2">
-<h4 data-number="2.1.2.2" class="anchored" data-anchor-id="mendiskripsikan-data"><span class="header-section-number">2.1.2.2</span> <strong>Mendiskripsikan data</strong></h4>
+<section id="mendiskripsikan-data" class="level4" data-number="1.1.2.2">
+<h4 data-number="1.1.2.2" class="anchored" data-anchor-id="mendiskripsikan-data"><span class="header-section-number">1.1.2.2</span> <strong>Mendiskripsikan data</strong></h4>
 <ul>
 <li><strong>Tugas</strong></li>
 </ul>
@@ -295,8 +295,8 @@ sagecell.makeSagecell({
 <p>Report dari diskripsi data. Mendeskripsikan data yang didapat, diantaranya; format dari data, jumlah data, misalkan jumlah record dan field dari masing-masing tabel, identitas dari field-field (atribut-atribut) dan karakteristik yang tampak dari data yang sudah dikumpulkan. Apakah data memenuhi kebutuhan yang terkait</p>
 </blockquote>
 </section>
-<section id="ekplorasi-data-menyelidiki-data" class="level4" data-number="2.1.2.3">
-<h4 data-number="2.1.2.3" class="anchored" data-anchor-id="ekplorasi-data-menyelidiki-data"><span class="header-section-number">2.1.2.3</span> <strong>Ekplorasi data /Menyelidiki data</strong></h4>
+<section id="ekplorasi-data-menyelidiki-data" class="level4" data-number="1.1.2.3">
+<h4 data-number="1.1.2.3" class="anchored" data-anchor-id="ekplorasi-data-menyelidiki-data"><span class="header-section-number">1.1.2.3</span> <strong>Ekplorasi data /Menyelidiki data</strong></h4>
 <ul>
 <li><strong>Tugas</strong></li>
 </ul>
@@ -310,8 +310,8 @@ sagecell.makeSagecell({
 <p>Laporan data explorasi. Pada kegitatan ini adalah menemukan hipotesa awal dan pengaruhnya pada akhir projek. Keluaran dari kegiatan ini diantaranya adalah grafik, dan plot yang menentukan karakteristik data atau yang terkait dengan sebagian data untuk penyelidikan lebih lanjut</p>
 </blockquote>
 </section>
-<section id="verifikasi-qualitas-data" class="level4" data-number="2.1.2.4">
-<h4 data-number="2.1.2.4" class="anchored" data-anchor-id="verifikasi-qualitas-data"><span class="header-section-number">2.1.2.4</span> <strong>Verifikasi qualitas data</strong></h4>
+<section id="verifikasi-qualitas-data" class="level4" data-number="1.1.2.4">
+<h4 data-number="1.1.2.4" class="anchored" data-anchor-id="verifikasi-qualitas-data"><span class="header-section-number">1.1.2.4</span> <strong>Verifikasi qualitas data</strong></h4>
 <ul>
 <li><strong>Tugas</strong></li>
 </ul>
@@ -326,12 +326,12 @@ sagecell.makeSagecell({
 </blockquote>
 </section>
 </section>
-<section id="persiapan-data" class="level3" data-number="2.1.3">
-<h3 data-number="2.1.3" class="anchored" data-anchor-id="persiapan-data"><span class="header-section-number">2.1.3</span> <strong>Persiapan data</strong></h3>
+<section id="persiapan-data" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="persiapan-data"><span class="header-section-number">1.1.3</span> <strong>Persiapan data</strong></h3>
 <p>Tahap mempersiapkan data mencakup semua aktifitas untuk membangun dataset akhir (data yang digunakan untuk tool pemodelan) dari data mentah awal. Tugas persiapan data lebih memungkinkan untuk dilakukan beberapa kali dan tidak ada ketentuan. Tugas-tugasnya diantaranya adalah memilih table, record dan atribut juga tranformasi dan membersihkan data.</p>
 <p>Output dari persiapan data adalah data set. Data data ini akan digunakan untuk pemodelan atau tugas analisa utama dari projek. Selain itu deskripsi dari data yang akan digunakan untuk pemodelan atau pekerjaan analisa utama dari projek. Tugas-tugas dari persiapan data diantaranya adalah:</p>
-<section id="memilih-data-select-data" class="level4" data-number="2.1.3.1">
-<h4 data-number="2.1.3.1" class="anchored" data-anchor-id="memilih-data-select-data"><span class="header-section-number">2.1.3.1</span> <strong>Memilih data ( Select data)</strong></h4>
+<section id="memilih-data-select-data" class="level4" data-number="1.1.3.1">
+<h4 data-number="1.1.3.1" class="anchored" data-anchor-id="memilih-data-select-data"><span class="header-section-number">1.1.3.1</span> <strong>Memilih data ( Select data)</strong></h4>
 <ul>
 <li><strong>Tugas</strong></li>
 </ul>
@@ -345,15 +345,15 @@ sagecell.makeSagecell({
 <p>Daftar data yang akan digunakan dan dikeluarkan serta alasan-alasan mengapa data digunakan atau dikeluarkan.</p>
 </blockquote>
 </section>
-<section id="membersihkan-data-clean-data" class="level4" data-number="2.1.3.2">
-<h4 data-number="2.1.3.2" class="anchored" data-anchor-id="membersihkan-data-clean-data"><span class="header-section-number">2.1.3.2</span> <strong>Membersihkan data ( Clean data)</strong></h4>
+<section id="membersihkan-data-clean-data" class="level4" data-number="1.1.3.2">
+<h4 data-number="1.1.3.2" class="anchored" data-anchor-id="membersihkan-data-clean-data"><span class="header-section-number">1.1.3.2</span> <strong>Membersihkan data ( Clean data)</strong></h4>
 <ul>
 <li><p><strong>Tugas</strong> &gt; Pada tahapan ini adalah bagaimana meningkatkan kualitas data sesuai dengan teknik yang dipilih. Beberapa diantaranya adalah memilih sebagian data yang bersih dan menyisipkan data yang hilang dengan teknik menyisipkan data hilang menggunakan model yang baik.</p></li>
 <li><p><strong>Keluaran</strong> &gt; Penjelasan atas keputusan dan tindakan apa yang diambil untuk menangani kualitas data serta serta dampak kemungkinan hasil analisis</p></li>
 </ul>
 </section>
-<section id="integrasi-data-integrate-data" class="level4" data-number="2.1.3.3">
-<h4 data-number="2.1.3.3" class="anchored" data-anchor-id="integrasi-data-integrate-data"><span class="header-section-number">2.1.3.3</span> <strong>Integrasi data ( integrate data)</strong></h4>
+<section id="integrasi-data-integrate-data" class="level4" data-number="1.1.3.3">
+<h4 data-number="1.1.3.3" class="anchored" data-anchor-id="integrasi-data-integrate-data"><span class="header-section-number">1.1.3.3</span> <strong>Integrasi data ( integrate data)</strong></h4>
 <ul>
 <li><p><strong>Tugas</strong> &gt; Pada tahapan ini dilakukan proses penggabungan dari beberapa informasi misalkan dalam bentuk beberapa tabel untuk membentuk inforasi baru yang merupakan gabungan dari beberapa tabel</p></li>
 <li><p><strong>Keluaran</strong></p></li>
@@ -363,8 +363,8 @@ sagecell.makeSagecell({
 </blockquote>
 </section>
 </section>
-<section id="pemodelan" class="level3" data-number="2.1.4">
-<h3 data-number="2.1.4" class="anchored" data-anchor-id="pemodelan"><span class="header-section-number">2.1.4</span> Pemodelan</h3>
+<section id="pemodelan" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="pemodelan"><span class="header-section-number">1.1.4</span> Pemodelan</h3>
 <p>Pada tahapan ini membangun suatu model dari data yang diperoleh dari langkah sebelumnya untuk menjawab pertanyaan kebutuhan bisnis dengan berbagai macam metode. Beberapa metode yang dapat digunakan adalah metode statistik, pembelajaran mesin, riset operasi dan sebagainya. Dalam melakukan pemodelan data beberapa hal yang dilakukan adalah memilih variabel model, menjalankan model, dan mendiagnosa.</p>
 
 
@@ -774,12 +774,12 @@ sagecell.makeSagecell({
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./persiapan.html" class="pagination-link" aria-label="Persiapan">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Persiapan</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Persiapan</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./grafik/grafik.html" class="pagination-link" aria-label="Charting in Colaboratory">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

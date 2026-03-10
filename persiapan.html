@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Persiapan</title>
+<title>Persiapan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./Proses.html" rel="next">
-<link href="./preproces/wknn.html" rel="prev">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -138,7 +138,7 @@ sagecell.makeSagecell({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preproces/wknn.html">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</a></li><li class="breadcrumb-item"><a href="./persiapan.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Persiapan</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./persiapan.html">Persiapan</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -184,8 +184,8 @@ sagecell.makeSagecell({
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./preproces/wknn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></a>
+            <a href="./persiapan.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Persiapan</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -193,20 +193,20 @@ sagecell.makeSagecell({
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./persiapan.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Persiapan</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./Proses.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./grafik/grafik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preproces/wknn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></span></a>
   </div>
 </li>
       </ul>
@@ -221,34 +221,34 @@ sagecell.makeSagecell({
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#membuat-enviroment-untuk-analisa-data" id="toc-membuat-enviroment-untuk-analisa-data" class="nav-link active" data-scroll-target="#membuat-enviroment-untuk-analisa-data"><span class="header-section-number">1.1</span> Membuat enviroment untuk analisa data</a>
+  <li><a href="#membuat-enviroment-untuk-analisa-data" id="toc-membuat-enviroment-untuk-analisa-data" class="nav-link active" data-scroll-target="#membuat-enviroment-untuk-analisa-data">Membuat enviroment untuk analisa data</a>
   <ul class="collapse">
-  <li><a href="#pastikan-lingkungan-python-siap" id="toc-pastikan-lingkungan-python-siap" class="nav-link" data-scroll-target="#pastikan-lingkungan-python-siap"><span class="header-section-number">1.1.1</span> Pastikan Lingkungan Python Siap</a></li>
-  <li><a href="#instal-ipykernel" id="toc-instal-ipykernel" class="nav-link" data-scroll-target="#instal-ipykernel"><span class="header-section-number">1.1.2</span> Instal <code>ipykernel</code></a></li>
-  <li><a href="#daftarkan-kernel-ke-jupyter" id="toc-daftarkan-kernel-ke-jupyter" class="nav-link" data-scroll-target="#daftarkan-kernel-ke-jupyter"><span class="header-section-number">1.1.3</span> Daftarkan Kernel ke Jupyter</a></li>
-  <li><a href="#verifikasi-instalasi" id="toc-verifikasi-instalasi" class="nav-link" data-scroll-target="#verifikasi-instalasi"><span class="header-section-number">1.1.4</span> Verifikasi Instalasi</a></li>
-  <li><a href="#pilih-kernel-di-jupyter-lab" id="toc-pilih-kernel-di-jupyter-lab" class="nav-link" data-scroll-target="#pilih-kernel-di-jupyter-lab"><span class="header-section-number">1.1.5</span> Pilih Kernel di Jupyter Lab</a></li>
+  <li><a href="#pastikan-lingkungan-python-siap" id="toc-pastikan-lingkungan-python-siap" class="nav-link" data-scroll-target="#pastikan-lingkungan-python-siap">Pastikan Lingkungan Python Siap</a></li>
+  <li><a href="#instal-ipykernel" id="toc-instal-ipykernel" class="nav-link" data-scroll-target="#instal-ipykernel">Instal <code>ipykernel</code></a></li>
+  <li><a href="#daftarkan-kernel-ke-jupyter" id="toc-daftarkan-kernel-ke-jupyter" class="nav-link" data-scroll-target="#daftarkan-kernel-ke-jupyter">Daftarkan Kernel ke Jupyter</a></li>
+  <li><a href="#verifikasi-instalasi" id="toc-verifikasi-instalasi" class="nav-link" data-scroll-target="#verifikasi-instalasi">Verifikasi Instalasi</a></li>
+  <li><a href="#pilih-kernel-di-jupyter-lab" id="toc-pilih-kernel-di-jupyter-lab" class="nav-link" data-scroll-target="#pilih-kernel-di-jupyter-lab">Pilih Kernel di Jupyter Lab</a></li>
   </ul></li>
-  <li><a href="#membuat-repositori-di-github" id="toc-membuat-repositori-di-github" class="nav-link" data-scroll-target="#membuat-repositori-di-github"><span class="header-section-number">1.2</span> Membuat Repositori di github</a>
+  <li><a href="#membuat-repositori-di-github" id="toc-membuat-repositori-di-github" class="nav-link" data-scroll-target="#membuat-repositori-di-github">Membuat Repositori di github</a>
   <ul class="collapse">
-  <li><a href="#login-ke-akun-github" id="toc-login-ke-akun-github" class="nav-link" data-scroll-target="#login-ke-akun-github"><span class="header-section-number">1.2.1</span> Login ke Akun GitHub</a></li>
-  <li><a href="#akses-menu-pembuatan-repositori" id="toc-akses-menu-pembuatan-repositori" class="nav-link" data-scroll-target="#akses-menu-pembuatan-repositori"><span class="header-section-number">1.2.2</span> Akses Menu Pembuatan Repositori</a></li>
-  <li><a href="#isi-informasi-repositori" id="toc-isi-informasi-repositori" class="nav-link" data-scroll-target="#isi-informasi-repositori"><span class="header-section-number">1.2.3</span> Isi Informasi Repositori</a></li>
-  <li><a href="#buat-repositori" id="toc-buat-repositori" class="nav-link" data-scroll-target="#buat-repositori"><span class="header-section-number">1.2.4</span> Buat Repositori</a></li>
-  <li><a href="#mengunggah-kode-jika-ada" id="toc-mengunggah-kode-jika-ada" class="nav-link" data-scroll-target="#mengunggah-kode-jika-ada"><span class="header-section-number">1.2.5</span> Mengunggah Kode (Jika Ada)</a></li>
+  <li><a href="#login-ke-akun-github" id="toc-login-ke-akun-github" class="nav-link" data-scroll-target="#login-ke-akun-github">Login ke Akun GitHub</a></li>
+  <li><a href="#akses-menu-pembuatan-repositori" id="toc-akses-menu-pembuatan-repositori" class="nav-link" data-scroll-target="#akses-menu-pembuatan-repositori">Akses Menu Pembuatan Repositori</a></li>
+  <li><a href="#isi-informasi-repositori" id="toc-isi-informasi-repositori" class="nav-link" data-scroll-target="#isi-informasi-repositori">Isi Informasi Repositori</a></li>
+  <li><a href="#buat-repositori" id="toc-buat-repositori" class="nav-link" data-scroll-target="#buat-repositori">Buat Repositori</a></li>
+  <li><a href="#mengunggah-kode-jika-ada" id="toc-mengunggah-kode-jika-ada" class="nav-link" data-scroll-target="#mengunggah-kode-jika-ada">Mengunggah Kode (Jika Ada)</a></li>
   </ul></li>
-  <li><a href="#clone-ke-komputer-lokal" id="toc-clone-ke-komputer-lokal" class="nav-link" data-scroll-target="#clone-ke-komputer-lokal"><span class="header-section-number">1.3</span> Clone ke Komputer Lokal</a></li>
-  <li><a href="#push-project-yang-sudah-ada" id="toc-push-project-yang-sudah-ada" class="nav-link" data-scroll-target="#push-project-yang-sudah-ada"><span class="header-section-number">1.4</span> Push Project yang Sudah Ada</a></li>
-  <li><a href="#perintah-git-dasar-sehari-hari" id="toc-perintah-git-dasar-sehari-hari" class="nav-link" data-scroll-target="#perintah-git-dasar-sehari-hari"><span class="header-section-number">1.5</span> Perintah Git Dasar Sehari-hari</a></li>
+  <li><a href="#clone-ke-komputer-lokal" id="toc-clone-ke-komputer-lokal" class="nav-link" data-scroll-target="#clone-ke-komputer-lokal">Clone ke Komputer Lokal</a></li>
+  <li><a href="#push-project-yang-sudah-ada" id="toc-push-project-yang-sudah-ada" class="nav-link" data-scroll-target="#push-project-yang-sudah-ada">Push Project yang Sudah Ada</a></li>
+  <li><a href="#perintah-git-dasar-sehari-hari" id="toc-perintah-git-dasar-sehari-hari" class="nav-link" data-scroll-target="#perintah-git-dasar-sehari-hari">Perintah Git Dasar Sehari-hari</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/moelaab/pendata/edit/main/persiapan.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/moelaab/pendata/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preproces/wknn.html">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</a></li><li class="breadcrumb-item"><a href="./persiapan.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Persiapan</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Persiapan</span></h1>
+<h1 class="title">Persiapan</h1>
 </div>
 
 
@@ -265,12 +265,12 @@ sagecell.makeSagecell({
 </header>
 
 
-<section id="membuat-enviroment-untuk-analisa-data" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="membuat-enviroment-untuk-analisa-data"><span class="header-section-number">1.1</span> Membuat enviroment untuk analisa data</h2>
+<section id="membuat-enviroment-untuk-analisa-data" class="level2">
+<h2 class="anchored" data-anchor-id="membuat-enviroment-untuk-analisa-data">Membuat enviroment untuk analisa data</h2>
 <p>Penambangan data membutuhkan tool dan perangkat yang dibutuhkan untuk melakukan analisa data. Kita perlu mempersiapkan lingkungan yang sesuai dengan kebutuhan kita dalam melakukan analis. Lingkungan adalah wadah untuk menampung library python sehingga kita secara konsisten dapat menggunakan library tanpa ada konflik terhadap yang library yang lain. Selanjutnya lingkungan ini disebut sebagai kernel dalam Jupyter lab</p>
 <p>Berikut adalah panduan langkah demi langkah untuk menambah kernel baru di Jupyter Lab.</p>
-<section id="pastikan-lingkungan-python-siap" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="pastikan-lingkungan-python-siap"><span class="header-section-number">1.1.1</span> Pastikan Lingkungan Python Siap</h3>
+<section id="pastikan-lingkungan-python-siap" class="level3">
+<h3 class="anchored" data-anchor-id="pastikan-lingkungan-python-siap">Pastikan Lingkungan Python Siap</h3>
 <p>Pastikan Anda memiliki lingkungan Python (venv atau conda) yang ingin Anda gunakan sebagai kernel sudah aktif. Jika belum ikuti panduan lengkap untuk membuat environment (lingkungan virtual) pada Python. Environment berguna untuk mengisolasi dependensi proyek agar tidak bentrok dengan proyek lain. Ada dua cara populer yang biasa digunakan: menggunakan modul bawaan <code>venv</code> atau menggunakan <code>conda</code>.</p>
 <p><strong>A. Menggunakan <code>venv</code> (Bawaan Python).</strong> Metode ini sudah tersedia secara default jika Anda menginstal Python dari python.org.</p>
 <ul>
@@ -313,30 +313,30 @@ sagecell.makeSagecell({
 <p>Menggunakan <code>conda</code>:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install numpy pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="instal-ipykernel" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="instal-ipykernel"><span class="header-section-number">1.1.2</span> Instal <code>ipykernel</code></h3>
+<section id="instal-ipykernel" class="level3">
+<h3 class="anchored" data-anchor-id="instal-ipykernel">Instal <code>ipykernel</code></h3>
 <p>Di dalam lingkungan Python tersebut, instal paket <code>ipykernel</code> menggunakan pip atau conda.</p>
 <p>Menggunakan pip:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install ipykernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Menggunakan conda:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install ipykernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="daftarkan-kernel-ke-jupyter" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="daftarkan-kernel-ke-jupyter"><span class="header-section-number">1.1.3</span> Daftarkan Kernel ke Jupyter</h3>
+<section id="daftarkan-kernel-ke-jupyter" class="level3">
+<h3 class="anchored" data-anchor-id="daftarkan-kernel-ke-jupyter">Daftarkan Kernel ke Jupyter</h3>
 <p>Jalankan perintah berikut untuk mendaftarkan lingkungan Python saat ini sebagai kernel Jupyter yang baru.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span><span class="op">=</span>nama_kernel <span class="at">--display-name</span> <span class="st">"Nama Tampilan"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Contoh: Jika Jika nama enviromentnyA adalah enpendata maka</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span><span class="op">=</span>envpendata  <span class="at">--display-name</span> <span class="st">"myenvpendata)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="verifikasi-instalasi" class="level3" data-number="1.1.4">
-<h3 data-number="1.1.4" class="anchored" data-anchor-id="verifikasi-instalasi"><span class="header-section-number">1.1.4</span> Verifikasi Instalasi</h3>
+<section id="verifikasi-instalasi" class="level3">
+<h3 class="anchored" data-anchor-id="verifikasi-instalasi">Verifikasi Instalasi</h3>
 <p>Untuk memastikan kernel sudah terdaftar, jalankan perintah berikut di terminal:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="images/clipboard-1647855441.png" class="img-fluid"></p>
 <p>Anda akan melihat daftar kernel yang tersedia, termasuk kernel baru yang saja Anda tambahkan.</p>
 </section>
-<section id="pilih-kernel-di-jupyter-lab" class="level3" data-number="1.1.5">
-<h3 data-number="1.1.5" class="anchored" data-anchor-id="pilih-kernel-di-jupyter-lab"><span class="header-section-number">1.1.5</span> Pilih Kernel di Jupyter Lab</h3>
+<section id="pilih-kernel-di-jupyter-lab" class="level3">
+<h3 class="anchored" data-anchor-id="pilih-kernel-di-jupyter-lab">Pilih Kernel di Jupyter Lab</h3>
 <ol type="1">
 <li>Buka Jupyter Lab.</li>
 <li>Buat notebook baru (<strong>File</strong> &gt; <strong>New</strong> &gt; <strong>Notebook</strong>).</li>
@@ -353,23 +353,23 @@ sagecell.makeSagecell({
 <p>Dengan langkah ini, Anda sudah berhasil menambah kernel kustom di Jupyter Lab.</p>
 </section>
 </section>
-<section id="membuat-repositori-di-github" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="membuat-repositori-di-github"><span class="header-section-number">1.2</span> Membuat Repositori di github</h2>
+<section id="membuat-repositori-di-github" class="level2">
+<h2 class="anchored" data-anchor-id="membuat-repositori-di-github">Membuat Repositori di github</h2>
 <p>Berikut adalah panduan langkah demi langkah untuk membuat repositori di GitHub:</p>
-<section id="login-ke-akun-github" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="login-ke-akun-github"><span class="header-section-number">1.2.1</span> Login ke Akun GitHub</h3>
+<section id="login-ke-akun-github" class="level3">
+<h3 class="anchored" data-anchor-id="login-ke-akun-github">Login ke Akun GitHub</h3>
 <p>Pastikan Anda sudah memiliki akun GitHub. Buka <a href="https://github.com">github.com</a> dan login menggunakan kredensial Anda.</p>
 </section>
-<section id="akses-menu-pembuatan-repositori" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="akses-menu-pembuatan-repositori"><span class="header-section-number">1.2.2</span> Akses Menu Pembuatan Repositori</h3>
+<section id="akses-menu-pembuatan-repositori" class="level3">
+<h3 class="anchored" data-anchor-id="akses-menu-pembuatan-repositori">Akses Menu Pembuatan Repositori</h3>
 <p>Setelah login, perhatikan pojok kanan atas halaman:</p>
 <ol type="1">
 <li><p>Klik ikon tanda tambah <strong><code>+</code></strong>.</p></li>
 <li><p>Pilih opsi <strong><code>New repository</code></strong> dari menu dropdown.</p></li>
 </ol>
 </section>
-<section id="isi-informasi-repositori" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="isi-informasi-repositori"><span class="header-section-number">1.2.3</span> Isi Informasi Repositori</h3>
+<section id="isi-informasi-repositori" class="level3">
+<h3 class="anchored" data-anchor-id="isi-informasi-repositori">Isi Informasi Repositori</h3>
 <p>Anda akan diarahkan ke halaman “Create a new repository”. Isi formulir berikut:</p>
 <ul>
 <li><strong>Repository name</strong>: Masukkan nama repositori (wajib). Nama ini harus unik untuk akun Anda.</li>
@@ -387,12 +387,12 @@ sagecell.makeSagecell({
 </ul></li>
 </ul>
 </section>
-<section id="buat-repositori" class="level3" data-number="1.2.4">
-<h3 data-number="1.2.4" class="anchored" data-anchor-id="buat-repositori"><span class="header-section-number">1.2.4</span> Buat Repositori</h3>
+<section id="buat-repositori" class="level3">
+<h3 class="anchored" data-anchor-id="buat-repositori">Buat Repositori</h3>
 <p>Setelah semua informasi diisi, gulir ke bawah dan klik tombol hijau <strong><code>Create repository</code></strong>.</p>
 </section>
-<section id="mengunggah-kode-jika-ada" class="level3" data-number="1.2.5">
-<h3 data-number="1.2.5" class="anchored" data-anchor-id="mengunggah-kode-jika-ada"><span class="header-section-number">1.2.5</span> Mengunggah Kode (Jika Ada)</h3>
+<section id="mengunggah-kode-jika-ada" class="level3">
+<h3 class="anchored" data-anchor-id="mengunggah-kode-jika-ada">Mengunggah Kode (Jika Ada)</h3>
 <p>Setelah repositori dibuat, Anda akan melihat halaman kosong atau isi README. Jika Anda sudah memiliki kode di komputer lokal, Anda bisa menghubungkannya menggunakan terminal/command prompt:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Jika repositori kosong dan ingin push kode yang ada</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
@@ -406,13 +406,13 @@ sagecell.makeSagecell({
 <p>Sekarang repositori GitHub Anda sudah siap digunakan!</p>
 </section>
 </section>
-<section id="clone-ke-komputer-lokal" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="clone-ke-komputer-lokal"><span class="header-section-number">1.3</span> Clone ke Komputer Lokal</h2>
+<section id="clone-ke-komputer-lokal" class="level2">
+<h2 class="anchored" data-anchor-id="clone-ke-komputer-lokal">Clone ke Komputer Lokal</h2>
 <p>Setelah repo dibuat, copy URL-nya lalu jalankan di terminal:</p>
 <pre><code>git clone https://github.com/username/nama-repo.git cd nama-repo </code></pre>
 </section>
-<section id="push-project-yang-sudah-ada" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="push-project-yang-sudah-ada"><span class="header-section-number">1.4</span> Push Project yang Sudah Ada</h2>
+<section id="push-project-yang-sudah-ada" class="level2">
+<h2 class="anchored" data-anchor-id="push-project-yang-sudah-ada">Push Project yang Sudah Ada</h2>
 <p>Jika kamu sudah punya folder project lokal:</p>
 <pre><code>cd folder-project-kamu  
 git init git add . 
@@ -421,8 +421,8 @@ git branch -M main
 git remote add origin https://github.com/username/nama-repo.git 
 git push -u origin main </code></pre>
 </section>
-<section id="perintah-git-dasar-sehari-hari" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="perintah-git-dasar-sehari-hari"><span class="header-section-number">1.5</span> Perintah Git Dasar Sehari-hari</h2>
+<section id="perintah-git-dasar-sehari-hari" class="level2">
+<h2 class="anchored" data-anchor-id="perintah-git-dasar-sehari-hari">Perintah Git Dasar Sehari-hari</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
@@ -931,13 +931,13 @@ git push -u origin main </code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./preproces/wknn.html" class="pagination-link" aria-label="Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span>
+      <a href="./index.html" class="pagination-link" aria-label="Penambangan Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Penambangan Data</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Proses.html" class="pagination-link" aria-label="PROSES DATA MINING">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PROSES DATA MINING</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
