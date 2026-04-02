@@ -180,25 +180,146 @@
     ]
   },
   {
-    "objectID": "preproces/wknn.html",
-    "href": "preproces/wknn.html",
-    "title": "3  Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)",
+    "objectID": "Sosmed.html",
+    "href": "Sosmed.html",
+    "title": "3  Menggunakan Media Sosial",
     "section": "",
-    "text": "3.0.1 Penentuan parameter K\nMetode Weighted KNN memilih instans dengan nilai yang serupa (dalam hal jarak) terhadap instans yang tidak lengkap, sehingga dapat melakukan imputasi sebagaimana yang dilakukan KNNI. Metode ini merupakan pengembangan dari metode KNNI (K-Nearest Neighbour Imputation) standar. KNNI Standar. Biasanya mengambil nilai rata-rata sederhana atau nilai yang paling sering muncul (modus) dari \\(K\\) tetangga terdekat untuk mengisi data yang hilang. WKNNI tidak memperlakukan semua tetangga sama rata. Metode ini memberikan bobot yang berbeda. Tetangga yang nilainya sangat mirip (jaraknya dekat) dengan data yang hilang akan memiliki pengaruh (bobot) lebih besar dibandingkan tetangga yang jaraknya jauh.Namun, nilai estimasi kini memperhitungkan perbedaan jarak ke tetangga-tetangga tersebut, dengan menggunakan rata-rata tertimbang atau nilai yang paling sering muncul berdasarkan ukuran kesamaan. Ukuran kesamaan \\(s_i(y_j)\\) antara dua contoh \\(y_i\\) dan \\(y_j\\) didefinisikan oleh jarak Euclidean yang dihitung berdasarkan atribut-atribut yang teramati pada \\(y_i\\).\nSelanjutnya kita mendefinisikan ukuran tersebut sebagai berikut:\n\\[1/s_i = \\sum_{h_i \\in O_i \\cap O_j} (y_{ih} - y_{jh})^2, \\quad \\quad  (1) \\]\ndi mana \\(O_i = \\{h | \\text{komponen ke-}h \\text{ dari } y_i \\text{ teramati}\\}\\).\nEntri yang hilang \\(y_{ih}\\) diestimasi sebagai rata-rata yang diberi bobot oleh ukuran kesamaan:\n\\[\\hat{y}_{ih} = \\frac{\\sum_{j \\in I_{Kih}} s_i(y_j)y_{jh}}{\\sum_{j \\in I_{Kih}} s_i(y_j)}, \\quad \\quad (2)\\]\ndi mana \\(I_{Kih}\\) adalah himpunan indeks contoh KNN dari contoh ke-\\(i\\), dan jika \\(y_{jh}\\) hilang, atribut ke-\\(j\\) dikecualikan dari \\(I_{Kih}\\). Perlu dicatat bahwa KNNI tidak memiliki kriteria teoretis untuk memilih nilai K terbaik dan nilai K harus ditentukan secara empiris.\nIni adalah Rata-rata Tertimbang (Weighted Average).\nTidak ada rumus teoritis baku untuk menentukan berapa jumlah tetangga terbaik (\\(K\\)). * Nilai \\(K\\) harus ditentukan secara empiris, artinya peneliti harus mencoba-coba nilai \\(K\\) yang berbeda (misalnya 3, 5, 7) dan melihat mana yang memberikan hasil akurasi terbaik untuk dataset tersebut. Praktisi biasanya mencoba beberapa nilai (misal \\(K=3\\) sampai \\(K=15\\)) dan melihat mana yang memberikan tingkat kesalahan (error) terkecil melalui uji coba (seperti cross-validation).\nContoh\nData Target (\\(y_i\\)): Luas (\\(x_i\\)) = 30 Harga Sewa (\\(\\hat{y}_{ih}\\)) = ? (Hilang)",
+    "text": "4 Penjelasan Matriks\nTo insert a logo into your Quarto website’s navigation menu, you need to modify the _quarto.yml configuration file. The logo typically appears to the left of the website title in the top navigation bar (navbar) or at the top of a sidebar. [1, 2]",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#definisi-matriks",
+    "href": "Sosmed.html#definisi-matriks",
+    "title": "3  Menggunakan Media Sosial",
+    "section": "4.1 1. Definisi Matriks",
+    "text": "4.1 1. Definisi Matriks\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn import datasets\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay\nfrom sklearn.decomposition import PCA\n\n# Set style visualisasi\nplt.style.use('seaborn-v0_8-whitegrid')\nsns.set_palette(\"Set2\")\n\n# 1. Memuat Dataset Iris\niris = datasets.load_iris()\nX = iris.data\ny = iris.target\nfeature_names = iris.feature_names\ntarget_names = iris.target_names\n\n# 2. Train-Test Split (Menggunakan Integer untuk keamanan)\n# Dataset Iris memiliki 150 sampel, 20% = 30 sampel\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=30, random_state=42, stratify=y\n)\n\n# 3. Pelatihan Model\nmodel = LogisticRegression(max_iter=200)\nmodel.fit(X_train, y_train)\ny_pred = model.predict(X_test)\n\n# 4. Visualisasi\nfig, axes = plt.subplots(2, 2, figsize=(14, 12))\n\n# Scatter plot: Sepal\nax = axes[0, 0]\nfor class_idx, name in enumerate(target_names):\n    ax.scatter(X[y == class_idx, 0], X[y == class_idx, 1], \n               label=name, edgecolors='k', s=50, alpha=0.7)\nax.set_xlabel(feature_names[0])\nax.set_ylabel(feature_names[1])\nax.set_title('Sepal Length vs Sepal Width')\nax.legend()\nax.grid(True, alpha=0.3)\n\n# Scatter plot: Petal\nax = axes[0, 1]\nfor class_idx, name in enumerate(target_names):\n    ax.scatter(X[y == class_idx, 2], X[y == class_idx, 3], \n               label=name, edgecolors='k', s=50, alpha=0.7)\nax.set_xlabel(feature_names[2])\nax.set_ylabel(feature_names[3])\nax.set_title('Petal Length vs Petal Width')\nax.legend()\nax.grid(True, alpha=0.3)\n\n# Decision Boundary\nax = axes[1, 0]\nX_2feat = X[:, :2]\nmodel_2 = LogisticRegression(max_iter=200)\nmodel_2.fit(X_2feat, y)\n\nh = 0.02\nx_min, x_max = X_2feat[:, 0].min() - 1, X_2feat[:, 0].max() + 1\ny_min, y_max = X_2feat[:, 1].min() - 1, X_2feat[:, 1].max() + 1\nxx, yy = np.meshgrid(np.arange(x_min, x_max, h),\n                     np.arange(y_min, y_max, h))\nZ = model_2.predict(np.c_[xx.ravel(), yy.ravel()])\nZ = Z.reshape(xx.shape)\n\nax.contourf(xx, yy, Z, alpha=0.3, cmap='Set2')\nfor class_idx, name in enumerate(target_names):\n    ax.scatter(X_2feat[y == class_idx, 0], X_2feat[y == class_idx, 1], \n               label=name, edgecolors='k', s=50)\nax.set_xlabel(feature_names[0])\nax.set_ylabel(feature_names[1])\nax.set_title('Decision Boundary')\nax.legend()\nax.grid(True, alpha=0.3)\n\n# Confusion Matrix\nax = axes[1, 1]\ncm = confusion_matrix(y_test, y_pred)\ndisp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=target_names)\ndisp.plot(ax=ax, cmap='Blues', values_format='d')\nax.set_title('Confusion Matrix')\n\nplt.tight_layout()\nplt.show()\n\n# PCA Visualization\npca = PCA(n_components=2)\nX_pca = pca.fit_transform(X)\n\nplt.figure(figsize=(8, 6))\nfor class_idx, name in enumerate(target_names):\n    plt.scatter(X_pca[y == class_idx, 0], X_pca[y == class_idx, 1], \n                label=name, edgecolors='k', s=60, alpha=0.7)\nplt.xlabel(f'PC1 ({pca.explained_variance_ratio_[0]:.2%})')\nplt.ylabel(f'PC2 ({pca.explained_variance_ratio_[1]:.2%})')\nplt.title('PCA Projection')\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.show()\n\n# Print Metrics\nprint(f\"Akurasi: {accuracy_score(y_test, y_pred):.4f}\")\nEmbedded Sage Cells\n\n\n\nYour own computations\nType your own Sage computation below and click “Evaluate”.",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#implementasi-di-sagemath",
+    "href": "Sosmed.html#implementasi-di-sagemath",
+    "title": "3  Menggunakan Media Sosial",
+    "section": "6.1 4. Implementasi di SageMath",
+    "text": "6.1 4. Implementasi di SageMath\n# Membuat matriks 3x4\nA = matrix([[1, 2, 3, 4],\n            [5, 6, 7, 8],\n            [9, 10, 11, 12]])\nshow(\"Matriks A:\", A)\n\n# Operasi dasar\nB = matrix([[2, 0, 1, 3],\n            [1, 1, 0, 2],\n            [0, 2, 1, 1]])\n\nshow(\"A + B:\", A + B)\nshow(\"2 * A:\", 2 * A)\nshow(\"Transpose A:\", A.transpose())\n\n# Akses elemen dan slice\nprint(\"Elemen [baris-1, kolom-2]:\", A[0, 1])  # Output: 2\nshow(\"Submatriks (2 baris pertama, kolom 2-3):\", A[0:2, 1:3])\n\n# Matriks persegi untuk operasi lanjut\nC = matrix([[4, 2], [3, 1]])\nshow(\"Determinan C:\", C.determinant())\nshow(\"Invers C:\", C.inverse())\nshow(\"C * C^-1:\", C * C.inverse())  # Harus menghasilkan matriks identitas",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#section-1",
+    "href": "Sosmed.html#section-1",
+    "title": "3  Menggunakan Media Sosial",
+    "section": "6.2 ",
+    "text": "6.2",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#adding-a-logo-to-the-top-navigation-bar-navbar",
+    "href": "Sosmed.html#adding-a-logo-to-the-top-navigation-bar-navbar",
+    "title": "3  Menggunakan Media Sosial",
+    "section": "6.3 1. Adding a Logo to the Top Navigation Bar (Navbar)",
+    "text": "6.3 1. Adding a Logo to the Top Navigation Bar (Navbar)\nTo place a logo in the main top-level navigation, use the logo option under the navbar key in your _quarto.yml: [3, 4, 5]\nwebsite:\n  navbar:\n    logo: \"images/logo.png\"\n    logo-alt: \"Description of the logo for accessibility\"\n    logo-href: \"index.qmd\" # Target link when clicking the logo (defaults to home)\n    title: \"My Website\"\n    left:\n      - text: \"Home\"\n        href: index.qmd",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#adding-a-logo-to-the-sidebar",
+    "href": "Sosmed.html#adding-a-logo-to-the-sidebar",
+    "title": "3  Menggunakan Media Sosial",
+    "section": "6.4 2. Adding a Logo to the Sidebar",
+    "text": "6.4 2. Adding a Logo to the Sidebar\nIf your site uses a sidebar for navigation, you can also define a logo specifically for that area: [6, 7, 8]\nwebsite:\n  sidebar:\n    logo: \"images/sidebar-logo.png\"\n    logo-alt: \"Sidebar logo description\"\n    title: \"Sidebar Title\"",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#using-brand.yml-for-multiformat-logos-9",
+    "href": "Sosmed.html#using-brand.yml-for-multiformat-logos-9",
+    "title": "3  Menggunakan Media Sosial",
+    "section": "6.5 3. Using Brand.yml for Multiformat Logos [9]",
+    "text": "6.5 3. Using Brand.yml for Multiformat Logos [9]\nFor more advanced setups, such as different logos for light and dark modes or different sizes, you can use a _brand.yml file: [10, 11]\n\nDefine in _brand.yml:\nlogo:\n  medium:\n    light: \"images/logo-light.png\"\n    dark: \"images/logo-dark.png\"\nReference in _quarto.yml:\nbrand: _brand.yml\nwebsite:\n  navbar:\n    logo: medium # Quarto automatically picks the correct light/dark version\n[12]",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#adding-a-favicon-browser-tab-logo",
+    "href": "Sosmed.html#adding-a-favicon-browser-tab-logo",
+    "title": "3  Menggunakan Media Sosial",
+    "section": "6.6 4. Adding a Favicon (Browser Tab Logo)",
+    "text": "6.6 4. Adding a Favicon (Browser Tab Logo)\nTo ensure your logo or icon appears in the browser tab, use the favicon option under the website key: [2, 13]\nwebsite:\n  favicon: \"favicon.ico\" # Usually a .png or .ico file\n \nFor more detailed customization, you can refer to the official Quarto Website Navigation documentation. [14]\nWould you like to know how to adjust the size of the logo or customize its position further using CSS?\n[1] https://quarto.org\n[2] https://forum.posit.co\n[3] https://quarto.org\n[4] https://quarto.org\n[5] https://forum.posit.co\n[6] https://quarto.org\n[7] https://quarto.org\n[8] https://quarto.org\n[9] https://quarto.org\n[10] https://stackoverflow.com\n[11] https://quarto.org\n[12] https://quarto.org\n[13] https://quarto.org\n[14] https://quarto-tdg.org\nTo insert an Instagram link into the left sidebar of your Quarto website, you can use the tools or footer options within the sidebar configuration in your _quarto.yml file.",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#using-sidebar-tools-recommended",
+    "href": "Sosmed.html#using-sidebar-tools-recommended",
+    "title": "3  Menggunakan Media Sosial",
+    "section": "6.7 1. Using Sidebar Tools (Recommended)",
+    "text": "6.7 1. Using Sidebar Tools (Recommended)\nSidebar tools appear as icons at the top of the sidebar, next to the title or logo. Quarto includes built-in support for Bootstrap Icons, so you can use the instagram icon directly. [1, 2]\nwebsite:\n  sidebar:\n    tools:\n      - icon: instagram\n        href: https://www.instagram.com\n        text: \"Instagram\" # Optional tooltip text",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#using-sidebar-footer",
+    "href": "Sosmed.html#using-sidebar-footer",
+    "title": "3  Menggunakan Media Sosial",
+    "section": "6.8 2. Using Sidebar Footer",
+    "text": "6.8 2. Using Sidebar Footer\nIf you want the link to appear at the bottom of the sidebar, you can use the footer option. You can use standard Markdown or even the Font Awesome extension for more icon variety. [3]\nwebsite:\n  sidebar:\n    footer: |\n      [ {{&lt; fa brands instagram &gt;}} Instagram](https://www.instagram.com)\n(Note: Using {{&lt; fa ... &gt;}} requires installing the Font Awesome extension via quarto add quarto-ext/fontawesome in your terminal).",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+    ]
+  },
+  {
+    "objectID": "Sosmed.html#adding-to-sidebar-contents",
+    "href": "Sosmed.html#adding-to-sidebar-contents",
+    "title": "3  Menggunakan Media Sosial",
+    "section": "6.9 3. Adding to Sidebar Contents",
+    "text": "6.9 3. Adding to Sidebar Contents\nIf you want Instagram to appear as a regular menu item among your page links:\nwebsite:\n  sidebar:\n    contents:\n      - section: \"Social Media\"\n        contents:\n          - text: \"Instagram\"\n            icon: instagram # Adds the icon next to the text\n            href: https://www.instagram.com\nKey Details:\n\nIcon: Use instagram for the standard Bootstrap icon.\nHref: Ensure you use the full URL starting with https://.\nPosition: Tools will always appear at the top of the sidebar, while footers appear at the bottom. [1, 4, 5]\n\nWould you like to know how to change the color of the Instagram icon to match the brand’s original purple/pink?\n[1] https://quarto.org\n[2] https://quarto.org\n[3] https://www.youtube.com\n[4] https://quarto.org\n[5] https://quarto.org",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+    ]
+  },
+  {
+    "objectID": "preproces/wknn.html",
+    "href": "preproces/wknn.html",
+    "title": "4  Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)",
+    "section": "",
+    "text": "4.0.1 Penentuan parameter K\nMetode Weighted KNN memilih instans dengan nilai yang serupa (dalam hal jarak) terhadap instans yang tidak lengkap, sehingga dapat melakukan imputasi sebagaimana yang dilakukan KNNI. Metode ini merupakan pengembangan dari metode KNNI (K-Nearest Neighbour Imputation) standar. KNNI Standar. Biasanya mengambil nilai rata-rata sederhana atau nilai yang paling sering muncul (modus) dari \\(K\\) tetangga terdekat untuk mengisi data yang hilang. WKNNI tidak memperlakukan semua tetangga sama rata. Metode ini memberikan bobot yang berbeda. Tetangga yang nilainya sangat mirip (jaraknya dekat) dengan data yang hilang akan memiliki pengaruh (bobot) lebih besar dibandingkan tetangga yang jaraknya jauh.Namun, nilai estimasi kini memperhitungkan perbedaan jarak ke tetangga-tetangga tersebut, dengan menggunakan rata-rata tertimbang atau nilai yang paling sering muncul berdasarkan ukuran kesamaan. Ukuran kesamaan \\(s_i(y_j)\\) antara dua contoh \\(y_i\\) dan \\(y_j\\) didefinisikan oleh jarak Euclidean yang dihitung berdasarkan atribut-atribut yang teramati pada \\(y_i\\).\nSelanjutnya kita mendefinisikan ukuran tersebut sebagai berikut:\n\\[1/s_i = \\sum_{h_i \\in O_i \\cap O_j} (y_{ih} - y_{jh})^2, \\quad \\quad  (1) \\]\ndi mana \\(O_i = \\{h | \\text{komponen ke-}h \\text{ dari } y_i \\text{ teramati}\\}\\).\nEntri yang hilang \\(y_{ih}\\) diestimasi sebagai rata-rata yang diberi bobot oleh ukuran kesamaan:\n\\[\\hat{y}_{ih} = \\frac{\\sum_{j \\in I_{Kih}} s_i(y_j)y_{jh}}{\\sum_{j \\in I_{Kih}} s_i(y_j)}, \\quad \\quad (2)\\]\ndi mana \\(I_{Kih}\\) adalah himpunan indeks contoh KNN dari contoh ke-\\(i\\), dan jika \\(y_{jh}\\) hilang, atribut ke-\\(j\\) dikecualikan dari \\(I_{Kih}\\). Perlu dicatat bahwa KNNI tidak memiliki kriteria teoretis untuk memilih nilai K terbaik dan nilai K harus ditentukan secara empiris.\nIni adalah Rata-rata Tertimbang (Weighted Average).\nTidak ada rumus teoritis baku untuk menentukan berapa jumlah tetangga terbaik (\\(K\\)). * Nilai \\(K\\) harus ditentukan secara empiris, artinya peneliti harus mencoba-coba nilai \\(K\\) yang berbeda (misalnya 3, 5, 7) dan melihat mana yang memberikan hasil akurasi terbaik untuk dataset tersebut. Praktisi biasanya mencoba beberapa nilai (misal \\(K=3\\) sampai \\(K=15\\)) dan melihat mana yang memberikan tingkat kesalahan (error) terkecil melalui uji coba (seperti cross-validation).\nContoh\nData Target (\\(y_i\\)): Luas (\\(x_i\\)) = 30 Harga Sewa (\\(\\hat{y}_{ih}\\)) = ? (Hilang)",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span>"
     ]
   },
   {
     "objectID": "preproces/wknn.html#memilih-k",
     "href": "preproces/wknn.html#memilih-k",
-    "title": "3  Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)",
-    "section": "4.1 Memilih K",
-    "text": "4.1 Memilih K\nhttps://ieeexplore.ieee.org/document/10748027\nhttps://www.nature.com/articles/s41598-022-10358-x\nhttps://ijsret.com/wp-content/uploads/2024/11/IJSRET_V10_issue6_525.pdf\nhttps://openai.com/index/openai-to-acquire-neptune/?utm_source=neptune-website-redirect\nhttps://www.linkedin.com/pulse/choosing-right-k-knn-practical-guide-debasish-deb-1ydwf/",
+    "title": "4  Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)",
+    "section": "5.1 Memilih K",
+    "text": "5.1 Memilih K\nhttps://ieeexplore.ieee.org/document/10748027\nhttps://www.nature.com/articles/s41598-022-10358-x\nhttps://ijsret.com/wp-content/uploads/2024/11/IJSRET_V10_issue6_525.pdf\nhttps://openai.com/index/openai-to-acquire-neptune/?utm_source=neptune-website-redirect\nhttps://www.linkedin.com/pulse/choosing-right-k-knn-practical-guide-debasish-deb-1ydwf/",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span>"
     ]
   }
 ]
