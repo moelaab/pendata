@@ -104,12 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-<script>
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    document.body.classList.add('hypothesis-enabled');
-  });
-</script>
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
 <script>
 sagecell.makeSagecell({
@@ -199,26 +193,38 @@ sagecell.makeSagecell({
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./ligres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./grafik/grafik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Charting in Colaboratory</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Sosmed.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Menggunakan Media Sosial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Menggunakan Media Sosial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./preproces/wknn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./persiapan.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Persiapan</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./waha.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><strong>Panduan Langkah demi Langkah</strong></span></span></a>
   </div>
 </li>
       </ul>
@@ -263,6 +269,15 @@ sagecell.makeSagecell({
   <li><a href="#deploy-via-netlify-cli-tanpa-dashboard" id="toc-deploy-via-netlify-cli-tanpa-dashboard" class="nav-link" data-scroll-target="#deploy-via-netlify-cli-tanpa-dashboard">3. Deploy via Netlify CLI (Tanpa Dashboard)</a></li>
   <li><a href="#tips-mengabaikan-file-yang-tidak-perlu" id="toc-tips-mengabaikan-file-yang-tidak-perlu" class="nav-link" data-scroll-target="#tips-mengabaikan-file-yang-tidak-perlu">4. Tips: Mengabaikan File yang Tidak Perlu</a></li>
   <li><a href="#ringkasan-perintah-dasar" id="toc-ringkasan-perintah-dasar" class="nav-link" data-scroll-target="#ringkasan-perintah-dasar">Ringkasan Perintah Dasar</a></li>
+  <li><a href="#persiapan-repositori-langkah-awal-1" id="toc-persiapan-repositori-langkah-awal-1" class="nav-link" data-scroll-target="#persiapan-repositori-langkah-awal-1">1. Persiapan Repositori (Langkah Awal)</a></li>
+  <li><a href="#update-website-continuous-deployment-1" id="toc-update-website-continuous-deployment-1" class="nav-link" data-scroll-target="#update-website-continuous-deployment-1">2. Update Website (Continuous Deployment)</a></li>
+  <li><a href="#deploy-via-netlify-cli-tanpa-dashboard-1" id="toc-deploy-via-netlify-cli-tanpa-dashboard-1" class="nav-link" data-scroll-target="#deploy-via-netlify-cli-tanpa-dashboard-1">3. Deploy via Netlify CLI (Tanpa Dashboard)</a></li>
+  <li><a href="#tips-mengabaikan-file-yang-tidak-perlu-1" id="toc-tips-mengabaikan-file-yang-tidak-perlu-1" class="nav-link" data-scroll-target="#tips-mengabaikan-file-yang-tidak-perlu-1">4. Tips: Mengabaikan File yang Tidak Perlu</a></li>
+  <li><a href="#ringkasan-perintah-dasar-1" id="toc-ringkasan-perintah-dasar-1" class="nav-link" data-scroll-target="#ringkasan-perintah-dasar-1">Ringkasan Perintah Dasar</a></li>
+  <li><a href="#posisi-terminal-yang-benar" id="toc-posisi-terminal-yang-benar" class="nav-link" data-scroll-target="#posisi-terminal-yang-benar">1. Posisi Terminal yang Benar</a></li>
+  <li><a href="#cara-cek-directory-di-terminal" id="toc-cara-cek-directory-di-terminal" class="nav-link" data-scroll-target="#cara-cek-directory-di-terminal">2. Cara Cek Directory di Terminal</a></li>
+  <li><a href="#mengatur-folder-output---dir" id="toc-mengatur-folder-output---dir" class="nav-link" data-scroll-target="#mengatur-folder-output---dir">3. Mengatur Folder Output (<code>--dir</code>)</a></li>
+  <li><a href="#tips-penting" id="toc-tips-penting" class="nav-link" data-scroll-target="#tips-penting">Tips Penting:</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/moelaab/pendata/edit/main/persiapan.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/moelaab/pendata/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -674,6 +689,115 @@ git push -u origin main </code></pre>
 </tbody>
 </table>
 <p><strong>Catatan Khusus:</strong> Jika Anda menggunakan <strong>PreTeXt</strong> atau <strong>Hugo</strong>, pastikan folder yang Anda tentukan di <code>publish directory</code> (saat <code>netlify init</code> atau di dashboard) sesuai dengan folder hasil build (seperti <code>output/web</code> atau <code>public</code>).</p>
+<p>Untuk mendeploy ke Netlify menggunakan Git, ada dua pendekatan: <strong>Otomatis</strong> (menghubungkan repositori ke dashboard Netlify) atau <strong>Manual</strong> (menggunakan Netlify CLI melalui terminal).</p>
+<p>Berikut adalah daftar perintah Git dan CLI yang paling sering digunakan:</p>
+</section>
+<section id="persiapan-repositori-langkah-awal-1" class="level3">
+<h3 class="anchored" data-anchor-id="persiapan-repositori-langkah-awal-1">1. Persiapan Repositori (Langkah Awal)</h3>
+<p>Sebelum mendeploy, pastikan proyek Anda sudah menjadi repositori Git dan sudah di-push ke layanan seperti GitHub, GitLab, atau Bitbucket.</p>
+<p>Bash</p>
+<pre><code># Inisialisasi git di folder proyek git init  # Tambahkan semua file git add .  # Buat commit pertama git commit -m "Initial commit proyek website"  # Hubungkan ke repositori online (ganti URL dengan milik Anda) git remote add origin https://github.com/username/nama-repo.git  # Push ke branch utama (main atau master) git push -u origin main </code></pre>
+<p>Setelah ini, Anda tinggal masuk ke dashboard Netlify, pilih <strong>“Import from Git”</strong>, dan hubungkan repositori tersebut. Setiap kali Anda melakukan <code>git push</code>, Netlify akan otomatis mengupdate website Anda.</p>
+</section>
+<section id="update-website-continuous-deployment-1" class="level3">
+<h3 class="anchored" data-anchor-id="update-website-continuous-deployment-1">2. Update Website (Continuous Deployment)</h3>
+<p>Jika situs sudah terhubung dengan GitHub/Netlify, setiap kali Anda membuat perubahan, Anda hanya perlu menjalankan 3 perintah standar ini:</p>
+<p>Bash</p>
+<pre><code>git add . git commit -m "Update konten website" git push origin main </code></pre>
+<p><em>Netlify akan mendeteksi perubahan ini dan memulai proses build secara otomatis.</em></p>
+</section>
+<section id="deploy-via-netlify-cli-tanpa-dashboard-1" class="level3">
+<h3 class="anchored" data-anchor-id="deploy-via-netlify-cli-tanpa-dashboard-1">3. Deploy via Netlify CLI (Tanpa Dashboard)</h3>
+<p>Jika Anda ingin mendeploy langsung dari terminal tanpa harus melalui GitHub (mirip dengan cara <code>quarto publish</code>), Anda bisa menggunakan <strong>Netlify CLI</strong>.</p>
+<p><strong>Instalasi &amp; Login:</strong></p>
+<p>Bash</p>
+<pre><code>npm install netlify-cli -g netlify login </code></pre>
+<p><strong>Perintah Deploy:</strong></p>
+<p>Bash</p>
+<pre><code># Inisialisasi proyek (hanya sekali) netlify init  # Deploy ke draft (Preview URL) netlify deploy  # Deploy ke produksi (Live URL) # Ganti --dir=public dengan folder output Anda (misal: _site untuk Quarto) netlify deploy --prod --dir=public </code></pre>
+</section>
+<section id="tips-mengabaikan-file-yang-tidak-perlu-1" class="level3">
+<h3 class="anchored" data-anchor-id="tips-mengabaikan-file-yang-tidak-perlu-1">4. Tips: Mengabaikan File yang Tidak Perlu</h3>
+<p>Agar folder hasil build atau file sampah tidak ikut terupload ke Git dan Netlify, pastikan Anda memiliki file <code>.gitignore</code> di root folder.</p>
+<p><strong>Contoh isi <code>.gitignore</code> untuk Hugo/Quarto:</strong></p>
+<p>Plaintext</p>
+<pre><code># Folder hasil build public/ _site/ .quarto/  # File sistem .DS_Store Thumbs.db node_modules/ </code></pre>
+</section>
+<section id="ringkasan-perintah-dasar-1" class="level3">
+<h3 class="anchored" data-anchor-id="ringkasan-perintah-dasar-1">Ringkasan Perintah Dasar</h3>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><strong>Tujuan</strong></td>
+<td><strong>Perintah</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Kirim update ke GitHub/Netlify</strong></td>
+<td><code>git push origin main</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Cek status file</strong></td>
+<td><code>git status</code></td>
+</tr>
+<tr class="even">
+<td><strong>Lihat riwayat update</strong></td>
+<td><code>git log --oneline</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Deploy via CLI (Produksi)</strong></td>
+<td><code>netlify deploy --prod</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Catatan Khusus:</strong> Jika Anda menggunakan <strong>PreTeXt</strong> atau <strong>Hugo</strong>, pastikan folder yang Anda tentukan di <code>publish directory</code> (saat <code>netlify init</code> atau di dashboard) sesuai dengan folder hasil build (seperti <code>output/web</code> atau <code>public</code>).</p>
+<p>Perintah tersebut harus dijalankan di dalam <strong>Root Directory (Folder Utama)</strong> proyek Anda.</p>
+<p>Root directory adalah folder tempat Anda menyimpan file konfigurasi utama seperti <code>project.ptx</code> (untuk PreTeXt), <code>_quarto.yml</code> (untuk Quarto), atau <code>hugo.toml</code> (untuk Hugo).</p>
+<p>Berikut adalah panduan detail penempatan terminalnya:</p>
+</section>
+<section id="posisi-terminal-yang-benar" class="level3">
+<h3 class="anchored" data-anchor-id="posisi-terminal-yang-benar">1. Posisi Terminal yang Benar</h3>
+<p>Pastikan terminal Anda berada di level yang sama dengan file-file konfigurasi proyek.</p>
+<p><strong>Struktur Folder Contoh (Quarto):</strong></p>
+<p>Plaintext</p>
+<pre><code>my-website/  &lt;-- TERMINAL HARUS DI SINI ├── _quarto.yml ├── index.qmd ├── _site/       &lt;-- Folder hasil render (Output) └── .gitignore </code></pre>
+</section>
+<section id="cara-cek-directory-di-terminal" class="level3">
+<h3 class="anchored" data-anchor-id="cara-cek-directory-di-terminal">2. Cara Cek Directory di Terminal</h3>
+<p>Sebelum mengetik perintah <code>netlify deploy</code>, cek posisi Anda saat ini:</p>
+<ul>
+<li><p><strong>Windows (PowerShell/CMD):</strong> Ketik <code>ls</code> atau <code>dir</code>. Jika Anda melihat file proyek Anda, berarti posisi sudah benar.</p></li>
+<li><p><strong>Mac/Linux:</strong> Ketik <code>pwd</code>.</p></li>
+</ul>
+</section>
+<section id="mengatur-folder-output---dir" class="level3">
+<h3 class="anchored" data-anchor-id="mengatur-folder-output---dir">3. Mengatur Folder Output (<code>--dir</code>)</h3>
+<p>Meskipun Anda menjalankan perintah di <strong>root</strong>, Anda harus mengarahkan bendera <code>--dir</code> ke folder hasil <em>render</em> (output) yang biasanya merupakan sub-folder dari root tersebut.</p>
+<ul>
+<li><p><strong>Jika menggunakan Quarto:</strong></p>
+<p>Bash</p>
+<pre><code>netlify deploy --prod --dir=_site </code></pre></li>
+<li><p><strong>Jika menggunakan Hugo:</strong></p>
+<p>Bash</p>
+<pre><code>netlify deploy --prod --dir=public </code></pre></li>
+<li><p><strong>Jika menggunakan PreTeXt:</strong></p>
+<p>Bash</p>
+<pre><code>netlify deploy --prod --dir=output/web </code></pre></li>
+</ul>
+</section>
+<section id="tips-penting" class="level3">
+<h3 class="anchored" data-anchor-id="tips-penting">Tips Penting:</h3>
+<p>Jika Anda salah menjalankan perintah di dalam folder <code>_site</code> atau <code>public</code>, Netlify tidak akan bisa menemukan file konfigurasi proyek Anda (<code>netlify.toml</code> atau pengaturan lainnya), dan proses deploy bisa berantakan karena struktur jalurnya (<em>path</em>) menjadi tidak sesuai.</p>
+<blockquote class="blockquote">
+<p><strong>Ingat:</strong> &gt; * <strong>Jalankan Perintah:</strong> Di Folder Utama (Root).</p>
+<ul>
+<li><strong>Arahkan <code>--dir</code>:</strong> Ke Folder Output (Hasil Render).</li>
+</ul>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/hasil_result.webp" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 
 
 </section>

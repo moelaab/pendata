@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index</title>
+<title>7&nbsp; Panduan Langkah demi Langkah</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./persiapan.html" rel="next">
+<link href="./preproces/wknn.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -96,7 +131,7 @@ sagecell.makeSagecell({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Penambangan Data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./persiapan.html">Persiapan</a></li><li class="breadcrumb-item"><a href="./waha.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><strong>Panduan Langkah demi Langkah</strong></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -136,7 +171,7 @@ sagecell.makeSagecell({
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Penambangan Data</span></a>
   </div>
 </li>
@@ -187,7 +222,7 @@ sagecell.makeSagecell({
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./waha.html" class="sidebar-item-text sidebar-link">
+  <a href="./waha.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><strong>Panduan Langkah demi Langkah</strong></span></span></a>
   </div>
 </li>
@@ -203,37 +238,199 @@ sagecell.makeSagecell({
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#penambangan-data" id="toc-penambangan-data" class="nav-link active" data-scroll-target="#penambangan-data">Penambangan Data</a></li>
+  <li><a href="#apakah-anda-pembelajar-visual" id="toc-apakah-anda-pembelajar-visual" class="nav-link active" data-scroll-target="#apakah-anda-pembelajar-visual"><span class="header-section-number">7.1</span> <strong>Apakah Anda pembelajar visual?</strong></a></li>
+  <li><a href="#langkah-0.-persyaratan" id="toc-langkah-0.-persyaratan" class="nav-link" data-scroll-target="#langkah-0.-persyaratan"><span class="header-section-number">7.2</span> <strong>Langkah 0. Persyaratan</strong></a></li>
+  <li><a href="#langkah-1.-unduh-image" id="toc-langkah-1.-unduh-image" class="nav-link" data-scroll-target="#langkah-1.-unduh-image"><span class="header-section-number">7.3</span> <strong>Langkah 1. Unduh image</strong></a></li>
+  <li><a href="#langkah-2.-inisialisasi-waha" id="toc-langkah-2.-inisialisasi-waha" class="nav-link" data-scroll-target="#langkah-2.-inisialisasi-waha"><span class="header-section-number">7.4</span> <strong>Langkah 2. Inisialisasi WAHA</strong></a></li>
+  <li><a href="#langkah-3.-jalankan-waha" id="toc-langkah-3.-jalankan-waha" class="nav-link" data-scroll-target="#langkah-3.-jalankan-waha"><span class="header-section-number">7.5</span> <strong>Langkah 3. Jalankan WAHA</strong></a></li>
+  <li><a href="#langkah-4.-mulai-sesi-baru" id="toc-langkah-4.-mulai-sesi-baru" class="nav-link" data-scroll-target="#langkah-4.-mulai-sesi-baru"><span class="header-section-number">7.6</span> <strong>Langkah 4. Mulai sesi baru</strong></a></li>
+  <li><a href="#langkah-5.-dapatkan-dan-pindai-qr" id="toc-langkah-5.-dapatkan-dan-pindai-qr" class="nav-link" data-scroll-target="#langkah-5.-dapatkan-dan-pindai-qr"><span class="header-section-number">7.7</span> <strong>Langkah 5. Dapatkan dan pindai QR</strong></a></li>
+  <li><a href="#langkah-6.-kirim-pesan-teks" id="toc-langkah-6.-kirim-pesan-teks" class="nav-link" data-scroll-target="#langkah-6.-kirim-pesan-teks"><span class="header-section-number">7.8</span> <strong>Langkah 6. Kirim pesan teks</strong></a></li>
+  <li><a href="#apa-selanjutnya" id="toc-apa-selanjutnya" class="nav-link" data-scroll-target="#apa-selanjutnya"><span class="header-section-number">7.9</span> <strong>Apa selanjutnya?</strong></a>
+  <ul class="collapse">
+  <li><a href="#mencari-hosting" id="toc-mencari-hosting" class="nav-link" data-scroll-target="#mencari-hosting"><span class="header-section-number">7.9.1</span> 📅 <strong>Mencari Hosting?</strong></a></li>
+  <li><a href="#build-fast" id="toc-build-fast" class="nav-link" data-scroll-target="#build-fast"><span class="header-section-number">7.9.2</span> <strong>Build Fast</strong></a></li>
+  <li><a href="#pelajari-waha" id="toc-pelajari-waha" class="nav-link" data-scroll-target="#pelajari-waha"><span class="header-section-number">7.9.3</span> 📚 <strong>Pelajari WAHA</strong></a></li>
+  <li><a href="#siap-untuk-produksi" id="toc-siap-untuk-produksi" class="nav-link" data-scroll-target="#siap-untuk-produksi"><span class="header-section-number">7.9.4</span> 🚀 <strong>Siap untuk Produksi</strong></a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/moelaab/pendata/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/moelaab/pendata/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/moelaab/pendata/edit/main/waha.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/moelaab/pendata/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./persiapan.html">Persiapan</a></li><li class="breadcrumb-item"><a href="./waha.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><strong>Panduan Langkah demi Langkah</strong></span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><strong>Panduan Langkah demi Langkah</strong></span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="penambangan-data" class="level1 unnumbered welcome">
-<h1 class="unnumbered">Penambangan Data</h1><p><img src="images/IMS2_front_cover.png" class="quarto-cover-image nolightbox img-fluid"></p>
-<p>Dengan perkembangan jumlah data yang pesat disebabkan oleh adanya perkembangan teknologi informasi, sehingga hal ini yang memungkinkan data terkumpul dalam jumlah besar. Transaksi data yang dilakukan secara digital telah berkembang secara pesat diberbagai sektor bisnis. Perkembangan internet yang cukup cepat juga memiliki kontribusi dalam hal terciptanya data yang sangat besar. Fenomena ini secara signifikan berdampak pada terjadinya data transaksi yang sangat tinggi dari sisi volume dan jenis data telah dihasilkan. Bersamaan dengan kejadian ini memungkinkan terjadinya kondisi yang disebut dengan istilah kaya data tetapi miskin pengetahuan, disebabkan dengan adanya banyak data yang terkumpul tetapi sedikit dengan manfaat yang diperoleh dari besarnya data tersebut untuk kebutuhan bisnis dan lain sebgainya. Dengan data yang melimpah ini butuh suatu metode analisis data secara otomatis dari data yang berjumlah besar atau kompleks dengan tujuan untuk menemukan pola atau kecenderungan yang penting yang biasanya tidak disadari keberadaannya. Penambangan Data (data mining) merupakan merupakan subjek yang melibatkan berbagai disiplin bidang yang bertujuan bagaimana mendapatkan pengetahuan/informasi dari tumpukan data. Jika dianalogikan adalah seperti penambangan secara konvensianol misalkan menambang emas yang didapatkan dari tumpukan batu, tanah dan pasir (link video) . Jadi penekanan dari istilah penambangan adalah proses menemukan sesuatu yang berharga dari bahan-bahan mentah yang ada. Dalam kontek penambangan data adalah bagaimana mendapatkan informasi yang berharga untuk pijakan pengambilan keputusan atau tujuan tertentu. Dalama proses penambangan data melibatkan teknik statistik, matematika, kecerdasan buatan, machine learning untuk mengekstraksi dan mengidentifikasi informasi yang bermanfaat dan pengetahuan yang terkait dari berbagai database besar. Terdapat beberapa istilah lain yang memiliki makna sama dengan penambangan data , yaitu Knowledge discovery in databases (KDD), ekstraksi pengetahuan (knowledge extraction), Analisa data/pola (data/pattern analysis), kecerdasan bisnis (business intelligence).</p>
-<p>.</p>
-<!--
-The book will always be available for free here. It is also available in PDF (for free or for the amount you choose to contribute) on Leanpub and in black&white paperback for purchase for $20.
-<br><br>
-<a href="https://leanpub.com/imstat" target="_blank"><img src="images/_icons/file.png" width="30px">&nbsp;<strong>Download PDF</strong></a>
-<br>
-<a href="https://www.openintro.org/go?id=ims1_bw_pb&referrer=/book/ims/online"><img src="images/_icons/book.png" width="30px">&nbsp;<strong>Purchase paperback</strong></a>
-<br><br>
----
-<br><br>
--->
-<p>Copyright © 2023.</p>
-<p>Second Edition.</p>
-<p>Version date: March 07, 2026.</p>
-<p>Buku ini dan dokumen pendukung termasuk slide dan tutorial lainya dapat di unduh bebas dari <a href="http://github.com/moelaab/pendata"><strong>pendata</strong></a>.</p>
+</header>
 
 
+<pre class="{html}"><code>&lt;!--#| echo: false --&gt;
+&lt;!--#| width: 100% --&gt;
+&lt;!--#| height: 600px --&gt;
+&lt;iframe src="ensemble_widget.html" style="width:100%; height:600px; border:none; border-radius:12px;"&gt;&lt;/iframe&gt;</code></pre>
+<p>Di halaman ini, Anda akan menginstal dan menjalankan WAHA, mengautentikasi klien menggunakan kode QR, dan mengirim <strong>pesan pertama Anda</strong> ke WhatsApp menggunakan API!</p>
+<p>Kami akan memandu Anda melalui langkah-langkah yang diperlukan untuk berhasil mengirim pesan teks pertama Anda menggunakan API WhatsApp.</p>
+<section id="apakah-anda-pembelajar-visual" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="apakah-anda-pembelajar-visual"><span class="header-section-number">7.1</span> <strong>Apakah Anda pembelajar visual?</strong></h2>
+<p>Kami punya solusinya! Tonton video tutorial di bawah untuk melihat cara mengirim pesan pertama Anda menggunakan WAHA</p>
+<hr>
+</section>
+<section id="langkah-0.-persyaratan" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="langkah-0.-persyaratan"><span class="header-section-number">7.2</span> <strong>Langkah 0. Persyaratan</strong></h2>
+<p>WAHA berjalan di atas <strong>Docker</strong>, hanya itu yang Anda butuhkan!</p>
+<p>👉 Silakan ikuti <strong>panduan resmi Docker</strong> untuk menginstalnya di <strong>Linux, Windows, dan macOS</strong></p>
+<p><strong>Mengapa Docker?</strong></p>
+<hr>
+</section>
+<section id="langkah-1.-unduh-image" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="langkah-1.-unduh-image"><span class="header-section-number">7.3</span> <strong>Langkah 1. Unduh image</strong></h2>
+<p>Dengan asumsi Anda telah menginstal Docker, mari unduh image-nya! Ikuti instruksi di bawah ini:</p>
+<p><strong>WAHA Core</strong> | WAHA Plus | WAHA (ARM)</p>
+<p>Jalankan perintah di bawah ini:</p>
+<pre><code>docker pull devlikeapro/waha</code></pre>
+<hr>
+</section>
+<section id="langkah-2.-inisialisasi-waha" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="langkah-2.-inisialisasi-waha"><span class="header-section-number">7.4</span> <strong>Langkah 2. Inisialisasi WAHA</strong></h2>
+<p>Buat file <code>.env</code> yang akan kita gunakan di langkah berikutnya untuk kredensial:</p>
+<p><strong>Init WAHA</strong></p>
+<pre><code>docker run --rm -v "${PWD}:/app/env" devlikeapro/waha init-waha /app/env</code></pre>
+<p><strong>Init WAHA (Output)</strong></p>
+<pre><code>Generated env values:
+  - WAHA_API_KEY=8d18f1dee88945cd9aa0c1a324545f8d
+  - WAHA_API_KEY_PLAIN=8d18f1dee88945cd9aa0c1a324545f8d
+  - WAHA_DASHBOARD_USERNAME=admin
+  - WAHA_DASHBOARD_PASSWORD=0ed3b6c5655e4685b16adccb29519250
+  - WHATSAPP_SWAGGER_USERNAME=admin
+  - WHATSAPP_SWAGGER_PASSWORD=0ed3b6c5655e4685b16adccb29519250
+
+Use these credentials to login in Dashboard or Swagger:
+  - Username: admin
+  - Password: 0ed3b6c5655e4685b16adccb29519250
+
+Use this API key in the x-api-key header:
+  - 8d18f1dee88945cd9aa0c1a324545f8d
+
+Read more:
+  - https://waha.devlike.pro/docs/how-to/dashboard/#api-key
+  - https://waha.devlike.pro/docs/how-to/security/</code></pre>
+<p>Ingat nilai-nilai ini (Anda selalu dapat memeriksa file <code>.env</code> jika Anda lupa):</p>
+<ul>
+<li><strong>Username / Password</strong>: <code>admin</code> / <code>11..11</code> - gunakan untuk mengakses Dashboard dan Swagger UI</li>
+<li><strong>Api Key</strong>: <code>00..00</code> - gunakan untuk terhubung ke server Anda</li>
+</ul>
+<p>💡 Anda dapat mengubah variabel ke nilai apa pun, tetapi gunakan <strong>string panjang</strong> (seperti UUIDv4)</p>
+<hr>
+</section>
+<section id="langkah-3.-jalankan-waha" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="langkah-3.-jalankan-waha"><span class="header-section-number">7.5</span> <strong>Langkah 3. Jalankan WAHA</strong></h2>
+<p>Jalankan WhatsApp HTTP API:</p>
+<pre><code>docker run -it --env-file "$(pwd)/.env" -v "$(pwd)/sessions:/app/.sessions" --rm -p 3000:3000 --name waha devlikeapro/waha</code></pre>
+<blockquote class="blockquote">
+<p>⚠️ <strong>Bukan Instalasi Siap Produksi!</strong></p>
+<p>👍 Perintah di atas hanya dimaksudkan untuk <strong>pengujian awal</strong>, bukan untuk penggunaan produksi.</p>
+<p>Silakan ikuti panduan <strong>Install &amp; Update</strong> untuk mengatur instance WAHA yang aman setelah Anda menyelesaikan panduan cepat ini.</p>
+</blockquote>
+<p>Sekarang, buka <strong>Dashboard</strong> di <a href="http://localhost:3000/dashboard"><strong>http://localhost:3000/dashboard</strong></a></p>
+<p>Gunakan <strong>username/password</strong> dari langkah sebelumnya (file <code>.env</code> - <code>WAHA_DASHBOARD_USERNAME</code> / <code>WAHA_DASHBOARD_PASSWORD</code>):</p>
+<p>Selanjutnya, terhubung ke server menggunakan <strong>api key</strong> dari langkah sebelumnya (file <code>.env</code> - <code>WAHA_API_KEY</code>):</p>
+<hr>
+</section>
+<section id="langkah-4.-mulai-sesi-baru" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="langkah-4.-mulai-sesi-baru"><span class="header-section-number">7.6</span> <strong>Langkah 4. Mulai sesi baru</strong></h2>
+<p>Untuk memulai sesi baru, Anda harus memiliki ponsel Anda dengan aplikasi <strong>WhatsApp</strong> terinstal di dekat Anda.</p>
+<p>Berikut adalah instruksi resmi di situs WhatsApp tentang cara login.</p>
+<p>Sekarang Anda dapat memulai sesi <strong>default</strong> (status saat ini seharusnya <strong>STOPPED</strong>).</p>
+<p>Anda dapat membiarkan semua parameter konfigurasi sebagai default:</p>
+<hr>
+</section>
+<section id="langkah-5.-dapatkan-dan-pindai-qr" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="langkah-5.-dapatkan-dan-pindai-qr"><span class="header-section-number">7.7</span> <strong>Langkah 5. Dapatkan dan pindai QR</strong></h2>
+<p>Tunggu hingga status sesi adalah <strong>SCAN_QR</strong> dan klik ikon “kamera”:</p>
+<p>Jika alih-alih QR Anda melihat <strong>Click to reload QR</strong> - hentikan sesi dan <strong>mulai</strong> lagi.</p>
+<p>Anda akan melihat kode QR dari aplikasi WhatsApp Web. Sekarang ambil ponsel Anda dengan aplikasi WhatsApp terinstal dan <strong>pindai QR</strong>:</p>
+<p>Status sesi akan berubah menjadi status <strong>WORKING</strong>:</p>
+<hr>
+</section>
+<section id="langkah-6.-kirim-pesan-teks" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="langkah-6.-kirim-pesan-teks"><span class="header-section-number">7.8</span> <strong>Langkah 6. Kirim pesan teks</strong></h2>
+<p>Sekarang kita siap mengirim pesan pertama ke WhatsApp melalui API!</p>
+<ul>
+<li>Ganti <code>123123</code> dengan <strong>nomor telepon Anda tanpa +</strong>, tetapi tetap pertahankan bagian <code>@c.us</code>.</li>
+<li>Gunakan API key dari file <code>.env</code> Anda (<code>WAHA_API_KEY</code>).</li>
+</ul>
+<p>Contoh di bawah menggunakan placeholder <code>00000000000000000000000000000000</code> - tukar dengan nilai asli Anda:</p>
+<p><strong>curl</strong> | JavaScript | Python</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> <span class="st">'POST'</span> <span class="dt">\</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'http://localhost:3000/api/sendText'</span> <span class="dt">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">'Accept: application/json'</span> <span class="dt">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">'Content-Type: application/json'</span> <span class="dt">\</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">'X-Api-Key: 00000000000000000000000000000000'</span> <span class="dt">\</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-d</span> <span class="st">'{</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">  "chatId": "123123@c.us",</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="st">  "text": "Hi there!",</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="st">  "session": "default"</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="st">}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sebagai alternatif untuk <code>curl</code>, Anda dapat menggunakan 🦜 <strong>Swagger</strong> untuk itu.</p>
+<p>Buka Swagger di <a href="http://localhost:3000/#/chatting"><strong>http://localhost:3000/#/chatting</strong></a>.</p>
+<p><strong>Authorize</strong> menggunakan <strong>Api Key</strong> (file <code>.env</code> - <code>WAHA_API_KEY</code>):</p>
+<ul>
+<li>Gulir ke bawah ke bagian <strong>chatting</strong>.</li>
+<li>Temukan endpoint <strong>POST /api/sendText</strong> dan expand</li>
+<li>Klik <strong>Try it out</strong></li>
+<li>Ganti <code>123123@c.us</code> dengan <strong>nomor telepon Anda tanpa +</strong>, tetapi tetap pertahankan bagian <code>@c.us</code></li>
+<li>Klik <strong>Execute</strong></li>
+</ul>
+<hr>
+</section>
+<section id="apa-selanjutnya" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="apa-selanjutnya"><span class="header-section-number">7.9</span> <strong>Apa selanjutnya?</strong></h2>
+<section id="mencari-hosting" class="level3" data-number="7.9.1">
+<h3 data-number="7.9.1" class="anchored" data-anchor-id="mencari-hosting"><span class="header-section-number">7.9.1</span> 📅 <strong>Mencari Hosting?</strong></h3>
+<p>Kami telah menggunakan <strong>the.hosting</strong> untuk cukup lama dan memiliki pengalaman yang hebat!</p>
+<p>Mereka menawarkan berbagai konfigurasi server dan lokasi - sangat direkomendasikan! 🔥</p>
+</section>
+<section id="build-fast" class="level3" data-number="7.9.2">
+<h3 data-number="7.9.2" class="anchored" data-anchor-id="build-fast"><span class="header-section-number">7.9.2</span> <strong>Build Fast</strong></h3>
+<p>Tanyakan 🤖 <strong>WAHA GPT</strong> untuk membantu Anda membangun kode <strong>[python|js|php]</strong>!</p>
+<hr>
+</section>
+<section id="pelajari-waha" class="level3" data-number="7.9.3">
+<h3 data-number="7.9.3" class="anchored" data-anchor-id="pelajari-waha"><span class="header-section-number">7.9.3</span> 📚 <strong>Pelajari WAHA</strong></h3>
+<ul>
+<li>⚡ <strong>Quick Start</strong></li>
+<li>📤 <strong>Send messages</strong></li>
+<li>📥 <strong>Receive messages</strong></li>
+<li>📊 <strong>Dashboard</strong></li>
+<li>📖 <strong>Other How-to guides</strong></li>
+</ul>
+</section>
+<section id="siap-untuk-produksi" class="level3" data-number="7.9.4">
+<h3 data-number="7.9.4" class="anchored" data-anchor-id="siap-untuk-produksi"><span class="header-section-number">7.9.4</span> 🚀 <strong>Siap untuk Produksi</strong></h3>
+<ul>
+<li>🔧 <strong>Install &amp; Update</strong></li>
+<li>🔄 <strong>Engines</strong></li>
+<li>💾 <strong>Storages</strong></li>
+<li>🔒 <strong>Security</strong></li>
+<li>➕ <strong>WAHA Plus</strong></li>
+</ul>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -638,11 +835,11 @@ The book will always be available for free here. It is also available in PDF (fo
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./preproces/wknn.html" class="pagination-link" aria-label="Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./persiapan.html" class="pagination-link" aria-label="Persiapan">
-        <span class="nav-page-text">Persiapan</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -653,7 +850,7 @@ The book will always be available for free here. It is also available in PDF (fo
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/moelaab/pendata/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/moelaab/pendata/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/moelaab/pendata/edit/main/waha.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/moelaab/pendata/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

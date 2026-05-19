@@ -74,7 +74,7 @@
     "href": "persiapan.html#deploy-webstatis-ke-netlify",
     "title": "Persiapan",
     "section": "Deploy Webstatis ke Netlify",
-    "text": "Deploy Webstatis ke Netlify\nUntuk mempublikasikan proyek Quarto ke Netlify, Anda memiliki dua cara utama: cara manual (paling cepat untuk sekali coba) dan cara otomatis via GitHub (paling disarankan untuk jangka panjang).\nBerikut adalah langkah-langkahnya:\n\n1. Persiapkan Output di Quarto\nSebelum mengunggah, pastikan proyek Quarto Anda sudah di-render menjadi format HTML (website).\n\nBuka terminal di folder proyek Anda.\nJalankan perintah render:\nBash\nquarto render \nSetelah selesai, Quarto akan membuat folder bernama _site (secara default). Folder inilah yang berisi seluruh file website statis Anda.\n\n\n\n2. Cara Manual: Drag-and-Drop (Tanpa Git)\nIni adalah cara tercepat jika Anda hanya ingin mencoba atau tidak ingin menggunakan GitHub.\n\nLogin ke Netlify.\nBuka menu Sites.\nScroll ke bawah sampai Anda menemukan kotak bertuliskan “Want to deploy a new site without connecting to Git? Drag and drop your site folder here”.\nTarik dan lepas (drag-and-drop) folder _site dari komputer Anda ke kotak tersebut.\nSelesai! Netlify akan langsung memberikan URL publik.\n\n\n\n3. Cara Otomatis: Via GitHub (Continuous Deployment)\nCara ini lebih profesional karena setiap kali Anda push kode ke GitHub, website akan terupdate otomatis.\n\nLangkah Awal: Tambahkan file .nojekyll\nKarena Netlify terkadang bingung dengan struktur folder tertentu, pastikan ada file kosong bernama .nojekyll di root folder Anda agar file yang diawali titik (seperti dari folder library Quarto) terbaca.\n\n\nLangkah di Netlify:\n\nPush proyek Quarto Anda ke repositori GitHub.\nDi dashboard Netlify, klik Add new site &gt; Import an existing project.\nPilih GitHub dan hubungkan ke repositori Anda.\nPada bagian Site settings, masukkan konfigurasi berikut:\n\nBuild command: quarto render\nPublish directory: _site\n\nKlik Deploy site.\n\n\nPenting: Agar perintah quarto render berjalan di server Netlify, Anda harus menggunakan Netlify Build Plugins untuk Quarto atau memastikan environment Netlify sudah terinstall Quarto (biasanya lebih mudah jika Anda men-render secara lokal dan hanya mengunggah folder _site-nya saja dengan mengosongkan Build command).\n\n\n\n\nTips Tambahan: Menggunakan Terminal (CLI)\nJika Anda suka menggunakan terminal, Anda bisa menggunakan perintah khusus dari Quarto:\n\nInstall Netlify CLI: npm install -g netlify-cli\nLogin: netlify login\n\nDi dalam folder proyek, jalankan:\nBash\nquarto publish netlify \nIkuti instruksi di layar. Quarto akan menangani proses upload secara otomatis ke akun Netlify Anda.\n\nUntuk mendeploy ke Netlify menggunakan Git, ada dua pendekatan: Otomatis (menghubungkan repositori ke dashboard Netlify) atau Manual (menggunakan Netlify CLI melalui terminal).\nBerikut adalah daftar perintah Git dan CLI yang paling sering digunakan:\n\n\n1. Persiapan Repositori (Langkah Awal)\nSebelum mendeploy, pastikan proyek Anda sudah menjadi repositori Git dan sudah di-push ke layanan seperti GitHub, GitLab, atau Bitbucket.\nBash\n# Inisialisasi git di folder proyek git init  # Tambahkan semua file git add .  # Buat commit pertama git commit -m \"Initial commit proyek website\"  # Hubungkan ke repositori online (ganti URL dengan milik Anda) git remote add origin https://github.com/username/nama-repo.git  # Push ke branch utama (main atau master) git push -u origin main \nSetelah ini, Anda tinggal masuk ke dashboard Netlify, pilih “Import from Git”, dan hubungkan repositori tersebut. Setiap kali Anda melakukan git push, Netlify akan otomatis mengupdate website Anda.\n\n\n2. Update Website (Continuous Deployment)\nJika situs sudah terhubung dengan GitHub/Netlify, setiap kali Anda membuat perubahan, Anda hanya perlu menjalankan 3 perintah standar ini:\nBash\ngit add . git commit -m \"Update konten website\" git push origin main \nNetlify akan mendeteksi perubahan ini dan memulai proses build secara otomatis.\n\n\n3. Deploy via Netlify CLI (Tanpa Dashboard)\nJika Anda ingin mendeploy langsung dari terminal tanpa harus melalui GitHub (mirip dengan cara quarto publish), Anda bisa menggunakan Netlify CLI.\nInstalasi & Login:\nBash\nnpm install netlify-cli -g netlify login \nPerintah Deploy:\nBash\n# Inisialisasi proyek (hanya sekali) netlify init  # Deploy ke draft (Preview URL) netlify deploy  # Deploy ke produksi (Live URL) # Ganti --dir=public dengan folder output Anda (misal: _site untuk Quarto) netlify deploy --prod --dir=public \n\n\n4. Tips: Mengabaikan File yang Tidak Perlu\nAgar folder hasil build atau file sampah tidak ikut terupload ke Git dan Netlify, pastikan Anda memiliki file .gitignore di root folder.\nContoh isi .gitignore untuk Hugo/Quarto:\nPlaintext\n# Folder hasil build public/ _site/ .quarto/  # File sistem .DS_Store Thumbs.db node_modules/ \n\n\nRingkasan Perintah Dasar\n\n\n\nTujuan\nPerintah\n\n\nKirim update ke GitHub/Netlify\ngit push origin main\n\n\nCek status file\ngit status\n\n\nLihat riwayat update\ngit log --oneline\n\n\nDeploy via CLI (Produksi)\nnetlify deploy --prod\n\n\n\nCatatan Khusus: Jika Anda menggunakan PreTeXt atau Hugo, pastikan folder yang Anda tentukan di publish directory (saat netlify init atau di dashboard) sesuai dengan folder hasil build (seperti output/web atau public).",
+    "text": "Deploy Webstatis ke Netlify\nUntuk mempublikasikan proyek Quarto ke Netlify, Anda memiliki dua cara utama: cara manual (paling cepat untuk sekali coba) dan cara otomatis via GitHub (paling disarankan untuk jangka panjang).\nBerikut adalah langkah-langkahnya:\n\n1. Persiapkan Output di Quarto\nSebelum mengunggah, pastikan proyek Quarto Anda sudah di-render menjadi format HTML (website).\n\nBuka terminal di folder proyek Anda.\nJalankan perintah render:\nBash\nquarto render \nSetelah selesai, Quarto akan membuat folder bernama _site (secara default). Folder inilah yang berisi seluruh file website statis Anda.\n\n\n\n2. Cara Manual: Drag-and-Drop (Tanpa Git)\nIni adalah cara tercepat jika Anda hanya ingin mencoba atau tidak ingin menggunakan GitHub.\n\nLogin ke Netlify.\nBuka menu Sites.\nScroll ke bawah sampai Anda menemukan kotak bertuliskan “Want to deploy a new site without connecting to Git? Drag and drop your site folder here”.\nTarik dan lepas (drag-and-drop) folder _site dari komputer Anda ke kotak tersebut.\nSelesai! Netlify akan langsung memberikan URL publik.\n\n\n\n3. Cara Otomatis: Via GitHub (Continuous Deployment)\nCara ini lebih profesional karena setiap kali Anda push kode ke GitHub, website akan terupdate otomatis.\n\nLangkah Awal: Tambahkan file .nojekyll\nKarena Netlify terkadang bingung dengan struktur folder tertentu, pastikan ada file kosong bernama .nojekyll di root folder Anda agar file yang diawali titik (seperti dari folder library Quarto) terbaca.\n\n\nLangkah di Netlify:\n\nPush proyek Quarto Anda ke repositori GitHub.\nDi dashboard Netlify, klik Add new site &gt; Import an existing project.\nPilih GitHub dan hubungkan ke repositori Anda.\nPada bagian Site settings, masukkan konfigurasi berikut:\n\nBuild command: quarto render\nPublish directory: _site\n\nKlik Deploy site.\n\n\nPenting: Agar perintah quarto render berjalan di server Netlify, Anda harus menggunakan Netlify Build Plugins untuk Quarto atau memastikan environment Netlify sudah terinstall Quarto (biasanya lebih mudah jika Anda men-render secara lokal dan hanya mengunggah folder _site-nya saja dengan mengosongkan Build command).\n\n\n\n\nTips Tambahan: Menggunakan Terminal (CLI)\nJika Anda suka menggunakan terminal, Anda bisa menggunakan perintah khusus dari Quarto:\n\nInstall Netlify CLI: npm install -g netlify-cli\nLogin: netlify login\n\nDi dalam folder proyek, jalankan:\nBash\nquarto publish netlify \nIkuti instruksi di layar. Quarto akan menangani proses upload secara otomatis ke akun Netlify Anda.\n\nUntuk mendeploy ke Netlify menggunakan Git, ada dua pendekatan: Otomatis (menghubungkan repositori ke dashboard Netlify) atau Manual (menggunakan Netlify CLI melalui terminal).\nBerikut adalah daftar perintah Git dan CLI yang paling sering digunakan:\n\n\n1. Persiapan Repositori (Langkah Awal)\nSebelum mendeploy, pastikan proyek Anda sudah menjadi repositori Git dan sudah di-push ke layanan seperti GitHub, GitLab, atau Bitbucket.\nBash\n# Inisialisasi git di folder proyek git init  # Tambahkan semua file git add .  # Buat commit pertama git commit -m \"Initial commit proyek website\"  # Hubungkan ke repositori online (ganti URL dengan milik Anda) git remote add origin https://github.com/username/nama-repo.git  # Push ke branch utama (main atau master) git push -u origin main \nSetelah ini, Anda tinggal masuk ke dashboard Netlify, pilih “Import from Git”, dan hubungkan repositori tersebut. Setiap kali Anda melakukan git push, Netlify akan otomatis mengupdate website Anda.\n\n\n2. Update Website (Continuous Deployment)\nJika situs sudah terhubung dengan GitHub/Netlify, setiap kali Anda membuat perubahan, Anda hanya perlu menjalankan 3 perintah standar ini:\nBash\ngit add . git commit -m \"Update konten website\" git push origin main \nNetlify akan mendeteksi perubahan ini dan memulai proses build secara otomatis.\n\n\n3. Deploy via Netlify CLI (Tanpa Dashboard)\nJika Anda ingin mendeploy langsung dari terminal tanpa harus melalui GitHub (mirip dengan cara quarto publish), Anda bisa menggunakan Netlify CLI.\nInstalasi & Login:\nBash\nnpm install netlify-cli -g netlify login \nPerintah Deploy:\nBash\n# Inisialisasi proyek (hanya sekali) netlify init  # Deploy ke draft (Preview URL) netlify deploy  # Deploy ke produksi (Live URL) # Ganti --dir=public dengan folder output Anda (misal: _site untuk Quarto) netlify deploy --prod --dir=public \n\n\n4. Tips: Mengabaikan File yang Tidak Perlu\nAgar folder hasil build atau file sampah tidak ikut terupload ke Git dan Netlify, pastikan Anda memiliki file .gitignore di root folder.\nContoh isi .gitignore untuk Hugo/Quarto:\nPlaintext\n# Folder hasil build public/ _site/ .quarto/  # File sistem .DS_Store Thumbs.db node_modules/ \n\n\nRingkasan Perintah Dasar\n\n\n\nTujuan\nPerintah\n\n\nKirim update ke GitHub/Netlify\ngit push origin main\n\n\nCek status file\ngit status\n\n\nLihat riwayat update\ngit log --oneline\n\n\nDeploy via CLI (Produksi)\nnetlify deploy --prod\n\n\n\nCatatan Khusus: Jika Anda menggunakan PreTeXt atau Hugo, pastikan folder yang Anda tentukan di publish directory (saat netlify init atau di dashboard) sesuai dengan folder hasil build (seperti output/web atau public).\nUntuk mendeploy ke Netlify menggunakan Git, ada dua pendekatan: Otomatis (menghubungkan repositori ke dashboard Netlify) atau Manual (menggunakan Netlify CLI melalui terminal).\nBerikut adalah daftar perintah Git dan CLI yang paling sering digunakan:\n\n\n1. Persiapan Repositori (Langkah Awal)\nSebelum mendeploy, pastikan proyek Anda sudah menjadi repositori Git dan sudah di-push ke layanan seperti GitHub, GitLab, atau Bitbucket.\nBash\n# Inisialisasi git di folder proyek git init  # Tambahkan semua file git add .  # Buat commit pertama git commit -m \"Initial commit proyek website\"  # Hubungkan ke repositori online (ganti URL dengan milik Anda) git remote add origin https://github.com/username/nama-repo.git  # Push ke branch utama (main atau master) git push -u origin main \nSetelah ini, Anda tinggal masuk ke dashboard Netlify, pilih “Import from Git”, dan hubungkan repositori tersebut. Setiap kali Anda melakukan git push, Netlify akan otomatis mengupdate website Anda.\n\n\n2. Update Website (Continuous Deployment)\nJika situs sudah terhubung dengan GitHub/Netlify, setiap kali Anda membuat perubahan, Anda hanya perlu menjalankan 3 perintah standar ini:\nBash\ngit add . git commit -m \"Update konten website\" git push origin main \nNetlify akan mendeteksi perubahan ini dan memulai proses build secara otomatis.\n\n\n3. Deploy via Netlify CLI (Tanpa Dashboard)\nJika Anda ingin mendeploy langsung dari terminal tanpa harus melalui GitHub (mirip dengan cara quarto publish), Anda bisa menggunakan Netlify CLI.\nInstalasi & Login:\nBash\nnpm install netlify-cli -g netlify login \nPerintah Deploy:\nBash\n# Inisialisasi proyek (hanya sekali) netlify init  # Deploy ke draft (Preview URL) netlify deploy  # Deploy ke produksi (Live URL) # Ganti --dir=public dengan folder output Anda (misal: _site untuk Quarto) netlify deploy --prod --dir=public \n\n\n4. Tips: Mengabaikan File yang Tidak Perlu\nAgar folder hasil build atau file sampah tidak ikut terupload ke Git dan Netlify, pastikan Anda memiliki file .gitignore di root folder.\nContoh isi .gitignore untuk Hugo/Quarto:\nPlaintext\n# Folder hasil build public/ _site/ .quarto/  # File sistem .DS_Store Thumbs.db node_modules/ \n\n\nRingkasan Perintah Dasar\n\n\n\nTujuan\nPerintah\n\n\nKirim update ke GitHub/Netlify\ngit push origin main\n\n\nCek status file\ngit status\n\n\nLihat riwayat update\ngit log --oneline\n\n\nDeploy via CLI (Produksi)\nnetlify deploy --prod\n\n\n\nCatatan Khusus: Jika Anda menggunakan PreTeXt atau Hugo, pastikan folder yang Anda tentukan di publish directory (saat netlify init atau di dashboard) sesuai dengan folder hasil build (seperti output/web atau public).\nPerintah tersebut harus dijalankan di dalam Root Directory (Folder Utama) proyek Anda.\nRoot directory adalah folder tempat Anda menyimpan file konfigurasi utama seperti project.ptx (untuk PreTeXt), _quarto.yml (untuk Quarto), atau hugo.toml (untuk Hugo).\nBerikut adalah panduan detail penempatan terminalnya:\n\n\n1. Posisi Terminal yang Benar\nPastikan terminal Anda berada di level yang sama dengan file-file konfigurasi proyek.\nStruktur Folder Contoh (Quarto):\nPlaintext\nmy-website/  &lt;-- TERMINAL HARUS DI SINI ├── _quarto.yml ├── index.qmd ├── _site/       &lt;-- Folder hasil render (Output) └── .gitignore \n\n\n2. Cara Cek Directory di Terminal\nSebelum mengetik perintah netlify deploy, cek posisi Anda saat ini:\n\nWindows (PowerShell/CMD): Ketik ls atau dir. Jika Anda melihat file proyek Anda, berarti posisi sudah benar.\nMac/Linux: Ketik pwd.\n\n\n\n3. Mengatur Folder Output (--dir)\nMeskipun Anda menjalankan perintah di root, Anda harus mengarahkan bendera --dir ke folder hasil render (output) yang biasanya merupakan sub-folder dari root tersebut.\n\nJika menggunakan Quarto:\nBash\nnetlify deploy --prod --dir=_site \nJika menggunakan Hugo:\nBash\nnetlify deploy --prod --dir=public \nJika menggunakan PreTeXt:\nBash\nnetlify deploy --prod --dir=output/web \n\n\n\nTips Penting:\nJika Anda salah menjalankan perintah di dalam folder _site atau public, Netlify tidak akan bisa menemukan file konfigurasi proyek Anda (netlify.toml atau pengaturan lainnya), dan proses deploy bisa berantakan karena struktur jalurnya (path) menjadi tidak sesuai.\n\nIngat: &gt; * Jalankan Perintah: Di Folder Utama (Root).\n\nArahkan --dir: Ke Folder Output (Hasil Render).",
     "crumbs": [
       "Persiapan"
     ]
@@ -102,234 +102,520 @@
     ]
   },
   {
-    "objectID": "grafik/grafik.html",
-    "href": "grafik/grafik.html",
-    "title": "2  Charting in Colaboratory",
+    "objectID": "ligres.html",
+    "href": "ligres.html",
+    "title": "2  Linear Regression",
     "section": "",
-    "text": "2.1 Matplotlib\nA common use for notebooks is data visualization using charts. Colaboratory makes this easy with several charting tools available as Python imports.\nMatplotlib is the most common charting package, see its documentation for details, and its examples for inspiration.",
+    "text": "3 Part 1: Introduction\nAdapted from Chapter 3 of An Introduction to Statistical Learning\nWhy are we learning linear regression?\nLesson goals:",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#libraries",
+    "href": "ligres.html#libraries",
+    "title": "2  Linear Regression",
+    "section": "3.1 Libraries",
+    "text": "3.1 Libraries\n\nStatsmodels: “statistics in Python”\n\nrobust functionality for linear modeling\nuseful for teaching purposes\nwill not be used in the course outside of this lesson\n\nscikit-learn: “machine learning in Python”\n\nsignificantly more functionality for general purpose machine learning\n\n\n\n\nCode\nimport pandas as pd\nimport numpy as np\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.model_selection import train_test_split, KFold, cross_val_score\nfrom sklearn import metrics\nimport statsmodels.formula.api as smf\n\n# visualization\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n%matplotlib inline",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#reading-the-advertising-data",
+    "href": "ligres.html#reading-the-advertising-data",
+    "title": "2  Linear Regression",
+    "section": "3.2 Reading the advertising data",
+    "text": "3.2 Reading the advertising data\n\n\nCode\n# read data into a DataFrame\ndata = pd.read_csv('https://raw.githubusercontent.com/marcopeix/ISL-linear-regression/refs/heads/master/data/Advertising.csv', index_col=0)\ndata.head()\n\n\n\n\n\n\n\n\n\nTV\nradio\nnewspaper\nsales\n\n\n\n\n1\n230.1\n37.8\n69.2\n22.1\n\n\n2\n44.5\n39.3\n45.1\n10.4\n\n\n3\n17.2\n45.9\n69.3\n9.3\n\n\n4\n151.5\n41.3\n58.5\n18.5\n\n\n5\n180.8\n10.8\n58.4\n12.9\n\n\n\n\n\n\n\nWhat are the observations?\n\nEach observation represents one market (200 markets in the dataset)\n\nWhat are the features?\n\nTV: advertising dollars spent on TV for a single product (in thousands of dollars)\nRadio: advertising dollars spent on Radio\nNewspaper: advertising dollars spent on Newspaper\n\nWhat is the response?\n\nSales: sales of a single product in a given market (in thousands of widgets)",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#questions-about-the-data",
+    "href": "ligres.html#questions-about-the-data",
+    "title": "2  Linear Regression",
+    "section": "3.3 Questions about the data",
+    "text": "3.3 Questions about the data\nYou are asked by the company: On the basis of this data, how should we spend our advertising money in the future?\nYou come up with more specific questions:\n\nIs there a relationship between ads and sales?\nHow strong is that relationship?\nWhich ad types contribute to sales?\nWhat is the effect of each ad type of sales?\nGiven ad spending in a particular market, can sales be predicted?",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#visualizing-the-data",
+    "href": "ligres.html#visualizing-the-data",
+    "title": "2  Linear Regression",
+    "section": "3.4 Visualizing the data",
+    "text": "3.4 Visualizing the data\nUse a scatter plot to visualize the relationship between the features and the response.\n\n\nCode\n# scatter plot in Seaborn\nsns.pairplot(data, x_vars=['TV','radio','newspaper'], y_vars='sales', size=6, aspect=0.7)\n\n\n\n\n\n\n\n\n\n\n\nCode\n# include a \"regression line\"\nsns.pairplot(data, x_vars=['TV','radio','newspaper'], y_vars='sales', size=6, aspect=0.7, kind='reg')\n\n\n\n\n\n\n\n\n\n\n\nCode\n# scatter plot in Pandas\nfig, axs = plt.subplots(1, 3, sharey=True)\ndata.plot(kind='scatter', x='TV', y='sales', ax=axs[0], figsize=(16, 6))\ndata.plot(kind='scatter', x='radio', y='sales', ax=axs[1])\ndata.plot(kind='scatter', x='newspaper', y='sales', ax=axs[2])\n\n\n\n\n\n\n\n\n\nUse a scatter matrix to visualize the relationship between all numerical variables.\n\n\nCode\n# scatter matrix in Seaborn\nsns.pairplot(data)\n\n\n\n\n\n\n\n\n\n\n\nCode\n# scatter matrix in Pandas\npd.plotting.scatter_matrix(data, figsize=(12, 10))\n\n\narray([[&lt;Axes: xlabel='TV', ylabel='TV'&gt;,\n        &lt;Axes: xlabel='radio', ylabel='TV'&gt;,\n        &lt;Axes: xlabel='newspaper', ylabel='TV'&gt;,\n        &lt;Axes: xlabel='sales', ylabel='TV'&gt;],\n       [&lt;Axes: xlabel='TV', ylabel='radio'&gt;,\n        &lt;Axes: xlabel='radio', ylabel='radio'&gt;,\n        &lt;Axes: xlabel='newspaper', ylabel='radio'&gt;,\n        &lt;Axes: xlabel='sales', ylabel='radio'&gt;],\n       [&lt;Axes: xlabel='TV', ylabel='newspaper'&gt;,\n        &lt;Axes: xlabel='radio', ylabel='newspaper'&gt;,\n        &lt;Axes: xlabel='newspaper', ylabel='newspaper'&gt;,\n        &lt;Axes: xlabel='sales', ylabel='newspaper'&gt;],\n       [&lt;Axes: xlabel='TV', ylabel='sales'&gt;,\n        &lt;Axes: xlabel='radio', ylabel='sales'&gt;,\n        &lt;Axes: xlabel='newspaper', ylabel='sales'&gt;,\n        &lt;Axes: xlabel='sales', ylabel='sales'&gt;]], dtype=object)\n\n\n\n\n\n\n\n\n\nUse a correlation matrix to visualize the correlation between all numerical variables.\n\n\nCode\n# compute correlation matrix\ndata.corr()\n\n\n\n\n\n\n\n\n\nTV\nradio\nnewspaper\nsales\n\n\n\n\nTV\n1.000000\n0.054809\n0.056648\n0.782224\n\n\nradio\n0.054809\n1.000000\n0.354104\n0.576223\n\n\nnewspaper\n0.056648\n0.354104\n1.000000\n0.228299\n\n\nsales\n0.782224\n0.576223\n0.228299\n1.000000\n\n\n\n\n\n\n\n\n\nCode\n# display correlation matrix in Seaborn using a heatmap\nsns.heatmap(data.corr())\n\n\n\n\n\n\n\n\n\nCorrelation is a quantification of how two variables are related in a linear fashion\nBut does NOT reveal if there is any causation between variables\nIn general, machine learning is great at revealing when variables are correlated, but not if there is any causation between them",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#estimating-learning-model-coefficients",
+    "href": "ligres.html#estimating-learning-model-coefficients",
+    "title": "2  Linear Regression",
+    "section": "4.1 Estimating (“learning”) model coefficients",
+    "text": "4.1 Estimating (“learning”) model coefficients\n\nCoefficients are estimated during the model fitting process using the least squares criterion.\nWe are find the line (mathematically) which minimizes the sum of squared residuals (or “sum of squared errors”).\n\n\n\n\nEstimating coefficients\n\n\nIn this diagram:\n\nThe black dots are the observed values of x and y.\nThe blue line is our least squares line.\nThe red lines are the residuals, which are the distances between the observed values and the least squares line.\n\n\n\n\nSlope-intercept\n\n\nHow do the model coefficients relate to the least squares line?\n\n\\(\\beta_0\\) is the intercept (the value of \\(y\\) when \\(x\\)=0)\n\\(\\beta_1\\) is the slope (the change in \\(y\\) divided by change in \\(x\\))\n\nLet’s estimate the model coefficients for the advertising data:\n\n\nCode\n### STATSMODELS ###\n\n# create a fitted model\nlm = smf.ols(formula='sales ~ TV', data=data).fit()\n\n# print the coefficients\nlm.params\n\n\nIntercept    7.032594\nTV           0.047537\ndtype: float64\n\n\n\n\nCode\n### SCIKIT-LEARN ###\n\n# create X and y\nfeature_cols = ['TV']\nX = data[feature_cols]\ny = data.sales\n\n# instantiate and fit\nlinreg = LinearRegression()\nlinreg.fit(X, y)\n\n# print the coefficients\nprint(linreg.intercept_)\nprint(linreg.coef_)\n\n\n7.032593549127695\n[0.04753664]",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#interpreting-model-coefficients",
+    "href": "ligres.html#interpreting-model-coefficients",
+    "title": "2  Linear Regression",
+    "section": "4.2 Interpreting model coefficients",
+    "text": "4.2 Interpreting model coefficients\nHow do we interpret the TV coefficient (\\(\\beta_1\\))?\n\nA “unit” increase in TV ad spending is associated with a 0.0475 “unit” increase in Sales.\nMeaning: An additional $1,000 spent on TV ads is associated with an increase in sales of 47.5 widgets.\nThis is not a statement of causation.\n\nIf an increase in TV ad spending was associated with a decrease in sales, \\(\\beta_1\\) would be negative.",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#using-the-model-for-prediction",
+    "href": "ligres.html#using-the-model-for-prediction",
+    "title": "2  Linear Regression",
+    "section": "4.3 Using the model for prediction",
+    "text": "4.3 Using the model for prediction\nLet’s say that there was a new market where the TV advertising spend was $50,000. What would we predict for the Sales in that market?\n\\[y = \\beta_0 + \\beta_1x\\] \\[y = 7.0326 + 0.0475 \\times 50\\]\n\n\nCode\n# manually calculate the prediction\n7.0326 + 0.0475*50\n\n\n9.4076\n\n\n\n\nCode\n### STATSMODELS ###\n\n# you have to create a DataFrame since the Statsmodels formula interface expects it\nX_new = pd.DataFrame({'TV': [50]})\n\n# predict for a new observation\nlm.predict(X_new)\n\n\n0    9.409426\ndtype: float64\n\n\n\n\nCode\n### SCIKIT-LEARN ###\n\n# predict for a new observation\nlinreg.predict([[50]])\n\n\narray([9.40942557])\n\n\nThus, we would predict Sales of 9,409 widgets in that market.",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#does-the-scale-of-the-features-matter",
+    "href": "ligres.html#does-the-scale-of-the-features-matter",
+    "title": "2  Linear Regression",
+    "section": "4.4 Does the scale of the features matter?",
+    "text": "4.4 Does the scale of the features matter?\nLet’s say that TV was measured in dollars, rather than thousands of dollars. How would that affect the model?\n\n\nCode\ndata['TV_dollars'] = data.TV * 1000\ndata.head()\n\n\n\n\n\n\n\n\n\nTV\nradio\nnewspaper\nsales\nTV_dollars\n\n\n\n\n1\n230.1\n37.8\n69.2\n22.1\n230100.0\n\n\n2\n44.5\n39.3\n45.1\n10.4\n44500.0\n\n\n3\n17.2\n45.9\n69.3\n9.3\n17200.0\n\n\n4\n151.5\n41.3\n58.5\n18.5\n151500.0\n\n\n5\n180.8\n10.8\n58.4\n12.9\n180800.0\n\n\n\n\n\n\n\n\n\nCode\n### SCIKIT-LEARN ###\n\n# create X and y\nfeature_cols = ['TV_dollars']\nX = data[feature_cols]\ny = data.sales\n\n# instantiate and fit\nlinreg = LinearRegression()\nlinreg.fit(X, y)\n\n# print the coefficients\nprint(linreg.intercept_)\nprint(linreg.coef_)\n\n\n7.032593549127694\n[4.75366404e-05]\n\n\nHow do we interpret the TV_dollars coefficient (\\(\\beta_1\\))?\n\nA “unit” increase in TV ad spending is associated with a 0.0000475 “unit” increase in Sales.\nMeaning: An additional dollar spent on TV ads is associated with an increase in sales of 0.0475 widgets.\nMeaning: An additional $1,000 spent on TV ads is associated with an increase in sales of 47.5 widgets.\n\n\n\nCode\n# predict for a new observation\nlinreg.predict(50000)\n\n\narray([ 9.40942557])\n\n\nThe scale of the features is irrelevant for linear regression models, since it will only affect the scale of the coefficients, and we simply change our interpretation of the coefficients.",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#bias-and-variance",
+    "href": "ligres.html#bias-and-variance",
+    "title": "2  Linear Regression",
+    "section": "5.1 Bias and variance",
+    "text": "5.1 Bias and variance\nLinear regression is a low variance/high bias model:\n\nLow variance: Under repeated sampling from the underlying population, the line will stay roughly in the same place\nHigh bias: The line will rarely fit the data well\n\nA closely related concept is confidence intervals.",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#confidence-intervals",
+    "href": "ligres.html#confidence-intervals",
+    "title": "2  Linear Regression",
+    "section": "5.2 Confidence intervals",
+    "text": "5.2 Confidence intervals\nStatsmodels calculates 95% confidence intervals for our model coefficients, which are interpreted as follows: If the population from which this sample was drawn was sampled 100 times, approximately 95 of those confidence intervals would contain the “true” coefficient.\n\n\nCode\n### STATSMODELS ###\n\n# print the confidence intervals for the model coefficients\nlm.conf_int()\n\n\n\n\n\n\n\n\n\n0\n1\n\n\n\n\nIntercept\n6.129719\n7.935468\n\n\nTV\n0.042231\n0.052843\n\n\n\n\n\n\n\n\nWe only have a single sample of data, and not the entire population of data.\nThe “true” coefficient is either within this interval or it isn’t, but there’s no way to actually know.\nWe estimate the coefficient with the data we do have, and we show uncertainty about that estimate by giving a range that the coefficient is probably within.\nFrom Quora: What is a confidence interval in layman’s terms?\n\nNote: 95% confidence intervals are just a convention. You can create 90% confidence intervals (which will be more narrow), 99% confidence intervals (which will be wider), or whatever intervals you like.\nA closely related concept is hypothesis testing.",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#hypothesis-testing-and-p-values",
+    "href": "ligres.html#hypothesis-testing-and-p-values",
+    "title": "2  Linear Regression",
+    "section": "5.3 Hypothesis testing and p-values",
+    "text": "5.3 Hypothesis testing and p-values\nGeneral process for hypothesis testing:\n\nYou start with a null hypothesis and an alternative hypothesis (that is opposite the null).\nYou check whether the data supports rejecting the null hypothesis or failing to reject the null hypothesis.\n\nFor model coefficients, here is the conventional hypothesis test:\n\nnull hypothesis: There is no relationship between TV ads and Sales (and thus \\(\\beta_1\\) equals zero)\nalternative hypothesis: There is a relationship between TV ads and Sales (and thus \\(\\beta_1\\) is not equal to zero)\n\nHow do we test this hypothesis?\n\nThe p-value is the probability that the relationship we are observing is occurring purely by chance.\nIf the 95% confidence interval for a coefficient does not include zero, the p-value will be less than 0.05, and we will reject the null (and thus believe the alternative).\nIf the 95% confidence interval includes zero, the p-value will be greater than 0.05, and we will fail to reject the null.\n\n\n\nCode\n### STATSMODELS ###\n\n# print the p-values for the model coefficients\nlm.pvalues\n\n\nIntercept    1.406300e-35\nTV           1.467390e-42\ndtype: float64\n\n\nThus, a p-value less than 0.05 is one way to decide whether there is likely a relationship between the feature and the response. In this case, the p-value for TV is far less than 0.05, and so we believe that there is a relationship between TV ads and Sales.\nNote that we generally ignore the p-value for the intercept.",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#how-well-does-the-model-fit-the-data",
+    "href": "ligres.html#how-well-does-the-model-fit-the-data",
+    "title": "2  Linear Regression",
+    "section": "5.4 How well does the model fit the data?",
+    "text": "5.4 How well does the model fit the data?\nR-squared:\n\nA common way to evaluate the overall fit of a linear model\nDefined as the proportion of variance explained, meaning the proportion of variance in the observed data that is explained by the model\nAlso defined as the reduction in error over the null model, which is the model that simply predicts the mean of the observed response\nBetween 0 and 1, and higher is better\n\nHere’s an example of what R-squared “looks like”:\n\n\n\nR-squared\n\n\nLet’s calculate the R-squared value for our simple linear model:\n\n\nCode\n### STATSMODELS ###\n\n# print the R-squared value for the model\nprint(lm.rsquared)\n\n\n0.611875050850071\n\n\n\n\nCode\n### SCIKIT-LEARN ###\n\n# calculate the R-squared value for the model\ny_pred = linreg.predict(X)\nmetrics.r2_score(y, y_pred)\n\n\n0.611875050850071\n\n\n\nThe threshold for a “good” R-squared value is highly dependent on the particular domain.\nR-squared is more useful as a tool for comparing models.",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#feature-selection",
+    "href": "ligres.html#feature-selection",
+    "title": "2  Linear Regression",
+    "section": "6.1 Feature selection",
+    "text": "6.1 Feature selection\nHow do I decide which features to include in a linear model?\n\n6.1.1 Using p-values\nWe could try a model with all features, and only keep features in the model if they have small p-values:\n\n\nCode\n### STATSMODELS ###\n\n# create a fitted model with all three features\nlm = smf.ols(formula='sales ~ TV + radio + newspaper', data=data).fit()\n\n# print the p-values for the model coefficients\nprint(lm.pvalues)\n\n\nIntercept    1.267295e-17\nTV           1.509960e-81\nradio        1.505339e-54\nnewspaper    8.599151e-01\ndtype: float64\n\n\nThis indicates we would reject the null hypothesis for TV and Radio (that there is no association between those features and Sales), and fail to reject the null hypothesis for Newspaper. Thus, we would keep TV and Radio in the model.\nHowever, this approach has drawbacks:\n\nLinear models rely upon a lot of assumptions (such as the features being independent), and if those assumptions are violated (which they usually are), p-values are less reliable.\nUsing a p-value cutoff of 0.05 means that if you add 100 features to a model that are pure noise, 5 of them (on average) will still be counted as significant.\n\n\n\n6.1.2 Using R-squared\nWe could try models with different sets of features, and compare their R-squared values:\n\n\nCode\n# R-squared value for the model with two features\nlm = smf.ols(formula='sales ~ TV + radio', data=data).fit()\nprint(lm.rsquared)\n\n\n0.8971942610828956\n\n\n\n\nCode\n# R-squared value for the model with three features\nlm = smf.ols(formula='sales ~ TV + radio + newspaper', data=data).fit()\nprint(lm.rsquared)\n\n\n0.8972106381789522\n\n\nThis would seem to indicate that the best model includes all three features. Is that right?\n\nR-squared will always increase as you add more features to the model, even if they are unrelated to the response.\nAs such, using R-squared as a model evaluation metric can lead to overfitting.\nAdjusted R-squared is an alternative that penalizes model complexity (to control for overfitting), but it generally under-penalizes complexity.\n\nAs well, R-squared depends on the same assumptions as p-values, and it’s less reliable if those assumptions are violated.\n\n\n6.1.3 Using train/test split (or cross-validation)\nA better approach to feature selection!\n\nThey attempt to directly estimate how well your model will generalize to out-of-sample data.\nThey rely on fewer assumptions that linear regression.\nThey can easily be applied to any model, not just linear models.",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#evaluation-metrics-for-regression-problems",
+    "href": "ligres.html#evaluation-metrics-for-regression-problems",
+    "title": "2  Linear Regression",
+    "section": "6.2 Evaluation metrics for regression problems",
+    "text": "6.2 Evaluation metrics for regression problems\nEvaluation metrics for classification problems, such as accuracy, are not useful for regression problems. We need evaluation metrics designed for comparing continuous values.\nLet’s create some example numeric predictions, and calculate three common evaluation metrics for regression problems:\n\n\nCode\n# define true and predicted response values\ny_true = [100, 50, 30, 20]\ny_pred = [90, 50, 50, 30]\n\n\nMean Absolute Error (MAE) is the mean of the absolute value of the errors:\n\\[\\frac 1n\\sum_{i=1}^n|y_i-\\hat{y}_i|\\]\n\n\nCode\nprint(metrics.mean_absolute_error(y_true, y_pred))\n\n\n10.0\n\n\nMean Squared Error (MSE) is the mean of the squared errors:\n\\[\\frac 1n\\sum_{i=1}^n(y_i-\\hat{y}_i)^2\\]\n\n\nCode\nprint(metrics.mean_squared_error(y_true, y_pred))\n\n\n150.0\n\n\nRoot Mean Squared Error (RMSE) is the square root of the mean of the squared errors:\n\\[\\sqrt{\\frac 1n\\sum_{i=1}^n(y_i-\\hat{y}_i)^2}\\]\n\n\nCode\nprint(np.sqrt(metrics.mean_squared_error(y_true, y_pred)))\n\n\n12.24744871391589\n\n\nComparing these metrics:\n\nMAE is the easiest to understand, because it’s the average error.\nMSE is more popular than MAE, because MSE “punishes” larger errors, which tends to be useful in the real world.\nRMSE is even more popular than MSE, because RMSE is interpretable in the “y” units.\n\nAll of these are loss functions, because we want to minimize them.\nHere’s an additional example, to demonstrate how MSE/RMSE punish larger errors:\n\n\nCode\n# same true values as above\ny_true = [100, 50, 30, 20]\n\n# new set of predicted values\ny_pred = [60, 50, 30, 20]\n\n# MAE is the same as before\nprint(metrics.mean_absolute_error(y_true, y_pred))\n\n# RMSE is larger than before\nprint(np.sqrt(metrics.mean_squared_error(y_true, y_pred)))\n\n\n10.0\n20.0",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#using-traintest-split-for-feature-selection",
+    "href": "ligres.html#using-traintest-split-for-feature-selection",
+    "title": "2  Linear Regression",
+    "section": "6.3 Using train/test split for feature selection",
+    "text": "6.3 Using train/test split for feature selection\nLet’s use train/test split with RMSE to decide whether Newspaper should be kept in the model:\n\n\nCode\n# define a function that accepts X and y and computes testing RMSE\ndef train_test_rmse(X, y):\n    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)\n    linreg = LinearRegression()\n    linreg.fit(X_train, y_train)\n    y_pred = linreg.predict(X_test)\n    return np.sqrt(metrics.mean_squared_error(y_test, y_pred))\n\n\n\n\nCode\n# include Newspaper\nfeature_cols = ['TV', 'radio', 'newspaper']\nX = data[feature_cols]\ntrain_test_rmse(X, y)\n\n\nnp.float64(1.404651423032896)\n\n\n\n\nCode\n# exclude Newspaper\nfeature_cols = ['TV', 'radio']\nX = data[feature_cols]\nprint(train_test_rmse(X, y))\n\n\n1.3879034699382888",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "ligres.html#comparing-linear-regression-with-other-models",
+    "href": "ligres.html#comparing-linear-regression-with-other-models",
+    "title": "2  Linear Regression",
+    "section": "6.4 Comparing linear regression with other models",
+    "text": "6.4 Comparing linear regression with other models\nAdvantages of linear regression:\n\nSimple to explain\nHighly interpretable\nModel training and prediction are fast\nNo tuning is required (excluding regularization)\nFeatures don’t need scaling\nCan perform well with a small number of observations\n\nDisadvantages of linear regression:\n\nPresumes a linear relationship between the features and the response\nPerformance is (generally) not competitive with the best supervised learning methods due to high bias\nSensitive to irrelevant features\nCan’t automatically learn feature interactions\n\n\n6.4.1 Referensi\nhttps://github.com/sinanuozdemir",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "grafik/grafik.html",
+    "href": "grafik/grafik.html",
+    "title": "3  Charting in Colaboratory",
+    "section": "",
+    "text": "3.1 Matplotlib\nA common use for notebooks is data visualization using charts. Colaboratory makes this easy with several charting tools available as Python imports.\nMatplotlib is the most common charting package, see its documentation for details, and its examples for inspiration.",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
     ]
   },
   {
     "objectID": "grafik/grafik.html#matplotlib",
     "href": "grafik/grafik.html#matplotlib",
-    "title": "2  Charting in Colaboratory",
+    "title": "3  Charting in Colaboratory",
     "section": "",
-    "text": "2.1.1 Line Plots\n\n\nCode\nimport matplotlib.pyplot as plt\n\nplt.figure(figsize=(4, 2))\n\n\nx  = [1, 2, 3, 4, 5, 6, 7, 8, 9]\ny1 = [1, 3, 5, 3, 1, 3, 5, 3, 1]\ny2 = [2, 4, 6, 4, 2, 4, 6, 4, 2]\nplt.plot(x, y1, label=\"line L\")\nplt.plot(x, y2, label=\"line H\")\nplt.plot()\n\nplt.xlabel(\"x axis\")\nplt.ylabel(\"y axis\")\nplt.title(\"Line Graph Example\")\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n2.1.2 Bar Plots\n\n\nCode\nimport matplotlib.pyplot as plt\n\nplt.figure(figsize=(4, 2))\n# Look at index 4 and 6, which demonstrate overlapping cases.\nx1 = [1, 3, 4, 5, 6, 7, 9]\ny1 = [4, 7, 2, 4, 7, 8, 3]\n\nx2 = [2, 4, 6, 8, 10]\ny2 = [5, 6, 2, 6, 2]\n\n# Colors: https://matplotlib.org/api/colors_api.html\n\nplt.bar(x1, y1, label=\"Blue Bar\", color='b')\nplt.bar(x2, y2, label=\"Green Bar\", color='g')\nplt.plot()\n\nplt.xlabel(\"bar number\")\nplt.ylabel(\"bar height\")\nplt.title(\"Bar Chart Example\")\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n2.1.3 Histograms\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\nplt.figure(figsize=(4, 2))\n# Use numpy to generate a bunch of random data in a bell curve around 5.\nn = 5 + np.random.randn(1000)\n\nm = [m for m in range(len(n))]\nplt.bar(m, n)\nplt.title(\"Raw Data\")\nplt.show()\n\nplt.hist(n, bins=20)\nplt.title(\"Histogram\")\nplt.show()\n\nplt.hist(n, cumulative=True, bins=20)\nplt.title(\"Cumulative Histogram\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.1.4 Scatter Plots\n\n\nCode\nimport matplotlib.pyplot as plt\n\nx1 = [2, 3, 4]\ny1 = [5, 5, 5]\n\nx2 = [1, 2, 3, 4, 5]\ny2 = [2, 3, 2, 3, 4]\ny3 = [6, 8, 7, 8, 7]\n\n# Markers: https://matplotlib.org/api/markers_api.html\n\nplt.scatter(x1, y1)\nplt.scatter(x2, y2, marker='v', color='r')\nplt.scatter(x2, y3, marker='^', color='m')\nplt.title('Scatter Plot Example')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n2.1.5 Stack Plots\n\n\nCode\nimport matplotlib.pyplot as plt\n\nidxes = [ 1,  2,  3,  4,  5,  6,  7,  8,  9]\narr1  = [23, 40, 28, 43,  8, 44, 43, 18, 17]\narr2  = [17, 30, 22, 14, 17, 17, 29, 22, 30]\narr3  = [15, 31, 18, 22, 18, 19, 13, 32, 39]\n\n# Adding legend for stack plots is tricky.\nplt.plot([], [], color='r', label = 'D 1')\nplt.plot([], [], color='g', label = 'D 2')\nplt.plot([], [], color='b', label = 'D 3')\n\nplt.stackplot(idxes, arr1, arr2, arr3, colors= ['r', 'g', 'b'])\nplt.title('Stack Plot Example')\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n2.1.6 Pie Charts\n\n\nCode\nimport matplotlib.pyplot as plt\n\nlabels = 'S1', 'S2', 'S3'\nsections = [56, 66, 24]\ncolors = ['c', 'g', 'y']\n\nplt.pie(sections, labels=labels, colors=colors,\n        startangle=90,\n        explode = (0, 0.1, 0),\n        autopct = '%1.2f%%')\n\nplt.axis('equal') # Try commenting this out.\nplt.title('Pie Chart Example')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n2.1.7 fill_between and alpha\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nys = 200 + np.random.randn(100)\nx = [x for x in range(len(ys))]\n\nplt.plot(x, ys, '-')\nplt.fill_between(x, ys, 195, where=(ys &gt; 195), facecolor='g', alpha=0.6)\n\nplt.title(\"Fills and Alpha Example\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n2.1.8 Subplotting using Subplot2grid\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\ndef random_plots():\n  xs = []\n  ys = []\n\n  for i in range(20):\n    x = i\n    y = np.random.randint(10)\n\n    xs.append(x)\n    ys.append(y)\n\n  return xs, ys\n\nfig = plt.figure()\nax1 = plt.subplot2grid((5, 2), (0, 0), rowspan=1, colspan=2)\nax2 = plt.subplot2grid((5, 2), (1, 0), rowspan=3, colspan=2)\nax3 = plt.subplot2grid((5, 2), (4, 0), rowspan=1, colspan=1)\nax4 = plt.subplot2grid((5, 2), (4, 1), rowspan=1, colspan=1)\n\nx, y = random_plots()\nax1.plot(x, y)\n\nx, y = random_plots()\nax2.plot(x, y)\n\nx, y = random_plots()\nax3.plot(x, y)\n\nx, y = random_plots()\nax4.plot(x, y)\n\nplt.tight_layout()\nplt.show()",
+    "text": "3.1.1 Line Plots\n\n\nCode\nimport matplotlib.pyplot as plt\n\nplt.figure(figsize=(4, 2))\n\n\nx  = [1, 2, 3, 4, 5, 6, 7, 8, 9]\ny1 = [1, 3, 5, 3, 1, 3, 5, 3, 1]\ny2 = [2, 4, 6, 4, 2, 4, 6, 4, 2]\nplt.plot(x, y1, label=\"line L\")\nplt.plot(x, y2, label=\"line H\")\nplt.plot()\n\nplt.xlabel(\"x axis\")\nplt.ylabel(\"y axis\")\nplt.title(\"Line Graph Example\")\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n3.1.2 Bar Plots\n\n\nCode\nimport matplotlib.pyplot as plt\n\nplt.figure(figsize=(4, 2))\n# Look at index 4 and 6, which demonstrate overlapping cases.\nx1 = [1, 3, 4, 5, 6, 7, 9]\ny1 = [4, 7, 2, 4, 7, 8, 3]\n\nx2 = [2, 4, 6, 8, 10]\ny2 = [5, 6, 2, 6, 2]\n\n# Colors: https://matplotlib.org/api/colors_api.html\n\nplt.bar(x1, y1, label=\"Blue Bar\", color='b')\nplt.bar(x2, y2, label=\"Green Bar\", color='g')\nplt.plot()\n\nplt.xlabel(\"bar number\")\nplt.ylabel(\"bar height\")\nplt.title(\"Bar Chart Example\")\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n3.1.3 Histograms\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\nplt.figure(figsize=(4, 2))\n# Use numpy to generate a bunch of random data in a bell curve around 5.\nn = 5 + np.random.randn(1000)\n\nm = [m for m in range(len(n))]\nplt.bar(m, n)\nplt.title(\"Raw Data\")\nplt.show()\n\nplt.hist(n, bins=20)\nplt.title(\"Histogram\")\nplt.show()\n\nplt.hist(n, cumulative=True, bins=20)\nplt.title(\"Cumulative Histogram\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.1.4 Scatter Plots\n\n\nCode\nimport matplotlib.pyplot as plt\n\nx1 = [2, 3, 4]\ny1 = [5, 5, 5]\n\nx2 = [1, 2, 3, 4, 5]\ny2 = [2, 3, 2, 3, 4]\ny3 = [6, 8, 7, 8, 7]\n\n# Markers: https://matplotlib.org/api/markers_api.html\n\nplt.scatter(x1, y1)\nplt.scatter(x2, y2, marker='v', color='r')\nplt.scatter(x2, y3, marker='^', color='m')\nplt.title('Scatter Plot Example')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n3.1.5 Stack Plots\n\n\nCode\nimport matplotlib.pyplot as plt\n\nidxes = [ 1,  2,  3,  4,  5,  6,  7,  8,  9]\narr1  = [23, 40, 28, 43,  8, 44, 43, 18, 17]\narr2  = [17, 30, 22, 14, 17, 17, 29, 22, 30]\narr3  = [15, 31, 18, 22, 18, 19, 13, 32, 39]\n\n# Adding legend for stack plots is tricky.\nplt.plot([], [], color='r', label = 'D 1')\nplt.plot([], [], color='g', label = 'D 2')\nplt.plot([], [], color='b', label = 'D 3')\n\nplt.stackplot(idxes, arr1, arr2, arr3, colors= ['r', 'g', 'b'])\nplt.title('Stack Plot Example')\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n3.1.6 Pie Charts\n\n\nCode\nimport matplotlib.pyplot as plt\n\nlabels = 'S1', 'S2', 'S3'\nsections = [56, 66, 24]\ncolors = ['c', 'g', 'y']\n\nplt.pie(sections, labels=labels, colors=colors,\n        startangle=90,\n        explode = (0, 0.1, 0),\n        autopct = '%1.2f%%')\n\nplt.axis('equal') # Try commenting this out.\nplt.title('Pie Chart Example')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n3.1.7 fill_between and alpha\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nys = 200 + np.random.randn(100)\nx = [x for x in range(len(ys))]\n\nplt.plot(x, ys, '-')\nplt.fill_between(x, ys, 195, where=(ys &gt; 195), facecolor='g', alpha=0.6)\n\nplt.title(\"Fills and Alpha Example\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n3.1.8 Subplotting using Subplot2grid\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\ndef random_plots():\n  xs = []\n  ys = []\n\n  for i in range(20):\n    x = i\n    y = np.random.randint(10)\n\n    xs.append(x)\n    ys.append(y)\n\n  return xs, ys\n\nfig = plt.figure()\nax1 = plt.subplot2grid((5, 2), (0, 0), rowspan=1, colspan=2)\nax2 = plt.subplot2grid((5, 2), (1, 0), rowspan=3, colspan=2)\nax3 = plt.subplot2grid((5, 2), (4, 0), rowspan=1, colspan=1)\nax4 = plt.subplot2grid((5, 2), (4, 1), rowspan=1, colspan=1)\n\nx, y = random_plots()\nax1.plot(x, y)\n\nx, y = random_plots()\nax2.plot(x, y)\n\nx, y = random_plots()\nax3.plot(x, y)\n\nx, y = random_plots()\nax4.plot(x, y)\n\nplt.tight_layout()\nplt.show()",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
     ]
   },
   {
     "objectID": "grafik/grafik.html#plot-styles",
     "href": "grafik/grafik.html#plot-styles",
-    "title": "2  Charting in Colaboratory",
-    "section": "2.2 Plot styles",
-    "text": "2.2 Plot styles\nColaboratory charts use Seaborn’s custom styling by default. To customize styling further please see the matplotlib docs.",
+    "title": "3  Charting in Colaboratory",
+    "section": "3.2 Plot styles",
+    "text": "3.2 Plot styles\nColaboratory charts use Seaborn’s custom styling by default. To customize styling further please see the matplotlib docs.",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
     ]
   },
   {
     "objectID": "grafik/grafik.html#d-graphs",
     "href": "grafik/grafik.html#d-graphs",
-    "title": "2  Charting in Colaboratory",
-    "section": "2.3 3D Graphs",
-    "text": "2.3 3D Graphs\n\n2.3.1 3D Scatter Plots\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom mpl_toolkits.mplot3d import axes3d\n\nfig = plt.figure()\nax = fig.add_subplot(111, projection = '3d')\n\nx1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\ny1 = np.random.randint(10, size=10)\nz1 = np.random.randint(10, size=10)\n\nx2 = [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10]\ny2 = np.random.randint(-10, 0, size=10)\nz2 = np.random.randint(10, size=10)\n\nax.scatter(x1, y1, z1, c='b', marker='o', label='blue')\nax.scatter(x2, y2, z2, c='g', marker='D', label='green')\n\nax.set_xlabel('x axis')\nax.set_ylabel('y axis')\nax.set_zlabel('z axis')\nplt.title(\"3D Scatter Plot Example\")\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n2.3.2 3D Bar Plots\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nfig = plt.figure()\nax = fig.add_subplot(111, projection = '3d')\n\nx = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\ny = np.random.randint(10, size=10)\nz = np.zeros(10)\n\ndx = np.ones(10)\ndy = np.ones(10)\ndz = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\nax.bar3d(x, y, z, dx, dy, dz, color='g')\n\nax.set_xlabel('x axis')\nax.set_ylabel('y axis')\nax.set_zlabel('z axis')\nplt.title(\"3D Bar Chart Example\")\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n2.3.3 Wireframe Plots\n\n\nCode\nimport matplotlib.pyplot as plt\n\nfig = plt.figure()\nax = fig.add_subplot(111, projection = '3d')\n\nx, y, z = axes3d.get_test_data()\n\nax.plot_wireframe(x, y, z, rstride = 2, cstride = 2)\n\nplt.title(\"Wireframe Plot Example\")\nplt.tight_layout()\nplt.show()",
+    "title": "3  Charting in Colaboratory",
+    "section": "3.3 3D Graphs",
+    "text": "3.3 3D Graphs\n\n3.3.1 3D Scatter Plots\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom mpl_toolkits.mplot3d import axes3d\n\nfig = plt.figure()\nax = fig.add_subplot(111, projection = '3d')\n\nx1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\ny1 = np.random.randint(10, size=10)\nz1 = np.random.randint(10, size=10)\n\nx2 = [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10]\ny2 = np.random.randint(-10, 0, size=10)\nz2 = np.random.randint(10, size=10)\n\nax.scatter(x1, y1, z1, c='b', marker='o', label='blue')\nax.scatter(x2, y2, z2, c='g', marker='D', label='green')\n\nax.set_xlabel('x axis')\nax.set_ylabel('y axis')\nax.set_zlabel('z axis')\nplt.title(\"3D Scatter Plot Example\")\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n3.3.2 3D Bar Plots\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nfig = plt.figure()\nax = fig.add_subplot(111, projection = '3d')\n\nx = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\ny = np.random.randint(10, size=10)\nz = np.zeros(10)\n\ndx = np.ones(10)\ndy = np.ones(10)\ndz = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\nax.bar3d(x, y, z, dx, dy, dz, color='g')\n\nax.set_xlabel('x axis')\nax.set_ylabel('y axis')\nax.set_zlabel('z axis')\nplt.title(\"3D Bar Chart Example\")\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n3.3.3 Wireframe Plots\n\n\nCode\nimport matplotlib.pyplot as plt\n\nfig = plt.figure()\nax = fig.add_subplot(111, projection = '3d')\n\nx, y, z = axes3d.get_test_data()\n\nax.plot_wireframe(x, y, z, rstride = 2, cstride = 2)\n\nplt.title(\"Wireframe Plot Example\")\nplt.tight_layout()\nplt.show()",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
     ]
   },
   {
     "objectID": "grafik/grafik.html#seaborn",
     "href": "grafik/grafik.html#seaborn",
-    "title": "2  Charting in Colaboratory",
-    "section": "2.4 Seaborn",
-    "text": "2.4 Seaborn\nThere are several libraries layered on top of Matplotlib that you can use in Colab. One that is worth highlighting is Seaborn:\nThat’s a simple scatterplot with a nice regression line fit to it, all with just one call to Seaborn’s regplot.\nHere’s a Seaborn heatmap:\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Make a 10 x 10 heatmap of some random data\nside_length = 10\n# Start with a 10 x 10 matrix with values randomized around 5\ndata = 5 + np.random.randn(side_length, side_length)\n# The next two lines make the values larger as we get closer to (9, 9)\ndata += np.arange(side_length)\ndata += np.reshape(np.arange(side_length), (side_length, 1))\n# Generate the heatmap\nsns.heatmap(data)\nplt.show()",
+    "title": "3  Charting in Colaboratory",
+    "section": "3.4 Seaborn",
+    "text": "3.4 Seaborn\nThere are several libraries layered on top of Matplotlib that you can use in Colab. One that is worth highlighting is Seaborn:\nThat’s a simple scatterplot with a nice regression line fit to it, all with just one call to Seaborn’s regplot.\nHere’s a Seaborn heatmap:\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Make a 10 x 10 heatmap of some random data\nside_length = 10\n# Start with a 10 x 10 matrix with values randomized around 5\ndata = 5 + np.random.randn(side_length, side_length)\n# The next two lines make the values larger as we get closer to (9, 9)\ndata += np.arange(side_length)\ndata += np.reshape(np.arange(side_length), (side_length, 1))\n# Generate the heatmap\nsns.heatmap(data)\nplt.show()",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
     ]
   },
   {
     "objectID": "grafik/grafik.html#altair",
     "href": "grafik/grafik.html#altair",
-    "title": "2  Charting in Colaboratory",
-    "section": "2.5 Altair",
-    "text": "2.5 Altair\nAltair is a declarative visualization library for creating interactive visualizations in Python, and is installed and enabled in Colab by default.\nFor example, here is an interactive scatter plot:\n\n\nCode\n!pip install vega_datasets\n\n\nCollecting vega_datasets\n  Using cached vega_datasets-0.9.0-py3-none-any.whl.metadata (5.5 kB)\nRequirement already satisfied: pandas in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from vega_datasets) (2.3.0)\nRequirement already satisfied: numpy&gt;=1.26.0 in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from pandas-&gt;vega_datasets) (2.3.1)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from pandas-&gt;vega_datasets) (2.9.0.post0)\nRequirement already satisfied: pytz&gt;=2020.1 in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from pandas-&gt;vega_datasets) (2025.2)\nRequirement already satisfied: tzdata&gt;=2022.7 in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from pandas-&gt;vega_datasets) (2025.2)\nRequirement already satisfied: six&gt;=1.5 in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas-&gt;vega_datasets) (1.17.0)\nUsing cached vega_datasets-0.9.0-py3-none-any.whl (210 kB)\nInstalling collected packages: vega_datasets\nSuccessfully installed vega_datasets-0.9.0\n\n\n\n\nCode\nimport altair as alt\nfrom vega_datasets import data\ncars = data.cars()\n\nalt.Chart(cars).mark_point().encode(\n    x='Horsepower',\n    y='Miles_per_Gallon',\n    color='Origin',\n).interactive()\n\n\n\n\n\n\n\n\nFor more examples of Altair plots, see the Altair snippets notebook or the external Altair Example Gallery.",
+    "title": "3  Charting in Colaboratory",
+    "section": "3.5 Altair",
+    "text": "3.5 Altair\nAltair is a declarative visualization library for creating interactive visualizations in Python, and is installed and enabled in Colab by default.\nFor example, here is an interactive scatter plot:\n\n\nCode\n!pip install vega_datasets\n\n\nCollecting vega_datasets\n  Using cached vega_datasets-0.9.0-py3-none-any.whl.metadata (5.5 kB)\nRequirement already satisfied: pandas in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from vega_datasets) (2.3.0)\nRequirement already satisfied: numpy&gt;=1.26.0 in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from pandas-&gt;vega_datasets) (2.3.1)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from pandas-&gt;vega_datasets) (2.9.0.post0)\nRequirement already satisfied: pytz&gt;=2020.1 in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from pandas-&gt;vega_datasets) (2025.2)\nRequirement already satisfied: tzdata&gt;=2022.7 in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from pandas-&gt;vega_datasets) (2025.2)\nRequirement already satisfied: six&gt;=1.5 in c:\\users\\user\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas-&gt;vega_datasets) (1.17.0)\nUsing cached vega_datasets-0.9.0-py3-none-any.whl (210 kB)\nInstalling collected packages: vega_datasets\nSuccessfully installed vega_datasets-0.9.0\n\n\n\n\nCode\nimport altair as alt\nfrom vega_datasets import data\ncars = data.cars()\n\nalt.Chart(cars).mark_point().encode(\n    x='Horsepower',\n    y='Miles_per_Gallon',\n    color='Origin',\n).interactive()\n\n\n\n\n\n\n\n\nFor more examples of Altair plots, see the Altair snippets notebook or the external Altair Example Gallery.",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
     ]
   },
   {
     "objectID": "grafik/grafik.html#plotly",
     "href": "grafik/grafik.html#plotly",
-    "title": "2  Charting in Colaboratory",
-    "section": "2.6 Plotly",
-    "text": "2.6 Plotly\n\n2.6.1 Sample",
+    "title": "3  Charting in Colaboratory",
+    "section": "3.6 Plotly",
+    "text": "3.6 Plotly\n\n3.6.1 Sample",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
     ]
   },
   {
     "objectID": "grafik/grafik.html#bokeh",
     "href": "grafik/grafik.html#bokeh",
-    "title": "2  Charting in Colaboratory",
-    "section": "2.7 Bokeh",
-    "text": "2.7 Bokeh\n\n2.7.1 Sample\n\n\nCode\nimport numpy as np\nfrom bokeh.plotting import figure, show\nfrom bokeh.io import output_notebook\n\n# Call once to configure Bokeh to display plots inline in the notebook.\noutput_notebook()\n\n\n    \n    \n        \n        Loading BokehJS ...\n    \n\n\n\n\n\n\n\nCode\nN = 4000\nx = np.random.random(size=N) * 100\ny = np.random.random(size=N) * 100\nradii = np.random.random(size=N) * 1.5\ncolors = [\"#%02x%02x%02x\" % (r, g, 150) for r, g in zip(np.floor(50+2*x).astype(int), np.floor(30+2*y).astype(int))]\n\np = figure()\np.circle(x, y, radius=radii, fill_color=colors, fill_alpha=0.6, line_color=None)\nshow(p)",
+    "title": "3  Charting in Colaboratory",
+    "section": "3.7 Bokeh",
+    "text": "3.7 Bokeh\n\n3.7.1 Sample\n\n\nCode\nimport numpy as np\nfrom bokeh.plotting import figure, show\nfrom bokeh.io import output_notebook\n\n# Call once to configure Bokeh to display plots inline in the notebook.\noutput_notebook()\n\n\n    \n    \n        \n        Loading BokehJS ...\n    \n\n\n\n\n\n\n\nCode\nN = 4000\nx = np.random.random(size=N) * 100\ny = np.random.random(size=N) * 100\nradii = np.random.random(size=N) * 1.5\ncolors = [\"#%02x%02x%02x\" % (r, g, 150) for r, g in zip(np.floor(50+2*x).astype(int), np.floor(30+2*y).astype(int))]\n\np = figure()\np.circle(x, y, radius=radii, fill_color=colors, fill_alpha=0.6, line_color=None)\nshow(p)",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Charting in Colaboratory</span>"
     ]
   },
   {
     "objectID": "Sosmed.html",
     "href": "Sosmed.html",
-    "title": "3  Menggunakan Media Sosial",
+    "title": "4  Menggunakan Media Sosial",
     "section": "",
-    "text": "4 Penjelasan Matriks\nTo insert a logo into your Quarto website’s navigation menu, you need to modify the _quarto.yml configuration file. The logo typically appears to the left of the website title in the top navigation bar (navbar) or at the top of a sidebar. [1, 2]",
+    "text": "5 Penjelasan Matriks\nTo insert a logo into your Quarto website’s navigation menu, you need to modify the _quarto.yml configuration file. The logo typically appears to the left of the website title in the top navigation bar (navbar) or at the top of a sidebar. [1, 2]",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
     ]
   },
   {
     "objectID": "Sosmed.html#definisi-matriks",
     "href": "Sosmed.html#definisi-matriks",
-    "title": "3  Menggunakan Media Sosial",
-    "section": "4.1 1. Definisi Matriks",
-    "text": "4.1 1. Definisi Matriks\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn import datasets\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay\nfrom sklearn.decomposition import PCA\n\n# Set style visualisasi\nplt.style.use('seaborn-v0_8-whitegrid')\nsns.set_palette(\"Set2\")\n\n# 1. Memuat Dataset Iris\niris = datasets.load_iris()\nX = iris.data\ny = iris.target\nfeature_names = iris.feature_names\ntarget_names = iris.target_names\n\n# 2. Train-Test Split (Menggunakan Integer untuk keamanan)\n# Dataset Iris memiliki 150 sampel, 20% = 30 sampel\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=30, random_state=42, stratify=y\n)\n\n# 3. Pelatihan Model\nmodel = LogisticRegression(max_iter=200)\nmodel.fit(X_train, y_train)\ny_pred = model.predict(X_test)\n\n# 4. Visualisasi\nfig, axes = plt.subplots(2, 2, figsize=(14, 12))\n\n# Scatter plot: Sepal\nax = axes[0, 0]\nfor class_idx, name in enumerate(target_names):\n    ax.scatter(X[y == class_idx, 0], X[y == class_idx, 1], \n               label=name, edgecolors='k', s=50, alpha=0.7)\nax.set_xlabel(feature_names[0])\nax.set_ylabel(feature_names[1])\nax.set_title('Sepal Length vs Sepal Width')\nax.legend()\nax.grid(True, alpha=0.3)\n\n# Scatter plot: Petal\nax = axes[0, 1]\nfor class_idx, name in enumerate(target_names):\n    ax.scatter(X[y == class_idx, 2], X[y == class_idx, 3], \n               label=name, edgecolors='k', s=50, alpha=0.7)\nax.set_xlabel(feature_names[2])\nax.set_ylabel(feature_names[3])\nax.set_title('Petal Length vs Petal Width')\nax.legend()\nax.grid(True, alpha=0.3)\n\n# Decision Boundary\nax = axes[1, 0]\nX_2feat = X[:, :2]\nmodel_2 = LogisticRegression(max_iter=200)\nmodel_2.fit(X_2feat, y)\n\nh = 0.02\nx_min, x_max = X_2feat[:, 0].min() - 1, X_2feat[:, 0].max() + 1\ny_min, y_max = X_2feat[:, 1].min() - 1, X_2feat[:, 1].max() + 1\nxx, yy = np.meshgrid(np.arange(x_min, x_max, h),\n                     np.arange(y_min, y_max, h))\nZ = model_2.predict(np.c_[xx.ravel(), yy.ravel()])\nZ = Z.reshape(xx.shape)\n\nax.contourf(xx, yy, Z, alpha=0.3, cmap='Set2')\nfor class_idx, name in enumerate(target_names):\n    ax.scatter(X_2feat[y == class_idx, 0], X_2feat[y == class_idx, 1], \n               label=name, edgecolors='k', s=50)\nax.set_xlabel(feature_names[0])\nax.set_ylabel(feature_names[1])\nax.set_title('Decision Boundary')\nax.legend()\nax.grid(True, alpha=0.3)\n\n# Confusion Matrix\nax = axes[1, 1]\ncm = confusion_matrix(y_test, y_pred)\ndisp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=target_names)\ndisp.plot(ax=ax, cmap='Blues', values_format='d')\nax.set_title('Confusion Matrix')\n\nplt.tight_layout()\nplt.show()\n\n# PCA Visualization\npca = PCA(n_components=2)\nX_pca = pca.fit_transform(X)\n\nplt.figure(figsize=(8, 6))\nfor class_idx, name in enumerate(target_names):\n    plt.scatter(X_pca[y == class_idx, 0], X_pca[y == class_idx, 1], \n                label=name, edgecolors='k', s=60, alpha=0.7)\nplt.xlabel(f'PC1 ({pca.explained_variance_ratio_[0]:.2%})')\nplt.ylabel(f'PC2 ({pca.explained_variance_ratio_[1]:.2%})')\nplt.title('PCA Projection')\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.show()\n\n# Print Metrics\nprint(f\"Akurasi: {accuracy_score(y_test, y_pred):.4f}\")\nEmbedded Sage Cells\n\n\n\nYour own computations\nType your own Sage computation below and click “Evaluate”.",
+    "title": "4  Menggunakan Media Sosial",
+    "section": "5.1 1. Definisi Matriks",
+    "text": "5.1 1. Definisi Matriks\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn import datasets\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay\nfrom sklearn.decomposition import PCA\n\n# Set style visualisasi\nplt.style.use('seaborn-v0_8-whitegrid')\nsns.set_palette(\"Set2\")\n\n# 1. Memuat Dataset Iris\niris = datasets.load_iris()\nX = iris.data\ny = iris.target\nfeature_names = iris.feature_names\ntarget_names = iris.target_names\n\n# 2. Train-Test Split (Menggunakan Integer untuk keamanan)\n# Dataset Iris memiliki 150 sampel, 20% = 30 sampel\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=30, random_state=42, stratify=y\n)\n\n# 3. Pelatihan Model\nmodel = LogisticRegression(max_iter=200)\nmodel.fit(X_train, y_train)\ny_pred = model.predict(X_test)\n\n# 4. Visualisasi\nfig, axes = plt.subplots(2, 2, figsize=(14, 12))\n\n# Scatter plot: Sepal\nax = axes[0, 0]\nfor class_idx, name in enumerate(target_names):\n    ax.scatter(X[y == class_idx, 0], X[y == class_idx, 1], \n               label=name, edgecolors='k', s=50, alpha=0.7)\nax.set_xlabel(feature_names[0])\nax.set_ylabel(feature_names[1])\nax.set_title('Sepal Length vs Sepal Width')\nax.legend()\nax.grid(True, alpha=0.3)\n\n# Scatter plot: Petal\nax = axes[0, 1]\nfor class_idx, name in enumerate(target_names):\n    ax.scatter(X[y == class_idx, 2], X[y == class_idx, 3], \n               label=name, edgecolors='k', s=50, alpha=0.7)\nax.set_xlabel(feature_names[2])\nax.set_ylabel(feature_names[3])\nax.set_title('Petal Length vs Petal Width')\nax.legend()\nax.grid(True, alpha=0.3)\n\n# Decision Boundary\nax = axes[1, 0]\nX_2feat = X[:, :2]\nmodel_2 = LogisticRegression(max_iter=200)\nmodel_2.fit(X_2feat, y)\n\nh = 0.02\nx_min, x_max = X_2feat[:, 0].min() - 1, X_2feat[:, 0].max() + 1\ny_min, y_max = X_2feat[:, 1].min() - 1, X_2feat[:, 1].max() + 1\nxx, yy = np.meshgrid(np.arange(x_min, x_max, h),\n                     np.arange(y_min, y_max, h))\nZ = model_2.predict(np.c_[xx.ravel(), yy.ravel()])\nZ = Z.reshape(xx.shape)\n\nax.contourf(xx, yy, Z, alpha=0.3, cmap='Set2')\nfor class_idx, name in enumerate(target_names):\n    ax.scatter(X_2feat[y == class_idx, 0], X_2feat[y == class_idx, 1], \n               label=name, edgecolors='k', s=50)\nax.set_xlabel(feature_names[0])\nax.set_ylabel(feature_names[1])\nax.set_title('Decision Boundary')\nax.legend()\nax.grid(True, alpha=0.3)\n\n# Confusion Matrix\nax = axes[1, 1]\ncm = confusion_matrix(y_test, y_pred)\ndisp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=target_names)\ndisp.plot(ax=ax, cmap='Blues', values_format='d')\nax.set_title('Confusion Matrix')\n\nplt.tight_layout()\nplt.show()\n\n# PCA Visualization\npca = PCA(n_components=2)\nX_pca = pca.fit_transform(X)\n\nplt.figure(figsize=(8, 6))\nfor class_idx, name in enumerate(target_names):\n    plt.scatter(X_pca[y == class_idx, 0], X_pca[y == class_idx, 1], \n                label=name, edgecolors='k', s=60, alpha=0.7)\nplt.xlabel(f'PC1 ({pca.explained_variance_ratio_[0]:.2%})')\nplt.ylabel(f'PC2 ({pca.explained_variance_ratio_[1]:.2%})')\nplt.title('PCA Projection')\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.show()\n\n# Print Metrics\nprint(f\"Akurasi: {accuracy_score(y_test, y_pred):.4f}\")\nEmbedded Sage Cells\n\n\n\nYour own computations\nType your own Sage computation below and click “Evaluate”.",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
     ]
   },
   {
     "objectID": "Sosmed.html#implementasi-di-sagemath",
     "href": "Sosmed.html#implementasi-di-sagemath",
-    "title": "3  Menggunakan Media Sosial",
-    "section": "6.1 4. Implementasi di SageMath",
-    "text": "6.1 4. Implementasi di SageMath\n# Membuat matriks 3x4\nA = matrix([[1, 2, 3, 4],\n            [5, 6, 7, 8],\n            [9, 10, 11, 12]])\nshow(\"Matriks A:\", A)\n\n# Operasi dasar\nB = matrix([[2, 0, 1, 3],\n            [1, 1, 0, 2],\n            [0, 2, 1, 1]])\n\nshow(\"A + B:\", A + B)\nshow(\"2 * A:\", 2 * A)\nshow(\"Transpose A:\", A.transpose())\n\n# Akses elemen dan slice\nprint(\"Elemen [baris-1, kolom-2]:\", A[0, 1])  # Output: 2\nshow(\"Submatriks (2 baris pertama, kolom 2-3):\", A[0:2, 1:3])\n\n# Matriks persegi untuk operasi lanjut\nC = matrix([[4, 2], [3, 1]])\nshow(\"Determinan C:\", C.determinant())\nshow(\"Invers C:\", C.inverse())\nshow(\"C * C^-1:\", C * C.inverse())  # Harus menghasilkan matriks identitas",
+    "title": "4  Menggunakan Media Sosial",
+    "section": "7.1 4. Implementasi di SageMath",
+    "text": "7.1 4. Implementasi di SageMath\n# Membuat matriks 3x4\nA = matrix([[1, 2, 3, 4],\n            [5, 6, 7, 8],\n            [9, 10, 11, 12]])\nshow(\"Matriks A:\", A)\n\n# Operasi dasar\nB = matrix([[2, 0, 1, 3],\n            [1, 1, 0, 2],\n            [0, 2, 1, 1]])\n\nshow(\"A + B:\", A + B)\nshow(\"2 * A:\", 2 * A)\nshow(\"Transpose A:\", A.transpose())\n\n# Akses elemen dan slice\nprint(\"Elemen [baris-1, kolom-2]:\", A[0, 1])  # Output: 2\nshow(\"Submatriks (2 baris pertama, kolom 2-3):\", A[0:2, 1:3])\n\n# Matriks persegi untuk operasi lanjut\nC = matrix([[4, 2], [3, 1]])\nshow(\"Determinan C:\", C.determinant())\nshow(\"Invers C:\", C.inverse())\nshow(\"C * C^-1:\", C * C.inverse())  # Harus menghasilkan matriks identitas",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
     ]
   },
   {
     "objectID": "Sosmed.html#section-1",
     "href": "Sosmed.html#section-1",
-    "title": "3  Menggunakan Media Sosial",
-    "section": "6.2 ",
-    "text": "6.2",
+    "title": "4  Menggunakan Media Sosial",
+    "section": "7.2 ",
+    "text": "7.2",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
     ]
   },
   {
     "objectID": "Sosmed.html#adding-a-logo-to-the-top-navigation-bar-navbar",
     "href": "Sosmed.html#adding-a-logo-to-the-top-navigation-bar-navbar",
-    "title": "3  Menggunakan Media Sosial",
-    "section": "6.3 1. Adding a Logo to the Top Navigation Bar (Navbar)",
-    "text": "6.3 1. Adding a Logo to the Top Navigation Bar (Navbar)\nTo place a logo in the main top-level navigation, use the logo option under the navbar key in your _quarto.yml: [3, 4, 5]\nwebsite:\n  navbar:\n    logo: \"images/logo.png\"\n    logo-alt: \"Description of the logo for accessibility\"\n    logo-href: \"index.qmd\" # Target link when clicking the logo (defaults to home)\n    title: \"My Website\"\n    left:\n      - text: \"Home\"\n        href: index.qmd",
+    "title": "4  Menggunakan Media Sosial",
+    "section": "7.3 1. Adding a Logo to the Top Navigation Bar (Navbar)",
+    "text": "7.3 1. Adding a Logo to the Top Navigation Bar (Navbar)\nTo place a logo in the main top-level navigation, use the logo option under the navbar key in your _quarto.yml: [3, 4, 5]\nwebsite:\n  navbar:\n    logo: \"images/logo.png\"\n    logo-alt: \"Description of the logo for accessibility\"\n    logo-href: \"index.qmd\" # Target link when clicking the logo (defaults to home)\n    title: \"My Website\"\n    left:\n      - text: \"Home\"\n        href: index.qmd",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
     ]
   },
   {
     "objectID": "Sosmed.html#adding-a-logo-to-the-sidebar",
     "href": "Sosmed.html#adding-a-logo-to-the-sidebar",
-    "title": "3  Menggunakan Media Sosial",
-    "section": "6.4 2. Adding a Logo to the Sidebar",
-    "text": "6.4 2. Adding a Logo to the Sidebar\nIf your site uses a sidebar for navigation, you can also define a logo specifically for that area: [6, 7, 8]\nwebsite:\n  sidebar:\n    logo: \"images/sidebar-logo.png\"\n    logo-alt: \"Sidebar logo description\"\n    title: \"Sidebar Title\"",
+    "title": "4  Menggunakan Media Sosial",
+    "section": "7.4 2. Adding a Logo to the Sidebar",
+    "text": "7.4 2. Adding a Logo to the Sidebar\nIf your site uses a sidebar for navigation, you can also define a logo specifically for that area: [6, 7, 8]\nwebsite:\n  sidebar:\n    logo: \"images/sidebar-logo.png\"\n    logo-alt: \"Sidebar logo description\"\n    title: \"Sidebar Title\"",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
     ]
   },
   {
     "objectID": "Sosmed.html#using-brand.yml-for-multiformat-logos-9",
     "href": "Sosmed.html#using-brand.yml-for-multiformat-logos-9",
-    "title": "3  Menggunakan Media Sosial",
-    "section": "6.5 3. Using Brand.yml for Multiformat Logos [9]",
-    "text": "6.5 3. Using Brand.yml for Multiformat Logos [9]\nFor more advanced setups, such as different logos for light and dark modes or different sizes, you can use a _brand.yml file: [10, 11]\n\nDefine in _brand.yml:\nlogo:\n  medium:\n    light: \"images/logo-light.png\"\n    dark: \"images/logo-dark.png\"\nReference in _quarto.yml:\nbrand: _brand.yml\nwebsite:\n  navbar:\n    logo: medium # Quarto automatically picks the correct light/dark version\n[12]",
+    "title": "4  Menggunakan Media Sosial",
+    "section": "7.5 3. Using Brand.yml for Multiformat Logos [9]",
+    "text": "7.5 3. Using Brand.yml for Multiformat Logos [9]\nFor more advanced setups, such as different logos for light and dark modes or different sizes, you can use a _brand.yml file: [10, 11]\n\nDefine in _brand.yml:\nlogo:\n  medium:\n    light: \"images/logo-light.png\"\n    dark: \"images/logo-dark.png\"\nReference in _quarto.yml:\nbrand: _brand.yml\nwebsite:\n  navbar:\n    logo: medium # Quarto automatically picks the correct light/dark version\n[12]",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
     ]
   },
   {
     "objectID": "Sosmed.html#adding-a-favicon-browser-tab-logo",
     "href": "Sosmed.html#adding-a-favicon-browser-tab-logo",
-    "title": "3  Menggunakan Media Sosial",
-    "section": "6.6 4. Adding a Favicon (Browser Tab Logo)",
-    "text": "6.6 4. Adding a Favicon (Browser Tab Logo)\nTo ensure your logo or icon appears in the browser tab, use the favicon option under the website key: [2, 13]\nwebsite:\n  favicon: \"favicon.ico\" # Usually a .png or .ico file\n \nFor more detailed customization, you can refer to the official Quarto Website Navigation documentation. [14]\nWould you like to know how to adjust the size of the logo or customize its position further using CSS?\n[1] https://quarto.org\n[2] https://forum.posit.co\n[3] https://quarto.org\n[4] https://quarto.org\n[5] https://forum.posit.co\n[6] https://quarto.org\n[7] https://quarto.org\n[8] https://quarto.org\n[9] https://quarto.org\n[10] https://stackoverflow.com\n[11] https://quarto.org\n[12] https://quarto.org\n[13] https://quarto.org\n[14] https://quarto-tdg.org\nTo insert an Instagram link into the left sidebar of your Quarto website, you can use the tools or footer options within the sidebar configuration in your _quarto.yml file.",
+    "title": "4  Menggunakan Media Sosial",
+    "section": "7.6 4. Adding a Favicon (Browser Tab Logo)",
+    "text": "7.6 4. Adding a Favicon (Browser Tab Logo)\nTo ensure your logo or icon appears in the browser tab, use the favicon option under the website key: [2, 13]\nwebsite:\n  favicon: \"favicon.ico\" # Usually a .png or .ico file\n \nFor more detailed customization, you can refer to the official Quarto Website Navigation documentation. [14]\nWould you like to know how to adjust the size of the logo or customize its position further using CSS?\n[1] https://quarto.org\n[2] https://forum.posit.co\n[3] https://quarto.org\n[4] https://quarto.org\n[5] https://forum.posit.co\n[6] https://quarto.org\n[7] https://quarto.org\n[8] https://quarto.org\n[9] https://quarto.org\n[10] https://stackoverflow.com\n[11] https://quarto.org\n[12] https://quarto.org\n[13] https://quarto.org\n[14] https://quarto-tdg.org\nTo insert an Instagram link into the left sidebar of your Quarto website, you can use the tools or footer options within the sidebar configuration in your _quarto.yml file.",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
     ]
   },
   {
     "objectID": "Sosmed.html#using-sidebar-tools-recommended",
     "href": "Sosmed.html#using-sidebar-tools-recommended",
-    "title": "3  Menggunakan Media Sosial",
-    "section": "6.7 1. Using Sidebar Tools (Recommended)",
-    "text": "6.7 1. Using Sidebar Tools (Recommended)\nSidebar tools appear as icons at the top of the sidebar, next to the title or logo. Quarto includes built-in support for Bootstrap Icons, so you can use the instagram icon directly. [1, 2]\nwebsite:\n  sidebar:\n    tools:\n      - icon: instagram\n        href: https://www.instagram.com\n        text: \"Instagram\" # Optional tooltip text",
+    "title": "4  Menggunakan Media Sosial",
+    "section": "7.7 1. Using Sidebar Tools (Recommended)",
+    "text": "7.7 1. Using Sidebar Tools (Recommended)\nSidebar tools appear as icons at the top of the sidebar, next to the title or logo. Quarto includes built-in support for Bootstrap Icons, so you can use the instagram icon directly. [1, 2]\nwebsite:\n  sidebar:\n    tools:\n      - icon: instagram\n        href: https://www.instagram.com\n        text: \"Instagram\" # Optional tooltip text",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
     ]
   },
   {
     "objectID": "Sosmed.html#using-sidebar-footer",
     "href": "Sosmed.html#using-sidebar-footer",
-    "title": "3  Menggunakan Media Sosial",
-    "section": "6.8 2. Using Sidebar Footer",
-    "text": "6.8 2. Using Sidebar Footer\nIf you want the link to appear at the bottom of the sidebar, you can use the footer option. You can use standard Markdown or even the Font Awesome extension for more icon variety. [3]\nwebsite:\n  sidebar:\n    footer: |\n      [ {{&lt; fa brands instagram &gt;}} Instagram](https://www.instagram.com)\n(Note: Using {{&lt; fa ... &gt;}} requires installing the Font Awesome extension via quarto add quarto-ext/fontawesome in your terminal).",
+    "title": "4  Menggunakan Media Sosial",
+    "section": "7.8 2. Using Sidebar Footer",
+    "text": "7.8 2. Using Sidebar Footer\nIf you want the link to appear at the bottom of the sidebar, you can use the footer option. You can use standard Markdown or even the Font Awesome extension for more icon variety. [3]\nwebsite:\n  sidebar:\n    footer: |\n      [ {{&lt; fa brands instagram &gt;}} Instagram](https://www.instagram.com)\n(Note: Using {{&lt; fa ... &gt;}} requires installing the Font Awesome extension via quarto add quarto-ext/fontawesome in your terminal).",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
     ]
   },
   {
     "objectID": "Sosmed.html#adding-to-sidebar-contents",
     "href": "Sosmed.html#adding-to-sidebar-contents",
-    "title": "3  Menggunakan Media Sosial",
-    "section": "6.9 3. Adding to Sidebar Contents",
-    "text": "6.9 3. Adding to Sidebar Contents\nIf you want Instagram to appear as a regular menu item among your page links:\nwebsite:\n  sidebar:\n    contents:\n      - section: \"Social Media\"\n        contents:\n          - text: \"Instagram\"\n            icon: instagram # Adds the icon next to the text\n            href: https://www.instagram.com\nKey Details:\n\nIcon: Use instagram for the standard Bootstrap icon.\nHref: Ensure you use the full URL starting with https://.\nPosition: Tools will always appear at the top of the sidebar, while footers appear at the bottom. [1, 4, 5]\n\nWould you like to know how to change the color of the Instagram icon to match the brand’s original purple/pink?\n[1] https://quarto.org\n[2] https://quarto.org\n[3] https://www.youtube.com\n[4] https://quarto.org\n[5] https://quarto.org",
+    "title": "4  Menggunakan Media Sosial",
+    "section": "7.9 3. Adding to Sidebar Contents",
+    "text": "7.9 3. Adding to Sidebar Contents\nIf you want Instagram to appear as a regular menu item among your page links:\nwebsite:\n  sidebar:\n    contents:\n      - section: \"Social Media\"\n        contents:\n          - text: \"Instagram\"\n            icon: instagram # Adds the icon next to the text\n            href: https://www.instagram.com\nKey Details:\n\nIcon: Use instagram for the standard Bootstrap icon.\nHref: Ensure you use the full URL starting with https://.\nPosition: Tools will always appear at the top of the sidebar, while footers appear at the bottom. [1, 4, 5]\n\nWould you like to know how to change the color of the Instagram icon to match the brand’s original purple/pink?\n[1] https://quarto.org\n[2] https://quarto.org\n[3] https://www.youtube.com\n[4] https://quarto.org\n[5] https://quarto.org",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Menggunakan Media Sosial</span>"
     ]
   },
   {
     "objectID": "preproces/wknn.html",
     "href": "preproces/wknn.html",
-    "title": "4  Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)",
+    "title": "5  Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)",
     "section": "",
-    "text": "4.0.1 Penentuan parameter K\nMetode Weighted KNN memilih instans dengan nilai yang serupa (dalam hal jarak) terhadap instans yang tidak lengkap, sehingga dapat melakukan imputasi sebagaimana yang dilakukan KNNI. Metode ini merupakan pengembangan dari metode KNNI (K-Nearest Neighbour Imputation) standar. KNNI Standar. Biasanya mengambil nilai rata-rata sederhana atau nilai yang paling sering muncul (modus) dari \\(K\\) tetangga terdekat untuk mengisi data yang hilang. WKNNI tidak memperlakukan semua tetangga sama rata. Metode ini memberikan bobot yang berbeda. Tetangga yang nilainya sangat mirip (jaraknya dekat) dengan data yang hilang akan memiliki pengaruh (bobot) lebih besar dibandingkan tetangga yang jaraknya jauh.Namun, nilai estimasi kini memperhitungkan perbedaan jarak ke tetangga-tetangga tersebut, dengan menggunakan rata-rata tertimbang atau nilai yang paling sering muncul berdasarkan ukuran kesamaan. Ukuran kesamaan \\(s_i(y_j)\\) antara dua contoh \\(y_i\\) dan \\(y_j\\) didefinisikan oleh jarak Euclidean yang dihitung berdasarkan atribut-atribut yang teramati pada \\(y_i\\).\nSelanjutnya kita mendefinisikan ukuran tersebut sebagai berikut:\n\\[1/s_i = \\sum_{h_i \\in O_i \\cap O_j} (y_{ih} - y_{jh})^2, \\quad \\quad  (1) \\]\ndi mana \\(O_i = \\{h | \\text{komponen ke-}h \\text{ dari } y_i \\text{ teramati}\\}\\).\nEntri yang hilang \\(y_{ih}\\) diestimasi sebagai rata-rata yang diberi bobot oleh ukuran kesamaan:\n\\[\\hat{y}_{ih} = \\frac{\\sum_{j \\in I_{Kih}} s_i(y_j)y_{jh}}{\\sum_{j \\in I_{Kih}} s_i(y_j)}, \\quad \\quad (2)\\]\ndi mana \\(I_{Kih}\\) adalah himpunan indeks contoh KNN dari contoh ke-\\(i\\), dan jika \\(y_{jh}\\) hilang, atribut ke-\\(j\\) dikecualikan dari \\(I_{Kih}\\). Perlu dicatat bahwa KNNI tidak memiliki kriteria teoretis untuk memilih nilai K terbaik dan nilai K harus ditentukan secara empiris.\nIni adalah Rata-rata Tertimbang (Weighted Average).\nTidak ada rumus teoritis baku untuk menentukan berapa jumlah tetangga terbaik (\\(K\\)). * Nilai \\(K\\) harus ditentukan secara empiris, artinya peneliti harus mencoba-coba nilai \\(K\\) yang berbeda (misalnya 3, 5, 7) dan melihat mana yang memberikan hasil akurasi terbaik untuk dataset tersebut. Praktisi biasanya mencoba beberapa nilai (misal \\(K=3\\) sampai \\(K=15\\)) dan melihat mana yang memberikan tingkat kesalahan (error) terkecil melalui uji coba (seperti cross-validation).\nContoh\nData Target (\\(y_i\\)): Luas (\\(x_i\\)) = 30 Harga Sewa (\\(\\hat{y}_{ih}\\)) = ? (Hilang)",
+    "text": "5.0.1 Penentuan parameter K\nMetode Weighted KNN memilih instans dengan nilai yang serupa (dalam hal jarak) terhadap instans yang tidak lengkap, sehingga dapat melakukan imputasi sebagaimana yang dilakukan KNNI. Metode ini merupakan pengembangan dari metode KNNI (K-Nearest Neighbour Imputation) standar. KNNI Standar. Biasanya mengambil nilai rata-rata sederhana atau nilai yang paling sering muncul (modus) dari \\(K\\) tetangga terdekat untuk mengisi data yang hilang. WKNNI tidak memperlakukan semua tetangga sama rata. Metode ini memberikan bobot yang berbeda. Tetangga yang nilainya sangat mirip (jaraknya dekat) dengan data yang hilang akan memiliki pengaruh (bobot) lebih besar dibandingkan tetangga yang jaraknya jauh.Namun, nilai estimasi kini memperhitungkan perbedaan jarak ke tetangga-tetangga tersebut, dengan menggunakan rata-rata tertimbang atau nilai yang paling sering muncul berdasarkan ukuran kesamaan. Ukuran kesamaan \\(s_i(y_j)\\) antara dua contoh \\(y_i\\) dan \\(y_j\\) didefinisikan oleh jarak Euclidean yang dihitung berdasarkan atribut-atribut yang teramati pada \\(y_i\\).\nSelanjutnya kita mendefinisikan ukuran tersebut sebagai berikut:\n\\[1/s_i = \\sum_{h_i \\in O_i \\cap O_j} (y_{ih} - y_{jh})^2, \\quad \\quad  (1) \\]\ndi mana \\(O_i = \\{h | \\text{komponen ke-}h \\text{ dari } y_i \\text{ teramati}\\}\\).\nEntri yang hilang \\(y_{ih}\\) diestimasi sebagai rata-rata yang diberi bobot oleh ukuran kesamaan:\n\\[\\hat{y}_{ih} = \\frac{\\sum_{j \\in I_{Kih}} s_i(y_j)y_{jh}}{\\sum_{j \\in I_{Kih}} s_i(y_j)}, \\quad \\quad (2)\\]\ndi mana \\(I_{Kih}\\) adalah himpunan indeks contoh KNN dari contoh ke-\\(i\\), dan jika \\(y_{jh}\\) hilang, atribut ke-\\(j\\) dikecualikan dari \\(I_{Kih}\\). Perlu dicatat bahwa KNNI tidak memiliki kriteria teoretis untuk memilih nilai K terbaik dan nilai K harus ditentukan secara empiris.\nIni adalah Rata-rata Tertimbang (Weighted Average).\nTidak ada rumus teoritis baku untuk menentukan berapa jumlah tetangga terbaik (\\(K\\)). * Nilai \\(K\\) harus ditentukan secara empiris, artinya peneliti harus mencoba-coba nilai \\(K\\) yang berbeda (misalnya 3, 5, 7) dan melihat mana yang memberikan hasil akurasi terbaik untuk dataset tersebut. Praktisi biasanya mencoba beberapa nilai (misal \\(K=3\\) sampai \\(K=15\\)) dan melihat mana yang memberikan tingkat kesalahan (error) terkecil melalui uji coba (seperti cross-validation).\nContoh\nData Target (\\(y_i\\)): Luas (\\(x_i\\)) = 30 Harga Sewa (\\(\\hat{y}_{ih}\\)) = ? (Hilang)",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span>"
     ]
   },
   {
     "objectID": "preproces/wknn.html#memilih-k",
     "href": "preproces/wknn.html#memilih-k",
-    "title": "4  Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)",
-    "section": "5.1 Memilih K",
-    "text": "5.1 Memilih K\nhttps://ieeexplore.ieee.org/document/10748027\nhttps://www.nature.com/articles/s41598-022-10358-x\nhttps://ijsret.com/wp-content/uploads/2024/11/IJSRET_V10_issue6_525.pdf\nhttps://openai.com/index/openai-to-acquire-neptune/?utm_source=neptune-website-redirect\nhttps://www.linkedin.com/pulse/choosing-right-k-knn-practical-guide-debasish-deb-1ydwf/",
+    "title": "5  Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)",
+    "section": "6.1 Memilih K",
+    "text": "6.1 Memilih K\nhttps://ieeexplore.ieee.org/document/10748027\nhttps://www.nature.com/articles/s41598-022-10358-x\nhttps://ijsret.com/wp-content/uploads/2024/11/IJSRET_V10_issue6_525.pdf\nhttps://openai.com/index/openai-to-acquire-neptune/?utm_source=neptune-website-redirect\nhttps://www.linkedin.com/pulse/choosing-right-k-knn-practical-guide-debasish-deb-1ydwf/",
     "crumbs": [
       "Persiapan",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Imputasi Berbobot dengan K-Tetangga Terdekat (WKNNI)</span>"
+    ]
+  },
+  {
+    "objectID": "waha.html",
+    "href": "waha.html",
+    "title": "7  Panduan Langkah demi Langkah",
+    "section": "",
+    "text": "7.1 Apakah Anda pembelajar visual?\nDi halaman ini, Anda akan menginstal dan menjalankan WAHA, mengautentikasi klien menggunakan kode QR, dan mengirim pesan pertama Anda ke WhatsApp menggunakan API!\nKami akan memandu Anda melalui langkah-langkah yang diperlukan untuk berhasil mengirim pesan teks pertama Anda menggunakan API WhatsApp.\nKami punya solusinya! Tonton video tutorial di bawah untuk melihat cara mengirim pesan pertama Anda menggunakan WAHA",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>**Panduan Langkah demi Langkah**</span>"
+    ]
+  },
+  {
+    "objectID": "waha.html#langkah-0.-persyaratan",
+    "href": "waha.html#langkah-0.-persyaratan",
+    "title": "7  Panduan Langkah demi Langkah",
+    "section": "7.2 Langkah 0. Persyaratan",
+    "text": "7.2 Langkah 0. Persyaratan\nWAHA berjalan di atas Docker, hanya itu yang Anda butuhkan!\n👉 Silakan ikuti panduan resmi Docker untuk menginstalnya di Linux, Windows, dan macOS\nMengapa Docker?",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>**Panduan Langkah demi Langkah**</span>"
+    ]
+  },
+  {
+    "objectID": "waha.html#langkah-1.-unduh-image",
+    "href": "waha.html#langkah-1.-unduh-image",
+    "title": "7  Panduan Langkah demi Langkah",
+    "section": "7.3 Langkah 1. Unduh image",
+    "text": "7.3 Langkah 1. Unduh image\nDengan asumsi Anda telah menginstal Docker, mari unduh image-nya! Ikuti instruksi di bawah ini:\nWAHA Core | WAHA Plus | WAHA (ARM)\nJalankan perintah di bawah ini:\ndocker pull devlikeapro/waha",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>**Panduan Langkah demi Langkah**</span>"
+    ]
+  },
+  {
+    "objectID": "waha.html#langkah-2.-inisialisasi-waha",
+    "href": "waha.html#langkah-2.-inisialisasi-waha",
+    "title": "7  Panduan Langkah demi Langkah",
+    "section": "7.4 Langkah 2. Inisialisasi WAHA",
+    "text": "7.4 Langkah 2. Inisialisasi WAHA\nBuat file .env yang akan kita gunakan di langkah berikutnya untuk kredensial:\nInit WAHA\ndocker run --rm -v \"${PWD}:/app/env\" devlikeapro/waha init-waha /app/env\nInit WAHA (Output)\nGenerated env values:\n  - WAHA_API_KEY=8d18f1dee88945cd9aa0c1a324545f8d\n  - WAHA_API_KEY_PLAIN=8d18f1dee88945cd9aa0c1a324545f8d\n  - WAHA_DASHBOARD_USERNAME=admin\n  - WAHA_DASHBOARD_PASSWORD=0ed3b6c5655e4685b16adccb29519250\n  - WHATSAPP_SWAGGER_USERNAME=admin\n  - WHATSAPP_SWAGGER_PASSWORD=0ed3b6c5655e4685b16adccb29519250\n\nUse these credentials to login in Dashboard or Swagger:\n  - Username: admin\n  - Password: 0ed3b6c5655e4685b16adccb29519250\n\nUse this API key in the x-api-key header:\n  - 8d18f1dee88945cd9aa0c1a324545f8d\n\nRead more:\n  - https://waha.devlike.pro/docs/how-to/dashboard/#api-key\n  - https://waha.devlike.pro/docs/how-to/security/\nIngat nilai-nilai ini (Anda selalu dapat memeriksa file .env jika Anda lupa):\n\nUsername / Password: admin / 11..11 - gunakan untuk mengakses Dashboard dan Swagger UI\nApi Key: 00..00 - gunakan untuk terhubung ke server Anda\n\n💡 Anda dapat mengubah variabel ke nilai apa pun, tetapi gunakan string panjang (seperti UUIDv4)",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>**Panduan Langkah demi Langkah**</span>"
+    ]
+  },
+  {
+    "objectID": "waha.html#langkah-3.-jalankan-waha",
+    "href": "waha.html#langkah-3.-jalankan-waha",
+    "title": "7  Panduan Langkah demi Langkah",
+    "section": "7.5 Langkah 3. Jalankan WAHA",
+    "text": "7.5 Langkah 3. Jalankan WAHA\nJalankan WhatsApp HTTP API:\ndocker run -it --env-file \"$(pwd)/.env\" -v \"$(pwd)/sessions:/app/.sessions\" --rm -p 3000:3000 --name waha devlikeapro/waha\n\n⚠️ Bukan Instalasi Siap Produksi!\n👍 Perintah di atas hanya dimaksudkan untuk pengujian awal, bukan untuk penggunaan produksi.\nSilakan ikuti panduan Install & Update untuk mengatur instance WAHA yang aman setelah Anda menyelesaikan panduan cepat ini.\n\nSekarang, buka Dashboard di http://localhost:3000/dashboard\nGunakan username/password dari langkah sebelumnya (file .env - WAHA_DASHBOARD_USERNAME / WAHA_DASHBOARD_PASSWORD):\nSelanjutnya, terhubung ke server menggunakan api key dari langkah sebelumnya (file .env - WAHA_API_KEY):",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>**Panduan Langkah demi Langkah**</span>"
+    ]
+  },
+  {
+    "objectID": "waha.html#langkah-4.-mulai-sesi-baru",
+    "href": "waha.html#langkah-4.-mulai-sesi-baru",
+    "title": "7  Panduan Langkah demi Langkah",
+    "section": "7.6 Langkah 4. Mulai sesi baru",
+    "text": "7.6 Langkah 4. Mulai sesi baru\nUntuk memulai sesi baru, Anda harus memiliki ponsel Anda dengan aplikasi WhatsApp terinstal di dekat Anda.\nBerikut adalah instruksi resmi di situs WhatsApp tentang cara login.\nSekarang Anda dapat memulai sesi default (status saat ini seharusnya STOPPED).\nAnda dapat membiarkan semua parameter konfigurasi sebagai default:",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>**Panduan Langkah demi Langkah**</span>"
+    ]
+  },
+  {
+    "objectID": "waha.html#langkah-5.-dapatkan-dan-pindai-qr",
+    "href": "waha.html#langkah-5.-dapatkan-dan-pindai-qr",
+    "title": "7  Panduan Langkah demi Langkah",
+    "section": "7.7 Langkah 5. Dapatkan dan pindai QR",
+    "text": "7.7 Langkah 5. Dapatkan dan pindai QR\nTunggu hingga status sesi adalah SCAN_QR dan klik ikon “kamera”:\nJika alih-alih QR Anda melihat Click to reload QR - hentikan sesi dan mulai lagi.\nAnda akan melihat kode QR dari aplikasi WhatsApp Web. Sekarang ambil ponsel Anda dengan aplikasi WhatsApp terinstal dan pindai QR:\nStatus sesi akan berubah menjadi status WORKING:",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>**Panduan Langkah demi Langkah**</span>"
+    ]
+  },
+  {
+    "objectID": "waha.html#langkah-6.-kirim-pesan-teks",
+    "href": "waha.html#langkah-6.-kirim-pesan-teks",
+    "title": "7  Panduan Langkah demi Langkah",
+    "section": "7.8 Langkah 6. Kirim pesan teks",
+    "text": "7.8 Langkah 6. Kirim pesan teks\nSekarang kita siap mengirim pesan pertama ke WhatsApp melalui API!\n\nGanti 123123 dengan nomor telepon Anda tanpa +, tetapi tetap pertahankan bagian @c.us.\nGunakan API key dari file .env Anda (WAHA_API_KEY).\n\nContoh di bawah menggunakan placeholder 00000000000000000000000000000000 - tukar dengan nilai asli Anda:\ncurl | JavaScript | Python\ncurl -X 'POST' \\\n  'http://localhost:3000/api/sendText' \\\n  -H 'Accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -H 'X-Api-Key: 00000000000000000000000000000000' \\\n  -d '{\n  \"chatId\": \"123123@c.us\",\n  \"text\": \"Hi there!\",\n  \"session\": \"default\"\n}'\nSebagai alternatif untuk curl, Anda dapat menggunakan 🦜 Swagger untuk itu.\nBuka Swagger di http://localhost:3000/#/chatting.\nAuthorize menggunakan Api Key (file .env - WAHA_API_KEY):\n\nGulir ke bawah ke bagian chatting.\nTemukan endpoint POST /api/sendText dan expand\nKlik Try it out\nGanti 123123@c.us dengan nomor telepon Anda tanpa +, tetapi tetap pertahankan bagian @c.us\nKlik Execute",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>**Panduan Langkah demi Langkah**</span>"
+    ]
+  },
+  {
+    "objectID": "waha.html#apa-selanjutnya",
+    "href": "waha.html#apa-selanjutnya",
+    "title": "7  Panduan Langkah demi Langkah",
+    "section": "7.9 Apa selanjutnya?",
+    "text": "7.9 Apa selanjutnya?\n\n7.9.1 📅 Mencari Hosting?\nKami telah menggunakan the.hosting untuk cukup lama dan memiliki pengalaman yang hebat!\nMereka menawarkan berbagai konfigurasi server dan lokasi - sangat direkomendasikan! 🔥\n\n\n7.9.2 Build Fast\nTanyakan 🤖 WAHA GPT untuk membantu Anda membangun kode [python|js|php]!\n\n\n\n7.9.3 📚 Pelajari WAHA\n\n⚡ Quick Start\n📤 Send messages\n📥 Receive messages\n📊 Dashboard\n📖 Other How-to guides\n\n\n\n7.9.4 🚀 Siap untuk Produksi\n\n🔧 Install & Update\n🔄 Engines\n💾 Storages\n🔒 Security\n➕ WAHA Plus",
+    "crumbs": [
+      "Persiapan",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>**Panduan Langkah demi Langkah**</span>"
     ]
   }
 ]
